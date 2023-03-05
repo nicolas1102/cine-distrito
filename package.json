@@ -1,0 +1,38 @@
+{
+  "name": "nodejs-mongodb_cine-distrito",
+  "version": "1.0.0",
+  "description": "The Cine Distrito Project for Software Engineering Fundamentals class",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolas1102/cine-distrito.git"
+  },
+  "keywords": [
+    "cinema",
+    "cine",
+    "distrito",
+    "html",
+    "css",
+    "js",
+    "mongodb",
+    "nodejs",
+    "express",
+    "ajax"
+  ],
+  "author": "Nicolas Diaz, Santiago Avila, Felipe Pacheco",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "bugs": {
+    "url": "https://github.com/nicolas1102/cine-distrito/issues"
+  },
+  "homepage": "https://github.com/nicolas1102/cine-distrito#readme"
+}
