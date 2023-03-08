@@ -1,11 +1,12 @@
 const mongodb = require('mongodb');
 
 const db = require('../data/database');
+const User = require('./user');
 
-class Cart {
+class Client extends User {
 
     constructor () {
-        
+        super();
     }
 
 
@@ -13,4 +14,4 @@ class Cart {
     
 }
 
-module.exports = User;
+module.exports = Client;

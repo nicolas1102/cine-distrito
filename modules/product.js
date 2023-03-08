@@ -2,10 +2,9 @@ const mongodb = require('mongodb');
 
 const db = require('../data/database');
 
-class Cart {
+class Product {
 
     constructor () {
-        
     }
 
 
@@ -13,4 +12,4 @@ class Cart {
     
 }
 
-module.exports = User;
+module.exports = Product;
