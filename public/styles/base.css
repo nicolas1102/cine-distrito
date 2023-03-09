@@ -1,0 +1,179 @@
+* {
+    /* wmake sure the width of all elementes is exactly what we set it */
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Space Mono', sans-serif;
+
+    /* css variables */
+    --color-gray-0: rgb(243, 243, 243);
+    --color-gray-50: rgb(220, 220, 220);
+    --color-gray-100: rgb(180, 180, 180);
+    --color-gray-200: rgb(140, 140, 140);
+    --color-gray-300: rgb(110, 110, 110);
+    --color-gray-400: rgb(90, 95, 90);
+    --color-gray-500: rgb(74, 74, 74);
+    --color-gray-600: rgb(54, 54, 54);
+    --color-gray-700: rgb(33, 33, 33);
+    --color-gray-800: rgb(17, 17, 17);
+
+    /* --color-primary-50: rgb(157, 166, 210);
+    --color-primary-100: rgb(120, 131, 179);
+    --color-primary-200: rgb(68, 82, 146);
+    --color-primary-400: rgb(43, 56, 111);
+    --color-primary-500: rgb(19, 31, 85);
+    --color-primary-700: rgb(9, 19, 63);
+    --color-primary-800: rgb(3, 9, 36); */
+
+    --color-primary-50: rgb(229, 216, 253);
+    --color-primary-100: rgb(210, 188, 254);
+    --color-primary-200: rgb(183, 153, 243);
+    --color-primary-400: rgb(163, 116, 255);
+    --color-primary-500: rgb(103, 61, 188);
+    --color-primary-700: rgb(47, 26, 88);
+    --color-primary-800: rgb(21, 12, 39);
+
+    --color-error-100: rgb(255, 192, 180);
+    --color-error-500: rgb(199, 51, 15);
+
+    --color-primary-500-bg: rgb(63, 60, 58);
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+
+    --border-radius-small: 4px;
+    --border-radius-medium: 6px;
+
+    --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+    --backdrop-filter-1: blur(5vmax);
+    --backdrop-filter-2: blur(10vmax);
+    --backdrop-filter-3: blur(15vmax);
+    --backdrop-filter-5: blur(80vmax);
+    --backdrop-filter-10: blur(100vmax);
+}
+
+body {
+    background-color: var(--color-gray-700);
+    color: var(--color-gray-100);
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* THE BLOB */
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    0% {
+        scale: 0.8 0.8;
+    }
+
+    25% {
+        scale: 1 1.5;
+    }
+
+    50% {
+        scale: 1.5 1;
+    }
+
+    75% {
+        scale: 1 1;
+    }
+
+    100% {
+        scale: 0.8 0.8;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+#blob {
+    background-color: black;
+    height: 34vmax;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    /* background: linear-gradient(to right, rgb(45, 90, 75), rgb(57, 44, 84)); */
+    background: linear-gradient(to right, rgb(244, 214, 143), var(--color-primary-400));
+    /* background: radial-gradient(circle, aquamarine 0%, rgb(102, 30, 248) 100%); */
+    animation: rotate 10s infinite;
+    opacity: 0.8;
+    z-index: -2;
+}
+
+#blur {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    backdrop-filter: var(--backdrop-filter-2);
+}
+
+#title-container {
+    height: 15rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+
+/* THE END OF THE BLOB */
+
+main {
+    width: 100%;
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary-400);
+}
+
+.btn {
+    cursor: pointer;
+    font: inherit;
+    font-size: 1.3rem;
+    padding: var(--space-2) var(--space-6);
+    background-color: var(--color-primary-500);
+    color: var(--color-gray-0);
+    border: 3px solid var(--color-gray-0);
+    border-radius: 20px;
+    margin-bottom: var(--space-2);
+    font-weight: bold;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: var(--color-gray-0);
+    border-color: var(--color-primary-800);
+    color: var(--color-primary-800);
+    font-weight: bold;
+}
