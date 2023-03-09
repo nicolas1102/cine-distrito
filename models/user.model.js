@@ -9,27 +9,27 @@ const mongodb = require('mongodb');
 const ObjectId = mongodb.ObjectId;
 
 class User {
-    constructor(email, password, name, street, postal, city){
+    // REMEMBER THE IMAGEPATH
+    // constructor(name, identificaction,  email, password, imagePath){
+    constructor(name, identificaction, email, password) {
+        this.name = name;
+        this.identificaction = identificaction;
         this.email = email;
         this.password = password;
-        this.name = name;
-        this.address = {
-            street: street,
-            postalCode: postal,
-            city: city
-        };
+        // this.imagePath = imagePath;
     }
 
     // insert in the database
-    async signup(){
+    async signup() {
         // encrypt the password
         const hashedPassword = await bcrypt.hash(this.password, 12);
 
         await db.getDb().collection('users').insertOne({
+            name: this.name,
+            identificaction: this.identificaction,
             email: this.email,
             password: hashedPassword,
-            name: this.name,
-            address: this.address,
+            // imagePath: this.imagePath;
         });
     }
 }

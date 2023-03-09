@@ -8,7 +8,7 @@ async function connectToDatabase() {
     const client = await MongoClient.connect(
         'mongodb://127.0.0.1:27017'
     );
-    database = client.db('online-shop');
+    database = client.db('cine-distrito');
 }
 
 function getDb() {

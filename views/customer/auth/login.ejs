@@ -1,0 +1,26 @@
+<!-- inlcuding the shared code head -->
+<%- include('../includes/head', { pageTitle: 'Login - Cine Distrito' }) %>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    </head>
+
+    <body>
+        <%- include('../includes/header') %>
+            <%- include('../includes/blob') %>
+                <main>
+                    <h1 data-value="LOGIN">LOGIN</h1>
+                    <form action="" method="">
+                        <p>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="" required>
+                        </p>
+                        <p>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" minlength="6" value="" required>
+                        </p>
+                        <button class="btn">Login</button>
+                        <p id="switch-form"><a href="/signup">Don't Have a Account?</a></p>
+                    </form>
+                </main>
+                <%- include('../includes/footer') %>

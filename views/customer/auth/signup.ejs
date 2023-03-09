@@ -9,7 +9,7 @@
             <%- include('../includes/blob') %>
                 <main>
                     <h1 data-value="CREATE A NEW ACCOUNT">CREATE A NEW ACCOUNT</h1>
-                    <form action="" method="">
+                    <form action="/signup" method="POST">
                         <div id="information-user">
                             <p>
                                 <label for="fullname">Full Name</label>
@@ -19,7 +19,6 @@
                                 <label for="identificationCard">Identificaction Card</label>
                                 <input type="text" id="identificationCard" name="identificationCard" value="" required>
                             </p>
-                            <hr>
                             <p>
                                 <label for="email">Email</label>
                                 <input type="email" id="email" name="email" value="" required>
@@ -42,7 +41,7 @@
                             <div id="image-upload">
                                 <img id="image-preview" src="data/users/images/default.jpg" alt="Your picked image.">
                                 <label for="image">User image</label>
-                                <input type="file" name="image" id="image" accept="image/*" required>
+                                <input type="file" name="image" id="image" accept="image/*">
                             </div>
                             <div id="submit-container">
                                 <button class="btn">Create Account</button>
