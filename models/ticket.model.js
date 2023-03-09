@@ -1,9 +1,9 @@
 const mongodb = require('mongodb');
 
 const db = require('../data/database');
-const User = require('./user');
+const Product = require('./product.model');
 
-class Client extends User {
+class Ticket extends Product {
 
     constructor () {
         super();
@@ -14,4 +14,4 @@ class Client extends User {
     
 }
 
-module.exports = Client;
+module.exports = Ticket;
