@@ -9,6 +9,7 @@ h1 {
 form {
     max-width: 60rem;
     margin: var(--space-2) auto;
+    margin-bottom: var(--space-8);
     padding: var(--space-8);
     /* background-color: rgb(11, 13, 30); */
     backdrop-filter: var(--backdrop-filter-5);
