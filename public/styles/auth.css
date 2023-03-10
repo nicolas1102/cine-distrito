@@ -3,7 +3,7 @@ h1 {
     margin-top: 0.5rem;
     text-align: center;
     /* color: rgb(25, 236, 207); */
-    color: var(--color-gray-0);
+    /* color: var(--color-gray-0); */
 }
 
 form {
@@ -11,11 +11,11 @@ form {
     margin: var(--space-2) auto;
     margin-bottom: var(--space-8);
     padding: var(--space-8);
-    /* background-color: rgb(11, 13, 30); */
+    background-color: var(--color-primary-blur-200);
     backdrop-filter: var(--backdrop-filter-5);
     border-radius: var(--border-radius-medium);
     text-align: center;
-    border: 2px solid var(--color-primary-200);
+    border: 2px solid var(--color-gray-700);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -38,11 +38,12 @@ form {
 }
 
 form a {
-    color: var(--color-gray-0);
+    color: var(--color-gray-700);
     font-weight: bold;
 }
 
 form a:hover,
 form a:active {
-    color: var(--color-primary-800);
+    /* color: var(--color-tertiary-600); */
+    text-decoration: underline ;
 }

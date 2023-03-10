@@ -4,9 +4,10 @@ form hr {
 }
 
 label {
-    color: var(--color-gray-0);
+    /* color: var(--color-gray-0); */
     display: block;
     margin-bottom: var(--space-2);
+    font-weight: bold;
 }
 
 input,
@@ -15,10 +16,10 @@ textarea {
     padding: var(--space-1);
     border-radius: var(--border-radius-small);
     border: none;
-    border-bottom: 2px solid var(--color-primary-400);
+    border-bottom: 2px solid var(--color-gray-700);
     width: 90%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.601);
     backdrop-filter: var(--backdrop-filter-5);
-    color: var(--color-gray-0);
+    color: var(--color-gray-700);
 
 }

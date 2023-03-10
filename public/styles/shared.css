@@ -4,7 +4,7 @@
 }
 
 html {
-    font-family: 'Poppins', 'League Spartan', 'Space Mono', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     /* css variables */
     --color-gray-0: rgb(243, 243, 243);
@@ -26,10 +26,16 @@ html {
     --color-primary-700: rgb(47, 26, 88);
     --color-primary-800: rgb(21, 12, 39);
 
-    --color-secundary-200: rgb(246, 226, 180);
-    --color-secundary-400: rgb(244, 214, 143);
-    --color-secundary-600: rgb(223, 181, 83);
-    --color-tertiary-400: rgb(81, 251, 222);
+    --color-secundary-200: rgb(155, 255, 238);
+    --color-secundary-400: rgb(81, 251, 222);
+    --color-secundary-600: rgb(35, 200, 172);
+    --color-secundary-800: rgb(15, 150, 128);
+
+    --color-tertiary-200: rgb(246, 226, 180);
+    --color-tertiary-400: rgb(244, 214, 143);
+    --color-tertiary-600: rgb(223, 181, 83);
+
+    --color-primary-blur-200: rgba(183, 153, 243, 0.5);
 
     --color-error-100: rgb(255, 192, 180);
     --color-error-500: rgb(199, 51, 15);
@@ -49,6 +55,7 @@ html {
 
     --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
 
+    --backdrop-filter-0: blur(1vmax);
     --backdrop-filter-1: blur(2.5vmax);
     --backdrop-filter-2: blur(5vmax);
     --backdrop-filter-3: blur(7.5vmax);
@@ -58,8 +65,9 @@ html {
 }
 
 body {
-    background-color: var(--color-gray-700);
-    color: var(--color-gray-100);
+    /* background-color: var(--color-gray-700); */
+    background-color: var(--color-gray-0);
+    color: var(--color-gray-700);
     margin: 0;
     height: 100%;
     width: 100%;
@@ -108,7 +116,7 @@ body {
 
 #blob {
     background-color: black;
-    height: 27vmax;
+    height: 35vmax;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
@@ -116,7 +124,7 @@ body {
     translate: -50% -50%;
     border-radius: 50%;
     /* background: linear-gradient(to right, rgb(45, 90, 75), rgb(57, 44, 84)); */
-    background: linear-gradient(to right, var(--color-secundary-400), var(--color-primary-400));
+    background: linear-gradient(to right, var(--color-secundary-200), var(--color-primary-400));
     /* background: radial-gradient(circle, aquamarine 0%, rgb(102, 30, 248) 100%); */
     animation: rotate 12s infinite;
     opacity: 0.8;
@@ -129,7 +137,7 @@ body {
     width: 100%;
     position: fixed;
     z-index: -2;
-    backdrop-filter: var(--backdrop-filter-3);
+    backdrop-filter: var(--backdrop-filter-2);
 }
 
 #title-container {
@@ -142,8 +150,10 @@ body {
 
 h1 {
     font-size: 4rem;
+    /* color: var(--color-gray-100); */
+    color: var(--color-primary-200);
     /* -webkit-text-stroke: 3px var(--color-primary-500); */
-    -webkit-text-stroke: 3px var(--color-primary-500);
+    -webkit-text-stroke: 3px var(--color-gray-700);
 }
 
 
@@ -162,6 +172,10 @@ ol {
     padding: 0;
 }
 
+.btn-container{
+    margin-top: 30px;
+}
+
 a {
     text-decoration: none;
     color: var(--color-primary-400);
@@ -172,9 +186,9 @@ a {
     font: inherit;
     font-size: 1.3rem;
     padding: var(--space-2) var(--space-6);
-    background-color: var(--color-primary-500);
-    color: var(--color-gray-0);
-    border: 3px solid var(--color-gray-0);
+    background-color: var(--color-primary-400);
+    color: var(--color-gray-700);
+    border: 3px solid var(--color-gray-700);
     border-radius: 20px;
     margin-bottom: var(--space-2);
     font-weight: bold;
@@ -182,7 +196,8 @@ a {
 
 .btn:hover,
 .btn:active {
-    background-color: var(--color-tertiary-400);
+    /* background-color: var(--color-tertiary-400); */
+    background-color: var(--color-secundary-400);
     border-color: var(--color-primary-800);
     color: var(--color-primary-800);
 }
