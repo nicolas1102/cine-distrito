@@ -502,7 +502,7 @@ console.log('goku');
 // the magic
 VanillaTilt.init(document.querySelectorAll("h1"), {
     reverse: true,
-    maxTilt: 10,
+    max: 10,
     speed: 700,
     'full-page-listening': true,
 });

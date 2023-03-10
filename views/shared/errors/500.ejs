@@ -1,0 +1,13 @@
+<!-- inlcuding the shared code head -->
+<%- include('../includes/head', { pageTitle: 'An Error Ocurred' }) %>
+    </head>
+
+    <body>
+        <%- include('../includes/header') %>
+            <%- include('../../shared/includes/blob') %>
+                <main>
+                    <h1>Something Went Wrong!</h1>
+                    <p>Unfortunately, something went wrong - please try again later.</p>
+                    <p><a href="/" class="btn">Back to safety!</a></p>
+                </main>
+                <%- include('../includes/footer') %>

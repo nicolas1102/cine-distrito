@@ -4,7 +4,7 @@
 }
 
 html {
-    font-family: 'Space Mono', sans-serif;
+    font-family: 'Poppins', 'League Spartan', 'Space Mono', sans-serif;
 
     /* css variables */
     --color-gray-0: rgb(243, 243, 243);
@@ -18,14 +18,6 @@ html {
     --color-gray-700: rgb(33, 33, 33);
     --color-gray-800: rgb(17, 17, 17);
 
-    /* --color-primary-50: rgb(157, 166, 210);
-    --color-primary-100: rgb(120, 131, 179);
-    --color-primary-200: rgb(68, 82, 146);
-    --color-primary-400: rgb(43, 56, 111);
-    --color-primary-500: rgb(19, 31, 85);
-    --color-primary-700: rgb(9, 19, 63);
-    --color-primary-800: rgb(3, 9, 36); */
-
     --color-primary-50: rgb(229, 216, 253);
     --color-primary-100: rgb(210, 188, 254);
     --color-primary-200: rgb(183, 153, 243);
@@ -33,6 +25,11 @@ html {
     --color-primary-500: rgb(103, 61, 188);
     --color-primary-700: rgb(47, 26, 88);
     --color-primary-800: rgb(21, 12, 39);
+
+    --color-secundary-200: rgb(246, 226, 180);
+    --color-secundary-400: rgb(244, 214, 143);
+    --color-secundary-600: rgb(223, 181, 83);
+    --color-tertiary-400: rgb(81, 251, 222);
 
     --color-error-100: rgb(255, 192, 180);
     --color-error-500: rgb(199, 51, 15);
@@ -52,11 +49,12 @@ html {
 
     --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
 
-    --backdrop-filter-1: blur(5vmax);
-    --backdrop-filter-2: blur(10vmax);
-    --backdrop-filter-3: blur(15vmax);
-    --backdrop-filter-5: blur(80vmax);
-    --backdrop-filter-10: blur(100vmax);
+    --backdrop-filter-1: blur(2.5vmax);
+    --backdrop-filter-2: blur(5vmax);
+    --backdrop-filter-3: blur(7.5vmax);
+    --backdrop-filter-4: blur(10vmax);
+    --backdrop-filter-5: blur(12.5vmax);
+    --backdrop-filter-15: blur(37.5vmax);
 }
 
 body {
@@ -80,11 +78,11 @@ body {
     }
 
     25% {
-        scale: 1 1.5;
+        scale: 0.6 1;
     }
 
     50% {
-        scale: 1.5 1;
+        scale: 1 0.6;
     }
 
     75% {
@@ -100,7 +98,7 @@ body {
     }
 }
 
-#blob-container{
+#blob-container {
     height: 100%;
     width: 100%;
     position: fixed;
@@ -110,17 +108,17 @@ body {
 
 #blob {
     background-color: black;
-    height: 34vmax;
+    height: 27vmax;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
-    top: -50%;
+    top: 50%;
     translate: -50% -50%;
     border-radius: 50%;
     /* background: linear-gradient(to right, rgb(45, 90, 75), rgb(57, 44, 84)); */
-    background: linear-gradient(to right, rgb(244, 214, 143), var(--color-primary-400));
+    background: linear-gradient(to right, var(--color-secundary-400), var(--color-primary-400));
     /* background: radial-gradient(circle, aquamarine 0%, rgb(102, 30, 248) 100%); */
-    animation: rotate 10s infinite;
+    animation: rotate 12s infinite;
     opacity: 0.8;
     z-index: -3;
     box-sizing: border-box;
@@ -131,7 +129,7 @@ body {
     width: 100%;
     position: fixed;
     z-index: -2;
-    backdrop-filter: var(--backdrop-filter-2);
+    backdrop-filter: var(--backdrop-filter-3);
 }
 
 #title-container {
@@ -144,6 +142,8 @@ body {
 
 h1 {
     font-size: 4rem;
+    /* -webkit-text-stroke: 3px var(--color-primary-500); */
+    -webkit-text-stroke: 3px var(--color-primary-500);
 }
 
 
@@ -182,8 +182,7 @@ a {
 
 .btn:hover,
 .btn:active {
-    background-color: var(--color-gray-0);
+    background-color: var(--color-tertiary-400);
     border-color: var(--color-primary-800);
     color: var(--color-primary-800);
-    font-weight: bold;
 }
