@@ -6,12 +6,23 @@ const authUtil = require('../util/authentication');
 
 const validation = require('../util/validation');
 
+// to save user entered input data
+const sessionFlash = require('../util/session-flash');
+
 // getting the signup view
 function getSignup(req, res) {
     res.render('customer/auth/signup');
 }
 
 async function signup(req, res, next) {
+    const enteredData = {
+        email: req.body.email,
+        password: req.body.password,
+        name: req.body.name,
+        identification: req.body.identification,
+        // imagePath: req.body.imagePath,
+    }
+
     // we access of the data of the form sent and we make a data validation
     if (
         !validation.userDetailsAreValid(
@@ -29,7 +40,19 @@ async function signup(req, res, next) {
             req.body['confirm-password']
         )
     ) {
-        res.redirect('/signup');
+        // saving the data that the user has write, so if the request fail, the user wont lose the data the has wrote. we also, sent the message if there's any error in user input, so we can show the message in the webpage
+        sessionFlash.flashDataToSession(
+            req,
+            {
+                errorMessage: 'Please check your input. Password must be at least 6 characters long',
+                // spread operator, so we save the user entered data (object created above)
+                ...enteredData,
+            },
+            // once the data has been saved, we sent the request to reset the page
+            function () {
+                res.redirect('/signup');
+            }
+        );
         return;
     }
 
@@ -49,7 +72,16 @@ async function signup(req, res, next) {
         const existsAlready = await user.existAlready();
     
         if (existsAlready) {
-            res.redirect('/signup');
+            sessionFlash.flashDataToSession(
+                req,
+                {
+                    errorMessage: 'User exist already! Try logging in instead!',
+                    ...enteredData,
+                },
+                function () {
+                    res.redirect('/signup');
+                }
+            );
             return;
         }
         
@@ -80,10 +112,21 @@ async function login(req, res, next) {
         return;
     }
 
-
+    const sessionErrorData = {
+        errorMessage: 'Invalid credentials - please double-check your email and password!',
+        email: user.email,
+        password: user.password,
+    }
+    
     // if there's no user registrated
     if (!existingUser) {
-        res.redirect('/login');
+        sessionFlash.flashDataToSession(
+            req,
+            sessionErrorData,
+            function () {
+                res.redirect('/login');
+            }
+        );
         return;
     }
 
@@ -91,7 +134,13 @@ async function login(req, res, next) {
 
     // if the password is not correct
     if (!passwordIsCorrect) {
-        res.redirect('/login');
+        sessionFlash.flashDataToSession(
+            req,
+            sessionErrorData,
+            function () {
+                res.redirect('/login');
+            }
+        );
         return;
     }
     // we trate the user has loged in; the function is executed one the session is saved
