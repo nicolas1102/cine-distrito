@@ -5,15 +5,21 @@ const path = require('path');
 const express = require('express');
 // package for protect our project from csrf acttacks
 const csrf = require('csurf');
+// package for use sessions
+const expressSession = require('express-session');
 
 
 // IMPORTS OF ANOTHER FILES
+// config for the session
+const createSessionConfig = require('./config/session');
 const db = require('./data/database');
 // we require our own middleware of the protection
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandlerMiddleware = require('./middlewares/error-handler');
-const baseRoutes = require('./routes/base.routes');
+const checkAuthStatusMiddleware = require('./middlewares/check-auth');
 const authRoutes = require('./routes/auth.routes');
+const sharedRoutes = require('./routes/shared.routes');
+
 
 // CREATING OUR EXPRESS SERVER
 const app = express();
@@ -27,7 +33,12 @@ app.set('views', path.join(__dirname, 'views'));
 // we usable the public folder files
 app.use(express.static('public'));
 // for can extract the data of the incoming request (ex. the forms with the post method)
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
+
+
+// SESSION MIDDLEWARE
+const sessionConfig = createSessionConfig();
+app.use(expressSession(sessionConfig));
 
 
 // CSRF PROTECTION (TOKEN)
@@ -37,19 +48,27 @@ app.use(csrf());
 app.use(addCsrfTokenMiddleware);
 
 
+// check the user status
+app.use(checkAuthStatusMiddleware);
+
+
 // MERGING ROTES
-app.use(baseRoutes);
+// we merge the routes of the authentication to our app
+app.use(sharedRoutes);
 app.use(authRoutes);
+
 
 // activaring the error haddle middleware
 app.use(errorHandlerMiddleware);
 
+
 // DATABASE CONNECTION AND SERVER START
 // we try to connect the database and then, we start the server
-db.connectToDatabase().then(function () {
-    // start the server just if the connection to the database is succesfull
-    app.listen(3000);
-}).catch(function(error){
-    console.log('Failde to connect to the database!');
-    console.log(error);
-});
+db.connectToDatabase()
+    .then(function () {
+        // start the server just if the connection to the database is succesfull
+        app.listen(3000);
+    }).catch(function (error) {
+        console.log('Failed to connect to the database!');
+        console.log(error);
+    });

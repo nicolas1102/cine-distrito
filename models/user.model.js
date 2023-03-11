@@ -11,13 +11,20 @@ const ObjectId = mongodb.ObjectId;
 class User {
     // REMEMBER THE IMAGEPATH
     // constructor(name, identificaction,  email, password, imagePath){
-    constructor(name, identificaction, email, password) {
-        this.name = name;
-        this.identificaction = identificaction;
+    constructor(email, password, name, identificaction) {
         this.email = email;
         this.password = password;
+        this.name = name;
+        this.identificaction = identificaction;
         // this.imagePath = imagePath;
     }
+
+    getUserWithSameEmail() {
+        return db.getDb().collection('users').findOne({
+            email: this.email
+        });
+    }
+
 
     // insert in the database
     async signup() {
@@ -31,6 +38,11 @@ class User {
             password: hashedPassword,
             // imagePath: this.imagePath;
         });
+    }
+
+    hasMatchingPassword(hashedPassword) {
+        // comparing the passwords of current user and the found user  
+        return bcrypt.compare(this.password, hashedPassword);
     }
 }
 

@@ -1,15 +1,21 @@
 <!-- inlcuding the shared code head -->
 <%- include('./includes/head', { pageTitle: 'Cine Distrito' }) %>
-<link rel="stylesheet" href="/styles/cineDistrito.css">
-<script src="/scripts/effects/glassmorphism.js" defer></script>
+    <link rel="stylesheet" href="/styles/cineDistrito.css">
+    <script src="/scripts/effects/glassmorphism.js" defer></script>
     </head>
 
     <body>
         <%- include('./includes/header') %>
-        <%- include('./includes/blob') %>
-        <div id="title-container">
-            <h1 data-value="CINE DISTRITO">CINE DISTRITO</h1>
-        </div>
-        <main>
-        </main>
-        <%- include('./includes/footer') %>
+            <%- include('./includes/blob') %>
+                <div id="title-container">
+                    <h1 data-value="CINE DISTRITO">CINE DISTRITO</h1>
+                </div>
+                <main>
+                    <section id="movies-section">
+                        <h2>Movies</h2>
+                    </section>
+                    <section id="snacks-section">
+                        <h2>Snacks</h2>
+                    </section>
+                </main>
+                <%- include('./includes/footer') %>

@@ -1,5 +1,17 @@
 <header>
     <!-- logo -->
     <div><a href="/">CINE DISTRITO</a></div>
-    <nav></nav>
+    <nav>
+        <ul>
+            <!-- just if the user is authenticated, this is shown -->
+            <% if (locals.isAuth){ %>
+                <li>
+                    <form action="/logout" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                        <button>Logout</button>
+                    </form>
+                </li>
+                <% } %>
+        </ul>
+    </nav>
 </header>

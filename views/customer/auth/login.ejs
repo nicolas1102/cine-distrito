@@ -10,7 +10,7 @@
             <%- include('../../shared/includes/blob') %>
                 <main>
                     <h1 data-value="LOGIN">LOGIN</h1>
-                    <form action="" method="">
+                    <form action="/login" method="POST">
                         <!-- object, so we can verify the csrf token when the form is send-->
                         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                         <p>

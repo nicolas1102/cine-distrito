@@ -66,7 +66,7 @@ html {
 
 body {
     /* background-color: var(--color-gray-700); */
-    background-color: var(--color-gray-0);
+    background-color: var(--color-gray-50);
     color: var(--color-gray-700);
     margin: 0;
     height: 100%;
@@ -86,11 +86,11 @@ body {
     }
 
     25% {
-        scale: 0.6 1;
+        scale: 0.6 0.8;
     }
 
     50% {
-        scale: 1 0.6;
+        scale: 0.8 0.6;
     }
 
     75% {
@@ -116,7 +116,7 @@ body {
 
 #blob {
     background-color: black;
-    height: 35vmax;
+    height: 40vmax;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
@@ -137,7 +137,7 @@ body {
     width: 100%;
     position: fixed;
     z-index: -2;
-    backdrop-filter: var(--backdrop-filter-2);
+    backdrop-filter: var(--backdrop-filter-1);
 }
 
 #title-container {
