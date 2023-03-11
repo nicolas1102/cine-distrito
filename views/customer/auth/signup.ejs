@@ -9,34 +9,41 @@
             <%- include('../../shared/includes/blob') %>
                 <main>
                     <h1 data-value="CREATE A NEW ACCOUNT">CREATE A NEW ACCOUNT</h1>
+                    <!-- if in the input data exist an error message, show it -->
+                    <% if (inputData.errorMessage) { %>
+                        <section class="alert">
+                            <h2>Invalid Input</h2>
+                            <p><%= inputData.errorMessage %></p>
+                        </section>
+                        <% } %>
                     <form action="/signup" method="POST">
                         <!-- object, so we can verify the csrf token when the form is send-->
                         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                         <div id="information-user">
                             <p>
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" value="" required>
+                                <input type="email" id="email" name="email" value="<%= inputData.email %>" required>
                             </p>
                             <p>
                                 <label for="confirm-email">Confirm Email</label>
-                                <input type="email" id="confirm-email" name="confirm-email" value="" required>
+                                <input type="email" id="confirm-email" name="confirm-email" value="<%= inputData.confirmEmail %>" required>
                             </p>
                             <p>
                                 <label for="password">Password</label>
-                                <input type="password" id="password" name="password" minlength="6" value="" required>
+                                <input type="password" id="password" name="password" minlength="6" value="<%= inputData.password %>" required>
                             </p>
                             <p>
                                 <label for="confirm-password">Confirm Password</label>
                                 <input type="password" id="confirm-password" name="confirm-password" minlength="6"
-                                    value="" required>
+                                    value="<%= inputData.confirmPassword %>" required>
                             </p>
                             <p>
                                 <label for="name">Full Name</label>
-                                <input type="" id="name" name="name" value="" required>
+                                <input type="" id="name" name="name" value="<%= inputData.name %>" required>
                             </p>
                             <p>
                                 <label for="identification">Identification Card</label>
-                                <input type="text" id="identification" name="identification" value="" required>
+                                <input type="text" id="identification" name="identification" value="<%= inputData.identification %>" required>
                             </p>
                         </div>
                         <div class="container-column-space">

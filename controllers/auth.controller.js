@@ -11,13 +11,32 @@ const sessionFlash = require('../util/session-flash');
 
 // getting the signup view
 function getSignup(req, res) {
-    res.render('customer/auth/signup');
+    // we get the session data saved
+    let sessionData = sessionFlash.getSessionData(req);
+
+    // if there's np session data saved we define the default data
+    if (!sessionData) {
+        // default data
+        sessionData = {
+            email: '',
+            confirmEmail: '',
+            password: '',
+            fullname: '',
+            street: '',
+            postal: '',
+            city: ''
+        }
+    }
+    // we pass the input data to the view, so we can display the error message and show the data that the user wrote lately
+    res.render('customer/auth/signup', { inputData: sessionData });
 }
 
 async function signup(req, res, next) {
     const enteredData = {
         email: req.body.email,
+        confirmEmail: req.body['confirm-email'],
         password: req.body.password,
+        confirmPassword: req.body['confirm-password'],
         name: req.body.name,
         identification: req.body.identification,
         // imagePath: req.body.imagePath,
@@ -44,7 +63,7 @@ async function signup(req, res, next) {
         sessionFlash.flashDataToSession(
             req,
             {
-                errorMessage: 'Please check your input. Password must be at least 6 characters long',
+                errorMessage: 'Please check your input. Password must be at least 6 characters long.',
                 // spread operator, so we save the user entered data (object created above)
                 ...enteredData,
             },
@@ -97,7 +116,20 @@ async function signup(req, res, next) {
 }
 
 function getLogin(req, res) {
-    res.render('customer/auth/login');
+    // we validate if the user has submitting any data before
+    let sessionData = sessionFlash.getSessionData(req);
+
+    // if there's no saved data, we define the dafault data
+    if (!sessionData) {
+        // default data
+        sessionData = {
+            email: '',
+            password: '',
+        }
+    }
+
+    // we pass the input data to the view, so we can display the error message
+    res.render('customer/auth/login', { inputData: sessionData });
 }
 
 async function login(req, res, next) {
