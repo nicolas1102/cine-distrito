@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "640cb591d09431a1e76b09a8"
+  },
+  "rol": "food dispenser"
+},{
+  "_id": {
+    "$oid": "640cbd6ed09431a1e76b09ac"
+  },
+  "rol": "client"
+},{
+  "_id": {
+    "$oid": "640cbd84d09431a1e76b09ad"
+  },
+  "rol": "cashier"
+}]

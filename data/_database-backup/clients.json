@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "640cd6e48a75e89d35ffa1ec"
+  },
+  "name": "Nicolas Diaz",
+  "identification": "1000474213",
+  "email": "nicolas@gmail.com",
+  "password": "$2a$12$0Ob7Q51jiWavTOf0Ls9ubuTk2mKIxwFVSEifTotfREFmH2lW0RS7W",
+  "imagePath": "",
+  "points": 0,
+  "role": "client"
+},{
+  "_id": {
+    "$oid": "640cd7c661ee54b1afc911c6"
+  },
+  "name": "Felipe Pacheco",
+  "identification": "1234567890",
+  "email": "felipe@gmail.com",
+  "password": "$2a$12$wcoibCEWOMbEqaW4.SVGk.KLQ1DxC/3F/62Sxu8QfjpK.llZckUiq",
+  "imagePath": "",
+  "points": 0,
+  "role": "client"
+}]
