@@ -10,12 +10,12 @@ const ObjectId = mongodb.ObjectId;
 
 class User {
     // REMEMBER THE IMAGEPATH
-    // constructor(name, identificaction,  email, password, imagePath){
-    constructor(email, password, name, identificaction) {
+    // constructor(name, identification,  email, password, imagePath){
+    constructor(email, password, name, identification) {
         this.email = email;
         this.password = password;
         this.name = name;
-        this.identificaction = identificaction;
+        this.identification = identification;
         // this.imagePath = imagePath;
     }
 
@@ -23,6 +23,15 @@ class User {
         return db.getDb().collection('users').findOne({
             email: this.email
         });
+    }
+
+    // we check if the user with the user is trying to sign up is created already
+    async existAlready() {
+        const existingUser = await this.getUserWithSameEmail();
+        if (existingUser){
+            return true;
+        }
+        return false;
     }
 
 
@@ -33,7 +42,7 @@ class User {
 
         await db.getDb().collection('users').insertOne({
             name: this.name,
-            identificaction: this.identificaction,
+            identification: this.identification,
             email: this.email,
             password: hashedPassword,
             // imagePath: this.imagePath;
