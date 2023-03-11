@@ -10,43 +10,26 @@ const ObjectId = mongodb.ObjectId;
 
 class User {
     // REMEMBER THE IMAGEPATH
-    // constructor(name, identification,  email, password, imagePath){
-    constructor(email, password, name, identification) {
+    constructor(email, password, name, identification, role, imagePath) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.identification = identification;
-        // this.imagePath = imagePath;
-    }
+        this.role = role;
 
-    getUserWithSameEmail() {
-        return db.getDb().collection('users').findOne({
-            email: this.email
-        });
+        // pending (imagePath por default)
+        if (imagePath === null) {
+            this.imagePath = '';
+        }
     }
 
     // we check if the user with the user is trying to sign up is created already
     async existAlready() {
         const existingUser = await this.getUserWithSameEmail();
-        if (existingUser){
+        if (existingUser) {
             return true;
         }
         return false;
-    }
-
-
-    // insert in the database
-    async signup() {
-        // encrypt the password
-        const hashedPassword = await bcrypt.hash(this.password, 12);
-
-        await db.getDb().collection('users').insertOne({
-            name: this.name,
-            identification: this.identification,
-            email: this.email,
-            password: hashedPassword,
-            // imagePath: this.imagePath;
-        });
     }
 
     hasMatchingPassword(hashedPassword) {

@@ -1,0 +1,13 @@
+// TO INSERT AN ADMIN
+await db.getDb().collection('employees').insertOne({
+    name: 'LOS MAGNIFICOS',
+    identification: '0000000000',
+    email: 'losmagnificos@cinedistrito.com',
+    password: hashedPassword,
+    imagePath: '',
+    role: 'admin',
+    phoneNumber: '',
+    contractStartDate: '',
+    salary: '',
+    multiplex: ''
+});

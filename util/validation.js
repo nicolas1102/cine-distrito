@@ -9,12 +9,13 @@ function userCredentialsAreValid(email, password) {
         password.trim().length >= 6;
 }
 
-function userDetailsAreValid(email, password, name, identification) {
+function clientDetailsAreValid(email, password, name, identification) {
     // trim eleminates the blanks of a string
     return (
         userCredentialsAreValid(email, password) &&
         !isEmpty(name) &&
-        !isEmpty(identification)
+        !isEmpty(identification) &&
+        identification.trim().length === 10
     );
 }
 
@@ -27,7 +28,7 @@ function passwordIsConfirmed (password, confirmPassword){
 }
 
 module.exports = {
-    userDetailsAreValid: userDetailsAreValid,
+    clientDetailsAreValid: clientDetailsAreValid,
     emailIsConfirmed: emailIsConfirmed,
     passwordIsConfirmed: passwordIsConfirmed,
 };

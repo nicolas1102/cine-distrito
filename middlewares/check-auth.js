@@ -11,6 +11,9 @@ function checkAuthStatus(req, res, next) {
     res.locals.userid = userid;
     res.locals.isAuth = true;
 
+    // this could be true or undifined
+    res.locals.role = req.session.role;
+
     next();
 }
 

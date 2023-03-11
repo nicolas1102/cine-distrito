@@ -497,8 +497,6 @@ var VanillaTilt = (function () {
 
 }());
 
-console.log('goku');
-
 // the magic
 VanillaTilt.init(document.querySelectorAll("h1"), {
     reverse: true,

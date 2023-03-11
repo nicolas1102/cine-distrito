@@ -18,7 +18,7 @@ const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandlerMiddleware = require('./middlewares/error-handler');
 const checkAuthStatusMiddleware = require('./middlewares/check-auth');
 const authRoutes = require('./routes/auth.routes');
-const sharedRoutes = require('./routes/shared.routes');
+const userRoutes = require('./routes/user.routes');
 
 
 // CREATING OUR EXPRESS SERVER
@@ -54,7 +54,7 @@ app.use(checkAuthStatusMiddleware);
 
 // MERGING ROTES
 // we merge the routes of the authentication to our app
-app.use(sharedRoutes);
+app.use(userRoutes);
 app.use(authRoutes);
 
 
