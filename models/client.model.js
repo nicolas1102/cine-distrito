@@ -12,8 +12,8 @@ const User = require('./user.model');
 
 class Client extends User {
 
-    constructor (email, password, name, identification, imagePath) {
-        super(email, password, name, identification, 'client', imagePath);
+    constructor (email, password, name, identification, imageName) {
+        super(email, password, name, identification, 'client', imageName);
         this.points = 0;
     }
 

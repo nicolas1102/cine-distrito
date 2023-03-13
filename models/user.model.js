@@ -10,17 +10,20 @@ const ObjectId = mongodb.ObjectId;
 
 class User {
     // REMEMBER THE IMAGEPATH
-    constructor(email, password, name, identification, role, imagePath) {
+    constructor(email, password, name, identification, role, imageName) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.identification = identification;
         this.role = role;
-
-        // pending (imagePath por default)
-        if (imagePath === null) {
-            this.imagePath = '';
+        this.imageName = imageName;
+        if (this.imageName === '') {
+            this.imageName = uuid() + '-' + 'user-default.jpg';
+            this.imagePath = `data/images/system/${this.imageName}`;
+        }else {
+            this.imagePath = `data/images/${imageName}`;
         }
+        this.imageUrl = `/users/assets/images/${imageName}`;
     }
 
     // we check if the user with the user is trying to sign up is created already

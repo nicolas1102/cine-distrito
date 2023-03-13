@@ -12,8 +12,8 @@ const User = require('./user.model');
 
 class Employee extends User {
 
-    constructor (email, password, name, identification, imagePath, role, phoneNumber, contractStartDate, salary) {
-        super(email, password, name, identification, role, imagePath);
+    constructor (email, password, name, identification, imageName, role, phoneNumber, contractStartDate, salary) {
+        super(email, password, name, identification, role, imageName);
         this.phoneNumber = phoneNumber;
         this.contractStartDate = contractStartDate;
         this.salary = salary;

@@ -14,7 +14,7 @@ const upload = multer({
 });
 
 // extract a single file by field name froma the incoming request; here we write the form input name
-const configureMulterMiddleware = upload.single('image');
+const configureMulterMiddleware = upload.single('imageName');
 
 
 module.exports = configureMulterMiddleware;

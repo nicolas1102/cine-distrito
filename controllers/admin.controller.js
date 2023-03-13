@@ -1,3 +1,5 @@
+const Movie = require('../models/movie.model');
+
 function getAdminMenu(req, res) {
     res.render('admin/admin-menu');
 }
@@ -46,9 +48,28 @@ function getNewMovie(req, res) {
     res.render('admin/movies/new-movie');
 }
 
-function createNewMovie(req, res) {
-    console.log(req.body);
-    console.log(req.file);
+async function createNewMovie(req, res) {
+    // console.log(req.body);
+    // console.log(req.file);
+    let imageNameTemp;
+    if (req.file === undefined){
+        imageNameTemp = '';
+    }else {
+        imageNameTemp = req.file.filename;
+    }
+    
+    const product = new Movie({
+        ...req.body,
+        imageName: imageNameTemp,
+    });
+
+    try {
+        await product.save();
+    } catch (error) {
+        next(error);
+        return;
+    }
+
     res.redirect('/admin/movies');
 }
 
