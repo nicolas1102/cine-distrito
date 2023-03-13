@@ -11,11 +11,11 @@ form {
     margin: var(--space-2) auto;
     margin-bottom: var(--space-8);
     padding: var(--space-8);
-    background-color: var(--color-primary-blur-200);
-    backdrop-filter: var(--backdrop-filter-5);
-    border-radius: var(--border-radius-medium);
+    background-color: rgba(100, 100, 100, 0.3);
+    backdrop-filter: blur(var(--backdrop-filter-0));
+    /* border-radius: var(--border-radius-small); */
     text-align: center;
-    border: 2px solid var(--color-gray-700);
+    border: 1px solid var(--color-primary-600);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

@@ -17,8 +17,8 @@ const db = require('./data/database');
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandlerMiddleware = require('./middlewares/error-handler');
 const checkAuthStatusMiddleware = require('./middlewares/check-auth');
-const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
+const adminRoutes = require('./routes/admin.routes');
 
 
 // CREATING OUR EXPRESS SERVER
@@ -55,7 +55,8 @@ app.use(checkAuthStatusMiddleware);
 // MERGING ROTES
 // we merge the routes of the authentication to our app
 app.use(userRoutes);
-app.use(authRoutes);
+// we filter the path
+app.use('/admin', adminRoutes);
 
 
 // activaring the error haddle middleware

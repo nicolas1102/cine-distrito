@@ -64,12 +64,6 @@ main {
     transition: 250ms;
 }
 
-.nav-items button:hover{
-    background-color: var(--color-secundary-400);
-    border-color: var(--color-primary-800);
-    color: var(--color-primary-800);
-}
-
 #mobile-menu-btn {
     display: flex;
     flex-direction: column;
@@ -132,8 +126,6 @@ main {
         display: block;
     }
 
-
-
     #main-header {
         position: static;
     }
@@ -156,8 +148,14 @@ main {
         margin: var(--space-2) var(--space-4);
     }
 
-    .nav-items li:hover a {
+    .nav-items li:hover a{
         border-bottom: solid 3px var(--color-primary-400);
         color: var(--color-primary-300);
+    }
+
+    .nav-items button:hover{
+        background-color: var(--color-secundary-400);
+        border-color: var(--color-primary-800);
+        color: var(--color-primary-800);
     }
 }

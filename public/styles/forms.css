@@ -1,10 +1,5 @@
-form hr {
-    border-color: var(--color-gray-0);
-    margin: var(--space-4);
-}
-
 label {
-    /* color: var(--color-gray-0); */
+    color: var(--color-gray-800);
     display: block;
     margin-bottom: var(--space-2);
     font-weight: bold;
@@ -13,13 +8,13 @@ label {
 input,
 textarea {
     font: inherit;
-    padding: var(--space-1);
+    padding: var(--space-2);
     border-radius: var(--border-radius-small);
     border: none;
-    border-bottom: 2px solid var(--color-gray-700);
+    border: 1px solid var(--color-primary-700);
     width: 90%;
-    background-color: rgba(255, 255, 255, 0.601);
-    backdrop-filter: var(--backdrop-filter-5);
-    color: var(--color-gray-700);
+    background-color: var(--color-gray-50);
+    /* backdrop-filter: var(--backdrop-filter-5); */
+    color: var(--color-gray-800);
 
 }

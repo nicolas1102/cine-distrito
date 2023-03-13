@@ -12,6 +12,10 @@ const validation = require('../util/validation');
 const sessionFlash = require('../util/session-flash');
 
 
+function getPrincipalPage(req, res) {
+    res.render('user/cine-distrito');
+}
+
 function getLogin(req, res) {
     // we validate if the user has submitting any data before
     let sessionData = sessionFlash.getSessionData(req);
@@ -41,7 +45,7 @@ async function login(req, res, next) {
             user = new Employee(req.body.email, req.body.password);
             existingUser = await user.getUserWithSameEmail();
         }
-    }catch (error){
+    } catch (error) {
         next(error);
         return;
     }
@@ -51,7 +55,7 @@ async function login(req, res, next) {
         email: user.email,
         password: user.password,
     }
-    
+
     // if there's no user registrated
     if (!existingUser) {
         sessionFlash.flashDataToSession(
@@ -92,9 +96,18 @@ function logout(req, res) {
 }
 
 
+
+
+
+function getAbout (req, res) {
+
+}
+
 module.exports = {
+    getPrincipalPage: getPrincipalPage,
     //  pointer to the function with the name of 'getSignup'
     getLogin: getLogin,
     login: login,
-    logout: logout
+    logout: logout,
+    getAbout: getAbout
 }

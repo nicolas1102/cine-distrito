@@ -1,0 +1,19 @@
+<!-- inlcuding the shared code head -->
+<%- include('../../shared/includes/head', { pageTitle: 'Admin Menu' }) %>
+    </head>
+
+    <body>
+        <%- include('../../shared/includes/header') %>
+            <main>
+                <h1>Product Administration</h1>
+                <section>
+                    <h2>Mange Products</h2>
+                    <p>
+                        <a href="/admin/products/new" class="btn">Add Product</a>
+                    </p>
+                </section>
+                <section>
+                    <p>List of products...</p>
+                </section>
+            </main>
+            <%- include('../../shared/includes/footer') %>
