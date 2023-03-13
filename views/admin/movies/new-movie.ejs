@@ -8,26 +8,27 @@
         <%- include('../../shared/includes/blob') %>
             <main>
                 <h1>Add New Product</h1>
-                <form action="" method="" >
+                <!-- saving the token in the path -->
+                <form action="/admin/movies?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
                     <p>
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title" require>
                     </p>
                     <p>
-                        <label for="image">Image</label>
-                        <input type="file" name="image" id="image" accept="image/png,image/jpg">
-                    </p>
-                    <p>
-                        <label for="summary">Summary</label>
-                        <input type="text" name="summary" id="summary" maxlength="250" require>
-                    </p>
-                    <p>
-                        <label for="price">Price</label>
-                        <input type="number" min="0.01" step="0.01" name="price" id="price" require>
-                    </p>
-                    <p>
                         <label for="description">Description</label>
-                        <textarea name="description" id="description" rows="7" require></textarea>
+                        <textarea name="description" id="description" rows="4" require></textarea>
+                    </p>
+                    <p>
+                        <label for="duration">Duration <span>(Minutes)</span></label>
+                        <input type="number" min="1" step="1" name="duration" id="duration" require>
+                    </p>
+                    <p>
+                        <label for="genre">Genre</label>
+                        <input type="text" name="genre" id="genre" require>
+                    </p>
+                    <p>
+                        <label for="image">Image</label>
+                        <input type="file" name="image" id="image" accept="image/*">
                     </p>
                     <p>
                         <button type="reset" class="btn btn-alt">Reset</button>

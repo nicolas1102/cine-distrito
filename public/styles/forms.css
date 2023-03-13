@@ -18,3 +18,7 @@ textarea {
     color: var(--color-gray-800);
 
 }
+
+span {
+    color: var(--color-error-500);
+}

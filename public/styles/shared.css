@@ -207,6 +207,19 @@ a {
     color: var(--color-primary-800);
 }
 
+.btn-alt {
+    background-color: var(--color-gray-700);
+    color: var(--color-gray-50);
+    border-color: var(--color-gray-50);
+}
+
+.btn-alt:hover,
+.btn-alt:active {
+    background-color: var(--color-primary-700);
+    color: var(--color-gray-50);
+    border-color: var(--color-gray-700);
+}
+
 .alert {
     border-radius: var(--border-radius-small);
     background-color: var(--color-error-100);

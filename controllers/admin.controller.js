@@ -46,8 +46,10 @@ function getNewMovie(req, res) {
     res.render('admin/movies/new-movie');
 }
 
-function createNewMovie() {
-
+function createNewMovie(req, res) {
+    console.log(req.body);
+    console.log(req.file);
+    res.redirect('/admin/movies');
 }
 
 function getTickets(req, res) {
