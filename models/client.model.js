@@ -34,7 +34,7 @@ class Client extends User {
             email: this.email,
             password: hashedPassword,
             role: this.role,
-            imagePath: this.imagePath,
+            imageName: this.imageName,
             points: this.points,
         });
         

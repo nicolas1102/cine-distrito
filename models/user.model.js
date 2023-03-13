@@ -1,5 +1,6 @@
 // for encrypt the password
 const bcrypt = require('bcryptjs');
+const uuid = require('uuid').v4;
 
 // importing the database
 const db = require('../data/database');

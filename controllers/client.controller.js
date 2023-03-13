@@ -26,7 +26,7 @@ function getSignup(req, res) {
             confirmPassword: '',
             name: '',
             identification: '',
-            imagePath: '',
+            imageName: '',
         }
     }
     // we pass the input data to the view, so we can display the error message and show the data that the user wrote lately
@@ -41,7 +41,7 @@ async function signup(req, res, next) {
         confirmPassword: req.body['confirm-password'],
         name: req.body.name,
         identification: req.body.identification,
-        imagePath: req.body.imagePath,
+        imageName: req.body.imageName,
     }
 
     // we access of the data of the form sent and we make a data validation
@@ -83,7 +83,7 @@ async function signup(req, res, next) {
         req.body.password,
         req.body.name,
         req.body.identification,
-        req.body.imagePath,
+        req.body.imageName,
     );
 
     // implementing our own error handling
