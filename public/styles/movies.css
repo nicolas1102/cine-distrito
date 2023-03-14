@@ -7,7 +7,7 @@
 #movies-grid {
     margin: var(--space-8) auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
     gap: 2rem;
 }
 
@@ -15,16 +15,20 @@
     transition: 500ms;
 }
 
+.movie-item a {
+    color: var(--color-gray-700);
+}
+
 .image-container {
     border-radius: var(--border-radius-large);
     /* position: relative; */
-    height: 31rem;
-    width: 21rem;
+    height: 26rem;
+    width: 17rem;
     overflow: hidden;
     margin: 0 auto;
 }
 
-.image-container.add{
+.image-container.add {
     border: solid 3px var(--color-gray-700);
 }
 
@@ -61,13 +65,14 @@
     display: flex;
     justify-content: center;
     margin-top: var(--space-4);
+    justify-content: center;
 }
 
 .btn {
     font-size: 1.25rem;
     margin: 0 0.5rem;
     padding: 0.5rem 0.75rem;
-    background-color: var( --color-primary-400);
+    background-color: var(--color-primary-400);
     transition: 500ms;
 }
 
@@ -77,12 +82,12 @@
     color: var(--color-gray-700);
 }
 
-.btn-alt:hover{
+.btn-alt:hover {
     background-color: rgb(255, 0, 0);
     transition: 500ms;
 }
 
-svg{
+svg {
     align-self: center;
     background-color: var(--color-primary-100);
     width: 100%;
@@ -90,3 +95,24 @@ svg{
     object-fit: cover;
     transition: 500ms;
 }
+
+/* @media (min-width: 30rem) {
+
+    #movies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        gap: 1.25rem;
+    }
+
+    .image-container {
+        height: 23.75rem;
+        width: 16rem;
+    }
+
+    .movie-item-content h2 {
+        font-size: 1.15rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+} */

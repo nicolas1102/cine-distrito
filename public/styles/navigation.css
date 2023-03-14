@@ -118,16 +118,13 @@ main {
 
 
 @media (min-width: 48rem) {
-    main {
-        margin-top: 0;
-    }
 
     #main-header nav {
         display: block;
     }
 
     #main-header {
-        position: static;
+        position: fixed;
     }
 
     #mobile-menu-btn {

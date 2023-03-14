@@ -2,6 +2,7 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Signup - Cine Distrito' }) %>
     <link rel="stylesheet" href="/styles/forms.css">
     <link rel="stylesheet" href="/styles/auth.css">
+    <script src="/scripts/image-preview.js" defer></script>
     </head>
 
     <body>
@@ -47,10 +48,12 @@
                             </p>
                         </div>
                         <div class="container-column-space">
-                            <div id="image-upload">
+                            <div id="image-upload-control">
+                                <p>
+                                    <label for="imageName">User image</label>
+                                    <input type="file" name="imageName" id="imageName" accept="image/*" require>
+                                </p>
                                 <img id="image-preview" src="data/users/images/default.jpg" alt="Your picked image.">
-                                <label for="imageName">User image</label>
-                                <input type="file" name="imageName" id="imageName" accept="image/*">
                             </div>
                             <div id="submit-container">
                                 <button class="btn">Create Account</button>

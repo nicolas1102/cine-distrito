@@ -146,12 +146,12 @@ body {
     backdrop-filter: var(--backdrop-filter-1);
 }
 
-#title-container {
-    height: 15rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* THE END OF THE BLOB */
+
+main {
+    width: 90%;
+    max-width: 90rem;
+    margin: 0 auto;
 }
 
 h1 {
@@ -164,16 +164,10 @@ h1 {
 
 h2 {
     text-align: center;
+    font-size: 2rem;
+    /* margin: var(--space-8); */
 }
 
-
-/* THE END OF THE BLOB */
-
-main {
-    width: 90%;
-    max-width: 90rem;
-    margin: 0 auto;
-}
 
 ul,
 ol {
@@ -202,6 +196,7 @@ a {
     border-radius: 20px;
     margin: var(--space-2);
     font-weight: bold;
+    transition: 300ms;
 }
 
 .btn:hover,
@@ -216,6 +211,7 @@ a {
     background-color: var(--color-gray-700);
     color: var(--color-gray-50);
     border-color: var(--color-gray-50);
+    transition: 300ms;
 }
 
 .btn-alt:hover,
@@ -243,8 +239,15 @@ a {
 }
 
 @media (min-width: 48rem) {
+
     h1 {
         font-size: 4rem;
+        font-weight: 500;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 3rem;
         font-weight: 500;
     }
 }

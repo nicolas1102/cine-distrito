@@ -56,10 +56,10 @@ app.use(checkAuthStatusMiddleware);
 
 
 // MERGING ROTES
-// we merge the routes of the authentication to our app
-app.use(userRoutes);
 // we protect our routes (of users not authorized or not authenticated)
 app.use(protectRoutesMiddleware);
+// we merge the routes of the authentication to our app
+app.use(userRoutes);
 // we filter the path
 app.use('/admin', adminRoutes);
 

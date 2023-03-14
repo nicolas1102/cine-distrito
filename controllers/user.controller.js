@@ -2,6 +2,7 @@
 // const User = require('../models/user.model');
 const Employee = require('../models/employee.model');
 const Client = require('../models/client.model');
+const Movie = require('../models/movie.model');
 
 // to create tell the session the user is logged in
 const authUtil = require('../util/authentication');
@@ -12,8 +13,15 @@ const validation = require('../util/validation');
 const sessionFlash = require('../util/session-flash');
 
 
-function getPrincipalPage(req, res) {
-    res.render('user/cine-distrito');
+async function getPrincipalPage(req, res) {
+    try {
+        const movies = await Movie.findAll();
+        // const snacks = await Snack.findAll();
+        res.render('user/cine-distrito', { movies: movies });
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
 }
 
 function getLogin(req, res) {
@@ -85,18 +93,15 @@ async function login(req, res, next) {
     }
     // we trate the user has loged in; the function is executed one the session is saved
     authUtil.createUserSession(req, existingUser, function () {
-        res.redirect('/');
+        res.redirect('/home');
     });
 }
 
 function logout(req, res) {
     authUtil.destroyUserAuthSession(req);
     // after logout, we want to redirect the user to...
-    res.redirect('/');
+    res.redirect('/home');
 }
-
-
-
 
 
 function getAbout (req, res) {

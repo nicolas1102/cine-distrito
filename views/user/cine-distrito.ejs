@@ -1,5 +1,6 @@
 <!-- inlcuding the shared code head -->
 <%- include('../shared/includes/head', { pageTitle: 'Cine Distrito' }) %>
+    <link rel="stylesheet" href="/styles/movies.css">
     <link rel="stylesheet" href="/styles/cine-distrito.css">
     <script src="/scripts/effects/glassmorphism.js" defer></script>
     </head>
@@ -9,10 +10,17 @@
             <%- include('../shared/includes/blob') %>
                 <main>
                     <section id="movies-section">
-                        <h2>Movies</h2>
+                        <h2 class="section-title">Movies</h2>
+                        <ul id="movies-grid">
+                            <% movies.forEach(movie=> { %>
+                                <li>
+                                    <%- include('../shared/includes/movie-item',{movie: movie}) %>
+                                </li>
+                                <% }); %>
+                        </ul>
                     </section>
                     <section id="snacks-section">
-                        <h2>Snacks</h2>
+                        <h2 class="section-title">Snacks</h2>
                     </section>
                 </main>
                 <%- include('../shared/includes/footer') %>

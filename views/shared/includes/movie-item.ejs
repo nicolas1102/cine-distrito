@@ -1,0 +1,23 @@
+<article class="movie-item">
+    <% if (locals.role !== 'admin') { %>
+        <a class="" href="/movies/<% movie.id %>">
+    <% } %>
+        <div class="image-container">
+            <img src="<%= movie.imageUrl %>" alt="<%= movie.title %>">
+        </div>
+        <div class="movie-item-content">
+            <h2>
+                <%= movie.title %>
+            </h2>
+            <div class="movie-item-actions">
+                <% if (locals.role === 'admin') { %>
+                    <a class="btn" href="/admin/movies/<%= movie.id %>">View & Edit</a>
+                    <!--  we need to send the crsf token 'cause the csrf protection that has our server side controls the requests the client side sends' -->
+                    <button class="btn btn-alt" data-movieid="<%= movie.id  %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+                <% } %>
+            </div>
+        </div>
+    <% if (locals.role !== 'admin') { %>
+        </a>
+    <% } %>
+</article>

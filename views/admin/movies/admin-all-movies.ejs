@@ -27,12 +27,11 @@
                                     </div>
                                 </div>
                             </article>
-
-                            <% for (const movie of movies ) { %>
+                            <% movies.forEach(movie => { %>
                                 <li>
-                                    <%- include('includes/movie-item', {movie: movie}) %>
+                                    <%- include('../../shared/includes/movie-item',{movie: movie}) %>
                                 </li>
-                                <% } %>
+                            <% }); %>
                         </ul>
                     </section>
                 </main>
