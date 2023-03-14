@@ -125,7 +125,10 @@ async function deleteMovie(req, res, next) {
         console.log(error);
         return next(error);
     }
-    res.redirect('/admin/movies');
+    
+    // we are using AJAX, so we dont need to redirect to anywhere, just responses something
+    res.json({message: 'Deleted movie!'});
+    // res.redirect('/admin/movies');
 }
 
 function getTickets(req, res) {

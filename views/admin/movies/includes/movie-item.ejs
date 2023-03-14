@@ -8,7 +8,8 @@
         </h2>
         <div class="movie-item-actions">
             <a class="btn" href="/admin/movies/<%= movie.id %>">View & Edit</a>
-            <button class="btn btn-alt">Delete</button>
+            <!--  we need to send the crsf token 'cause the csrf protection that has our server side controls the requests the client side sends' -->
+            <button class="btn btn-alt" data-movieid="<%= movie.id  %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
         </div>
     </div>
 </article>
