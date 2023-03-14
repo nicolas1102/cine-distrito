@@ -116,6 +116,18 @@ async function updateMovie(req, res, next) {
     res.redirect('/admin/movies');
 }
 
+async function deleteMovie(req, res, next) {
+    let movie;
+    try {
+        movie = await Movie.findById(req.params.id);
+        await movie.remove();
+    } catch (error) {
+        console.log(error);
+        return next(error);
+    }
+    res.redirect('/admin/movies');
+}
+
 function getTickets(req, res) {
     res.render('admin/tickets/all-tickets');
 }
@@ -162,6 +174,7 @@ module.exports = {
     createNewMovie: createNewMovie,
     getUpdateMovie: getUpdateMovie,
     updateMovie: updateMovie,
+    deleteMovie: deleteMovie,
 
     getTickets: getTickets,
     getNewTicket: getNewTicket,

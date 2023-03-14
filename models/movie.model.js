@@ -102,6 +102,11 @@ class Movie {
         this.imageName = newImage;
         this.updateImageData();
     }
+
+    remove() {
+        const movieId = new mongodb.ObjectId(this.id);
+        return db.getDb().collection('movies').deleteOne({ _id: movieId });
+    }
 }
 
 module.exports = Movie;

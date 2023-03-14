@@ -38,6 +38,9 @@ router.get('/movies/:id', adminController.getUpdateMovie);
 
 router.post('/movies/:id', imageUploadMiddleware, adminController.updateMovie);
 
+// using ajax http methods 
+router.delete('/movies/:id', adminController.deleteMovie);
+
 
 router.get('/tickets', adminController.getTickets);
 
