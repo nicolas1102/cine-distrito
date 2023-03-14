@@ -1,0 +1,10 @@
+<article class="movie-item">
+    <img src="<%= movie.imageUrl %>" alt="<%= movie.title %>">
+    <h2>
+        <%= movie.title %>
+    </h2>
+    <div>
+        <a class="btn btn-alt" href="/admin/movies/<%= movie.id %>">View & Edit</a>
+        <button class="btn btn-alt">Delete</button>
+    </div>
+</article>

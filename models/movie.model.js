@@ -18,14 +18,28 @@ class Movie {
         this.genre = movieData.genre;
         // the name of the image file
         this.imageName = movieData.imageName;
-        // control de imen por default
+        // control de imagen por default (en fase de prueba)
         if (this.imageName === '') {
-            this.imageName = uuid() + '-' + 'movie-default.jpg';
-            this.imagePath = `data/images/system/${this.imageName}`;
+            this.imageName = 'default/movie-default.jpg';
+            this.imagePath = `public-data/images/${this.imageName}`;
+            this.imageUrl = `/data/assets/images/${this.imageName}`;
         }else {
-            this.imagePath = `data/images/${movieData.imageName}`;
+            this.imagePath = `public-data/images/${movieData.imageName}`;
+            this.imageUrl = `/data/assets/images/${movieData.imageName}`;
         }
-        this.imageUrl = `/movies/assets/images/${movieData.imageName}`;
+
+        if(movieData._id){
+            this.id = movieData._id.toString();
+        }
+    }
+
+    static async findAll() {
+        const movies = await db.getDb().collection('movies').find().toArray();
+        
+        // transform all the products in the data base as a product instance of the Product class
+        return movies.map(function (movieDocument){
+            return new Movie(movieDocument);
+        });
     }
 
     async save () {

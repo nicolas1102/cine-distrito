@@ -5,7 +5,7 @@ const uuid = require('uuid').v4;
 // we configurate where we wanna save the images
 const upload = multer({
     storage: multer.diskStorage({
-        destination: 'data/images',
+        destination: 'public-data/images',
         // cb = callback; 
         filename: function(req, file, cb){
             cb(null, uuid() + '-' + file.originalname);

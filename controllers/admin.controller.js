@@ -40,8 +40,15 @@ function getNewSnack(req, res) {
     res.render('admin/snacks/new-snack');
 }
 
-function getMovies(req, res) {
-    res.render('admin/movies/all-movies');
+async function getMovies(req, res, next) {
+    try {
+        const movies = await Movie.findAll();
+        res.render('admin/movies/all-movies', { movies: movies });
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
 }
 
 function getNewMovie(req, res) {

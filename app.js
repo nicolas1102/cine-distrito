@@ -30,8 +30,10 @@ const app = express();
 app.set('view engine', 'ejs');
 // telling express where are we views; using the path package
 app.set('views', path.join(__dirname, 'views'));
-// we usable the public folder files
+// we make usable the public folder files
 app.use(express.static('public'));
+// we make usable the public data folder (so we can show images in the frontend site); and we filter where we wanna show them
+app.use('/data/assets', express.static('public-data'));
 // for can extract the data of the incoming request (ex. the forms with the post method)
 app.use(express.urlencoded({ extended: false }));
 
