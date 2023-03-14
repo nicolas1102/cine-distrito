@@ -36,7 +36,7 @@ router.post('/movies', imageUploadMiddleware, adminController.createNewMovie);
 
 router.get('/movies/:id', adminController.getUpdateMovie);
 
-router.post('/movies/:id', adminController.updateMovie);
+router.post('/movies/:id', imageUploadMiddleware, adminController.updateMovie);
 
 
 router.get('/tickets', adminController.getTickets);

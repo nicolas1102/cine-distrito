@@ -18,7 +18,7 @@
     </p>
     <p>
         <label for="imageName">Image</label>
-        <input type="file" name="imageName" id="imageName" accept="image/*">
+        <input type="file" name="imageName" id="imageName" accept="image/*" <% if(imageRequire){%>require<% } %>>
     </p>
     <p>
         <button type="reset" class="btn btn-alt">Reset</button>

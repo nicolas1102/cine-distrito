@@ -16,15 +16,17 @@ class Movie {
         this.genre = movieData.genre;
         // the name of the image file
         this.imageName = movieData.imageName;
+        this.updateImageData();
+
         // control de imagen por default (en fase de prueba)
-        if (this.imageName === '') {
-            this.imageName = 'default/movie-default.jpg';
-            this.imagePath = `public-data/images/${this.imageName}`;
-            this.imageUrl = `/data/assets/images/${this.imageName}`;
-        } else {
-            this.imagePath = `public-data/images/${movieData.imageName}`;
-            this.imageUrl = `/data/assets/images/${movieData.imageName}`;
-        }
+        // if (this.imageName === '') {
+        //     this.imageName = 'default/movie-default.jpg';
+        //     this.imagePath = `public-data/images/${this.imageName}`;
+        //     this.imageUrl = `/data/assets/images/${this.imageName}`;
+        // } else {
+        //     this.imagePath = `public-data/images/${movieData.imageName}`;
+        //     this.imageUrl = `/data/assets/images/${movieData.imageName}`;
+        // }
 
         if (movieData._id) {
             this.id = movieData._id.toString();
@@ -47,7 +49,7 @@ class Movie {
             // throwing custom error
             throw error;
         }
-        return movie;
+        return new Movie(movie);
     }
 
     static async findAll() {
@@ -59,6 +61,11 @@ class Movie {
         });
     }
 
+    updateImageData() {
+        this.imagePath = `public-data/images/${this.imageName}`;
+        this.imageUrl = `/data/assets/images/${this.imageName}`;
+    }
+
     async save() {
         const movieData = {
             title: this.title,
@@ -67,11 +74,34 @@ class Movie {
             genre: this.genre,
             imageName: this.imageName,
         }
-        await db.getDb().collection('movies').insertOne(movieData);
+
+        //  just if we are providing the product id, we know that we wanna update the product. If there's no id, we wanna just insert a new one
+        if (this.id) {
+            const movieId = new mongodb.ObjectId(this.id);
+
+            // if the image data is undefined; we dont want to overwrite the old image with undefined, so...
+            if (!this.imageName) {
+                //  we delete the key of the product data, so we dont save a undefined
+                delete movieData.imageName;
+            }
+
+            await db.getDb().collection('movies').updateOne(
+                {
+                    _id: movieId
+                },
+                {
+                    $set: movieData
+                }
+            );
+        } else {
+            await db.getDb().collection('movies').insertOne(movieData);
+        }
     }
 
-
-
+    async replaceImage(newImage) {
+        this.imageName = newImage;
+        this.updateImageData();
+    }
 }
 
 module.exports = Movie;

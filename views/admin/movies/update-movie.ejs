@@ -10,8 +10,9 @@
                 <%- include(
                         'includes/movie-form',
                         { submitPath: 
-                            '/admin/movies' + movie.id,
-                            movie: movie
+                            '/admin/movies/' + movie.id,
+                            movie: movie,
+                            imageRequire: true,
                         }
                     ) %>
             </main>

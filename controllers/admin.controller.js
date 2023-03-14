@@ -59,12 +59,12 @@ async function createNewMovie(req, res) {
     // console.log(req.body);
     // console.log(req.file);
     let imageNameTemp;
-    if (req.file === undefined){
+    if (req.file === undefined) {
         imageNameTemp = '';
-    }else {
+    } else {
         imageNameTemp = req.file.filename;
     }
-    
+
     const product = new Movie({
         ...req.body,
         imageName: imageNameTemp,
@@ -80,21 +80,40 @@ async function createNewMovie(req, res) {
     res.redirect('/admin/movies');
 }
 
-async function getUpdateMovie (req,res, next) {
+async function getUpdateMovie(req, res, next) {
     let movie;
-    try{
+    try {
         // extracting the value we entered in the URL in the admin router
         movie = await Movie.findById(req.params.id);
-        res.render('admin/movies/update-movie', {movie: movie});
-    }catch(error){
+        // const movie = await Movie.findById(req.params.id);
+        res.render('admin/movies/update-movie', { movie: movie });
+    } catch (error) {
         console.log(error);
         next(error);
         return;
     }
 }
 
-async function updateMovie(req,res) {
+async function updateMovie(req, res, next) {
+    const movie = new Movie({
+        ...req.body,
+        _id: req.params.id
+    });
 
+    //  just if the admin provides a new image for the movie we change it
+    if (req.file) {
+        // replace the old image with the new one
+        movie.replaceImage(req.file.filename);
+    }
+    try {
+        await movie.save();
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
+
+    res.redirect('/admin/movies');
 }
 
 function getTickets(req, res) {
@@ -137,7 +156,7 @@ module.exports = {
 
     getSnacks: getSnacks,
     getNewSnack: getNewSnack,
-    
+
     getMovies: getMovies,
     getNewMovie: getNewMovie,
     createNewMovie: createNewMovie,
