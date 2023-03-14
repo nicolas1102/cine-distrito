@@ -19,6 +19,14 @@ router.post('/logout', userController.logout);
 
 router.get('/about-', userController.getAbout);
 
+router.get('/401', function (req, res) {
+    res.status(401).render('shared/errors/401');
+});
+
+router.get('/403', function (req, res) {
+    res.status(403).render('shared/errors/403');
+});
+
 
 module.exports = router;
 
