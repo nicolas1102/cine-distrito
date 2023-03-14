@@ -14,11 +14,19 @@
     </p>
     <p>
         <label for="genre">Genre</label>
-        <input type="text" name="genre" id="genre"  value="<%= movie.genre %>" require>
+        <input type="text" name="genre" id="genre" value="<%= movie.genre %>" require>
     </p>
+
+    <div id="image-upload-control">
+        <p>
+            <label for="imageName">Image</label>
+            <input type="file" name="imageName" id="imageName" accept="image/*" <% if(imageRequire){%>require<% } %>>
+        </p>
+        <img src="" alt="Selected Image.">
+    </div>
+
     <p>
-        <label for="imageName">Image</label>
-        <input type="file" name="imageName" id="imageName" accept="image/*" <% if(imageRequire){%>require<% } %>>
+
     </p>
     <p>
         <button type="reset" class="btn btn-alt">Reset</button>

@@ -21,3 +21,26 @@ textarea {
 span {
     color: var(--color-error-500);
 }
+
+#image-upload-control {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    justify-content: left;
+    height: 10rem;
+    margin-bottom: 2rem;
+}
+
+#image-upload-control input {
+    max-width: 15rem;
+}
+
+#image-upload-control img {
+    display: none;
+    width: 10rem;
+    height: 10rem;
+    margin: 1.5rem 4rem;
+    object-fit: cover;
+    border-radius: var(--border-radius-small);
+    border: solid 1px var(--color-primary-700);
+}
