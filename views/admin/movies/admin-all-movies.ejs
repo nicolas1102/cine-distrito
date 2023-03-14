@@ -1,5 +1,6 @@
 <!-- inlcuding the shared code head -->
 <%- include('../../shared/includes/head', { pageTitle: 'Product Administration' }) %>
+<link rel="stylesheet" href="/styles/movies.css">
     </head>
 
     <body>
@@ -7,14 +8,13 @@
         <%- include('../../shared/includes/blob') %>
             <main>
                 <h1>Movies Administration</h1>
-                <section>
-                    <h2>Manage Movies</h2>
+                <section id="add-item-section">
                     <p>
                         <a href="/admin/movies/new" class="btn">Add Product</a>
                     </p>
                 </section>
                 <section>
-                    <ul>
+                    <ul id="movies-grid">
                         <% for (const movie of movies ) { %>
                         <li>
                             <%- include('includes/movie-item', {movie: movie}) %>

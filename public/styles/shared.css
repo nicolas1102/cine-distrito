@@ -56,6 +56,7 @@ html {
 
     --border-radius-small: 4px;
     --border-radius-medium: 6px;
+    --border-radius-large: 8px;
 
     --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
 
@@ -111,7 +112,8 @@ body {
 }
 
 #blob-container {
-    height: 100%;
+    bottom: 5.5rem;
+    height: calc(100% - 5.5rem);
     width: 100%;
     position: fixed;
     overflow: hidden;
@@ -125,7 +127,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    translate: -50% -50%;
+    translate: calc(-50% + 5.5rem) -50%;
     border-radius: 50%;
     /* background: linear-gradient(to right, rgb(45, 90, 75), rgb(57, 44, 84)); */
     background: linear-gradient(to right, var(--color-secundary-200), var(--color-primary-400));
@@ -157,8 +159,14 @@ h1 {
     /* color: var(--color-gray-100); */
     /* color: var(--color-primary-200); */
     color: var(--color-gray-700);
+    text-align: center;
+    margin: var(--space-1);
     /* -webkit-text-stroke: 3px var(--color-primary-500); */
     /* -webkit-text-stroke: 3px var(--color-gray-700); */
+}
+
+h2 {
+    text-align: center;
 }
 
 
@@ -166,7 +174,7 @@ h1 {
 
 main {
     width: 100%;
-    max-width: 60rem;
+    max-width: 70rem;
     margin: 0 auto;
 }
 
@@ -177,7 +185,7 @@ ol {
     padding: 0;
 }
 
-.btn-container{
+.btn-container {
     margin-top: 30px;
 }
 

@@ -43,7 +43,7 @@ function getNewSnack(req, res) {
 async function getMovies(req, res, next) {
     try {
         const movies = await Movie.findAll();
-        res.render('admin/movies/all-movies', { movies: movies });
+        res.render('admin/movies/admin-all-movies', { movies: movies });
     } catch (error) {
         console.log(error);
         next(error);
