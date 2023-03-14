@@ -7,9 +7,8 @@
 #movies-grid {
     margin: var(--space-8) auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     gap: 2rem;
-    /* flex-flow: column wrap; */
 }
 
 .movie-item {
@@ -18,9 +17,9 @@
 
 .image-container {
     border-radius: var(--border-radius-large);
-    position: relative;
-    height: 24rem;
-    width: 16rem;
+    /* position: relative; */
+    height: 31rem;
+    width: 21rem;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -50,7 +49,7 @@
 }
 
 .movie-item-content h2 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 0;
     transition: 500ms;
     white-space: nowrap;
@@ -65,7 +64,7 @@
 }
 
 .btn {
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin: 0 0.5rem;
     padding: 0.5rem 0.75rem;
     background-color: var( --color-primary-400);
