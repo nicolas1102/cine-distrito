@@ -80,6 +80,23 @@ async function createNewMovie(req, res) {
     res.redirect('/admin/movies');
 }
 
+async function getUpdateMovie (req,res, next) {
+    let movie;
+    try{
+        // extracting the value we entered in the URL in the admin router
+        movie = await Movie.findById(req.params.id);
+        res.render('admin/movies/update-movie', {movie: movie});
+    }catch(error){
+        console.log(error);
+        next(error);
+        return;
+    }
+}
+
+async function updateMovie(req,res) {
+
+}
+
 function getTickets(req, res) {
     res.render('admin/tickets/all-tickets');
 }
@@ -107,22 +124,32 @@ function getNewMultiplex(req, res) {
 
 module.exports = {
     getAdminMenu: getAdminMenu,
+
     getClients: getClients,
     getNewClient: getNewClient,
+
     getEmployees: getEmployees,
     getNewEmployee: getNewEmployee,
+
     getProducts: getProducts,
     getNewProduct: getNewProduct,
     createNewProduct: createNewProduct,
+
     getSnacks: getSnacks,
     getNewSnack: getNewSnack,
+    
     getMovies: getMovies,
     getNewMovie: getNewMovie,
     createNewMovie: createNewMovie,
+    getUpdateMovie: getUpdateMovie,
+    updateMovie: updateMovie,
+
     getTickets: getTickets,
     getNewTicket: getNewTicket,
+
     getPlays: getPlays,
     getNewPlay: getNewPlay,
+
     getMultiplexes: getMultiplexes,
     getNewMultiplex: getNewMultiplex,
 }
