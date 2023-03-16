@@ -12,11 +12,13 @@ const User = require('./user.model');
 
 class Employee extends User {
 
-    constructor (email, password, name, identification, imageName, role, phoneNumber, contractStartDate, salary) {
-        super(email, password, name, identification, role, imageName);
+    constructor(email, password, name, identification, imageName, role, phoneNumber, contractStartDate, salary, multiplex) {
+        super(email, password, name, identification, imageName);
+        this.role = role;
         this.phoneNumber = phoneNumber;
         this.contractStartDate = contractStartDate;
         this.salary = salary;
+        this.multiplex = multiplex;
     }
 
     getUserWithSameEmail() {
@@ -31,17 +33,18 @@ class Employee extends User {
         const hashedPassword = await bcrypt.hash(this.password, 12);
 
         await db.getDb().collection('employees').insertOne({
-            name: this.name,
-            identification: this.identification,
             email: this.email,
             password: hashedPassword,
-            imagePath: this.imagePath,
+            name: this.name,
+            identification: this.identification,
+            imageName: this.imageName,
             role: this.role,
             phoneNumber: this.phoneNumber,
             contractStartDate: this.contractStartDate,
             salary: this.salary,
+            multiplex: this.multiplex,
         });
-        
+
     }
 }
 

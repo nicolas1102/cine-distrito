@@ -94,6 +94,13 @@ async function login(req, res, next) {
         );
         return;
     }
+
+    // setting default user role 
+    if(existingUser.role === undefined){
+        existingUser.role = 'client';
+    }
+    console.log(existingUser.role);
+
     // we trate the user has loged in; the function is executed one the session is saved
     authUtil.createUserSession(req, existingUser, function () {
         res.redirect('/home');

@@ -4,6 +4,8 @@ function getAdminMenu(req, res) {
     res.render('admin/admin-menu');
 }
 
+
+
 function getClients(req, res) {
     res.render('admin/clients/all-clients');
 }
@@ -12,6 +14,8 @@ function getNewClient(req, res) {
     res.render('admin/clients/new-client');
 }
 
+
+
 function getEmployees(req, res) {
     res.render('admin/employees/all-employees');
 }
@@ -19,6 +23,8 @@ function getEmployees(req, res) {
 function getNewEmployee(req, res) {
     res.render('admin/employees/new-employee');
 }
+
+
 
 function getProducts(req, res) {
     res.render('admin/products/all-products');
@@ -32,6 +38,8 @@ function createNewProduct() {
 
 }
 
+
+
 function getSnacks(req, res) {
     res.render('admin/snacks/all-snacks');
 }
@@ -39,6 +47,8 @@ function getSnacks(req, res) {
 function getNewSnack(req, res) {
     res.render('admin/snacks/new-snack');
 }
+
+
 
 async function getMovies(req, res, next) {
     try {
@@ -131,6 +141,8 @@ async function deleteMovie(req, res, next) {
     // res.redirect('/admin/movies');
 }
 
+
+
 function getTickets(req, res) {
     res.render('admin/tickets/all-tickets');
 }
@@ -139,13 +151,17 @@ function getNewTicket(req, res) {
     res.render('admin/tickets/new-ticket');
 }
 
-function getPlays(req, res) {
-    res.render('admin/plays/all-plays');
+
+
+function getShows(req, res) {
+    res.render('admin/shows/all-shows');
 }
 
-function getNewPlay(req, res) {
-    res.render('admin/plays/new-play');
+function getNewShow(req, res) {
+    res.render('admin/shows/new-show');
 }
+
+
 
 function getMultiplexes(req, res) {
     res.render('admin/multiplexes/all-multiplexes');
@@ -154,6 +170,8 @@ function getMultiplexes(req, res) {
 function getNewMultiplex(req, res) {
     res.render('admin/multiplexes/new-multiplex');
 }
+
+
 
 
 module.exports = {
@@ -182,8 +200,8 @@ module.exports = {
     getTickets: getTickets,
     getNewTicket: getNewTicket,
 
-    getPlays: getPlays,
-    getNewPlay: getNewPlay,
+    getShows: getShows,
+    getNewShow: getNewShow,
 
     getMultiplexes: getMultiplexes,
     getNewMultiplex: getNewMultiplex,

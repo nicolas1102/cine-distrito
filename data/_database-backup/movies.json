@@ -6,7 +6,7 @@
   "description": "After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance.",
   "duration": 183,
   "genre": "Action, Heroes",
-  "imageName": "4d079a4e-a092-42a5-8ceb-c161a0cc7184-avengers.png"
+  "imageName": "9cdeeb0e-d671-45bb-b165-6020d1806ea3-avengers.png"
 },{
   "_id": {
     "$oid": "640fc3189e15ff9780963b9d"
@@ -15,7 +15,7 @@
   "description": "Bruce Wayne and Diana Prince try to bring the metahumans of Earth together after the death of Clark Kent. Meanwhile, Darkseid sends Steppenwolf to Earth with a vast army to subjugate humans.",
   "duration": 244,
   "genre": "Action, Heroes",
-  "imageName": "cb5252a5-51bc-4e3c-9be2-31811e0ad157-jl.png"
+  "imageName": "0828a63d-b829-4008-88f5-b175da07e3f5-jl.png"
 },{
   "_id": {
     "$oid": "640ff898064f48c53e443d7f"
@@ -24,7 +24,7 @@
   "description": "Like all the men in his family, Tim Lake possesses the power to travel in time. With the advice of his father, he uses his special ability to pursue his romantic interest, Mary.",
   "duration": 123,
   "genre": "Romance",
-  "imageName": "e1444475-ad8c-483b-9c63-786e11209207-about-time.jpg"
+  "imageName": "b7db3120-28be-44ee-9a09-69d94991e6fa-about-time.jpg"
 },{
   "_id": {
     "$oid": "640ff8d8064f48c53e443d80"
@@ -33,7 +33,7 @@
   "description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
   "duration": 169,
   "genre": "Science Fiction",
-  "imageName": "c75c4e57-7451-42cf-beb2-b5d28aed5bd4-interstellar.jpg"
+  "imageName": "7b12323d-30e2-46c2-ad95-bb40ac466669-interstellar.jpg"
 },{
   "_id": {
     "$oid": "640ff947064f48c53e443d81"
@@ -42,5 +42,5 @@
   "description": "Spider-Man seeks the help of Doctor Strange to forget his exposed secret identity as Peter Parker. However, Strange's spell goes horribly wrong, leading to unwanted guests entering their universe.",
   "duration": 148,
   "genre": "Action, Heroes",
-  "imageName": "5ef25add-f664-4d8d-b4eb-9eb4417e4674-spiderman.jpg"
+  "imageName": "216f294f-1606-4991-afbb-6203bd74e1d7-spiderman.jpg"
 }]

@@ -6,9 +6,8 @@
   "identification": "1000474213",
   "email": "nicolas@gmail.com",
   "password": "$2a$12$0Ob7Q51jiWavTOf0Ls9ubuTk2mKIxwFVSEifTotfREFmH2lW0RS7W",
-  "imagePath": "",
   "points": 0,
-  "role": "client"
+  "imageName": ""
 },{
   "_id": {
     "$oid": "640cd7c661ee54b1afc911c6"
@@ -17,7 +16,26 @@
   "identification": "1234567890",
   "email": "felipe@gmail.com",
   "password": "$2a$12$wcoibCEWOMbEqaW4.SVGk.KLQ1DxC/3F/62Sxu8QfjpK.llZckUiq",
-  "imagePath": "",
   "points": 0,
-  "role": "client"
+  "imageName": ""
+},{
+  "_id": {
+    "$oid": "6412848fb6709a95cd2f6cec"
+  },
+  "name": "Test LastTest",
+  "identification": "1000474214",
+  "email": "test@test.com",
+  "password": "$2a$12$vjUNl57cW/KxG1QBPOSlm.RfXui/MVReBX4wZ1fXi9G7TpYuibDzW",
+  "imageName": "default/user-default.jpg",
+  "points": 0
+},{
+  "_id": {
+    "$oid": "6412889a5404da178ac6ac57"
+  },
+  "name": "test",
+  "identification": "0000000000",
+  "email": "test1@test.com",
+  "password": "$2a$12$s740.P0x5PALp9bqcIZJa.qut1oSKSM2aKU1QPRtx6eer6z0vzTJK",
+  "imageName": "default/user-default.jpg",
+  "points": 0
 }]

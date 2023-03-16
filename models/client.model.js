@@ -13,7 +13,7 @@ const User = require('./user.model');
 class Client extends User {
 
     constructor (email, password, name, identification, imageName) {
-        super(email, password, name, identification, 'client', imageName);
+        super(email, password, name, identification, imageName);
         this.points = 0;
     }
 
@@ -29,11 +29,10 @@ class Client extends User {
         const hashedPassword = await bcrypt.hash(this.password, 12);
 
         await db.getDb().collection('clients').insertOne({
-            name: this.name,
-            identification: this.identification,
             email: this.email,
             password: hashedPassword,
-            role: this.role,
+            name: this.name,
+            identification: this.identification,
             imageName: this.imageName,
             points: this.points,
         });

@@ -19,6 +19,7 @@ const errorHandlerMiddleware = require('./middlewares/error-handler');
 const checkAuthStatusMiddleware = require('./middlewares/check-auth');
 const protectRoutesMiddleware = require('./middlewares/protect-routes');
 const userRoutes = require('./routes/user.routes');
+const clientRoutes = require('./routes/client.routes');
 const adminRoutes = require('./routes/admin.routes');
 
 
@@ -60,6 +61,7 @@ app.use(checkAuthStatusMiddleware);
 app.use(protectRoutesMiddleware);
 // we merge the routes of the authentication to our app
 app.use(userRoutes);
+app.use(clientRoutes);
 // we filter the path
 app.use('/admin', adminRoutes);
 

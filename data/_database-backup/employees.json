@@ -6,10 +6,10 @@
   "identification": "0000000000",
   "email": "losmagnificos@cinedistrito.com",
   "password": "$2a$12$TFsnnDJ04r2mjzzy3VIWzuVCq/nCoewFZDYjEXLx/rosQSYo1KA/y",
-  "imagePath": "",
   "role": "admin",
   "phoneNumber": "",
   "contractStartDate": "",
   "salary": "",
-  "multiplex": ""
+  "multiplex": "",
+  "imageName": ""
 }]
