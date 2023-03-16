@@ -6,6 +6,8 @@ const db = require('../data/database');
 
 const User = require('./user.model');
 
+const mongodb = require('mongodb');
+
 class Client extends User {
 
     constructor (email, password, name, identification, imageName, id) {
@@ -32,6 +34,32 @@ class Client extends User {
             imageName: this.imageName,
             points: this.points,
         });
+    }
+
+    static async findById(clientId) {
+        let littleClientId;
+        try {
+            // we need to user an object id as the mongodb does
+            littleClientId = new mongodb.ObjectId(clientId);
+        } catch (error) {
+            error.code = 404;
+            throw error;
+        }
+        const client = await db.getDb().collection('clients').findOne({ _id: littleClientId });
+        if (!client) {
+            const error = new Error('Could not find the client.');
+            error.code = 404;
+            // throwing custom error
+            throw error;
+        }
+        return new Client(
+            client.email,
+            client.password,
+            client.name,
+            client.identification,
+            client.imageName,
+            client._id,
+        );
     }
 
 }

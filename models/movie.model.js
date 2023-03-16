@@ -35,7 +35,7 @@ class Movie {
         }
         const movie = await db.getDb().collection('movies').findOne({ _id: movId });
         if (!movie) {
-            const error = new Error('Couldnot find the movie with provided id.');
+            const error = new Error('Could not find the movie with provided id.');
             error.code = 404;
             // throwing custom error
             throw error;

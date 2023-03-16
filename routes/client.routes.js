@@ -6,7 +6,9 @@ const router = express.Router();
 
 
 
-router.post('/logout', clientController.logout);
+router.get('/profile', clientController.getProfile);
+
+
 
 
 

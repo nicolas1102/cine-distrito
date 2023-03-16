@@ -48,7 +48,7 @@ function getSignup(req, res) {
         }
     }
     // we pass the input data to the view, so we can display the error message and show the data that the user wrote lately
-    res.render('client/auth/signup', { inputData: sessionData });
+    res.render('user/auth/signup', { inputData: sessionData });
 }
 
 async function signup(req, res, next) {
@@ -246,12 +246,19 @@ async function login(req, res, next) {
             existingUser._id,
         );
     }
-    console.log('User Role: ' + existingUser.role);
+
+    console.log('Logged in User: [' + existingUser.email + ', ' + existingUser.role + ']');
 
     // we trate the user as logged in; the function is executed one the session is saved
     authUtil.createUserSession(req, existingUser, function () {
         res.redirect('/home');
     });
+}
+
+function logout(req, res) {
+    authUtil.destroyUserAuthSession(req);
+    // after logout, we want to redirect the user to...
+    res.redirect('/home');
 }
 
 
@@ -267,5 +274,6 @@ module.exports = {
     //  pointer to the function with the name of 'getSignup'
     getLogin: getLogin,
     login: login,
+    logout: logout,
     getAboutUs: getAboutUs
 }

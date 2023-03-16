@@ -85,6 +85,10 @@ main {
     transition: 300ms;
 }
 
+#admin-profile {
+    color: var(--color-secundary-300);
+}
+
 #mobile-menu-btn {
     display: flex;
     flex-direction: column;

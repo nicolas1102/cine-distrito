@@ -1,0 +1,49 @@
+<!-- inlcuding the shared code head -->
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/auth.css">
+</head>
+
+<body>
+<main>
+    <h1>CLIENT PROFILE</h1>
+    <form action="/uploadClient?_csrf=<%= locals.csrfToken %>" method="POST"
+        enctype="multipart/form-data">
+        <!-- object, so we can verify the csrf token when the form is send-->
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+        <div class="container-column-space">
+            <div id="image-upload-control">
+                <p>
+                    <label for="imageName">User Image <span>(*)</span></label>
+                    <input type="file" name="imageName" id="imageName" accept="image/*" required>
+                </p>
+                <img id="image-preview" src="" alt="Your picked image.">
+            </div>
+            <div id="submit-container">
+                <button class="btn">Upload Profile</button>
+                <a class="btn btn-alt">Cancel</a>
+            </div>
+        </div>
+        <div id="information-user">
+            <p>
+                <label for="email">Email <span>(*)</span></label>
+                <input type="email" id="email" name="email" value="<%= client.email %>"
+                    required>
+            </p>
+            <p>
+                <label for="password">Password <span>(*)</span></label>
+                <input type="password" id="password" name="password" minlength="6"
+                    value="<%= client.password %>" required>
+            </p>
+            <p>
+                <label for="name">Full Name <span>(*)</span></label>
+                <input type="" id="name" name="name" value="<%= client.name %>" required>
+            </p>
+            <p>
+                <label for="identification">Identification Card <span>(*)</span></label>
+                <input type="text" id="identification" name="identification"
+                    value="<%= client.identification %>" required>
+            </p>
+        </div>
+
+    </form>
+</main>

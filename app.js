@@ -61,7 +61,7 @@ app.use(checkAuthStatusMiddleware);
 app.use(protectRoutesMiddleware);
 // we merge the routes of the authentication to our app
 app.use(userRoutes);
-app.use(clientRoutes);
+app.use('/client', clientRoutes);
 // we filter the path
 app.use('/admin', adminRoutes);
 
