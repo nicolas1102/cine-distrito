@@ -1,35 +1,36 @@
 <!-- saving the token in the path -->
-<form action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
-    <p>
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" value="<%= movie.title %>" require>
-    </p>
-    <p>
-        <label for="description">Description</label>
-        <textarea name="description" id="description" rows="4" require><%= movie.description %></textarea>
-    </p>
-    <p>
-        <label for="duration">Duration <span>(Minutes)</span></label>
-        <input type="number" min="1" step="1" name="duration" id="duration" value="<%= movie.duration %>" require>
-    </p>
-    <p>
-        <label for="genre">Genre</label>
-        <input type="text" name="genre" id="genre" value="<%= movie.genre %>" require>
-    </p>
-
-    <div id="image-upload-control">
+<form action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data" class="form">
+    <div id="information-user">
         <p>
-            <label for="imageName">Image</label>
-            <input type="file" name="imageName" id="imageName" accept="image/*" <% if(imageRequire){%>require<% } %>>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" value="<%= movie.title %>" require>
         </p>
-        <img src="" alt="Selected Image.">
+        <p>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" rows="4" require><%= movie.description %></textarea>
+        </p>
+        <p>
+            <label for="duration">Duration <span>(Minutes)</span></label>
+            <input type="number" min="1" step="1" name="duration" id="duration" value="<%= movie.duration %>" require>
+        </p>
+        <p>
+            <label for="genre">Genre</label>
+            <input type="text" name="genre" id="genre" value="<%= movie.genre %>" require>
+        </p>
     </div>
 
-    <p>
-
-    </p>
-    <p>
-        <button type="reset" class="btn btn-alt">Reset</button>
-        <button class="btn">Save</button>
-    </p>
+    <div class="container-column-space">
+        <div id="image-upload-control">
+            <p>
+                <label for="imageName">Image</label>
+                <input type="file" name="imageName" id="imageName" accept="image/*" <% if(imageRequire){%>require<% } %>
+                    >
+            </p>
+            <img src="" alt="Selected Image.">
+        </div>
+        <p>
+            <button type="reset" class="btn btn-alt">Reset</button>
+            <button class="btn">Save</button>
+        </p>
+    </div>
 </form>

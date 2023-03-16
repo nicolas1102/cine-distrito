@@ -12,6 +12,9 @@ const validation = require('../util/validation');
 // to save user entered input data
 const sessionFlash = require('../util/session-flash');
 
+function get(req, res) {
+    res.redirect('/home');
+}
 
 async function getPrincipalPage(req, res) {
     try {
@@ -104,11 +107,12 @@ function logout(req, res) {
 }
 
 
-function getAbout (req, res) {
+function getAbout(req, res) {
 
 }
 
 module.exports = {
+    get: get,
     getPrincipalPage: getPrincipalPage,
     //  pointer to the function with the name of 'getSignup'
     getLogin: getLogin,

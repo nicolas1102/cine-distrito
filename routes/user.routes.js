@@ -5,6 +5,8 @@ const clientController = require('../controllers/client.controller');
 
 const router = express.Router();
 
+router.get('/', userController.get);
+
 router.get('/home', userController.getPrincipalPage);
 
 router.get('/signup', clientController.getSignup);

@@ -10,7 +10,7 @@ textarea {
     font: inherit;
     padding: var(--space-2);
     border-radius: var(--border-radius-small);
-    border: 1px solid var(--color-primary-700);
+    border: 2px solid var(--color-gray-700);
     width: 100%;
     background-color: var(--color-gray-50);
     color: var(--color-gray-800);
@@ -42,7 +42,7 @@ span {
     margin: 0.5rem auto 1.5rem auto;
     object-fit: cover;
     border-radius: var(--border-radius-small);
-    border: solid 1px var(--color-primary-700);
+    border: solid 2px var(--color-gray-700);
 }
 
 
