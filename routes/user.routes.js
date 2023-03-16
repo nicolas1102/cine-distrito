@@ -8,7 +8,13 @@ const router = express.Router();
 
 router.get('/', userController.get);
 
-router.get('/home', userController.getPrincipalPage);
+router.get('/home', userController.getHome);
+
+
+
+router.get('/signup', userController.getSignup);
+
+router.post('/signup', userController.signup);
 
 
 
@@ -18,11 +24,10 @@ router.post('/login', userController.login);
 
 
 
-router.post('/logout', userController.logout);
 
 
 
-router.get('/about', userController.getAbout);
+router.get('/about-us', userController.getAboutUs);
 
 
 

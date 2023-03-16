@@ -1,14 +1,5 @@
 // for encrypt the password
 const bcrypt = require('bcryptjs');
-const uuid = require('uuid').v4;
-
-// importing the database
-const db = require('../data/database');
-
-const mongodb = require('mongodb');
-const Movie = require('./movie.model');
-// for using the ids of the mongodb database
-const ObjectId = mongodb.ObjectId;
 
 class User {
     // REMEMBER THE IMAGEPATH

@@ -4,10 +4,6 @@ const bcrypt = require('bcryptjs');
 // importing the database
 const db = require('../data/database');
 
-const mongodb = require('mongodb');
-// for using the ids of the mongodb database
-const ObjectId = mongodb.ObjectId;
-
 const User = require('./user.model');
 
 class Employee extends User {

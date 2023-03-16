@@ -4,9 +4,10 @@ const clientController = require('../controllers/client.controller');
 
 const router = express.Router();
 
-router.get('/signup', clientController.getSignup);
 
-router.post('/signup', clientController.signup);
+
+router.post('/logout', clientController.logout);
+
 
 
 module.exports = router;

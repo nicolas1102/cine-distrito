@@ -12,7 +12,7 @@
                     <h1 data-value="LOGIN">LOGIN</h1>
                     <% if (inputData.errorMessage) { %>
                         <section class="alert">
-                            <h2>Invalid Credentials</h2>
+                            <h2><%= inputData.title %></h2>
                             <p><%= inputData.errorMessage %></p>
                         </section>
                         <% } %>

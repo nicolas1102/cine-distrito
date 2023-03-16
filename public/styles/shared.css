@@ -1,5 +1,5 @@
 * {
-    /* wmake sure the width of all elementes is exactly what we set it */
+    /* make sure the width of all elementes is exactly what we set it */
     box-sizing: border-box;
 }
 
@@ -18,17 +18,6 @@ html {
     --color-gray-700: rgb(33, 33, 33);
     --color-gray-800: rgb(17, 17, 17);
 
-    /* --color-primary-50: rgb(229, 216, 253);
-    --color-primary-100: rgb(210, 188, 254);
-    --color-primary-200: rgb(183, 153, 243);
-    --color-primary-300: rgb(173, 136, 247);
-    --color-primary-400: rgb(163, 116, 255);
-    --color-primary-500: rgb(103, 61, 188);
-    --color-primary-600: rgb(77, 40, 138);
-    --color-primary-700: rgb(47, 26, 88);
-    --color-primary-800: rgb(21, 12, 39);
-    --color-primary-900: rgb(12, 6, 24); */
-
     --color-primary-50: rgb(240, 149, 149);
     --color-primary-100: rgb(221, 122, 122);
     --color-primary-200: rgb(208, 90, 90);
@@ -39,12 +28,6 @@ html {
     --color-primary-700: rgb(84, 6, 6);
     --color-primary-800: rgb(68, 5, 5);
     --color-primary-900: rgb(43, 3, 3);
-
-    /* --color-secundary-200: rgb(155, 255, 238);
-    --color-secundary-300: rgb(115, 253, 230);
-    --color-secundary-400: rgb(81, 251, 222);
-    --color-secundary-600: rgb(35, 200, 172);
-    --color-secundary-800: rgb(15, 150, 128); */
 
     --color-secundary-100: rgb(192, 166, 231);
     --color-secundary-200: rgb(162, 133, 206);
@@ -244,6 +227,8 @@ a {
     background-color: var(--color-error-100);
     color: var(--color-error-500);
     padding: var(--space-4);
+    text-align: center;
+    margin: 0 20rem;
 }
 
 .alert h2 {

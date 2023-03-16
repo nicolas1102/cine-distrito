@@ -9,13 +9,14 @@ function userCredentialsAreValid(email, password) {
         password.trim().length >= 6;
 }
 
-function clientDetailsAreValid(email, password, name, identification) {
+function clientDetailsAreValid(email, password, name, identification, imageName) {
     // trim eleminates the blanks of a string
     return (
         userCredentialsAreValid(email, password) &&
         !isEmpty(name) &&
         !isEmpty(identification) &&
-        identification.trim().length === 10
+        identification.trim().length === 10 &&
+        !isEmpty(imageName)
     );
 }
 

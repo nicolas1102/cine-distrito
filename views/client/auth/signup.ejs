@@ -13,7 +13,7 @@
                     <!-- if in the input data exist an error message, show it -->
                     <% if (inputData.errorMessage) { %>
                         <section class="alert">
-                            <h2>Invalid Input</h2>
+                            <h2><%= inputData.title %></h2>
                             <p><%= inputData.errorMessage %></p>
                         </section>
                         <% } %>
@@ -22,36 +22,36 @@
                         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                         <div id="information-user">
                             <p>
-                                <label for="email">Email</label>
+                                <label for="email">Email <span>(*)</span></label>
                                 <input type="email" id="email" name="email" value="<%= inputData.email %>" required>
                             </p>
                             <p>
-                                <label for="confirm-email">Confirm Email</label>
+                                <label for="confirm-email">Confirm Email <span>(*)</span></label>
                                 <input type="email" id="confirm-email" name="confirm-email" value="<%= inputData.confirmEmail %>" required>
                             </p>
                             <p>
-                                <label for="password">Password</label>
+                                <label for="password">Password <span>(*)</span></label>
                                 <input type="password" id="password" name="password" minlength="6" value="<%= inputData.password %>" required>
                             </p>
                             <p>
-                                <label for="confirm-password">Confirm Password</label>
+                                <label for="confirm-password">Confirm Password <span>(*)</span></label>
                                 <input type="password" id="confirm-password" name="confirm-password" minlength="6"
                                     value="<%= inputData.confirmPassword %>" required>
                             </p>
                             <p>
-                                <label for="name">Full Name</label>
+                                <label for="name">Full Name <span>(*)</span></label>
                                 <input type="" id="name" name="name" value="<%= inputData.name %>" required>
                             </p>
                             <p>
-                                <label for="identification">Identification Card</label>
+                                <label for="identification">Identification Card <span>(*)</span></label>
                                 <input type="text" id="identification" name="identification" value="<%= inputData.identification %>" required>
                             </p>
                         </div>
                         <div class="container-column-space">
                             <div id="image-upload-control">
                                 <p>
-                                    <label for="imageName">User image</label>
-                                    <input type="file" name="imageName" id="imageName" accept="image/*" require>
+                                    <label for="imageName">User image <span>(*)</span></label>
+                                    <input type="file" name="imageName" id="imageName" accept="image/*" required>
                                 </p>
                                 <img id="image-preview" src="data/users/images/default.jpg" alt="Your picked image.">
                             </div>
