@@ -1,5 +1,7 @@
 const Movie = require('../models/movie.model');
 
+const fs = require('fs');
+
 function getAdminMenu(req, res) {
     res.render('admin/admin-menu');
 }
@@ -66,8 +68,6 @@ function getNewMovie(req, res) {
 }
 
 async function createNewMovie(req, res) {
-    // console.log(req.body);
-    // console.log(req.file);
     let imageNameTemp;
     if (req.file === undefined) {
         imageNameTemp = '';
@@ -112,6 +112,17 @@ async function updateMovie(req, res, next) {
 
     //  just if the admin provides a new image for the movie we change it
     if (req.file) {
+        //  we search the database the movie we are uploading, so we can delete the old movie image
+        const movieAux = await Movie.findById(req.params.id);
+        // we delete the old movie image of the storage
+        fs.unlink(movieAux.imagePath, (error) => {
+            if (error) {
+                console.log("The old movie image could not be deleted.");
+                console.log(error);
+            }
+            console.log("Delete File successfully.");
+        });
+
         // replace the old image with the new one
         movie.replaceImage(req.file.filename);
     }
@@ -135,9 +146,9 @@ async function deleteMovie(req, res, next) {
         console.log(error);
         return next(error);
     }
-    
+
     // we are using AJAX, so we dont need to redirect to anywhere, just responses something
-    res.json({message: 'Deleted movie!'});
+    res.json({ message: 'Deleted movie!' });
     // res.redirect('/admin/movies');
 }
 
