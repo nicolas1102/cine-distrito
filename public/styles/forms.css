@@ -45,6 +45,10 @@ span {
     border: solid 2px var(--color-gray-700);
 }
 
+#image-upload-control .not-hide{
+    display: block;
+}
+
 
 .container-column-space #image-upload-control {
     flex-direction: column;

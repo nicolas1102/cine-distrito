@@ -10,7 +10,7 @@ const mongodb = require('mongodb');
 
 class Client extends User {
 
-    constructor (email, password, name, identification, imageName, id) {
+    constructor(email, password, name, identification, imageName, id) {
         super(email, password, name, identification, imageName, id);
         this.points = 0;
     }

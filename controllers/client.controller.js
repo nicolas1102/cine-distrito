@@ -8,12 +8,30 @@ const validation = require('../util/validation');
 // to save user entered input data
 const sessionFlash = require('../util/session-flash');
 
-async function getProfile(req, res, next) {    
-    let client;
-    try {
-        client = await Client.findById(req.session.userid);
+async function getProfile(req, res, next) {  
 
-        res.render('client/profile', {client: client});
+    // we get the session data saved
+    let sessionData = sessionFlash.getSessionData(req);
+
+    // if there's no session data saved we define the default data
+    if (!sessionData) {
+        // default data
+        sessionData = {
+            email: '',
+            confirmEmail: '',
+            password: '',
+            confirmPassword: '',
+            name: '',
+            identification: '',
+            imageName: '',
+        }
+    }
+
+    let clnt;
+    try {
+        clnt = await Client.findById(req.session.userid);
+
+        res.render('client/profile', {inputData: sessionData, clnt: clnt});
     } catch (error) {
         console.log(error);
         next(error);
