@@ -8,8 +8,8 @@ const User = require('./user.model');
 
 class Employee extends User {
 
-    constructor(email, password, name, identification, imageName, role, phoneNumber, contractStartDate, salary, multiplex) {
-        super(email, password, name, identification, imageName);
+    constructor(email, password, name, identification, imageName, role, phoneNumber, contractStartDate, salary, multiplex, id) {
+        super(email, password, name, identification, imageName, id);
         this.role = role;
         this.phoneNumber = phoneNumber;
         this.contractStartDate = contractStartDate;

@@ -11,11 +11,26 @@
     <% if (locals.role === 'admin') { %>
         <li><a href="/admin/">Admin Menu</a></li>
         <li><a href="/admin/movies">Manage Movies</a></li>
+        <li id="profile-nav-item">
+            <p class="profile-image-container">
+                <img src="<%= locals.imageUrl %>" alt="">
+            </p>
+            <a href="/admin/profile"><%= locals.name %></a>
+        </li>
     <% } %>
 
     <% if (!locals.isAuth) { %>
         <li><a href="/signup">Signup</a></li>
         <li><a href="/login">Login</a></li>
+    <% } %>
+
+    <% if (locals.role === 'client') { %>
+        <li id="profile-nav-item">
+            <p class="profile-image-container">
+                <img src="<%= locals.imageUrl %>" alt="">
+            </p>
+            <a href="/client/profile"><%= locals.name %></a>
+        </li>
     <% } %>
 
     <!-- just if the user is authenticated, this is shown -->

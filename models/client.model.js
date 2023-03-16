@@ -8,8 +8,8 @@ const User = require('./user.model');
 
 class Client extends User {
 
-    constructor (email, password, name, identification, imageName) {
-        super(email, password, name, identification, imageName);
+    constructor (email, password, name, identification, imageName, id) {
+        super(email, password, name, identification, imageName, id);
         this.points = 0;
     }
 
@@ -32,8 +32,8 @@ class Client extends User {
             imageName: this.imageName,
             points: this.points,
         });
-        
     }
+
 }
 
 module.exports = Client;

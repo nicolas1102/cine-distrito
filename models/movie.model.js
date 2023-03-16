@@ -18,16 +18,7 @@ class Movie {
         this.imageName = movieData.imageName;
         this.updateImageData();
 
-        // control de imagen por default (en fase de prueba)
-        // if (this.imageName === '') {
-        //     this.imageName = 'default/movie-default.jpg';
-        //     this.imagePath = `public-data/images/${this.imageName}`;
-        //     this.imageUrl = `/data/assets/images/${this.imageName}`;
-        // } else {
-        //     this.imagePath = `public-data/images/${movieData.imageName}`;
-        //     this.imageUrl = `/data/assets/images/${movieData.imageName}`;
-        // }
-
+        // si lo que se está haciendo no es crear un nuevo objeto para la base de datos, sino solo es para usarlo en codigo; transformamos el objectid que obtenemos de la base de datos a string
         if (movieData._id) {
             this.id = movieData._id.toString();
         }

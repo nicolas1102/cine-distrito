@@ -68,12 +68,7 @@ function getNewMovie(req, res) {
 }
 
 async function createNewMovie(req, res) {
-    let imageNameTemp;
-    if (req.file === undefined) {
-        imageNameTemp = '';
-    } else {
-        imageNameTemp = req.file.filename;
-    }
+    let imageNameTemp = req.file.filename;
 
     const product = new Movie({
         ...req.body,

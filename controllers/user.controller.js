@@ -59,7 +59,7 @@ async function signup(req, res, next) {
         confirmPassword: req.body['confirm-password'],
         name: req.body.name,
         identification: req.body.identification,
-        imageName: req.body.imageName,
+        imageName: req.file.filename,
     }
 
     // we access of the data of the form sent and we make a data validation
@@ -69,7 +69,7 @@ async function signup(req, res, next) {
             req.body.password,
             req.body.name,
             req.body.identification,
-            req.body.imageName
+            req.file.filename
         ) ||
         !validation.emailIsConfirmed(
             req.body.email,
@@ -103,7 +103,7 @@ async function signup(req, res, next) {
         req.body.password,
         req.body.name,
         req.body.identification,
-        req.body.imageName,
+        req.file.filename,
     );
 
     // implementing our own error handling
@@ -222,11 +222,33 @@ async function login(req, res, next) {
 
     // setting default user role 
     if (existingUser.role === undefined) {
+        existingUser = new Client(
+            existingUser.email,
+            existingUser.password,
+            existingUser.name,
+            existingUser.identification,
+            existingUser.imageName,
+            existingUser._id,
+        );
         existingUser.role = 'client';
+    } else {
+        existingUser = new Employee(
+            existingUser.email,
+            existingUser.password,
+            existingUser.name,
+            existingUser.identification,
+            existingUser.imageName,
+            existingUser.role,
+            existingUser.phoneNumber,
+            existingUser.contractStartDate,
+            existingUser.salary,
+            existingUser.multiplex,
+            existingUser._id,
+        );
     }
-    console.log(existingUser.role);
+    console.log('User Role: ' + existingUser.role);
 
-    // we trate the user has loged in; the function is executed one the session is saved
+    // we trate the user as logged in; the function is executed one the session is saved
     authUtil.createUserSession(req, existingUser, function () {
         res.redirect('/home');
     });

@@ -9,22 +9,18 @@ class User {
         this.name = name;
         this.identification = identification;
         this.imageName = imageName;
-        // control de imagen por default (en fase de prueba)
-        if (this.imageName === '') {
-            this.imageName = 'default/user-default.jpg';
-            this.imagePath = `public-data/images/default/${this.imageName}`;
-        } else {
-            this.imagePath = `public-data/images/${this.imageName}`;
-        }
-        // this.imageUrl = `/users/assets/images/${imageName}`;
-        this.imageUrl = `/data/assets/users/images/${this.imageName}`;
+        this.updateImageData();
 
-        // si lo que se está haciendo no es crear un nuevo usuario para la base de datos, sino solo para usarlo en codigo
+        // si lo que se está haciendo no es crear un nuevo usuario para la base de datos, sino solo para usarlo en codigo; transformamos el objectid que obtenemos de la base de datos a string
         if (id) {
-            // this.id = id.toString();
-            this.id = id;
+            this.id = id.toString();
         }
 
+    }
+
+    updateImageData() {
+        this.imagePath = `public-data/images/${this.imageName}`;
+        this.imageUrl = `/data/assets/images/${this.imageName}`;
     }
 
     // we check if the user with the user is trying to sign up is created already

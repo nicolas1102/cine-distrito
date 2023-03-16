@@ -2,6 +2,8 @@ const express = require('express');
 
 const userController = require('../controllers/user.controller');
 
+const imageUploadMiddleware = require('../middlewares/image-upload');
+
 const router = express.Router();
 
 
@@ -14,7 +16,7 @@ router.get('/home', userController.getHome);
 
 router.get('/signup', userController.getSignup);
 
-router.post('/signup', userController.signup);
+router.post('/signup', imageUploadMiddleware, userController.signup);
 
 
 

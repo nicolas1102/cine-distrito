@@ -17,7 +17,7 @@
                             <p><%= inputData.errorMessage %></p>
                         </section>
                         <% } %>
-                    <form action="/signup" method="POST">
+                    <form action="/signup?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
                         <!-- object, so we can verify the csrf token when the form is send-->
                         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                         <div id="information-user">
@@ -50,7 +50,7 @@
                         <div class="container-column-space">
                             <div id="image-upload-control">
                                 <p>
-                                    <label for="imageName">User image <span>(*)</span></label>
+                                    <label for="imageName">User Image <span>(*)</span></label>
                                     <input type="file" name="imageName" id="imageName" accept="image/*" required>
                                 </p>
                                 <img id="image-preview" src="data/users/images/default.jpg" alt="Your picked image.">
