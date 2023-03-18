@@ -30,9 +30,7 @@ router.post('/logout', userController.logout);
 
 
 
-
 router.get('/about-us', userController.getAboutUs);
-
 
 
 

@@ -2,45 +2,72 @@
   "_id": {
     "$oid": "640ea7dd930381434551c016"
   },
-  "title": "Avengers: Endgame",
-  "description": "After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance.",
-  "duration": 183,
-  "genre": "Action, Heroes",
-  "imageName": "9cdeeb0e-d671-45bb-b165-6020d1806ea3-avengers.png"
+  "title": "Creed III",
+  "description": "After dominating the boxing world, Adonis Creed (Michael B. Jordan) has been thriving in both his career and family life. When a childhood friend and former boxing prodigy, Damian (Jonathan Majors), resurfaces after serving a long sentence in prison, he is eager to prove that he deserves his shot in the ring. The face off between former friends is more than just a fight. To settle the score, Adonis must put his future on the line to battle Damian – a fighter who has nothing to lose.",
+  "duration": 117,
+  "genre": "Drama",
+  "imageName": "27aaf79f-aa83-41b2-9c9d-fa265029de90-creed-3.jpg"
 },{
   "_id": {
     "$oid": "640fc3189e15ff9780963b9d"
   },
-  "title": "Zack Snyder's Justice League",
-  "description": "Bruce Wayne and Diana Prince try to bring the metahumans of Earth together after the death of Clark Kent. Meanwhile, Darkseid sends Steppenwolf to Earth with a vast army to subjugate humans.",
-  "duration": 244,
-  "genre": "Action, Heroes",
-  "imageName": "0828a63d-b829-4008-88f5-b175da07e3f5-jl.png"
+  "title": "Scream VI",
+  "description": "Following the latest Ghostface killings, the four survivors leave Woodsboro behind and start a fresh chapter.",
+  "duration": 122,
+  "genre": "Horror",
+  "imageName": "de5a99d9-dc06-4e72-b2d8-41933f805228-scream-5.jpg"
 },{
   "_id": {
     "$oid": "640ff898064f48c53e443d7f"
   },
-  "title": "About Time",
-  "description": "Like all the men in his family, Tim Lake possesses the power to travel in time. With the advice of his father, he uses his special ability to pursue his romantic interest, Mary.",
-  "duration": 123,
-  "genre": "Romance",
-  "imageName": "b7db3120-28be-44ee-9a09-69d94991e6fa-about-time.jpg"
+  "title": "Ant-Man and the Wasp: Quantumania",
+  "description": "Super-Hero partners Scott Lang (Paul Rudd) and Hope van Dyne (Evangeline Lilly) return to continue their adventures as Ant-Man and the Wasp. Together, with Hope's parents Janet van Dyne (Michelle Pfeiffer) and Hank Pym (Michael Douglas), and Scott's daughter Cassie Lang (Kathryn Newton), the family finds themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought possible. Directed by Peyton Reed and produced by Kevin Feige and Stephen Broussard, \"Ant-Man and the Wasp: Quantumania\" also stars Jonathan Majors as Kang, David Dastmalchian as Veb, Katy O'Brian as Jentorra, William Jackson Harper as Quaz and Bill Murray as Lord Krylar. The sci-fi adventure opens in theaters on Feb. 17, 2023.",
+  "duration": 121,
+  "genre": "Action, Adventure, Science Fiction",
+  "imageName": "560eb710-0a96-484f-8cb1-a92c08ac0397-antman.jpg"
 },{
   "_id": {
     "$oid": "640ff8d8064f48c53e443d80"
   },
-  "title": "Interestellar",
-  "description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
-  "duration": 169,
-  "genre": "Science Fiction",
-  "imageName": "7b12323d-30e2-46c2-ad95-bb40ac466669-interstellar.jpg"
+  "title": "Avatar: The Way of Water",
+  "description": "Set more than a decade after the events of the first film, “Avatar The Way of Water” begins to tell the story of the Sully family (Jake, Neytiri and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive and the tragedies they endure",
+  "duration": 192,
+  "genre": "Science Fiction, Adventure, Fantasy, Action",
+  "imageName": "ab5f77ce-6721-4a0e-ad53-85e2afbacf7c-avatar.jpg"
 },{
   "_id": {
     "$oid": "640ff947064f48c53e443d81"
   },
-  "title": "Spider-Man: No Way Home",
-  "description": "Spider-Man seeks the help of Doctor Strange to forget his exposed secret identity as Peter Parker. However, Strange's spell goes horribly wrong, leading to unwanted guests entering their universe.",
-  "duration": 148,
-  "genre": "Action, Heroes",
-  "imageName": "216f294f-1606-4991-afbb-6203bd74e1d7-spiderman.jpg"
+  "title": "Everything Everywhere All At Once",
+  "description": "\"Everything Everywhere All at Once\" is a hilarious and big-hearted sci-fi action adventure about an exhausted Chinese American woman (Michelle Yeoh) who can't seem to finish her taxes.",
+  "duration": 149,
+  "genre": "Action, Comedy, Drama",
+  "imageName": "9ee1aca1-3f84-4dd0-8bd8-cf72c8b0375b-etewao.jpg"
+},{
+  "_id": {
+    "$oid": "6412904f4c3e0a23f5491a5e"
+  },
+  "title": "Test Movie",
+  "description": "Test Movie",
+  "duration": 12,
+  "genre": "test",
+  "imageName": "0c577120-33df-4ba5-9dfe-d55715c52363-interstellar.jpg"
+},{
+  "_id": {
+    "$oid": "64153debb32d5861b122efe3"
+  },
+  "title": "65",
+  "description": "After a catastrophic crash on an unknown planet, pilot Mills (Adam Driver) quickly discovers he’s actually stranded on Earth…65 million years ago. Now, with only one chance at rescue, Mills and the only other survivor, Koa (Ariana Greenblatt), must make their way across an unknown terrain riddled with dangerous prehistoric creatures in an epic fight to survive. ",
+  "duration": 93,
+  "genre": "Science Fiction, Thriller, Action",
+  "imageName": "14661974-7286-4c59-b4a9-c81aebc2c091-65.jpg"
+},{
+  "_id": {
+    "$oid": "64153e26b32d5861b122efe4"
+  },
+  "title": "Shazam! Fury of the Gods",
+  "description": "The film continues the story of teenage Billy Batson who, upon reciting the magic word \"SHAZAM!\" is transformed into his adult Super Hero alter ego, Shazam.",
+  "duration": 131,
+  "genre": "Fantasy, Adventure, Action",
+  "imageName": "cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg"
 }]

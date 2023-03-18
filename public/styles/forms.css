@@ -27,7 +27,7 @@ span {
     /* flex-direction: column; */
     align-items: flex-start;
     justify-content: left;
-    height: 10rem;
+    height: 16rem;
     margin-bottom: 2rem;
 }
 
@@ -49,6 +49,10 @@ span {
     display: block;
 }
 
+#image-preview{
+    width: 10rem;
+    height: 10rem;
+}
 
 .container-column-space #image-upload-control {
     flex-direction: column;

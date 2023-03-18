@@ -128,7 +128,7 @@ async function signup(req, res, next) {
         }
 
         // we sign up the user once he passes the validations
-        await client.signup();
+        await client.save();
     } catch (error) {
         console.log(error);
         next(error);
@@ -258,7 +258,7 @@ async function login(req, res, next) {
 function logout(req, res) {
     authUtil.destroyUserAuthSession(req);
     // after logout, we want to redirect the user to...
-    res.redirect('/home');
+    res.redirect('/login');
 }
 
 
