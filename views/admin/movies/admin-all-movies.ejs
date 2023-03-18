@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <% movies.forEach(movie => { %>
+                            <% movies.slice().reverse().forEach(movie => { %>
                                 <li>
                                     <%- include('../../shared/includes/movie-item',{movie: movie}) %>
                                 </li>

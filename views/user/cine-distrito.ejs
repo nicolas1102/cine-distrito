@@ -11,7 +11,7 @@
                     <section id="movies-section">
                         <h2 class="section-title">Movies</h2>
                         <ul id="movies-grid">
-                            <% movies.forEach(movie=> { %>
+                            <% movies.slice().reverse().forEach(movie=> { %>
                                 <li>
                                     <%- include('../shared/includes/movie-item',{movie: movie}) %>
                                 </li>
