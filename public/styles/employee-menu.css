@@ -1,0 +1,63 @@
+main{
+    max-width: 60rem;
+    margin-bottom: 5rem;
+}
+
+#employee-options-list {
+    margin: var(--space-8) auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
+    gap: 2rem;
+}
+
+.employe-option-item {
+    background-color: rgba(100, 100, 100, 0.3);
+    backdrop-filter: blur(var(--backdrop-filter-0));
+    border-radius: var(--border-radius-large);
+    border: 2px solid var(--color-gray-700);
+    transition: 300ms;
+    height: auto;
+}
+
+.employe-option-item:hover {
+    background-color: rgba(100, 100, 100, 0.604);
+    border: 2px solid var(--color-secundary-600);
+}
+
+.employe-option-item:hover .icon-container svg {
+    scale: 1;
+}
+
+.employe-option-item a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-container{
+    width: 14rem;
+    height: 10rem;
+    overflow: hidden;
+    margin: 1rem;
+}
+
+.icon-container svg {
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+    scale: 0.9;
+}
+
+h3 {
+    margin: 0;
+}
+
+p {
+    margin: var(--space-2) 0;
+}
+
+#employee-options-list h3,
+#employee-options-list p {
+    color: var(--color-gray-700);
+}

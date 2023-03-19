@@ -13,6 +13,7 @@
 
 .movie-item {
     transition: 500ms;
+    z-index: 0;
 }
 
 .movie-item a {

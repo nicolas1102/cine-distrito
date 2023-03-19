@@ -22,9 +22,9 @@ router.get('/', adminController.getAdminMenu);
 
 
 
-// router.get('/products', adminController.getProducts);
+router.get('/products', adminController.getProducts);
 
-// router.get('/products/new', adminController.getNewProduct);
+router.get('/products/new', adminController.getNewProduct);
 
 
 
