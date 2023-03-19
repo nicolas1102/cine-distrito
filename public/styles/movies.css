@@ -110,6 +110,7 @@
     padding: 0.5rem 0.75rem;
     background-color: var(--color-secundary-300);
     transition: 500ms;
+    border-color: var(--color-gray-700);
 }
 
 .btn:hover {
@@ -126,6 +127,7 @@
 .btn-alt:hover {
     background-color: rgb(255, 0, 0);
     transition: 500ms;
+    border-color: var(--color-gray-50);
 }
 
 svg {

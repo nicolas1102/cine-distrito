@@ -242,7 +242,7 @@ async function login(req, res, next) {
             existingUser.phoneNumber,
             existingUser.contractStartDate,
             existingUser.salary,
-            existingUser.multiplex,
+            existingUser.theater,
             existingUser._id,
         );
     }

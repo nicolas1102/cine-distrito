@@ -123,7 +123,7 @@ body {
 
 #blob {
     background-color: black;
-    height: 40vmax;
+    height: 35vmax;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
@@ -131,7 +131,7 @@ body {
     translate: calc(-50% + 5.5rem) -50%;
     border-radius: 50%;
     /* background: linear-gradient(to right, rgb(45, 90, 75), rgb(57, 44, 84)); */
-    background: linear-gradient(to right, var(--color-secundary-200), var(--color-primary-400));
+    background: linear-gradient(to right, var(--color-secundary-100), var(--color-primary-100));
     /* background: radial-gradient(circle, aquamarine 0%, rgb(102, 30, 248) 100%); */
     animation: rotate 12s infinite;
     opacity: 0.8;

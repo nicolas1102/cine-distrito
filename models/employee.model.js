@@ -8,13 +8,13 @@ const User = require('./user.model');
 
 class Employee extends User {
 
-    constructor(email, password, name, identification, imageName, role, phoneNumber, contractStartDate, salary, multiplex, id) {
+    constructor(email, password, name, identification, imageName, role, phoneNumber, contractStartDate, salary, theater, id) {
         super(email, password, name, identification, imageName, id);
         this.role = role;
         this.phoneNumber = phoneNumber;
         this.contractStartDate = contractStartDate;
         this.salary = salary;
-        this.multiplex = multiplex;
+        this.theater = theater;
     }
 
     getUserWithSameEmail() {
@@ -38,7 +38,7 @@ class Employee extends User {
             phoneNumber: this.phoneNumber,
             contractStartDate: this.contractStartDate,
             salary: this.salary,
-            multiplex: this.multiplex,
+            theater: this.theater,
         });
 
     }

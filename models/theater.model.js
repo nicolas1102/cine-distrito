@@ -2,7 +2,7 @@ const mongodb = require('mongodb');
 
 const db = require('../data/database');
 
-class Multiplex{
+class Theater{
 
     constructor () {
     }
@@ -12,4 +12,4 @@ class Multiplex{
     
 }
 
-module.exports = Multiplex;
+module.exports = Theater;

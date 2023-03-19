@@ -169,12 +169,12 @@ function getNewShow(req, res) {
 
 
 
-function getMultiplexes(req, res) {
-    res.render('admin/multiplexes/all-multiplexes');
+function getTheaters(req, res) {
+    res.render('admin/theaters/all-theaters');
 }
 
-function getNewMultiplex(req, res) {
-    res.render('admin/multiplexes/new-multiplex');
+function getNewTheater(req, res) {
+    res.render('admin/theaters/new-theater');
 }
 
 
@@ -209,8 +209,8 @@ module.exports = {
     getShows: getShows,
     getNewShow: getNewShow,
 
-    getMultiplexes: getMultiplexes,
-    getNewMultiplex: getNewMultiplex,
+    getTheaters: getTheaters,
+    getNewTheater: getNewTheater,
 }
 
 

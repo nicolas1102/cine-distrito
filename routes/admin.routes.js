@@ -60,9 +60,9 @@ router.delete('/movies/:id', adminController.deleteMovie);
 
 
 
-// router.get('/multiplexes', adminController.getMultiplexes);
+// router.get('/theaters', adminController.getTheaters);
 
-// router.get('/multiplexes/new', adminController.getNewMultiplex);
+// router.get('/theaters/new', adminController.getNewTheater);
 
 
 

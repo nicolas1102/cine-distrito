@@ -9,7 +9,7 @@ await db.getDb().collection('employees').insertOne({
     phoneNumber: '',
     contractStartDate: '',
     salary: '',
-    multiplex: ''
+    theater: ''
 });
 
 {
