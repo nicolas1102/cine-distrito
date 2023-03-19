@@ -103,8 +103,9 @@ async function updateProduct(req, res, next) {
             if (error) {
                 console.log("The old product image could not be deleted.");
                 console.log(error);
+            }else {
+                console.log("Delete File successfully.");
             }
-            console.log("Delete File successfully.");
         });
 
         // replace the old image with the new one
@@ -125,6 +126,19 @@ async function deleteProduct(req, res, next) {
     let product;
     try {
         product = await Product.findById(req.params.id);
+
+        //  we search the database the product we are deleting, so we can delete the old product image
+        const productAux = await Product.findById(req.params.id);
+        // we delete the old product image of the storage
+        fs.unlink(productAux.imagePath, (error) => {
+            if (error) {
+                console.log("The old product image could not be deleted.");
+                console.log(error);
+            }else {
+                console.log("Delete File successfully.");
+            }
+        });
+
         await product.remove();
     } catch (error) {
         console.log(error);
@@ -210,8 +224,9 @@ async function updateMovie(req, res, next) {
             if (error) {
                 console.log("The old movie image could not be deleted.");
                 console.log(error);
+            }else {
+                console.log("Delete File successfully.");
             }
-            console.log("Delete File successfully.");
         });
 
         // replace the old image with the new one
@@ -232,6 +247,19 @@ async function deleteMovie(req, res, next) {
     let movie;
     try {
         movie = await Movie.findById(req.params.id);
+
+        //  we search the database the product we are deleting, so we can delete the old product image
+        const movieAux = await Movie.findById(req.params.id);
+        // we delete the old product image of the storage
+        fs.unlink(movieAux.imagePath, (error) => {
+            if (error) {
+                console.log("The old product image could not be deleted.");
+                console.log(error);
+            }else {
+                console.log("Delete File successfully.");
+            }
+        });
+
         await movie.remove();
     } catch (error) {
         console.log(error);

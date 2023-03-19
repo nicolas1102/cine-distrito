@@ -2,6 +2,7 @@
 <%- include('../shared/includes/head', { pageTitle: 'Cine Distrito' }) %>
     <link rel="stylesheet" href="/styles/movies.css">
     <link rel="stylesheet" href="/styles/cine-distrito.css">
+    <link rel="stylesheet" href="/styles/products.css">
     </head>
 
     <body>
@@ -9,7 +10,7 @@
             <%- include('../shared/includes/blob') %>
                 <main>
                     <section id="movies-section">
-                        <h2 class="section-title">Movies</h2>
+                        <h2 class="section-title">MOVIES</h2>
                         <ul id="movies-grid">
                             <% movies.slice().reverse().forEach(movie=> { %>
                                 <li>
@@ -19,7 +20,14 @@
                         </ul>
                     </section>
                     <section id="snacks-section">
-                        <h2 class="section-title">Snacks</h2>
+                        <h2 class="section-title">SNACKS</h2>
+                        <ul id="products-grid">
+                            <% snacks.slice().reverse().forEach(product=> { %>
+                                <li>
+                                    <%- include('../shared/includes/product-item',{product: product}) %>
+                                </li>
+                                <% }); %>
+                        </ul>
                     </section>
                 </main>
                 <%- include('../shared/includes/footer') %>

@@ -2,6 +2,7 @@
 // const User = require('../models/user.model');
 const Employee = require('../models/employee.model');
 const Client = require('../models/client.model');
+const Product = require('../models/product.model');
 const Movie = require('../models/movie.model');
 
 // to create tell the session the user is logged in
@@ -19,8 +20,8 @@ function get(req, res) {
 async function getHome(req, res) {
     try {
         const movies = await Movie.findAll();
-        // const snacks = await Snack.findAll();
-        res.render('user/cine-distrito', { movies: movies });
+        const snacks = await Product.findAll();
+        res.render('user/cine-distrito', { movies: movies, snacks: snacks });
     } catch (error) {
         console.log(error);
         next(error);

@@ -84,8 +84,9 @@ async function uploadPersonalInfo(req, res, next) {
             if (error) {
                 console.log("The old movie image could not be deleted.");
                 console.log(error);
+            }else {
+                console.log("Delete File successfully.");
             }
-            console.log("Delete File successfully.");
         });
 
         // replace the old image with the new one
@@ -181,6 +182,19 @@ async function deleteClient(req, res, next){
     let clnt;
     try {
         clnt = await Client.findById(req.session.userid);
+
+        //  we search the database the client we are deleting, so we can delete the old client image
+        const clientAux = await Client.findById(req.params.id);
+        // we delete the old product image of the storage
+        fs.unlink(clientAux.imagePath, (error) => {
+            if (error) {
+                console.log("The old client image could not be deleted.");
+                console.log(error);
+            }else {
+                console.log("Delete File successfully.");
+            }
+        });
+
         await clnt.remove();
     }catch(error){
         next(error);
