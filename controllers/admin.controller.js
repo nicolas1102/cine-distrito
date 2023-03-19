@@ -1,9 +1,23 @@
+const Order = require('../models/order.model');
+const Client = require('../models/client.model');
+const Employee = require('../models/employee.model');
+const Product = require('../models/product.model');
+const Snack = require('../models/snack.model');
+const Ticket = require('../models/ticket.model');
+const Show = require('../models/show.model');
 const Movie = require('../models/movie.model');
+const Theater = require('../models/theater.model');
 
 const fs = require('fs');
 
 function getAdminMenu(req, res) {
     res.render('admin/admin-menu');
+}
+
+
+
+function getOrders(req, res) {
+    res.render('admin/clients/all-orders');
 }
 
 
@@ -28,8 +42,15 @@ function getNewEmployee(req, res) {
 
 
 
-function getProducts(req, res) {
-    res.render('admin/products/all-products');
+async function getProducts(req, res) {
+    try {
+        const products = await Product.findAll();
+        res.render('admin/products/admin-all-products', { products: products });
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
 }
 
 function getNewProduct(req, res) {
