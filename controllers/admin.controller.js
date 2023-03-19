@@ -42,7 +42,7 @@ function getNewEmployee(req, res) {
 
 
 
-async function getProducts(req, res) {
+async function getProducts(req, res, next) {
     try {
         const products = await Product.findAll();
         res.render('admin/products/admin-all-products', { products: products });
@@ -57,8 +57,83 @@ function getNewProduct(req, res) {
     res.render('admin/products/new-product');
 }
 
-function createNewProduct() {
+async function createNewProduct(req, res) {
+    let imageNameTemp = req.file.filename;
 
+    const product = new Product({
+        ...req.body,
+        imageName: imageNameTemp,
+    });
+
+    try {
+        await product.save();
+    } catch (error) {
+        next(error);
+        return;
+    }
+
+    res.redirect('/admin/products');
+}
+
+async function getUpdateProduct(req, res, next) {
+    let product;
+    try {
+        // extracting the value we entered in the URL in the admin router
+        product = await Product.findById(req.params.id);
+        // const movie = await Movie.findById(req.params.id);
+        res.render('admin/products/update-product', { product: product });
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
+
+async function updateProduct(req, res, next) {
+    const product = new Product({
+        ...req.body,
+        _id: req.params.id
+    });
+
+    //  just if the admin provides a new image for the product we change it
+    if (req.file) {
+        //  we search the database the product we are uploading, so we can delete the old product image
+        const productAux = await Product.findById(req.params.id);
+        // we delete the old product image of the storage
+        fs.unlink(productAux.imagePath, (error) => {
+            if (error) {
+                console.log("The old product image could not be deleted.");
+                console.log(error);
+            }
+            console.log("Delete File successfully.");
+        });
+
+        // replace the old image with the new one
+        product.replaceImage(req.file.filename);
+    }
+    try {
+        await product.save();
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
+
+    res.redirect('/admin/products');
+}
+
+async function deleteProduct(req, res, next) {
+    let product;
+    try {
+        product = await Product.findById(req.params.id);
+        await product.remove();
+    } catch (error) {
+        console.log(error);
+        return next(error);
+    }
+
+    // we are using AJAX, so we dont need to redirect to anywhere, just responses something
+    res.json({ message: 'Deleted product!' });
+    // res.redirect('/admin/movies');
 }
 
 
@@ -91,13 +166,13 @@ function getNewMovie(req, res) {
 async function createNewMovie(req, res) {
     let imageNameTemp = req.file.filename;
 
-    const product = new Movie({
+    const movie = new Movie({
         ...req.body,
         imageName: imageNameTemp,
     });
 
     try {
-        await product.save();
+        await movie.save();
     } catch (error) {
         next(error);
         return;
@@ -213,6 +288,9 @@ module.exports = {
     getProducts: getProducts,
     getNewProduct: getNewProduct,
     createNewProduct: createNewProduct,
+    getUpdateProduct: getUpdateProduct,
+    updateProduct: updateProduct,
+    deleteProduct: deleteProduct,
 
     getSnacks: getSnacks,
     getNewSnack: getNewSnack,
