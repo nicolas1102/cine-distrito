@@ -38,14 +38,4 @@
   "identification": "1234567890",
   "imageName": "090c1b33-9278-47c4-a466-9017c5e87eb6-santi.png",
   "points": 0
-},{
-  "_id": {
-    "$oid": "6417a2a6bfaed5faa77fef32"
-  },
-  "email": "macricami7@hotmail.com",
-  "password": "$2a$12$ykYxT/tmb2HSRWEuMGwfH.k5AfmzCSde8/Xwxtq3CxFVLpFD47KIm",
-  "name": "Cris Vargas",
-  "identification": "5202289834",
-  "imageName": "e064670e-a254-45d2-bb33-2cb4eb59bf37-Captura de pantalla 2023-03-19 190219.png",
-  "points": 0
 }]

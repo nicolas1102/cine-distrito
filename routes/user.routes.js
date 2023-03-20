@@ -13,6 +13,8 @@ router.get('/', userController.get);
 router.get('/home', userController.getHome);
 
 
+router.get('/movies/:id', userController.getMovieDetails);
+
 
 router.get('/signup', userController.getSignup);
 

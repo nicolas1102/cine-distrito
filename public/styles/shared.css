@@ -4,6 +4,7 @@
 }
 
 html {
+    scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
 
     /* css variables */
@@ -113,7 +114,7 @@ body {
 }
 
 #blob-container {
-    bottom: 5.5rem;
+    top: 5.5rem;
     height: calc(100% - 5.5rem);
     width: 100%;
     position: fixed;
@@ -128,7 +129,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    translate: calc(-50% + 5.5rem) -50%;
+    translate: calc(-50% + 2.0rem) calc(-50% - 2.0rem);
     border-radius: 50%;
     /* background: linear-gradient(to right, rgb(45, 90, 75), rgb(57, 44, 84)); */
     background: linear-gradient(to right, var(--color-secundary-100), var(--color-primary-100));
@@ -227,7 +228,8 @@ a {
     color: var(--color-error-500);
     padding: var(--space-4);
     text-align: center;
-    margin: 0 20rem;
+    width: 30rem;
+    margin: 0 auto;
 }
 
 .alert h2 {

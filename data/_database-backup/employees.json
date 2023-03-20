@@ -2,14 +2,14 @@
   "_id": {
     "$oid": "640cbca8d3e907e405bb28eb"
   },
-  "name": "LOS MAGNIFICOS",
+  "name": "The A-Team",
   "identification": "0000000000",
   "email": "losmagnificos@cinedistrito.com",
-  "password": "$2a$12$TFsnnDJ04r2mjzzy3VIWzuVCq/nCoewFZDYjEXLx/rosQSYo1KA/y",
+  "password": "$2a$12$Y1nv1/NYFhQzRkG8r/Jmhe8wRwilyx6AlsZuElP3fwnE1Hqub51Hi",
   "role": "admin",
-  "phoneNumber": "",
   "contractStartDate": "",
-  "salary": "",
-  "multiplex": "",
-  "imageName": "f2c017d4-bca9-4a91-a570-8066440e6287-los-magnificos.jpg"
+  "salary": "35000000",
+  "imageName": "f2c017d4-bca9-4a91-a570-8066440e6287-los-magnificos.jpg",
+  "theater": "",
+  "phoneNumber": "3238139901"
 }]

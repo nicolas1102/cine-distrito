@@ -1,0 +1,47 @@
+<!-- inlcuding the shared code head -->
+<%- include('../../shared/includes/head', { pageTitle: movie.title + '- Cine Distrito' }) %>
+<link rel="stylesheet" href="/styles/movies.css">
+<script src="/scripts/showtime-selector" defer></script>
+</head>
+<body>
+<%- include('../../shared/includes/header') %>
+<%- include('../../shared/includes/blob') %>
+<main id="movie-details">
+    <div>
+        <div id="image-container">
+            <img src="<%= movie.imageUrl %>" alt="<%= movie.title %>">
+        </div>
+    </div>
+    <div id="movie-info">
+        <h1><%= movie.title %></h1>
+        <p><span>Description: </span><%= movie.description %></p>
+        <div id="showtime-selector">
+            <p id="theater-selector">
+                <label>AT:</label>
+                <select name="theter" id="theter">
+                    <option value="0">--Please choose an Theater--</option>
+                    <% //products.forEach(snack => { %>
+                        <!-- <option value="<%= // snack.id %>"><%= // snack.name %></option> -->
+                    <% //}); %>
+                </select>
+            </p>
+            <p id="date-selector">
+                <label>Date:</label>
+                <select name="date" id="date">
+                    <option value="0">--Please choose a Date--</option>
+                </select>
+            </p>
+            <p id="time-selector">
+                <label>Time:</label>
+                <select name="time" id="time">
+                    <option value="0">--Please choose a Time--</option>
+                </select>
+            </p>
+        </div>
+    </div>
+    <div id="movie-little-details">
+        <p><span>Duration: </span><br><%= movie.duration.hours %> hours <%= movie.duration.minutes %> minutes</p>
+        <p><span>Genre: </span><br><%= movie.genre %></p>
+    </div>
+</main>
+<%- include('../../shared/includes/footer') %></body>

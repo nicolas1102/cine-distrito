@@ -1,7 +1,7 @@
 <article class="movie-item">
     <!--  redirect to movie datails -->
     <% if (locals.role !== 'admin') { %>
-        <a class="" href="/movies/<% movie.id %>">
+        <a class="" href="/movies/<%= movie.id %>">
     <% } %>
         <div class="image-container">
             <% if (locals.role !== 'admin') { %>

@@ -30,7 +30,23 @@ async function getHome(req, res) {
 
 
 
-// getting the signup view
+async function getMovieDetails(req, res, next) {
+    try {
+        const movie = await Movie.findById(req.params.id);
+        const hoursDuration = Math.floor(movie.duration / 60);
+        const minutesDuration = movie.duration - (hoursDuration * 60);
+        movie.duration = {
+            hours: hoursDuration,
+            minutes: minutesDuration,
+        }
+        res.render('user/movies/movie-details', { movie: movie });
+    } catch (error) {
+        next(error);
+    }
+}
+
+
+
 function getSignup(req, res) {
     // we get the session data saved
     let sessionData = sessionFlash.getSessionData(req);
@@ -271,9 +287,9 @@ function getAboutUs(req, res) {
 module.exports = {
     get: get,
     getHome: getHome,
+    getMovieDetails: getMovieDetails,
     getSignup: getSignup,
     signup: signup,
-    //  pointer to the function with the name of 'getSignup'
     getLogin: getLogin,
     login: login,
     logout: logout,

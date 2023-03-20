@@ -10,6 +10,10 @@ function protectRoutes (req, res, next) {
     if (req.path.startsWith('/home') && res.locals.role === 'admin'){
         return res.redirect('/admin/');
     }
+
+    if (req.path.startsWith('/employee') && (res.locals.role !== 'admin' || res.locals.role !== 'food dispenser' || res.locals.role !== 'cashier' )){
+        return res.redirect('/403');
+    }
     // we allow to continue to the next middleware
     next();
 }
