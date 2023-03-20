@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "641684b44db1b30cad33491e"
+  },
+  "name": "Pop Corn (Salt)",
+  "price": "15900",
+  "imageName": "173523c4-8a65-461e-bb85-166563909f45-PCB0001_1.webp",
+  "points": "5",
+  "type": "Snack"
+},{
+  "_id": {
+    "$oid": "64169345fe35d0cb869f4533"
+  },
+  "name": "Pop Corn (Mixed)",
+  "price": "17900",
+  "imageName": "29a5ed8c-2572-411a-b0e1-cefc0975d831-PCB0001_1.webp",
+  "points": "5",
+  "type": "Snack"
+},{
+  "_id": {
+    "$oid": "64169379fe35d0cb869f4534"
+  },
+  "name": "Pop Corn (Sweet)",
+  "price": "18900",
+  "imageName": "5fcaa3c4-8bcb-439c-a0fd-44add2b553c1-PCB0001_1.webp",
+  "points": "5",
+  "type": "Snack"
+},{
+  "_id": {
+    "$oid": "641693a9fe35d0cb869f4535"
+  },
+  "name": "Chocolate",
+  "price": "8000",
+  "imageName": "d40dd927-ffc9-4eeb-9dc7-d10ed4f3086b-PCB0001_1.webp",
+  "points": "5",
+  "type": "Snack"
+},{
+  "_id": {
+    "$oid": "641693e9fe35d0cb869f4536"
+  },
+  "name": "Gaseosa",
+  "price": "5000",
+  "imageName": "655c3866-2cc1-4629-a24e-3910285be95e-PCB0001_1.webp",
+  "points": "5",
+  "type": "Snack"
+},{
+  "_id": {
+    "$oid": "64169471fe35d0cb869f4537"
+  },
+  "name": "Ticket (Preferential)",
+  "price": "15000",
+  "imageName": "46aa3661-a387-4b74-a402-770bdb5c46af-PCB0001_1.webp",
+  "points": "10",
+  "type": "Ticket"
+},{
+  "_id": {
+    "$oid": "641694aafe35d0cb869f4538"
+  },
+  "name": "Ticket (General)",
+  "price": "11000",
+  "imageName": "e5612586-5a97-4da3-a637-13f45f8e320d-PCB0001_1.webp",
+  "points": "10",
+  "type": "Ticket"
+},{
+  "_id": {
+    "$oid": "6417388e93c3480d37331f32"
+  },
+  "name": "Temp",
+  "type": "TempType",
+  "price": "23",
+  "imageName": "7aa10a05-daa4-4ca8-a2c1-cd1af8bd61a5-handi.png",
+  "points": "23"
+}]
