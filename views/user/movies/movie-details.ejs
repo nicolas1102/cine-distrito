@@ -16,6 +16,12 @@
         <h1><%= movie.title %></h1>
         <p><span>Description: </span><%= movie.description %></p>
         <div id="showtime-selector">
+            <p id="date-selector">
+                <label>Date:</label>
+                <select name="date" id="date">
+                    <option value="0">--Please choose a Date--</option>
+                </select>
+            </p>
             <p id="theater-selector">
                 <label>AT:</label>
                 <select name="theter" id="theter">
@@ -23,12 +29,6 @@
                     <% //products.forEach(snack => { %>
                         <!-- <option value="<%= // snack.id %>"><%= // snack.name %></option> -->
                     <% //}); %>
-                </select>
-            </p>
-            <p id="date-selector">
-                <label>Date:</label>
-                <select name="date" id="date">
-                    <option value="0">--Please choose a Date--</option>
                 </select>
             </p>
             <p id="time-selector">
