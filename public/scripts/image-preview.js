@@ -15,4 +15,7 @@ function updateImagePreview() {
     imagePreviewElement.style.display = 'block';
 }
 
-imagePickerElement.addEventListener('change', updateImagePreview);
+//  si es un documento para ingresar imagenes o solo mostrarlas
+if(document.querySelector('#image-upload-control input')){
+    imagePickerElement.addEventListener('change', updateImagePreview);
+}

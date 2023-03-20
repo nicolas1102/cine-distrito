@@ -1,0 +1,21 @@
+<!-- saving the token in the path -->
+<form action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST" class="form">
+    <div id="information-user">
+        <% if (update === false) { %>
+            <select name="product" id="product-select" required>
+                <option value="0">--Please choose an option--</option>
+                <% products.forEach(snack => { %>
+                    <option value="<%= snack.id %>"><%= snack.name %></option>
+                <% }); %>
+            </select>
+        <% } %>
+        <p>
+            <label for="points">Ammount:</label>
+            <input type="number" min="1" step="1" name="amount" id="amount" value="<%= snack.amount %>" require>
+        </p>
+        <p>
+            <a href="/admin/snacks" class="btn btn-alt">Cancel</a>
+            <button class="btn">Save</button>
+        </p>
+    </div>
+</form>

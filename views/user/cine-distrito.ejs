@@ -22,9 +22,9 @@
                     <section id="snacks-section">
                         <h2 class="section-title">SNACKS</h2>
                         <ul id="products-grid">
-                            <% snacks.slice().reverse().forEach(product=> { %>
+                            <% snacks.slice().reverse().forEach(snack=> { %>
                                 <li>
-                                    <%- include('../shared/includes/product-item',{product: product}) %>
+                                    <%- include('../shared/includes/snack-item',{snack: snack}) %>
                                 </li>
                                 <% }); %>
                         </ul>

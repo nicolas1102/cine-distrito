@@ -36,9 +36,17 @@ router.delete('/products/:id', adminController.deleteProduct);
 
 
 
-// router.get('/snacks', adminController.getSnacks);
+router.get('/snacks', adminController.getSnacks);
 
-// router.get('/snacks/new', adminController.getNewSnack);
+router.get('/snacks/new', adminController.getNewSnack);
+
+router.post('/snacks', adminController.createNewSnack);
+
+router.get('/snacks/:id', adminController.getUpdateSnack);
+
+router.post('/snacks/:id', adminController.updateSnack);
+// using ajax http methods 
+router.delete('/snacks/:id', adminController.deleteSnack);
 
 
 

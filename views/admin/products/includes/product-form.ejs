@@ -6,6 +6,10 @@
             <input type="text" name="name" id="name" value="<%= product.name %>" require>
         </p>
         <p>
+            <label for="name">Type: </label>
+            <input type="text" name="type" id="type" value="<%= product.type %>" require>
+        </p>
+        <p>
             <label for="price">Price <span>(COP)</span>:</label>
             <input type="number" min="1" step="0.1" name="price" id="price" value="<%= product.price %>" require>
         </p>

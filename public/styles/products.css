@@ -104,6 +104,10 @@
     margin: 0.5rem 0;
 }
 
+.product-item-content span {
+    font-weight: bold;
+}
+
 .product-item-actions {
     display: flex;
     justify-content: center;

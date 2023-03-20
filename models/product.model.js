@@ -6,6 +6,7 @@ class Product {
 
     constructor (productData) {
         this.name = productData.name;
+        this.type = productData.type;
         this.price = productData.price;
         this.imageName = productData.imageName;
         this.points = productData.points;
@@ -52,6 +53,7 @@ class Product {
     async save() {
         const productData = {
             name: this.name,
+            type: this.type,
             price: this.price,
             imageName: this.imageName,
             points: this.points,

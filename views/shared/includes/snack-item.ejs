@@ -6,21 +6,22 @@
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#dcdcdc"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8.286 3.407A1.5 1.5 0 0 0 6 4.684v14.632a1.5 1.5 0 0 0 2.286 1.277l11.888-7.316a1.5 1.5 0 0 0 0-2.555L8.286 3.407z" fill="#dcdcdc"></path></g></svg>
             </div>
         <% // } %> -->
-        <img src="<%= product.imageUrl %>" alt="<%= product.name %>" id="<% if (locals.role !== 'admin') { %>client-view<% } %>">
+        <img src="<%= snack.imageUrl %>" alt="<%= snack.name %>" id="<% if (locals.role !== 'admin') { %>client-view<% } %>">
     </div>
     <div class="product-item-content">
         <h2>
-            <%= product.name %>
+            <%= snack.name %>
         </h2>
         <div id="product-info">
-            <p id="price"><span>Price: </span><%= product.price %> COP</p>
-            <p id="points"><span>Points: </span><%= product.points %> points</p>
+            <p id="price"><span>Price: </span><%= snack.price %> COP</p>
+            <p id="points"><span>Points: </span><%= snack.points %> points</p>
+            <p id="points"><span>Amount: </span><%= snack.amount %> units</p>
         </div>
         <div class="product-item-actions">
             <% if (locals.role === 'admin') { %>
-                <a class="btn" href="/admin/products/<%= product.id %>">View & Edit</a>
+                <a class="btn" href="/admin/snacks/<%= snack.snackId %>">View & Edit</a>
                 <!--  we need to send the crsf token 'cause the csrf protection that has our server side controls the requests the client side sends' -->
-                <button class="btn btn-alt" data-productid="<%= product.id  %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+                <button class="btn btn-alt" data-snackid="<%= snack.snackId  %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
             <% } %>
         </div>
     </div>

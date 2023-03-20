@@ -80,7 +80,6 @@ async function getUpdateProduct(req, res, next) {
     try {
         // extracting the value we entered in the URL in the admin router
         product = await Product.findById(req.params.id);
-        // const movie = await Movie.findById(req.params.id);
         res.render('admin/products/update-product', { product: product });
     } catch (error) {
         next(error);
@@ -103,7 +102,7 @@ async function updateProduct(req, res, next) {
             if (error) {
                 console.log("The old product image could not be deleted.");
                 console.log(error);
-            }else {
+            } else {
                 console.log("Delete File successfully.");
             }
         });
@@ -134,7 +133,7 @@ async function deleteProduct(req, res, next) {
             if (error) {
                 console.log("The old product image could not be deleted.");
                 console.log(error);
-            }else {
+            } else {
                 console.log("Delete File successfully.");
             }
         });
@@ -152,12 +151,141 @@ async function deleteProduct(req, res, next) {
 
 
 
-function getSnacks(req, res) {
-    res.render('admin/snacks/all-snacks');
+async function getSnacks(req, res, next) {
+    try {
+        const snacks = await Snack.findAll();
+        res.render('admin/snacks/admin-all-snacks', { snacks: snacks });
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
 }
 
-function getNewSnack(req, res) {
-    res.render('admin/snacks/new-snack');
+async function getNewSnack(req, res, next) {
+    let products;
+    try {
+        products = await Product.findAll();
+
+        // just if there are products
+        if (products) {
+            const snacks = await Snack.findAll();
+            let finalProducts = [];
+            products.forEach(product => {
+                // we show only the snack type products
+                if (product.type === 'Snack') {
+                    finalProducts.push(product);
+                    //  we filter the products that there are not added to snacks collection
+                    snacks.forEach(snack => {
+                        finalProducts = finalProducts.filter(product => snack.id !== product.id);
+                    });
+                }
+            });
+            products = finalProducts;
+        }
+
+        res.render('admin/snacks/new-snack', { products: products });
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
+
+async function createNewSnack(req, res, next) {
+    // searching the seleted product
+    let product;
+    try {
+        product = await Product.findById(req.body.product);
+    } catch (error) {
+        next(error);
+        return;
+    }
+    snackData = {
+        product: { ...product },
+        amount: req.body.amount,
+    }
+    const snack = new Snack(snackData);
+
+    try {
+        await snack.save();
+    } catch (error) {
+        next(error);
+        return;
+    }
+
+    res.redirect('/admin/snacks');
+}
+
+async function getUpdateSnack(req, res, next) {
+    let snack;
+    let products;
+    try {
+        // extracting the value we entered in the URL in the admin router
+        snack = await Snack.findById(req.params.id);
+        products = await Product.findAll();
+        const snacks = await Snack.findAll();
+
+        let finalProducts = [];
+        products.forEach(product => {
+            // we show only the snack type products
+            if (product.type === 'Snack') {
+                finalProducts.push(product);
+                //  we filter the products that there are not added to snacks collection
+                snacks.forEach(snack => {
+                    finalProducts = finalProducts.filter(product => snack.id !== product.id);
+                });
+            }
+        });
+        products = finalProducts;
+
+
+        res.render('admin/snacks/update-snack', { snack: snack, products: products });
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
+
+async function updateSnack(req, res, next) {
+    let snackTemp;
+    let product;
+    try {
+        snackTemp = await Snack.findById(req.params.id);
+        product = await Product.findById(snackTemp.id);
+    } catch (error) {
+        next(error);
+        return;
+    }
+    snackData = {
+        product: { ...product },
+        amount: req.body.amount,
+        _id: req.params.id,
+    }
+    const snack = new Snack(snackData);
+
+    try {
+        await snack.save();
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
+
+    res.redirect('/admin/snacks');
+}
+
+async function deleteSnack(req, res, next) {
+    let snack;
+    try {
+        snack = await Snack.findById(req.params.id);
+        await snack.remove();
+    } catch (error) {
+        console.log(error);
+        return next(error);
+    }
+
+    // we are using AJAX, so we dont need to redirect to anywhere, just responses something
+    res.json({ message: 'Deleted product!' });
 }
 
 
@@ -224,7 +352,7 @@ async function updateMovie(req, res, next) {
             if (error) {
                 console.log("The old movie image could not be deleted.");
                 console.log(error);
-            }else {
+            } else {
                 console.log("Delete File successfully.");
             }
         });
@@ -255,7 +383,7 @@ async function deleteMovie(req, res, next) {
             if (error) {
                 console.log("The old product image could not be deleted.");
                 console.log(error);
-            }else {
+            } else {
                 console.log("Delete File successfully.");
             }
         });
@@ -268,7 +396,6 @@ async function deleteMovie(req, res, next) {
 
     // we are using AJAX, so we dont need to redirect to anywhere, just responses something
     res.json({ message: 'Deleted movie!' });
-    // res.redirect('/admin/movies');
 }
 
 
@@ -322,6 +449,10 @@ module.exports = {
 
     getSnacks: getSnacks,
     getNewSnack: getNewSnack,
+    createNewSnack: createNewSnack,
+    getUpdateSnack: getUpdateSnack,
+    updateSnack: updateSnack,
+    deleteSnack: deleteSnack,
 
     getMovies: getMovies,
     getNewMovie: getNewMovie,

@@ -6,7 +6,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
     font: inherit;
     padding: var(--space-2);
     border-radius: var(--border-radius-small);
