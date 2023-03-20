@@ -16,12 +16,6 @@ function getAdminMenu(req, res) {
 
 
 
-function getOrders(req, res) {
-    res.render('admin/clients/all-orders');
-}
-
-
-
 function getClients(req, res) {
     res.render('admin/clients/all-clients');
 }
@@ -38,6 +32,15 @@ function getEmployees(req, res) {
 
 function getNewEmployee(req, res) {
     res.render('admin/employees/new-employee');
+}
+
+
+
+function getOrders(req, res) {
+    res.render('admin/clients/all-orders');
+}
+function getNewOrder(req, res) {
+    res.render('admin/clients/new-order');
 }
 
 
@@ -439,6 +442,9 @@ module.exports = {
 
     getEmployees: getEmployees,
     getNewEmployee: getNewEmployee,
+
+    getOrders: getOrders,
+    getNewOrder: getNewOrder,
 
     getProducts: getProducts,
     getNewProduct: getNewProduct,

@@ -20,6 +20,7 @@ const checkAuthStatusMiddleware = require('./middlewares/check-auth');
 const protectRoutesMiddleware = require('./middlewares/protect-routes');
 const userRoutes = require('./routes/user.routes');
 const clientRoutes = require('./routes/client.routes');
+const employeeRoutes = require('./routes/employee.routes');
 const adminRoutes = require('./routes/admin.routes');
 
 
@@ -64,6 +65,7 @@ app.use(userRoutes);
 app.use('/client', clientRoutes);
 // we filter the path
 app.use('/admin', adminRoutes);
+app.use('/employee', employeeRoutes);
 
 
 // activaring the error haddle middleware

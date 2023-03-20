@@ -1,0 +1,98 @@
+<!-- inlcuding the shared code head -->
+<%- include('../shared/includes/head', { pageTitle: 'Employee Profile - Cine Distrito' }) %>
+<link rel="stylesheet" href="/styles/auth.css">
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/profile.css">
+<script src="/scripts/image-preview.js" defer></script>
+<script src="/scripts/profile-options.js" defer></script>
+</head>
+
+<body>
+    <%- include('../shared/includes/header') %>
+    <%- include('../shared/includes/blob') %>
+    <main>
+        <h1>EMPLOYEE PROFILE</h1>
+        <!-- if in the input data exist an error message, show it -->
+        <% if (inputData.errorMessage) { %>
+            <section class="alert">
+                <h2><%= inputData.title %></h2>
+                <p><%= inputData.errorMessage %></p>
+            </section>
+        <% } %>
+        <section class="update-personal-info">
+            <form action="/employee/updatePersonalInfo?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data" class="form">
+                <!-- object, so we can verify the csrf token when the form is send-->
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                <div class="container-column-space">
+                    <div id="image-upload-control">
+                        <img id="image-preview" class="not-hide" src="<%= employee.imageUrl %>" alt="Your picked image.">
+                        <p>
+                            <label for="imageName">Update Image <span>(*)</span></label>
+                            <input type="file" name="imageName" id="imageName" accept="image/*" >
+                        </p>
+                    </div>
+                </div>
+                <div id="information-user">
+                    <p>
+                        <label for="email">Email <span>(*)</span></label>
+                        <input type="email" id="email" name="email" value="<%= inputData.email %>" required>
+                    </p>
+                    <p>
+                        <label for="name">Full Name <span>(*)</span></label>
+                        <input type="" id="name" name="name" value="<%= inputData.name %>" required>
+                    </p>
+                    <p>
+                        <label for="identification">Identification Card <span>(*)</span></label>
+                        <input type="text" id="identification" name="identification"
+                            value="<%= inputData.identification %>" required>
+                    </p>
+                    <div id="submit-container">
+                        <button class="btn">Upload Profile</button>
+                        <a class="btn btn-alt" href="/home">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section id="client-profile-options-section">
+            <h2>Others Employee Profile Options</h2>
+            <form action="/employee/updatePassword?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data" id="container-password-form">
+                <!-- object, so we can verify the csrf token when the form is send-->
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                <div class="option-item">
+                    <h3>Update Password</h3>
+                    <p>Once you update your account, the next time you want to login, you must to login wit your new password.</p>
+                    <a class="btn btn-alt">Change Password</a>
+                </div>
+                <div id="change-password-inputs-container">
+                    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                    <p>
+                        <label for="password">New Password <span>(*)</span></label>
+                        <input type="password" id="password" name="password" minlength="6"  required>
+                    </p>
+                    <p>
+                        <label for="confirm-password">Confirm New Password <span>(*)</span></label>
+                        <input type="password" id="confirm-password" name="confirm-password" minlength="6" required>
+                    </p>
+                    <button class="btn">Confirm Changes</button>
+                </div>
+            </form>
+            <form action="/client/deleteAccount?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data" id="container-delete-account-form">
+                <!-- object, so we can verify the csrf token when the form is send-->
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                <div class="option-item">
+                    <h3>Delete Account</h3>
+                    <p>Once you delete your account, there is no going back. Please be certain.</p>
+                    <a class="btn btn-alt">I want to delete my account</a>
+                </div>
+                <div id="delete-account-inputs-container">
+                    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                    <p>
+                        <label for="delete-confirmation">Please type <span>"i want to delete my account"</span> to confirm</label>
+                        <input type="" id="delete-confirmation" name="delete-confirmation" minlength="6" >
+                    </p>
+                    <button class="btn">I understand the consequences, delete my account</button>
+                </div>
+            </form>
+        </section>
+    </main>
+<%- include('../shared/includes/footer') %>

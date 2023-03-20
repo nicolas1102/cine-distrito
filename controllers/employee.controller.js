@@ -1,4 +1,4 @@
-const Client = require('../models/client.model');
+const Employee = require('../models/employee.model');
 
 const fs = require('fs');
 
@@ -10,26 +10,31 @@ const validation = require('../util/validation');
 // to save user entered input data
 const sessionFlash = require('../util/session-flash');
 
+
 async function getProfile(req, res, next) {
 
     // we get the session data saved
     let sessionData = sessionFlash.getSessionData(req);
 
-    let clnt;
+    let employee;
     try {
-        clnt = await Client.findById(req.session.userid);
-
+        employee = await Employee.findById(req.session.userid);
         // if there's no session data saved we define the default data
         if (!sessionData) {
             // default data
             sessionData = {
-                email: clnt.email,
-                name: clnt.name,
-                identification: clnt.identification,
+                email: employee.email,
+                name: employee.name,
+                identification: employee.identification,
+                role: employee.role,
+                phoneNumber: employee.phoneNumber,
+                contractStartDate: employee.contractStartDate,
+                salary: employee.salary,
+                theater: employee.theater,
             }
         }
 
-        res.render('client/profile', { clnt: clnt, inputData: sessionData });
+        res.render('employee/profile', { employee: employee, inputData: sessionData });
     } catch (error) {
         console.log(error);
         next(error);
@@ -155,60 +160,8 @@ async function updatePassword(req, res, next) {
     res.redirect('/login');
 }
 
-async function deleteClient(req, res, next) {
-    const enteredData = {
-        email: req.body.email,
-        name: req.body.name,
-        identification: req.body.identification,
-    };
-
-    if (!validation.validateAccountDeletingConfirmation(req.body['delete-confirmation'])) {
-        sessionFlash.flashDataToSession(
-            req,
-            {
-                title: 'THE ACCOUNT DELETING CONFIRMATION IS INCORRECT',
-                errorMessage: 'Please check your input.',
-                // spread operator, so we save the user entered data (object created above)
-                ...enteredData,
-            },
-            // once the data has been saved, we sent the request to reset the page
-            function () {
-                res.redirect('/client/profile');
-            }
-        );
-        return;
-    }
-
-    let clnt;
-    try {
-        clnt = await Client.findById(req.session.userid);
-
-        //  we search the database the client we are deleting, so we can delete the old client image
-        const clientAux = await Client.findById(req.params.id);
-        // we delete the old product image of the storage
-        fs.unlink(clientAux.imagePath, (error) => {
-            if (error) {
-                console.log("The old client image could not be deleted.");
-                console.log(error);
-            } else {
-                console.log("Delete File successfully.");
-            }
-        });
-
-        await clnt.remove();
-    } catch (error) {
-        next(error);
-        return;
-    }
-
-    // we delete the user session
-    authUtil.destroyUserAuthSession(req);
-    res.redirect('/home');
-}
-
 module.exports = {
     getProfile: getProfile,
     uploadPersonalInfo: uploadPersonalInfo,
     updatePassword: updatePassword,
-    deleteClient: deleteClient
 }
