@@ -7,6 +7,8 @@ const router = express.Router();
 
 router.get('/profile', employeeController.getProfile);
 
+router.post('/updatePersonalInfo',  imageUploadMiddleware, employeeController.uploadPersonalInfo);
 
+router.post('/updatePassword', employeeController.updatePassword);
 
 module.exports = router;

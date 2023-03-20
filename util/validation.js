@@ -33,6 +33,17 @@ function clientPersonalInfoAreValid(email, name, identification) {
     );
 }
 
+function employeePersonalInfoAreValid(email, name, identification, phoneNumber) {
+    return (
+        emailAreValid(email) &&
+        !isEmpty(name) &&
+        !isEmpty(identification) &&
+        identification.trim().length === 10 &&
+        !isEmpty(phoneNumber) &&
+        phoneNumber.trim().length === 10
+    );
+}
+
 function emailIsConfirmed(email, confirmEmail) {
     return email === confirmEmail;
 }
@@ -51,5 +62,5 @@ module.exports = {
     emailIsConfirmed: emailIsConfirmed,
     passwordIsConfirmed: passwordIsConfirmed,
     validateAccountDeletingConfirmation: validateAccountDeletingConfirmation,
-    
+    employeePersonalInfoAreValid: employeePersonalInfoAreValid,
 };

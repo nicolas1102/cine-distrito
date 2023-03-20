@@ -33,7 +33,6 @@ async function getProfile(req, res, next) {
                 theater: employee.theater,
             }
         }
-
         res.render('employee/profile', { employee: employee, inputData: sessionData });
     } catch (error) {
         console.log(error);
@@ -47,35 +46,36 @@ async function uploadPersonalInfo(req, res, next) {
         email: req.body.email,
         name: req.body.name,
         identification: req.body.identification,
+        phoneNumber: req.body['phone-number'],
     };
 
     if (
-        !validation.clientPersonalInfoAreValid(
+        !validation.employeePersonalInfoAreValid(
             req.body.email,
             req.body.name,
-            req.body.identification
+            req.body.identification,
+            req.body['phone-number'],
         )
     ) {
-        // saving the data that the user has write, so if the request fail, the user wont lose the data the has wrote. we also, sent the message if there's any error in user input, so we can show the message in the webpage
         sessionFlash.flashDataToSession(
             req,
             {
                 title: 'INVALID CREDENTIALS',
-                errorMessage: 'Please check your input. No field can be left blank. Identification Card must be 10 characters.',
+                errorMessage: 'Please check your input. No field can be left blank. Identification and Phone Number Card must be 10 characters.',
                 // spread operator, so we save the user entered data (object created above)
                 ...enteredData,
             },
             // once the data has been saved, we sent the request to reset the page
             function () {
-                res.redirect('/client/profile');
+                res.redirect('/employee/profile');
             }
         );
         return;
     }
 
-    let clnt;
+    let employee;
     try {
-        clnt = await Client.findById(req.session.userid);
+        employee = await Employee.findById(req.session.userid);
     } catch (error) {
         next(error);
         return;
@@ -85,9 +85,9 @@ async function uploadPersonalInfo(req, res, next) {
     //  just if the admin provides a new image for the movie we change it
     if (req.file) {
         // we delete the old movie image of the storage
-        fs.unlink(clnt.imagePath, (error) => {
+        fs.unlink(employee.imagePath, (error) => {
             if (error) {
-                console.log("The old movie image could not be deleted.");
+                console.log("The old employee image could not be deleted.");
                 console.log(error);
             } else {
                 console.log("Delete File successfully.");
@@ -95,22 +95,22 @@ async function uploadPersonalInfo(req, res, next) {
         });
 
         // replace the old image with the new one
-        clnt.replaceImage(req.file.filename);
+        employee.replaceImage(req.file.filename);
     }
 
     // we get the user profile personal info updated and we update our client with the new data
-    clnt.updatePersonalInfo(req.body.email, req.body.name, req.body.identification);
+    employee.updatePersonalInfo(req.body.email, req.body.name, req.body.identification, req.body['phone-number']);
 
     //  we save the updated client in the database
     try {
-        await clnt.save();
+        await employee.save();
     } catch (error) {
         console.log(error);
         next(error);
         return;
     }
 
-    res.redirect('/client/profile');
+    res.redirect('/employee/profile');
 }
 
 async function updatePassword(req, res, next) {
@@ -118,6 +118,7 @@ async function updatePassword(req, res, next) {
         email: req.body.email,
         name: req.body.name,
         identification: req.body.identification,
+        phoneNumber: req.body['phone-number'],
     };
     if (!validation.passwordIsConfirmed(req.body.password, req.body['confirm-password'])) {
         sessionFlash.flashDataToSession(
@@ -136,19 +137,19 @@ async function updatePassword(req, res, next) {
         return;
     }
 
-    let clnt;
+    let employee;
     try {
-        clnt = await Client.findById(req.session.userid);
+        employee = await Employee.findById(req.session.userid);
     } catch (error) {
         next(error);
         return;
     }
 
-    await clnt.updatePassword(req.body['confirm-password']);
+    await employee.updatePassword(req.body['confirm-password']);
 
     //  we save the updated client in the database
     try {
-        await clnt.save();
+        await employee.save();
     } catch (error) {
         console.log(error);
         next(error);

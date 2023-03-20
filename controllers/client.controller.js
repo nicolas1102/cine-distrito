@@ -82,7 +82,7 @@ async function uploadPersonalInfo(req, res, next) {
         // we delete the old movie image of the storage
         fs.unlink(clnt.imagePath, (error) => {
             if (error) {
-                console.log("The old movie image could not be deleted.");
+                console.log("The old client image could not be deleted.");
                 console.log(error);
             } else {
                 console.log("Delete File successfully.");

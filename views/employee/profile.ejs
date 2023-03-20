@@ -46,6 +46,19 @@
                         <input type="text" id="identification" name="identification"
                             value="<%= inputData.identification %>" required>
                     </p>
+                    <p>
+                        <label for="phone-number">Phone Number</label>
+                        <input type="text" id="phone-number" name="phone-number"
+                            value="<%= inputData.phoneNumber %>" required>
+                    </p>
+                    <hr>
+                    <div id="more-employee-info">
+                        <h3>More Employee Info</h3>
+                        <p><span>Role: </span><%= employee.role %></p>
+                        <p><span>Contract Start Date: </span><%= employee.contractStartDate %></p>
+                        <p><span>Salary: </span><%= employee.salary %></p>
+                        <p><span>Theater: </span><%= employee.theater %></p>
+                    </div>
                     <div id="submit-container">
                         <button class="btn">Upload Profile</button>
                         <a class="btn btn-alt" href="/home">Cancel</a>
@@ -55,7 +68,7 @@
         </section>
         <section id="client-profile-options-section">
             <h2>Others Employee Profile Options</h2>
-            <form action="/employee/updatePassword?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data" id="container-password-form">
+            <form action="/employee/updatePassword?_csrf=<%= locals.csrfToken %>" method="POST"  id="container-password-form">
                 <!-- object, so we can verify the csrf token when the form is send-->
                 <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                 <div class="option-item">
@@ -64,7 +77,6 @@
                     <a class="btn btn-alt">Change Password</a>
                 </div>
                 <div id="change-password-inputs-container">
-                    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                     <p>
                         <label for="password">New Password <span>(*)</span></label>
                         <input type="password" id="password" name="password" minlength="6"  required>
@@ -74,23 +86,6 @@
                         <input type="password" id="confirm-password" name="confirm-password" minlength="6" required>
                     </p>
                     <button class="btn">Confirm Changes</button>
-                </div>
-            </form>
-            <form action="/client/deleteAccount?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data" id="container-delete-account-form">
-                <!-- object, so we can verify the csrf token when the form is send-->
-                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-                <div class="option-item">
-                    <h3>Delete Account</h3>
-                    <p>Once you delete your account, there is no going back. Please be certain.</p>
-                    <a class="btn btn-alt">I want to delete my account</a>
-                </div>
-                <div id="delete-account-inputs-container">
-                    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-                    <p>
-                        <label for="delete-confirmation">Please type <span>"i want to delete my account"</span> to confirm</label>
-                        <input type="" id="delete-confirmation" name="delete-confirmation" minlength="6" >
-                    </p>
-                    <button class="btn">I understand the consequences, delete my account</button>
                 </div>
             </form>
         </section>

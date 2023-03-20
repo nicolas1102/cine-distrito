@@ -6,6 +6,8 @@ const db = require('../data/database');
 
 const User = require('./user.model');
 
+const mongodb = require('mongodb');
+
 class Employee extends User {
 
     constructor(email, password, name, identification, imageName, role, phoneNumber, contractStartDate, salary, theater, id) {
@@ -23,14 +25,11 @@ class Employee extends User {
         });
     }
 
-    // insert in the database
-    async signup() {
-        // encrypt the password
-        const hashedPassword = await bcrypt.hash(this.password, 12);
-
-        await db.getDb().collection('employees').insertOne({
+    // insert or update in the database
+    async save() {
+        const employeeData = {
             email: this.email,
-            password: hashedPassword,
+            password: this.password,
             name: this.name,
             identification: this.identification,
             imageName: this.imageName,
@@ -39,8 +38,81 @@ class Employee extends User {
             contractStartDate: this.contractStartDate,
             salary: this.salary,
             theater: this.theater,
-        });
+        }
 
+        //  just if we are providing the id, we know that we wanna update the object. If there's no id, we wanna just insert a new one
+        if (this.id) {
+            // we convert the id to the mongodb id format
+            const employeeId = new mongodb.ObjectId(this.id);
+
+            // if the image data is undefined; we dont want to overwrite the old image with undefined, so...
+            if (!this.imageName) {
+                //  we delete the key of the product data, so we dont save a undefined
+                delete employeeData.imageName;
+            }
+            
+            await db.getDb().collection('employees').updateOne({_id: employeeId},{$set: employeeData});
+        } else {
+            // encrypt the password
+            const hashedPassword = await bcrypt.hash(this.password, 12);
+
+            employeeData.password = hashedPassword;
+
+            await db.getDb().collection('employees').insertOne(employeeData);
+        }
+    }
+
+    static async findById(employeeId) {
+        let littleEmployeeId;
+        try {
+            // we need to user an object id as the mongodb does
+            littleEmployeeId = new mongodb.ObjectId(employeeId);
+        } catch (error) {
+            error.code = 404;
+            throw error;
+        }
+        const employee = await db.getDb().collection('employees').findOne({ _id: littleEmployeeId });
+        if (!employee) {
+            const error = new Error('Could not find the employee.');
+            error.code = 404;
+            // throwing custom error
+            throw error;
+        }
+        return new Employee(
+            employee.email,
+            employee.password,
+            employee.name,
+            employee.identification,
+            employee.imageName,
+            employee.role,
+            employee.phoneNumber,
+            employee.contractStartDate,
+            employee.salary,
+            employee.theater,
+            employee._id,
+        );
+    }
+
+    async replaceImage(newImage) {
+        this.imageName = newImage;
+        this.updateImageData();
+    }
+
+    updatePersonalInfo(email, name, identification, phoneNumber){
+        this.email = email;
+        this.name = name;
+        this.identification = identification;
+        this.phoneNumber = phoneNumber;
+    }
+
+    async updatePassword(password){
+        const hashedPassword = await bcrypt.hash(password, 12);
+        this.password = hashedPassword;
+    }
+
+    async remove(){
+        const employeeId = new mongodb.ObjectId(this.id);
+        return db.getDb().collection('employees').deleteOne({ _id: employeeId });
     }
 }
 

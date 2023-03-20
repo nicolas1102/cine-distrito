@@ -6,15 +6,29 @@
     display: none;
 }
 
-.option-item {
-    width: 100%;
-}
-
 h3 {
     margin: 0;
 }
 
+.option-item {
+    width: 100%;
+}
+
 .option-item p{
+    text-align: left;
+}
+
+hr {
+    margin-top: 2rem;
+    border: 1px solid var(--color-gray-700);
+}
+
+#more-employee-info span {
+    color: var(--color-gray-700);
+    font-weight: bold;
+}
+
+#more-employee-info p{
     text-align: left;
 }
 

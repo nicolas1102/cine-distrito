@@ -258,6 +258,7 @@ async function login(req, res, next) {
 
 function logout(req, res) {
     authUtil.destroyUserAuthSession(req);
+
     // after logout, we want to redirect the user to...
     res.redirect('/login');
 }
