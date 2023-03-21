@@ -7,7 +7,7 @@ class Product {
     constructor (productData) {
         this.name = productData.name;
         this.type = productData.type;
-        this.price = productData.price;
+        this.price =+ productData.price;
         this.imageName = productData.imageName;
         this.points = productData.points;
         this.updateImageData();

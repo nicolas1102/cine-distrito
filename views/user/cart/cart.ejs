@@ -1,0 +1,23 @@
+<!-- inlcuding the shared code head -->
+<%- include('../../shared/includes/head', { pageTitle: 'Your Cart - Cine Distrito' }) %>
+<link rel="stylesheet" href="/styles/cart.css">
+</head>
+
+<body>
+<%- include('../../shared/includes/header') %>
+<main>
+    <h1>Your Cart</h1>
+    <ul id="cart-items">
+        <!-- we show the cart items using the cart saved in the locals in the cart middleware -->
+        <% locals.cart.items.forEach(cartItem => { %>
+            <li>
+                <%- include('includes/cart-item', {item: cartItem}) %>
+            </li>
+        <% }); %>
+    </ul>
+    <div id="cart-total">
+        <p>Total: $<%= locals.cart.totalPrice %></p>
+    </div>
+    <button class="btn">Buy Products</button>
+</main>
+<%- include('../../shared/includes/footer') %>
