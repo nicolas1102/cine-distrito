@@ -23,6 +23,7 @@ const userRoutes = require('./routes/user.routes');
 const clientRoutes = require('./routes/client.routes');
 const employeeRoutes = require('./routes/employee.routes');
 const adminRoutes = require('./routes/admin.routes');
+const cartRoutes = require('./routes/cart.routes');
 
 
 // CREATING OUR EXPRESS SERVER
@@ -38,8 +39,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 // we make usable the public data folder (so we can show images in the frontend site); and we filter where we wanna show them
 app.use('/data/assets', express.static('public-data'));
-// for can extract the data of the incoming request (ex. the forms with the post method)
+// for can extract the data of form submissions (ex. the forms with the post method)
 app.use(express.urlencoded({ extended: false }));
+// for can extract data in json format from submission 
+app.use(express.json());
 
 
 // SESSION MIDDLEWARE
@@ -68,6 +71,7 @@ app.use('/client', clientRoutes);
 // we filter the path
 app.use('/admin', adminRoutes);
 app.use('/employee', employeeRoutes);
+app.use('/cart', cartRoutes);
 
 
 // activaring the error haddle middleware

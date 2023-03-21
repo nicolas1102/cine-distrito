@@ -1,33 +1,34 @@
 <!-- inlcuding the shared code head -->
 <%- include('../shared/includes/head', { pageTitle: 'Cine Distrito' }) %>
-    <link rel="stylesheet" href="/styles/movies.css">
-    <link rel="stylesheet" href="/styles/cine-distrito.css">
-    <link rel="stylesheet" href="/styles/products.css">
-    </head>
+<link rel="stylesheet" href="/styles/movies.css">
+<link rel="stylesheet" href="/styles/cine-distrito.css">
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/cart-management.js" defer></script>
+</head>
 
-    <body>
-        <%- include('../shared/includes/header') %>
-            <%- include('../shared/includes/blob') %>
-                <main>
-                    <section id="movies-section">
-                        <h2 class="section-title">MOVIES</h2>
-                        <ul id="movies-grid">
-                            <% movies.slice().reverse().forEach(movie=> { %>
-                                <li>
-                                    <%- include('../shared/includes/movie-item',{movie: movie}) %>
-                                </li>
-                                <% }); %>
-                        </ul>
-                    </section>
-                    <section id="snacks-section">
-                        <h2 class="section-title">SNACKS</h2>
-                        <ul id="products-grid">
-                            <% snacks.slice().reverse().forEach(snack=> { %>
-                                <li>
-                                    <%- include('../shared/includes/snack-item',{snack: snack}) %>
-                                </li>
-                                <% }); %>
-                        </ul>
-                    </section>
-                </main>
-                <%- include('../shared/includes/footer') %>
+<body>
+<%- include('../shared/includes/header') %>
+<%- include('../shared/includes/blob') %>
+<main>
+    <section id="movies-section">
+        <h2 class="section-title">MOVIES</h2>
+        <ul id="movies-grid">
+            <% movies.slice().reverse().forEach(movie=> { %>
+                <li>
+                    <%- include('../shared/includes/movie-item',{movie: movie}) %>
+                </li>
+            <% }); %>
+        </ul>
+    </section>
+    <section id="snacks-section">
+        <h2 class="section-title">SNACKS</h2>
+        <ul id="products-grid">
+            <% snacks.slice().reverse().forEach(snack=> { %>
+                <li>
+                    <%- include('../shared/includes/snack-item',{snack: snack}) %>
+                </li>
+            <% }); %>
+        </ul>
+    </section>
+</main>
+<%- include('../shared/includes/footer') %>
