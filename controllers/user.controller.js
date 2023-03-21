@@ -280,6 +280,7 @@ function logout(req, res) {
 }
 
 
+
 function getAboutUs(req, res) {
 
 }

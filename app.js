@@ -18,6 +18,7 @@ const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandlerMiddleware = require('./middlewares/error-handler');
 const checkAuthStatusMiddleware = require('./middlewares/check-auth');
 const protectRoutesMiddleware = require('./middlewares/protect-routes');
+const cartMiddleware = require('./middlewares/cart');
 const userRoutes = require('./routes/user.routes');
 const clientRoutes = require('./routes/client.routes');
 const employeeRoutes = require('./routes/employee.routes');
@@ -52,6 +53,7 @@ app.use(csrf());
 // distribute the csrf token to all our views; own middleware
 app.use(addCsrfTokenMiddleware);
 
+app.use(cartMiddleware);
 
 // check the user status
 app.use(checkAuthStatusMiddleware);
