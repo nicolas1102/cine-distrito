@@ -89,6 +89,15 @@ main {
     color: var(--color-secundary-300);
 }
 
+.badge {
+    font-size: 1.25rem;
+    margin-left: var(--space-1);
+    padding: 0.1rem 0.5rem;
+    border-radius: 10rem;
+    background-color: var(--color-primary-500);
+    color: var(--color-primary-500-contrast);
+}
+
 #mobile-menu-btn {
     display: flex;
     flex-direction: column;
@@ -173,6 +182,10 @@ main {
     .nav-items li:hover a{
         border-bottom: solid 3px var(--color-primary-400);
         color: var(--color-primary-300);
+    }
+    
+    .nav-items li:hover .badge {
+        color: var(--color-gray-50);
     }
 
     .nav-items button:hover{

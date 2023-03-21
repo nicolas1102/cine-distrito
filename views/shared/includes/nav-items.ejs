@@ -1,7 +1,7 @@
 <ul class="nav-items">
     <% if (locals.role !== 'admin') { %>
         <li><a href="/home">Home</a></li>
-        <li><a href="/cart">Cart</a></li>
+        <li><a href="/cart">Cart <span class="badge"><%= locals.cart.totalQuantity %></span></a></li>
     <% } %>
 
     <% if (locals.role === 'client') { %>
