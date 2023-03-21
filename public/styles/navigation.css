@@ -51,6 +51,20 @@ main {
 
 .nav-items li a {
     font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cart-item:hover svg {
+    transform: rotateZ(-20deg);
+}
+
+.nav-items li svg{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: transparent;
+    transition: 400ms;
 }
 
 .nav-items button {
@@ -94,7 +108,7 @@ main {
     margin-left: var(--space-1);
     padding: 0.1rem 0.5rem;
     border-radius: 10rem;
-    background-color: var(--color-primary-500);
+    background-color: var(--color-primary-400);
     color: var(--color-primary-500-contrast);
 }
 
@@ -181,7 +195,7 @@ main {
 
     .nav-items li:hover a{
         border-bottom: solid 3px var(--color-primary-400);
-        color: var(--color-primary-300);
+        color: var(--color-primary-400);
     }
     
     .nav-items li:hover .badge {
