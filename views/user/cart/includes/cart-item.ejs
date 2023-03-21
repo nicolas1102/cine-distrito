@@ -1,7 +1,14 @@
 <article class="cart-item">
-    <div class="cart-item-info">
-        <h2><%= item.product.title %></h2>
-        <p>$<%= item.totalPrice %> <span class="cart-product-price">($<%= item.product.price %>)</span></p>
+    <div class="image-info-item-container">
+        <div class="image-item-container">
+            <img src="<%= item.product.imageUrl %>" alt="">
+        </div>
+        <div class="cart-item-info">
+            <h2><%= item.product.name %></h2>
+            <p><span class="tittle-span">Type: </span><%= item.product.type %> </p>
+            <p><span class="tittle-span">Points: </span><%= item.product.points %> points</p>
+            <p><span class="tittle-span">Price: </span><%= item.totalPrice %> COP <span class="cart-product-price">(<%= item.product.price %> COP / unit)</span></p>
+        </div>
     </div>
     <div class="cart-item-management">
         <input type="number" value="<%= item.quantity %>" required>
