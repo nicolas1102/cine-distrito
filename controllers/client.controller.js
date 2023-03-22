@@ -10,6 +10,8 @@ const validation = require('../util/validation');
 // to save user entered input data
 const sessionFlash = require('../util/session-flash');
 
+
+
 async function getProfile(req, res, next) {
 
     // we get the session data saved
@@ -206,9 +208,19 @@ async function deleteClient(req, res, next) {
     res.redirect('/home');
 }
 
+
+
+function addOrder (req, res, nex) {
+    const cart = res.locals.cart;
+    
+    
+}
+
+
 module.exports = {
     getProfile: getProfile,
     uploadPersonalInfo: uploadPersonalInfo,
     updatePassword: updatePassword,
-    deleteClient: deleteClient
+    deleteClient: deleteClient,
+    addOrder: addOrder,
 }

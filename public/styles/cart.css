@@ -107,8 +107,10 @@
     }
 
     #cart-total {
-        /* flex-direction: row; */
+        flex-direction: row;
         margin-right: 1rem;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .image-info-item-container{
@@ -117,14 +119,7 @@
         justify-content: space-between;
     }
 
-    .row-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 0 1rem var(--space-8) 1rem;
-    }
-
-    .row-container button {
+    #cart-totalbutton {
         margin: 0;
     }
 }

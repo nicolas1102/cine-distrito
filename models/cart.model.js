@@ -17,7 +17,7 @@ class Cart {
             const item = this.items[i];
             if (item.product.id === product.id) {
                 //  we update the cart product data
-                cartItem.quantity = item.quantity + 1;
+                cartItem.quantity = +item.quantity + 1;
                 cartItem.totalPrice = item.totalPrice + product.price;
                 this.items[i] = cartItem;
 

@@ -16,6 +16,15 @@ router.get('/home', userController.getHome);
 router.get('/movies/:id', userController.getMovieDetails);
 
 
+
+router.get('/cart', userController.getCart);
+
+router.post('/cart/items/snack', userController.addCartItemSnack);
+// 'cause we are updating parts of the exiting data
+router.patch('/cart/items/snack', userController.updateCartItemSnack);
+
+
+
 router.get('/signup', userController.getSignup);
 
 router.post('/signup', imageUploadMiddleware, userController.signup);

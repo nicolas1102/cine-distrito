@@ -17,4 +17,7 @@ router.post('/deleteAccount',  imageUploadMiddleware, clientController.deleteCli
 
 
 
+router.get('/orders', clientController.addOrder);
+
+
 module.exports = router;
