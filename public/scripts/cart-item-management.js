@@ -10,13 +10,14 @@ async function updateCartItem(event) {
     const form = event.target;
 
     const productId = form.dataset.productid;
+    // const producttype = form.dataset.producttype;
     const csrfToken = form.dataset.csrf;
     //  we access to the quantity of the item in the cart
     const quantity = form.firstElementChild.value;
 
     let response;
     try {
-        response = await fetch('/cart/items', {
+        response = await fetch('/cart/items/snack', {
             method: 'PATCH',
             body: JSON.stringify({
                 productId: productId,
@@ -48,8 +49,7 @@ async function updateCartItem(event) {
         cartItemTotalPriceElement.textContent = responseData.updatedCartData.updatedItemPrice.toFixed(2);
     }
 
-    cartTotalPriceElement.textContent =
-        responseData.updatedCartData.newTotalPrice.toFixed(2);
+    cartTotalPriceElement.textContent = responseData.updatedCartData.newTotalPrice.toFixed(2);
 
     cartBadge.textContent = responseData.updatedCartData.newTotalQuantity;
 }

@@ -12,8 +12,8 @@
             <p id="points"><span>Amount: </span><%= snack.amount %> units</p>
         </div>
         <div class="product-item-actions">
-            <% if (locals.role !== 'admin' || locals.role !== 'cashier' || locals.role !== 'food dispenser') { %>
-                <button data-productid="<%= snack.id %>" data-csrf="<%= locals.csrfToken %>" id="add-to-cart" class="btn">Add to Cart</button>
+            <% if (locals.role !== 'admin' && locals.role !== 'cashier' && locals.role !== 'food dispenser') { %>
+                <button data-productid="<%= snack.snackId %>" data-csrf="<%= locals.csrfToken %>" data-producttype="<%= snack.type %>" id="add-to-cart" class="btn">Add to Cart</button>
             <% } %>
             <% if (locals.role === 'admin') { %>
                 <a class="btn" href="/admin/snacks/<%= snack.snackId %>">View & Edit</a>

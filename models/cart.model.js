@@ -38,7 +38,7 @@ class Cart {
     updateItem(productId, newQuantity) {
         for (let i = 0; i < this.items.length; i++) {
             const item = this.items[i];
-            if (item.product.id === productId && newQuantity > 0) {
+            if (item.product.snackId === productId && newQuantity > 0) {
                 // creating a copy of the item
                 const cartItem = { ...item };
                 const quantityChange = newQuantity - item.quantity;
@@ -51,7 +51,7 @@ class Cart {
                 this.totalPrice += quantityChange * item.product.price;
                 return { updatedItemPrice: cartItem.totalPrice };
                 //  we wanna remove the item
-            } else if (item.product.id === productId && newQuantity <= 0) {
+            } else if (item.product.snackId === productId && newQuantity <= 0) {
                 // remove 1 item from an array in a specify item
                 this.items.splice(i, 1);
 

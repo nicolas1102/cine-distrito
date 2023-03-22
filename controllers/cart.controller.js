@@ -1,13 +1,15 @@
 const Product = require('../models/product.model');
+const Snack = require('../models/snack.model');
+// const Ticket = require('../models/ticket.model');
 
-function getCart (req, res) {
-    res.render ('user/cart/cart');
+function getCart(req, res) {
+    res.render('user/cart/cart');
 }
 
-async function addCartItem(req, res, next) {
-    let product;
+async function addCartItemSnack(req, res, next) {
+    let snack;
     try {
-        product = await Product.findById(req.body.productId);
+        snack = await Snack.findById(req.body.productId);
     } catch (error) {
         next(error);
         return;
@@ -15,7 +17,7 @@ async function addCartItem(req, res, next) {
     // we save the item in the cart 
     const cart = res.locals.cart;
     //  we access to the cart saved in the locals; we created it in the cart middleware
-    cart.addItem(product);
+    cart.addItem(snack);
 
     // and we update the session cart; this cart survive this request response cycle
     req.session.cart = cart;
@@ -26,7 +28,7 @@ async function addCartItem(req, res, next) {
     });
 }
 
-function updateCartItem(req, res) {
+function updateCartItemSnack(req, res) {
     const cart = res.locals.cart;
 
     const updatedItemData = cart.updateItem(
@@ -47,8 +49,33 @@ function updateCartItem(req, res) {
     });
 }
 
+// async function checkSnackQuantity(req, res, next) {
+//     let snack;
+//     try {
+//         snack = await Snack.findById(req.params.id);
+//     } catch (error) {
+//         console.log(error);
+//         return next(error);
+//     }
+
+//     req.body.quantity = +req.body.quantity;
+//     if (snack.amount < req.body.quantity) {
+//         res.json({
+//             message: 'The Snack quantity selected exceeds that available!',
+//             exceededQuantity: true,
+//         });
+//         return;
+//     }
+
+//     res.json({
+//         message: 'Product quantity available at the moment!',
+//         exceededQuantity: false,
+//     });
+// }
+
 module.exports = {
-    addCartItem: addCartItem,
     getCart: getCart,
-    updateCartItem: updateCartItem,
+    addCartItemSnack: addCartItemSnack,
+    updateCartItemSnack: updateCartItemSnack,
+    // checkSnackQuantity: checkSnackQuantity,
 }

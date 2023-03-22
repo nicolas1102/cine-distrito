@@ -283,7 +283,6 @@ async function deleteSnack(req, res, next) {
         snack = await Snack.findById(req.params.id);
         await snack.remove();
     } catch (error) {
-        console.log(error);
         return next(error);
     }
 
