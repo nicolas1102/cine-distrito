@@ -1,5 +1,4 @@
 // importing the models
-// const User = require('../models/user.model');
 const Employee = require('../models/employee.model');
 const Client = require('../models/client.model');
 const Snack = require('../models/snack.model');
@@ -94,8 +93,6 @@ function updateCartItemSnack(req, res) {
     });
 }
 
-
-
 // async function checkSnackQuantity(req, res, next) {
 //     let snack;
 //     try {
@@ -119,6 +116,7 @@ function updateCartItemSnack(req, res) {
 //         exceededQuantity: false,
 //     });
 // }
+
 
 
 function getSignup(req, res) {

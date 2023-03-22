@@ -1,4 +1,5 @@
 const Client = require('../models/client.model');
+const Order = require('../models/order.model');
 
 const fs = require('fs');
 
@@ -210,9 +211,34 @@ async function deleteClient(req, res, next) {
 
 
 
-function addOrder (req, res, nex) {
+function getOrders(req, res){
+    res.render('client/orders/all-orders');
+}
+
+async function addOrder (req, res, next) {
     const cart = res.locals.cart;
-    
+
+    let client;
+    try {
+        client = await Client.findById(res.locals.userid);
+    } catch (error) { 
+        next(error);
+        return;
+    }
+
+    const order = new Order(cart, client);
+
+    try {
+        await order.save();
+    } catch (error) {
+        next(error);
+        return;
+    }
+
+    // we delete the cart 'cause we added it to the order
+    req.session.cart = null;
+
+    res.redirect('/client/orders');
     
 }
 
@@ -222,5 +248,6 @@ module.exports = {
     uploadPersonalInfo: uploadPersonalInfo,
     updatePassword: updatePassword,
     deleteClient: deleteClient,
+    getOrders: getOrders,
     addOrder: addOrder,
 }

@@ -42,8 +42,8 @@ class Client extends User {
                 //  we delete the key of the product data, so we dont save a undefined
                 delete clntData.imageName;
             }
-            
-            await db.getDb().collection('clients').updateOne({_id: clntId},{$set: clntData});
+
+            await db.getDb().collection('clients').updateOne({ _id: clntId }, { $set: clntData });
         } else {
 
             // encrypt the password
@@ -56,15 +56,9 @@ class Client extends User {
     }
 
     static async findById(clientId) {
-        let littleClientId;
-        try {
-            // we need to user an object id as the mongodb does
-            littleClientId = new mongodb.ObjectId(clientId);
-        } catch (error) {
-            error.code = 404;
-            throw error;
-        }
-        const client = await db.getDb().collection('clients').findOne({ _id: littleClientId });
+        // we need to user an object id as the mongodb does
+        const clntId = new mongodb.ObjectId(clientId);
+        const client = await db.getDb().collection('clients').findOne({ _id: clntId });
         if (!client) {
             const error = new Error('Could not find the client.');
             error.code = 404;
@@ -86,18 +80,18 @@ class Client extends User {
         this.updateImageData();
     }
 
-    updatePersonalInfo(email, name, identification){
+    updatePersonalInfo(email, name, identification) {
         this.email = email;
         this.name = name;
         this.identification = identification;
     }
 
-    async updatePassword(password){
+    async updatePassword(password) {
         const hashedPassword = await bcrypt.hash(password, 12);
         this.password = hashedPassword;
     }
 
-    async remove(){
+    async remove() {
         const cltnId = new mongodb.ObjectId(this.id);
         return db.getDb().collection('clients').deleteOne({ _id: cltnId });
     }

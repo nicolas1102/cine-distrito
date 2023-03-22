@@ -16,8 +16,9 @@ router.post('/updatePassword', clientController.updatePassword);
 router.post('/deleteAccount',  imageUploadMiddleware, clientController.deleteClient);
 
 
+router.get('/orders', clientController.getOrders);
 
-router.get('/orders', clientController.addOrder);
+router.post('/orders', clientController.addOrder);
 
 
 module.exports = router;
