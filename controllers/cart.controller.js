@@ -21,7 +21,7 @@ async function addCartItem(req, res, next) {
     req.session.cart = cart;
 
     res.status(201).json({
-        message: 'Cart updated',
+        message: 'Cart updated!',
         newTotalItems: cart.totalQuantity,
     });
 }
@@ -39,11 +39,11 @@ function updateCartItem(req, res) {
 
     res.json({
         message: 'Item updated!',
-        updateCartData: {
+        updatedCartData: {
             newTotalQuantity: cart.totalQuantity,
-            newTotalPrice: cart.newTotalPrice,
-            updatedItemPrice: updatedItemData.updateItemPrice,
-        }
+            newTotalPrice: cart.totalPrice,
+            updatedItemPrice: updatedItemData.updatedItemPrice,
+        },
     });
 }
 
