@@ -20,6 +20,32 @@ class Order {
         this.id = orderId;
     }
 
+    static async findAllForUser(clientId) {
+        const orders = await db
+            .getDb()
+            .collection('orders')
+            .find({ 'client.id': clientId })
+            .sort({ _id: -1 })
+            .toArray();
+            console.log(orders);
+
+        return this.transformOrderDocuments(orders);
+    }
+
+    static transformOrderDocuments(orderDocs) {
+        return orderDocs.map(this.transformOrderDocument);
+    }
+
+    static transformOrderDocument(orderDoc) {
+        return new Order(
+            orderDoc.cart,
+            orderDoc.client,
+            orderDoc.status,
+            orderDoc.date,
+            orderDoc._id
+        );
+    }
+
     save () {
         // if we have an id, we are updating
         if(this.id){

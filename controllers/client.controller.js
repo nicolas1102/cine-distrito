@@ -211,17 +211,24 @@ async function deleteClient(req, res, next) {
 
 
 
-function getOrders(req, res){
-    res.render('client/orders/all-orders');
+async function getOrders(req, res, next) {
+    try {
+        const orders = await Order.findAllForUser(res.locals.userid);
+        res.render('client/orders/all-orders', {
+            orders: orders,
+        });
+    } catch (error) {
+        next(error);
+    }
 }
 
-async function addOrder (req, res, next) {
+async function addOrder(req, res, next) {
     const cart = res.locals.cart;
 
     let client;
     try {
         client = await Client.findById(res.locals.userid);
-    } catch (error) { 
+    } catch (error) {
         next(error);
         return;
     }
@@ -239,7 +246,7 @@ async function addOrder (req, res, next) {
     req.session.cart = null;
 
     res.redirect('/client/orders');
-    
+
 }
 
 

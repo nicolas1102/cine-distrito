@@ -1,0 +1,45 @@
+<article class="order-item">
+    <header class="order-summary">
+        <h2><span class="order-item-price"><%= order.cart.totalPrice %> COP</span> - <%= order.formattedDate %></h2>
+        <p><span class="badge"><%= order.status.toUpperCase() %></span></p>
+    </header>
+
+    <section class="order-details">
+        <% if (locals.role === 'admin') { %>
+            <address>
+                <p><a href="mailto:<%= order.client.email %>"><%= order.client.name %></a></p>
+                <p><%= order.client.name %></p>
+            </address>
+        <% } %>
+        <ul>
+            <% for (const item of order.cart.items) { %>
+                <li>
+                    <p>
+                        <span class="tittle-span"><%= item.product.type %>: </span><%= item.product.name %> - <%= item.totalPrice %> COP <span class="order-product-unit-price">(<%= item.product.price %> COP x <%= item.quantity %> u.)</span>
+                        <!-- TICKE LOGIC -->
+                        <% if (item.product.type === 'Ticket') { %>
+                            <p>Proof</p>
+                            <p><span class="tittle-span">Seat: </span><%= item.product.rowChair + item.product.columnChair %></p>
+                            <!-- show info -->
+                        <% } %>
+                    </p>
+                </li>
+            <% } %>
+        </ul>
+        </section>
+
+        <% if (locals.role === 'admin') { %>
+            <section class="order-actions">
+                <form>
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                <input type="hidden" name="orderid" value="<%= order.id %>">
+                <select name="status">
+                    <option value="pending" <% if (order.status === 'pending') { %>selected<% } %>>Pending</option>
+                    <option value="fulfilled" <% if (order.status === 'fulfilled') { %>selected<% } %>>Fulfilled</option>
+                    <option value="cancelled" <% if (order.status === 'cancelled') { %>selected<% } %>>Cancelled</option>
+                </select>
+                <button class="btn btn-alt">Update</button>
+                </form>
+            </section>
+        <% } %>
+</article>

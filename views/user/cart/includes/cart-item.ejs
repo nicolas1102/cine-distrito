@@ -6,6 +6,11 @@
         <div class="cart-item-info">
             <h2><%= item.product.name %></h2>
             <p><span class="tittle-span">Type: </span><%= item.product.type %> </p>
+            <% if (item.product.type === 'Ticket') { %>
+                <p>Proof</p>
+                <p><span class="tittle-span">Seat: </span><%= item.product.rowChair + item.product.columnChair %></p>
+                <!-- show info -->
+            <% } %>
             <p><span class="tittle-span">Points: </span><%= item.product.points %> points</p>
             <p><span class="tittle-span">Price: </span><span class="cart-item-price"><%= item.totalPrice %></span> COP <span class="cart-product-price">(<%= item.product.price %> COP / unit)</span></p>
         </div>
