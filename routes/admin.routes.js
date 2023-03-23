@@ -22,6 +22,14 @@ router.get('/', adminController.getAdminMenu);
 
 
 
+router.get('/orders', adminController.getOrders);
+
+router.patch('/orders/:id', adminController.updateOrder);
+
+router.delete('/orders/:id', adminController.deleteOrder);
+
+
+
 router.get('/products', adminController.getProducts);
 
 router.get('/products/new', adminController.getNewProduct);

@@ -36,11 +36,45 @@ function getNewEmployee(req, res) {
 
 
 
-function getOrders(req, res) {
-    res.render('admin/clients/all-orders');
+async function getOrders(req, res, next) {
+    try {
+        const orders = await Order.findAll();
+        res.render('admin/orders/admin-orders', {
+            orders: orders
+        });
+    } catch (error) {
+        next(error);
+    }
 }
-function getNewOrder(req, res) {
-    res.render('admin/clients/new-order');
+
+async function updateOrder(req, res, next) {
+    const orderId = req.params.id;
+    const newStatus = req.body.newStatus;
+    try {
+        const order = await Order.findById(orderId);
+
+        order.status = newStatus;
+
+        await order.save();
+
+        res.json({ message: 'Order updated', newStatus: newStatus });
+    } catch (error) {
+        next(error);
+    }
+}
+
+async function deleteOrder(req, res, next) {
+    const orderId = req.params.id;
+    let order;
+    try {
+        order = await Order.findById(orderId);
+        await order.remove();
+    } catch (error) {
+        console.log(error);
+        return next(error);
+    }
+    // we are using AJAX, so we dont need to redirect to anywhere, just responses something
+    res.json({ message: 'Deleted product!' });
 }
 
 
@@ -443,7 +477,8 @@ module.exports = {
     getNewEmployee: getNewEmployee,
 
     getOrders: getOrders,
-    getNewOrder: getNewOrder,
+    updateOrder: updateOrder,
+    deleteOrder: deleteOrder,
 
     getProducts: getProducts,
     getNewProduct: getNewProduct,

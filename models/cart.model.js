@@ -15,7 +15,7 @@ class Cart {
         //  we check if the item is already in the cart; if the product are in the cart, we update the product item, the queantity and the price of that product
         for (let i = 0; i < this.items.length; i++) {
             const item = this.items[i];
-            if (item.product.id === product.id) {
+            if (item.product.snackId === product.snackId) {
                 //  we update the cart product data
                 cartItem.quantity = +item.quantity + 1;
                 cartItem.totalPrice = item.totalPrice + product.price;

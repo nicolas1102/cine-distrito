@@ -20,6 +20,17 @@ class Order {
         this.id = orderId;
     }
 
+    static async findAll() {
+        const orders = await db
+            .getDb()
+            .collection('orders')
+            .find()
+            .sort({ _id: -1 })
+            .toArray();
+
+        return this.transformOrderDocuments(orders);
+    }
+
     static async findAllForUser(clientId) {
         const orders = await db
             .getDb()
@@ -27,9 +38,17 @@ class Order {
             .find({ 'client.id': clientId })
             .sort({ _id: -1 })
             .toArray();
-            console.log(orders);
 
         return this.transformOrderDocuments(orders);
+    }
+
+    static async findById(orderId) {
+        const order = await db
+            .getDb()
+            .collection('orders')
+            .findOne({ _id: new mongodb.ObjectId(orderId) });
+
+        return this.transformOrderDocument(order);
     }
 
     static transformOrderDocuments(orderDocs) {
@@ -49,18 +68,27 @@ class Order {
     save () {
         // if we have an id, we are updating
         if(this.id){
-
+            const orderId = new mongodb.ObjectId(this.id);
+            return db
+                .getDb()
+                .collection('orders')
+                .updateOne({ _id: orderId }, { $set: { status: this.status } });
         }else {
-            const orderDatat = {
+            const orderData = {
                 client: this.client,
                 cart: this.cart,
                 // mongodb knows how to work with js date objects
                 date: new Date(),
                 status: this.status,
             };
-
-            return  db.getDb().collection('orders').insertOne(orderDatat);
+            console.log(orderData);
+            return  db.getDb().collection('orders').insertOne(orderData);
         }
+    }
+
+    remove() {
+        const orderId = new mongodb.ObjectId(this.id);
+        return db.getDb().collection('orders').deleteOne({ _id: orderId });
     }
 }
 
