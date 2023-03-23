@@ -24,7 +24,9 @@
             <% if (locals.isAuth) { %>
                 <form action="/client/orders" method="POST" >
                     <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-                    <button class="btn">Buy Products</button>
+                    <% if (locals.cart.totalQuantity !== 0) { %>
+                        <button class="btn" id="buy-btn" style="display: block;">Buy Products</button>
+                    <% } %>
                 </form>
             <% } else { %>
                 <p id="cart-total-fallback">Log in to proceed and purchase the items</p>

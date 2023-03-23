@@ -3,6 +3,8 @@ const cartItemUpdateFormElements = document.querySelectorAll(
 );
 const cartTotalPriceElement = document.getElementById('cart-total-price');
 const cartBadge = document.querySelector('.nav-items .badge');
+const buyButton = document.querySelector('#buy-btn');
+console.log(cartItemUpdateFormElements);
 
 async function updateCartItem(event) {
     event.preventDefault();
@@ -47,6 +49,11 @@ async function updateCartItem(event) {
     } else {
         const cartItemTotalPriceElement = form.parentElement.querySelector('.cart-item-price');
         cartItemTotalPriceElement.textContent = responseData.updatedCartData.updatedItemPrice.toFixed(2);
+    }
+
+    if (cartItemUpdateFormElements.length === 1) {
+        console.log(buyButton);
+        buyButton.style.display = 'none';
     }
 
     cartTotalPriceElement.textContent = responseData.updatedCartData.newTotalPrice.toFixed(2);
