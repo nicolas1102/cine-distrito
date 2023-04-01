@@ -84,9 +84,18 @@ router.delete('/movies/:id', adminController.deleteMovie);
 
 
 
-// router.get('/theaters', adminController.getTheaters);
+router.get('/theaters', adminController.getTheaters);
 
-// router.get('/theaters/new', adminController.getNewTheater);
+router.get('/theaters/new', adminController.getNewTheater);
+
+router.post('/theaters', adminController.createNewTheater);
+
+router.get('/theaters/:id', adminController.getUpdateTheater);
+
+router.post('/theaters/:id', adminController.updateTheater);
+// using ajax http methods 
+router.delete('/theaters/:id', adminController.deleteTheater);
+
 
 
 

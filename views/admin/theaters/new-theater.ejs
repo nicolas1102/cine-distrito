@@ -1,0 +1,23 @@
+<!-- inlcuding the shared code head -->
+    <%- include('../../shared/includes/head', { pageTitle: 'Add New Theater' }) %>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <%- include('../../shared/includes/blob') %>
+    <main>
+    <h1>Add New Theater</h1>
+    <%- include('includes/theater-form', { 
+        submitPath: '/admin/theaters',
+        theater: {
+            name:'',
+            address:'',
+            numScreens:'',
+            rating: '',
+            amountRatings: '',
+        },
+        update: false,
+    }) %>
+    </main>
+    <%- include('../../shared/includes/footer') %>

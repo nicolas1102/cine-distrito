@@ -1,0 +1,68 @@
+#theaters-table {
+    margin: var(--space-8) auto;
+    width: 100%;
+    z-index: 0;
+    background-color: rgba(100, 100, 100, 0.3);
+    backdrop-filter: blur(var(--backdrop-filter-0));
+    border-radius: var(--border-radius-large);
+    border: 2px solid var(--color-gray-700);
+    padding: 1rem;
+}
+
+#name-title{
+    width: 20%;
+}
+
+#address-title{
+    width: 25%;
+}
+
+#screens-title,
+#rating-title,
+#amount-rating-title
+{
+    width: 13%;
+}
+
+#actions-title{
+    width: 16%;
+}
+
+#theaters-table tbody tr td{
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.theater-item-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theater-item .btn {
+    font-size: 0.7rem;
+    margin: 0 0.05rem;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--color-secundary-300);
+    transition: 500ms;
+    border-color: var(--color-gray-700);
+    color: var(--color-gray-700);
+}
+
+.theater-item .btn:hover {
+    background-color: var(--color-secundary-800);
+    color: var(--color-gray-50);
+}
+
+.theater-item .btn-alt {
+    background-color: rgb(208, 96, 96);
+    border-color: var(--color-gray-700);
+    color: var(--color-gray-700);
+}
+
+.theater-item .btn-alt:hover {
+    background-color: rgb(255, 0, 0);
+    transition: 500ms;
+    border-color: var(--color-gray-50);
+}

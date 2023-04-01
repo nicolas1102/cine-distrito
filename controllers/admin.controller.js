@@ -436,7 +436,7 @@ async function deleteMovie(req, res, next) {
 
 
 
-function getTickets(req, res) {
+async function getTickets(req, res, next) {
     res.render('admin/tickets/all-tickets');
 }
 
@@ -456,14 +456,87 @@ function getNewShow(req, res) {
 
 
 
-function getTheaters(req, res) {
-    res.render('admin/theaters/all-theaters');
+async function getTheaters(req, res, next) {
+    try {
+        const theaters = await Theater.findAll();
+        res.render('admin/theaters/admin-all-theaters', { theaters: theaters });
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
 }
 
 function getNewTheater(req, res) {
     res.render('admin/theaters/new-theater');
 }
 
+async function createNewTheater(req, res, next) {
+    theaterData = {
+        name: req.body.name,
+        address: req.body.address,
+        numScreens: req.body['num-screens'],
+        rating: 0,
+        amountRatings: 0,
+    }
+    const theater = new Theater(theaterData);
+
+    try {
+        await theater.save();
+    } catch (error) {
+        next(error);
+        return;
+    }
+    res.redirect('/admin/theaters');
+}
+
+async function getUpdateTheater(req, res, next) {
+    let theater;
+    try {
+        theater = await Theater.findById(req.params.id);
+        res.render('admin/theaters/update-theater', { theater: theater });
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
+
+async function updateTheater(req, res, next) {
+    theaterData = {
+        name: req.body.name,
+        address: req.body.address,
+        numScreens: req.body['num-screens'],
+        rating: 0,
+        amountRatings: 0,
+        _id: req.params.id
+    }
+    const theater = new Theater(theaterData);
+
+    try {
+        await theater.save();
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
+
+    res.redirect('/admin/theaters');
+}
+
+async function deleteTheater(req, res, next) {
+    let theater;
+    try {
+        theater = await Theater.findById(req.params.id);
+        await theater.remove();
+    } catch (error) {
+        console.log(error);
+        return next(error);
+    }
+
+    // we are using AJAX, so we dont need to redirect to anywhere, just responses something
+    res.json({ message: 'Deleted theater!' });
+}
 
 
 
@@ -509,6 +582,12 @@ module.exports = {
 
     getTheaters: getTheaters,
     getNewTheater: getNewTheater,
+    createNewTheater: createNewTheater,
+    getUpdateTheater: getUpdateTheater,
+    updateTheater: updateTheater,
+    deleteTheater: deleteTheater,
+
+
 }
 
 
