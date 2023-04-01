@@ -3,6 +3,8 @@ const Employee = require('../models/employee.model');
 const Client = require('../models/client.model');
 const Snack = require('../models/snack.model');
 const Movie = require('../models/movie.model');
+const Theater = require('../models/theater.model');
+const Show = require('../models/show.model');
 
 // to create tell the session the user is logged in
 const authUtil = require('../util/authentication');
@@ -30,15 +32,25 @@ async function getHome(req, res) {
 
 
 async function getMovieDetails(req, res, next) {
+    let movie;
+    let shows;
     try {
-        const movie = await Movie.findById(req.params.id);
+        // movie datails
+        movie = await Movie.findById(req.params.id);
         const hoursDuration = Math.floor(movie.duration / 60);
         const minutesDuration = movie.duration - (hoursDuration * 60);
         movie.duration = {
             hours: hoursDuration,
             minutes: minutesDuration,
         }
-        res.render('user/movies/movie-details', { movie: movie });
+
+        // shows
+        shows = await Show.findAll();
+
+        res.render('user/movies/movie-details', {
+            movie: movie,
+            shows: shows,
+        });
     } catch (error) {
         next(error);
     }

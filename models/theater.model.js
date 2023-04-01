@@ -15,7 +15,6 @@ class Theater{
             this.rating = 0;
             this.amountRatings = 0;
         }
-        // si lo que se está haciendo no es crear un nuevo objeto para la base de datos, sino solo es para usarlo en codigo; transformamos el objectid que obtenemos de la base de datos a string
         if (theaterData._id) {
             this.id = theaterData._id.toString();
         }
@@ -42,8 +41,6 @@ class Theater{
     
     static async findAll() {
         const theaters = await db.getDb().collection('theaters').find().toArray();
-
-        // transform all the theaters in the data base as a product instance of the Product class
         return theaters.map(function (theaterDocument) {
             return new Theater(theaterDocument);
         });
@@ -57,11 +54,8 @@ class Theater{
             rating: this.rating,
             amountRatings: this.amountRatings,
         }
-
-        //  just if we are providing the product id, we know that we wanna update the product. If there's no id, we wanna just insert a new one
         if (this.id) {
             const theaterId = new mongodb.ObjectId(this.id);
-
             await db.getDb().collection('theaters').updateOne(
                 {
                     _id: theaterId

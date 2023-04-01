@@ -19,22 +19,25 @@
             <p id="date-selector">
                 <label>Date:</label>
                 <select name="date" id="date">
-                    <option value="0">--Please choose a Date--</option>
+                    <option value="0" selected disabled hidden>--Please choose a Date--</option>
+                    <% shows.forEach(show => { %>
+                        <% if (show.movie._id.toString() === movie.id) { %>
+                            <option value="<%= show.id %>">
+                                <%= show.date.toDateString()%>
+                            </option>
+                        <% } %>
+                    <% }); %>
                 </select>
             </p>
             <p id="theater-selector">
                 <label>AT:</label>
                 <select name="theter" id="theter">
-                    <option value="0">--Please choose a Theater--</option>
-                    <% //products.forEach(snack => { %>
-                        <!-- <option value="<%= // snack.id %>"><%= // snack.name %></option> -->
-                    <% //}); %>
+
                 </select>
             </p>
             <p id="time-selector">
                 <label>Time:</label>
                 <select name="time" id="time">
-                    <option value="0">--Please choose a Time--</option>
                 </select>
             </p>
         </div>

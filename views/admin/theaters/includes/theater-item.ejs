@@ -3,7 +3,7 @@
 <td id="num-screens"><%= theater.numScreens %></td>
 <td id="rating"><%= theater.rating %></td>
 <td id="amount-ratings"><%= theater.amountRatings %></td>
-<td id="theater-item-actions">
+<td id="table-item-actions">
     <a class="btn" href="/admin/theaters/<%= theater.id %>">View & Edit</a>
     <button class="btn btn-alt" data-theaterid="<%= theater.id  %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
 </td>

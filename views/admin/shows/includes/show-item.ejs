@@ -1,0 +1,9 @@
+<td id="movie"><%= show.movie.title %></td>
+<td id="date"><%= show.date %></td>
+<td id="time"><%= show.time %></td>
+<td id="theater"><%= show.theater.name %></td>
+<td id="screen"><%= show.screen %></td>
+<td id="table-item-actions">
+    <a class="btn" href="/admin/shows/<%= show.id %>">View & Edit</a>
+    <button class="btn btn-alt" data-showid="<%= show.id  %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+</td>

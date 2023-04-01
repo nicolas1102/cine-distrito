@@ -1,0 +1,41 @@
+<!-- saving the token in the path -->
+<form action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST" class="form" data-csrf="<%= locals.csrfToken %>">
+    <div id="information-show">
+        <p>
+            <label for="movie">Movie: </label>
+            <select name="movie" id="movie-select" required>
+                <% movies.forEach(movie => { %>
+                    <option value="<%= movie.id %>" <% if (show.movie.title === movie.title) { %>selected="selected"<% } %>><%= movie.title %></option>
+                <% }); %>
+            </select>
+        </p>
+        <p>
+            <label for="date">Date: </label>
+            <input type="date" name="date" id="date" value="<% if(show.date) { %> <% if(show.date.getFullYear() < 10) { %>0<%= show.date.getFullYear() %><% } else { %><%= show.date.getFullYear() %><% } %>-<% if(show.date.getMonth() < 10) { %>0<%= show.date.getMonth() %><% } else { %><%= show.date.getMonth() %><% } %>-<% if(show.date.getDate() < 10) {%>0<%= show.date.getDate() %><% } else { %><%= show.date.getDate() %><% } %><% } %>" require>
+        </p>
+        <p>
+            <label for="time">Time: </label>
+            <input type="time" name="time" id="time" step="300" value="<% if(show.date) { %> <%= show.date.getHours() + ':' + show.date.getMinutes() %><% } %>" require>
+        </p>
+        <p>
+            <label for="theater">Theater: </label>
+            <select name="theater" id="theater-select" required>
+                <% theaters.forEach(theater => { %>
+                    <option value="<%= theater.id %>" <% if (show.theater.name === theater.name) { %>selected="selected"<% } %>><%= theater.name %></option>
+                <% }); %>
+            </select>
+        </p>
+        <p>
+            <label for="screen">Screen:</label>
+            <select name="screen" id="screen" require>
+                <% for (let i = 1; i <= theaters[0].numScreens; i++) { %>
+                    <option value="<%= i %>" <% if (+show.screen === i) { %>selected="selected"<% } %>><%= i %></option>
+                <% }; %>
+            </select>
+        </p>
+        <p>
+            <a href="/admin/shows" class="btn btn-alt">Cancel</a>
+            <button class="btn">Save</button>
+        </p>
+    </div>
+</form>

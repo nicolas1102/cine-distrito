@@ -1,3 +1,5 @@
+const mongodb = require('mongodb');
+
 const Order = require('../models/order.model');
 const Client = require('../models/client.model');
 const Employee = require('../models/employee.model');
@@ -446,12 +448,126 @@ function getNewTicket(req, res) {
 
 
 
-function getShows(req, res) {
-    res.render('admin/shows/all-shows');
+async function getShows(req, res, next) {
+    try {
+        const shows = await Show.findAll();
+        shows.forEach(show => {
+            if (+show.date.getMinutes() < 10){
+                show.time = show.date.getHours() + ':0' + show.date.getMinutes();
+            }else {
+                show.time = show.date.getHours() + ':' + show.date.getMinutes();
+            }
+            show.date = show.date.toLocaleDateString('es-Co', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+            });
+        });
+        res.render('admin/shows/admin-all-shows', { shows: shows });
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
 }
 
-function getNewShow(req, res) {
-    res.render('admin/shows/new-show');
+async function getNewShow(req, res, next) {
+    let movies;
+    let theaters;
+    try {
+        movies = await Movie.findAll();
+        theaters = await Theater.findAll();
+        res.render('admin/shows/new-show', { movies: movies, theaters: theaters });
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
+
+async function createNewShow(req, res, next) {
+    let movie;
+    let theater;
+    try {
+        movie = await Movie.findById(req.body.movie);
+        theater = await Theater.findById(req.body.theater);
+
+        // parsing data objects
+        movie._id = new mongodb.ObjectId(movie.id);
+        delete movie.id;
+        theater._id = new mongodb.ObjectId(theater.id);
+        delete theater.id;
+
+        showData = {
+            date: new Date(req.body.date + ', ' + req.body.time),
+            movie: movie,
+            theater: theater,
+            screen: req.body.screen,
+        }
+        const show = new Show(showData);
+        await show.save();
+    } catch (error) {
+        next(error);
+        return;
+    }
+    res.redirect('/admin/shows');
+}
+
+async function getUpdateShow(req, res, next) {
+    let show;
+    let movies;
+    let theaters;
+    try {
+        show = await Show.findById(req.params.id);
+        movies = await Movie.findAll();
+        theaters = await Theater.findAll();
+        res.render('admin/shows/update-show', { show: show, movies: movies, theaters: theaters });
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
+
+async function updateShow(req, res, next) {
+    let movie;
+    let theater;
+    try {
+        movie = await Movie.findById(req.body.movie);
+        theater = await Theater.findById(req.body.theater);
+
+        // parsing data objects
+        movie._id = new mongodb.ObjectId(movie.id);
+        delete movie.id;
+        theater._id = new mongodb.ObjectId(theater.id);
+        delete theater.id;
+
+        showData = {
+            date: new Date(req.body.date + ', ' + req.body.time),
+            movie: movie,
+            theater: theater,
+            screen: req.body.screen,
+            _id: req.params.id
+        }
+        const show = new Show(showData);
+        await show.save();
+    } catch (error) {
+        next(error);
+        return;
+    }
+    res.redirect('/admin/shows');
+}
+
+async function deleteShow(req, res, next) {
+    let show;
+    try {
+        show = await Show.findById(req.params.id);
+        await show.remove();
+    } catch (error) {
+        console.log(error);
+        return next(error);
+    }
+
+    // we are using AJAX, so we dont need to redirect to anywhere, just responses something
+    res.json({ message: 'Deleted show!' });
 }
 
 
@@ -460,7 +576,6 @@ async function getTheaters(req, res, next) {
     try {
         const theaters = await Theater.findAll();
         res.render('admin/theaters/admin-all-theaters', { theaters: theaters });
-
     } catch (error) {
         console.log(error);
         next(error);
@@ -470,6 +585,21 @@ async function getTheaters(req, res, next) {
 
 function getNewTheater(req, res) {
     res.render('admin/theaters/new-theater');
+}
+
+async function getNumberTheaterScreens(req, res, next) {
+    let theater;
+    try {
+        theater = await Theater.findById(req.body.theaterId);
+    } catch (error) {
+        next(error);
+        return;
+    }
+
+    res.status(201).json({
+        message: 'Number Theater Screens found!',
+        numScreens: theater.numScreens,
+    });
 }
 
 async function createNewTheater(req, res, next) {
@@ -579,9 +709,14 @@ module.exports = {
 
     getShows: getShows,
     getNewShow: getNewShow,
+    createNewShow: createNewShow,
+    getUpdateShow: getUpdateShow,
+    updateShow: updateShow,
+    deleteShow: deleteShow,
 
     getTheaters: getTheaters,
     getNewTheater: getNewTheater,
+    getNumberTheaterScreens: getNumberTheaterScreens,
     createNewTheater: createNewTheater,
     getUpdateTheater: getUpdateTheater,
     updateTheater: updateTheater,

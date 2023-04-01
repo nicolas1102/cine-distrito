@@ -1,4 +1,5 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Theater Administration' }) %>
+<link rel="stylesheet" href="/styles/tables.css">
 <link rel="stylesheet" href="/styles/theaters.css">
 <script src="/scripts/theater-management.js" defer></script>
 </head>
@@ -9,7 +10,7 @@
 <main>
     <h1>Theater Administration</h1>
     <section>
-        <table id="theaters-table">
+        <table id="table">
             <thead>
                 <tr>
                     <th id="name-title">Name</th>
@@ -21,18 +22,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="theater-item">
+                <tr class="table-item">
                     <td id="name">Add New Theater</td>
                     <td id="address">-----</td>
                     <td id="num-screens">-----</td>
                     <td id="rating">-----</td>
                     <td id="amount-ratings">-----</td>
-                    <td id="theater-item-actions">
+                    <td id="table-item-actions">
                         <a class="btn" href="/admin/theaters/new">Add New Theater</a>
                     </td>
                 </tr>
                 <% theaters.slice().reverse().forEach(theater => { %>
-                    <tr class="theater-item">
+                    <tr class="table-item">
                         <%- include('includes/theater-item',{theater: theater}) %>
                     </tr>
                 <% }); %> 
