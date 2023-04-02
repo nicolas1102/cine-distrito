@@ -48,7 +48,7 @@ async function getMovieDetails(req, res, next) {
             minutes: minutesDuration,
         }
 
-        shows = await Show.findAll();
+        shows = await Show.findAllByMovie(req.params.id);
 
         // filter dates of the shows for movie
         let finalDates = [];
@@ -75,7 +75,7 @@ async function getMovieTheatersByDate(req, res, next) {
     let shows;
     let theaters = [];
     try {
-        shows = await Show.findByDate(req.params.date);
+        shows = await Show.findByMovieAndDate(req.body.movieId, req.params.date);
     } catch (error) {
         next(error);
         return;
@@ -103,7 +103,7 @@ async function getMovieTheatersByDate(req, res, next) {
 async function getMovieShowTimesByTheater(req, res, next) {
     let shows;
     try {
-        shows = await Show.findByDateAndTheater(req.params.theaterid, req.body.date);
+        shows = await Show.findByMovieAndDateAndTheater(req.body.movieId, req.params.theaterid, req.body.date);
     } catch (error) {
         next(error);
         return;
@@ -136,14 +136,14 @@ async function getShowtimeTickets(req, res, next) {
         let ticketGeneral;
         let ticketPreferential;
         productsTickets.forEach(productsTicket => {
-            if (productsTicket.name === 'Ticket (General)'){
+            if (productsTicket.name === 'Ticket (General)') {
                 ticketGeneral = productsTicket;
             } else if (productsTicket.name === 'Ticket (Preferential)') {
                 ticketPreferential = productsTicket;
             }
         });
 
-        res.render('user/shows/show-details', {show: show, tickets: tickets, snacks: snacks, ticketGeneral: ticketGeneral, ticketPreferential: ticketPreferential });
+        res.render('user/shows/show-details', { show: show, tickets: tickets, snacks: snacks, ticketGeneral: ticketGeneral, ticketPreferential: ticketPreferential });
     } catch (error) {
         next(error);
         return;

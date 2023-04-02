@@ -41,8 +41,17 @@ class Show {
         });
     }
 
-    static async findByDate(date) {
-        const shows = await db.getDb().collection('shows').find({ date: date }).sort({ _id: -1 }).toArray();
+    static async findAllByMovie(movieId) {
+        const mvId = new mongodb.ObjectId(movieId);
+        const shows = await db.getDb().collection('shows').find({ 'movie._id': mvId }).toArray();
+        return shows.map(function (showDocument) {
+            return new Show(showDocument);
+        });
+    }
+
+    static async findByMovieAndDate(movieId, date) {
+        const mvId = new mongodb.ObjectId(movieId);
+        const shows = await db.getDb().collection('shows').find({ 'movie._id': mvId, date: date }).sort({ _id: -1 }).toArray();
         if (!shows) {
             const error = new Error('Could not find the show with provided id.');
             error.code = 404;
@@ -55,16 +64,11 @@ class Show {
         });
     }
 
-    static async findByDateAndTheater(theaterId, date) {
-        let thtrId;
-        try {
-            thtrId = new mongodb.ObjectId(theaterId);
-        } catch (error) {
-            error.code = 404;
-            throw error;
-        }
+    static async findByMovieAndDateAndTheater(movieId, theaterId, date) {
+        const mvId = new mongodb.ObjectId(movieId);
+        const thtrId = new mongodb.ObjectId(theaterId);
         
-        const shows = await db.getDb().collection('shows').find({ 'theater._id': thtrId , date: date }).sort({ time: 1 }).toArray();
+        const shows = await db.getDb().collection('shows').find({ 'movie._id': mvId, 'theater._id': thtrId , date: date }).sort({ time: 1 }).toArray();
         if (!shows) {
             const error = new Error('Could not find the show with provided id.');
             error.code = 404;

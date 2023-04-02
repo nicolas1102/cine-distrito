@@ -1,9 +1,10 @@
+const showtimeDivElement = document.querySelector('#showtime-selector');
 const dateSelectElement = document.querySelector('#date-select');
 const theaterSelectElement = document.querySelector('#theater-select');
 const showtimeSelectElement = document.querySelector('#showtime-select');
-const showtimeDivElement = document.querySelector('#showtime-selector');
 const continueBtnElement = document.querySelector('.btn');
 const continueFormElement = document.querySelector('#form-continue');
+const movieId = showtimeDivElement.dataset.movieid;
 
 async function updateTheaters() {
     theaterSelectElement.parentElement.style.display = 'none';
@@ -18,6 +19,7 @@ async function updateTheaters() {
         response = await fetch(`/movies/shows/theaters/${date}`, {
             method: 'POST',
             body: JSON.stringify({
+                movieId: movieId,
                 _csrf: csrfToken,
             }),
             headers: {
@@ -70,6 +72,7 @@ async function updateShowtimes() {
         response = await fetch(`/movies/shows/showtimes/${theaterId}`, {
             method: 'POST',
             body: JSON.stringify({
+                movieId: movieId,
                 date: date,
                 _csrf: csrfToken,
             }),

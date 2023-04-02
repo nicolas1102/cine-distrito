@@ -14,7 +14,7 @@
     <div id="movie-info">
         <h1><%= movie.title %></h1>
         <p><span>Description: </span><%= movie.description %></p>
-        <div id="showtime-selector" data-csrf="<%= locals.csrfToken %>">
+        <div id="showtime-selector" data-csrf="<%= locals.csrfToken %>" data-movieid="<%= movie.id %>">
             <p id="date">
                 <label>Date:</label>
                 <select name="date" id="date-select">
