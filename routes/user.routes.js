@@ -15,6 +15,9 @@ router.get('/home', userController.getHome);
 
 router.get('/movies/:id', userController.getMovieDetails);
 
+router.post('/movies/shows/theaters/:date', userController.getMovieTheatersByDate);
+
+router.post('/movies/shows/showtimes/:theaterid', userController.getMovieShowTimesByTheater);
 
 
 router.get('/cart', userController.getCart);

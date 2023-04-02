@@ -34,6 +34,7 @@ async function getHome(req, res) {
 async function getMovieDetails(req, res, next) {
     let movie;
     let shows;
+    let dates = [];
     try {
         // movie datails
         movie = await Movie.findById(req.params.id);
@@ -44,16 +45,71 @@ async function getMovieDetails(req, res, next) {
             minutes: minutesDuration,
         }
 
-        // shows
         shows = await Show.findAll();
+
+        // filter dates of the shows for movie
+        let finalDates = [];
+        if (shows) {
+            shows.forEach(show => {
+                finalDates.push(show.date);
+            });
+            // removing duplicates
+            finalDates = new Set(finalDates);
+            dates = [...finalDates];
+            dates.sort();
+        }
 
         res.render('user/movies/movie-details', {
             movie: movie,
-            shows: shows,
+            dates: dates,
         });
     } catch (error) {
         next(error);
     }
+}
+
+async function getMovieTheatersByDate(req, res, next) {
+    let shows;
+    let theaters = [];
+    try {
+        shows = await Show.findByDate(req.params.date);
+    } catch (error) {
+        next(error);
+        return;
+    }
+
+
+    let finalTheaters = [];
+    if (shows) {
+        shows.forEach(show => {
+            finalTheaters.push(show.theater);
+        });
+
+        // removing duplicates
+        finalTheaters = Array.from(new Set(finalTheaters.map(JSON.stringify))).map(JSON.parse);
+        theaters = [...finalTheaters];
+        theaters.sort();
+    }
+
+    res.status(201).json({
+        message: 'Theaters found!',
+        theaters: theaters,
+    });
+}
+
+async function getMovieShowTimesByTheater(req, res, next) {
+    let shows;
+    try {
+        shows = await Show.findByDateAndTheater(req.params.theaterid, req.body.date);
+    } catch (error) {
+        next(error);
+        return;
+    }
+
+    res.status(201).json({
+        message: 'Theaters found!',
+        shows: shows,
+    });
 }
 
 
@@ -372,14 +428,23 @@ function getAboutUs(req, res) {
 module.exports = {
     get: get,
     getHome: getHome,
+
     getMovieDetails: getMovieDetails,
+    getMovieTheatersByDate: getMovieTheatersByDate,
+    getMovieShowTimesByTheater: getMovieShowTimesByTheater,
+
     getCart: getCart,
     addCartItemSnack: addCartItemSnack,
     updateCartItemSnack: updateCartItemSnack,
+
     getSignup: getSignup,
     signup: signup,
+
     getLogin: getLogin,
     login: login,
+
     logout: logout,
+
     getAboutUs: getAboutUs,
+
 }

@@ -451,18 +451,6 @@ function getNewTicket(req, res) {
 async function getShows(req, res, next) {
     try {
         const shows = await Show.findAll();
-        shows.forEach(show => {
-            if (+show.date.getMinutes() < 10){
-                show.time = show.date.getHours() + ':0' + show.date.getMinutes();
-            }else {
-                show.time = show.date.getHours() + ':' + show.date.getMinutes();
-            }
-            show.date = show.date.toLocaleDateString('es-Co', {
-                year: 'numeric',
-                month: 'numeric',
-                day: 'numeric',
-            });
-        });
         res.render('admin/shows/admin-all-shows', { shows: shows });
     } catch (error) {
         console.log(error);
@@ -498,7 +486,8 @@ async function createNewShow(req, res, next) {
         delete theater.id;
 
         showData = {
-            date: new Date(req.body.date + ', ' + req.body.time),
+            date: req.body.date,
+            time: req.body.time,
             movie: movie,
             theater: theater,
             screen: req.body.screen,
@@ -541,7 +530,8 @@ async function updateShow(req, res, next) {
         delete theater.id;
 
         showData = {
-            date: new Date(req.body.date + ', ' + req.body.time),
+            date: req.body.date,
+            time: req.body.time,
             movie: movie,
             theater: theater,
             screen: req.body.screen,
@@ -721,7 +711,6 @@ module.exports = {
     getUpdateTheater: getUpdateTheater,
     updateTheater: updateTheater,
     deleteTheater: deleteTheater,
-
 
 }
 

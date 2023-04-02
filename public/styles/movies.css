@@ -218,13 +218,20 @@ svg {
     font-weight: bold;
 }
 
-/* #movie-details #date-selector {
+#movie-details #theater {
     display: none;
 }
 
-#movie-details #time-selector {
+#movie-details #showtime {
     display: none;
-} */
+}
+
+#action {
+    display: flex;
+    justify-content: flex-end;
+    display: none;
+
+}
 
 @media (min-width: 48rem) {
     #movie-details {

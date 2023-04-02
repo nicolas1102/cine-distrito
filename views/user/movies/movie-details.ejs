@@ -1,7 +1,6 @@
-<!-- inlcuding the shared code head -->
 <%- include('../../shared/includes/head', { pageTitle: movie.title + '- Cine Distrito' }) %>
 <link rel="stylesheet" href="/styles/movies.css">
-<script src="/scripts/showtime-selector" defer></script>
+<script src="/scripts/movie-details-management.js" defer></script>
 </head>
 <body>
 <%- include('../../shared/includes/header') %>
@@ -15,31 +14,29 @@
     <div id="movie-info">
         <h1><%= movie.title %></h1>
         <p><span>Description: </span><%= movie.description %></p>
-        <div id="showtime-selector">
-            <p id="date-selector">
+        <div id="showtime-selector" data-csrf="<%= locals.csrfToken %>">
+            <p id="date">
                 <label>Date:</label>
-                <select name="date" id="date">
+                <select name="date" id="date-select">
                     <option value="0" selected disabled hidden>--Please choose a Date--</option>
-                    <% shows.forEach(show => { %>
-                        <% if (show.movie._id.toString() === movie.id) { %>
-                            <option value="<%= show.id %>">
-                                <%= show.date.toDateString()%>
-                            </option>
-                        <% } %>
+                    <% dates.forEach(date => { %>
+                        <option value="<%= date %>"><%= date %></option>
                     <% }); %>
                 </select>
             </p>
-            <p id="theater-selector">
-                <label>AT:</label>
-                <select name="theter" id="theter">
-
+            <p id="theater">
+                <label for="theater">AT:</label>
+                <select name="theater" id="theater-select">
                 </select>
             </p>
-            <p id="time-selector">
-                <label>Time:</label>
-                <select name="time" id="time">
+            <p id="showtime">
+                <label for="showtime">Showtime:</label>
+                <select name="showtime" id="showtime-select">
                 </select>
             </p>
+        </div>
+        <div id="action">
+            <button class="btn btn-alt">Continue</button>
         </div>
     </div>
     <div id="movie-little-details">

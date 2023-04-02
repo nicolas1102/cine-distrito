@@ -11,11 +11,11 @@
         </p>
         <p>
             <label for="date">Date: </label>
-            <input type="date" name="date" id="date" value="<% if(show.date) { %> <% if(show.date.getFullYear() < 10) { %>0<%= show.date.getFullYear() %><% } else { %><%= show.date.getFullYear() %><% } %>-<% if(show.date.getMonth() < 10) { %>0<%= show.date.getMonth() %><% } else { %><%= show.date.getMonth() %><% } %>-<% if(show.date.getDate() < 10) {%>0<%= show.date.getDate() %><% } else { %><%= show.date.getDate() %><% } %><% } %>" require>
+            <input type="date" name="date" id="date" value="<%= show.date %>" require>
         </p>
         <p>
             <label for="time">Time: </label>
-            <input type="time" name="time" id="time" step="300" value="<% if(show.date) { %> <%= show.date.getHours() + ':' + show.date.getMinutes() %><% } %>" require>
+            <input type="time" name="time" id="time" step="300" value="<%= show.time %>" require>
         </p>
         <p>
             <label for="theater">Theater: </label>

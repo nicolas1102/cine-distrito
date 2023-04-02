@@ -6,15 +6,3 @@ function toggleMobileMenu () {
 }
 
 mobileMenuBtnElement.addEventListener('click', toggleMobileMenu);
-
-
-
-
-
-
-
-
-
-
-
-
