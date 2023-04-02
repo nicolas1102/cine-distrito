@@ -43,6 +43,21 @@ class Ticket extends Product {
         return new Ticket(ticket);
     }
 
+    static async findByShow(showId) {
+        let shwId;
+        shwId = new mongodb.ObjectId(shwId);
+        const tickets = await db.getDb().collection('tickets').find({ 'show._id': shwId }).sort({ _id: -1 }).toArray();
+        if (!tickets) {
+            const error = new Error('Could not find any ticket from the provided show.');
+            error.code = 404;
+            // throwing custom error
+            throw error;
+        }
+        return tickets.map(function (ticketDocument) {
+            return new Ticket(ticketDocument);
+        });
+    }
+
     static async findAll() {
         const tickets = await db.getDb().collection('tickets').find().toArray();
 

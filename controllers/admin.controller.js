@@ -438,13 +438,20 @@ async function deleteMovie(req, res, next) {
 
 
 
-async function getTickets(req, res, next) {
-    res.render('admin/tickets/all-tickets');
-}
+// async function getTickets(req, res, next) {
+//     try {
+//         const tickets = await Ticket.findAll();
+//         res.render('admin/tickets/admin-all-tickets', { tickets: tickets });
+//     } catch (error) {
+//         console.log(error);
+//         next(error);
+//         return;
+//     }
+// }
 
-function getNewTicket(req, res) {
-    res.render('admin/tickets/new-ticket');
-}
+// function getNewTicket(req, res) {
+//     res.render('admin/tickets/new-ticket');
+// }
 
 
 
@@ -694,8 +701,8 @@ module.exports = {
     updateMovie: updateMovie,
     deleteMovie: deleteMovie,
 
-    getTickets: getTickets,
-    getNewTicket: getNewTicket,
+    // getTickets: getTickets,
+    // getNewTicket: getNewTicket,
 
     getShows: getShows,
     getNewShow: getNewShow,

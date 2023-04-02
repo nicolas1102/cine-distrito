@@ -3,6 +3,7 @@ const theaterSelectElement = document.querySelector('#theater-select');
 const showtimeSelectElement = document.querySelector('#showtime-select');
 const showtimeDivElement = document.querySelector('#showtime-selector');
 const continueBtnElement = document.querySelector('.btn');
+const continueFormElement = document.querySelector('#form-continue');
 
 async function updateTheaters() {
     theaterSelectElement.parentElement.style.display = 'none';
@@ -45,7 +46,7 @@ async function updateTheaters() {
     option.disabled = true;
     option.hidden = true;
     theaterSelectElement.appendChild(option);
-    
+
     theaters.forEach(theater => {
         let option = document.createElement("option");
         option.value = theater._id;
@@ -109,10 +110,11 @@ async function updateShowtimes() {
     showtimeSelectElement.parentElement.style.display = 'block';
 }
 
-function showBtn() {
+function prepareGetShowtimeDetails() {
+    continueFormElement.action = `shows/${showtimeSelectElement.value}`;
     continueBtnElement.parentElement.style.display = 'flex';
 }
 
 dateSelectElement.addEventListener('change', updateTheaters);
 theaterSelectElement.addEventListener('change', updateShowtimes);
-showtimeSelectElement.addEventListener('change', showBtn);
+showtimeSelectElement.addEventListener('change', prepareGetShowtimeDetails);

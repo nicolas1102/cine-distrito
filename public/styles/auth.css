@@ -14,8 +14,8 @@ form {
     background-color: rgba(100, 100, 100, 0.3);
     backdrop-filter: blur(var(--backdrop-filter-0));
     border-radius: var(--border-radius-large);
-    text-align: center;
     border: 2px solid var(--color-gray-700);
+    text-align: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

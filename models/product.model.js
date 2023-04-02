@@ -49,6 +49,15 @@ class Product {
             return new Product(productDocument);
         });
     }
+    
+    static async findByType(type) {
+        const products = await db.getDb().collection('products').find({type: type}).toArray();
+
+        // transform all the products in the data base as a product instance of the Product class
+        return products.map(function (productDocument) {
+            return new Product(productDocument);
+        });
+    }
 
     async save() {
         const productData = {

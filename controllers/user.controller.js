@@ -3,8 +3,9 @@ const Employee = require('../models/employee.model');
 const Client = require('../models/client.model');
 const Snack = require('../models/snack.model');
 const Movie = require('../models/movie.model');
-const Theater = require('../models/theater.model');
 const Show = require('../models/show.model');
+const Ticket = require('../models/ticket.model');
+const Product = require('../models/product.model');
 
 // to create tell the session the user is logged in
 const authUtil = require('../util/authentication');
@@ -19,9 +20,11 @@ function get(req, res) {
 }
 
 async function getHome(req, res) {
+    let movies;
+    let snacks;
     try {
-        const movies = await Movie.findAll();
-        const snacks = await Snack.findAll();
+        movies = await Movie.findAll();
+        snacks = await Snack.findAll();
         res.render('user/cine-distrito', { movies: movies, snacks: snacks });
     } catch (error) {
         console.log(error);
@@ -110,6 +113,41 @@ async function getMovieShowTimesByTheater(req, res, next) {
         message: 'Theaters found!',
         shows: shows,
     });
+}
+
+async function getShowtimeTickets(req, res, next) {
+    let show;
+    let tickets;
+    let snacks;
+    let productsTickets;
+    try {
+        show = await Show.findById(req.params.id);
+        const hoursDuration = Math.floor(show.movie.duration / 60);
+        const minutesDuration = show.movie.duration - (hoursDuration * 60);
+        show.movie.duration = {
+            hours: hoursDuration,
+            minutes: minutesDuration,
+        }
+        tickets = await Ticket.findByShow(show.id);
+        snacks = await Snack.findAll();
+
+        // finding the price of for type of ticket
+        productsTickets = await Product.findByType('Ticket');
+        let ticketGeneral;
+        let ticketPreferential;
+        productsTickets.forEach(productsTicket => {
+            if (productsTicket.name === 'Ticket (General)'){
+                ticketGeneral = productsTicket;
+            } else if (productsTicket.name === 'Ticket (Preferential)') {
+                ticketPreferential = productsTicket;
+            }
+        });
+
+        res.render('user/shows/show-details', {show: show, tickets: tickets, snacks: snacks, ticketGeneral: ticketGeneral, ticketPreferential: ticketPreferential });
+    } catch (error) {
+        next(error);
+        return;
+    }
 }
 
 
@@ -432,6 +470,7 @@ module.exports = {
     getMovieDetails: getMovieDetails,
     getMovieTheatersByDate: getMovieTheatersByDate,
     getMovieShowTimesByTheater: getMovieShowTimesByTheater,
+    getShowtimeTickets: getShowtimeTickets,
 
     getCart: getCart,
     addCartItemSnack: addCartItemSnack,

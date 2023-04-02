@@ -63,8 +63,7 @@ class Show {
             error.code = 404;
             throw error;
         }
-
-        // const shows = await db.getDb().collection('shows').find({ _id: thtrId},{date: date }).sort({ _id: -1 }).toArray();
+        
         const shows = await db.getDb().collection('shows').find({ 'theater._id': thtrId , date: date }).sort({ time: 1 }).toArray();
         if (!shows) {
             const error = new Error('Could not find the show with provided id.');

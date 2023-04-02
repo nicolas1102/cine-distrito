@@ -19,7 +19,7 @@
     </ul>
     <div class="row-container">
         <div id="cart-total">
-            <p>Total: $<span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
+            <p>Total: <span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %> COP</span></p>
             
             <% if (locals.isAuth) { %>
                 <form action="/client/orders" method="POST" >

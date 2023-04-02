@@ -200,7 +200,6 @@ svg {
 
 #movie-details #movie-info {
     width: 100%;
-
 }
 
 #movie-details select {
@@ -226,11 +225,11 @@ svg {
     display: none;
 }
 
-#action {
+#form-continue {
     display: flex;
     justify-content: flex-end;
     display: none;
-
+    margin-bottom: 2rem;
 }
 
 @media (min-width: 48rem) {

@@ -1,0 +1,116 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Tickets - ' + show.movie.title + '- Cine Distrito' }) %>
+<link rel="stylesheet" href="/styles/movies.css">
+<link rel="stylesheet" href="/styles/cine-distrito.css">
+<link rel="stylesheet" href="/styles/products.css">
+<link rel="stylesheet" href="/styles/shows.css">
+<script src="/scripts/show-details-management.js" defer></script>
+<script src="/scripts/cart-snack-management.js" defer></script>
+</head>
+<body>
+<%- include('../../shared/includes/header') %>
+<%- include('../../shared/includes/blob') %>
+    <main>
+        <section id="show-details">
+            <section id="show-remaining">
+                <div id="image-container">
+                    <img src="<%= show.movie.imageUrl %>" alt="<%= show.movie.title %>">
+                </div>
+                <div id="show-info">
+                    <h3><%= show.movie.title %></h3>
+                    <p><span>Duration: </span><%= show.movie.duration.hours %> hours <%= show.movie.duration.minutes %> minutes</p>
+                    <p><span>Date: </span><%= new Date(show.date).toDateString() %></p>
+                    <p><span>Time: </span><%= show.time %></p>
+                    <p><span>At: </span><%= show.theater.name %></p>
+                </div>
+            </section>
+            <section id="chairs-container">
+                <div id="screen">
+                    <p>SCREEN <%= show.screen %></p>
+                </div>
+                <div id="general-container">
+                    <% for (let i = 1; i <= 4; i++) {  %>
+                        <div id="row-container">
+                            <p><%= String.fromCharCode(96 + i).toUpperCase(); %></p>
+                            <% for (let j = 1; j <= 10; j++) {  %>
+                                <span class="chair available" data-row="<%= i %>" data-column="<%= j %>" data-ispreferential="false" data-status="available" data-price="<%= ticketGeneral.price %>"></span>
+                            <% } %>
+                        </div>      
+                    <% } %>
+                </div>
+                <div id="preferential-container">
+                    <% for (let i = 5; i <= 6; i++) {  %>
+                        <div id="row-container">
+                            <p><%= String.fromCharCode(96 + i).toUpperCase();  %></p>
+                            <% for (let j = 1; j <= 10; j++) {  %>
+                                <span class="chair available" data-row="<%= i %>" data-column="<%= j %>" data-ispreferential="true" data-status="available" data-price="<%= ticketPreferential.price %>"></span>
+                            <% } %>
+                        </div>      
+                    <% } %>
+                </div>
+                <div id="instructions">
+                    <p id="available">
+                        <span class="chair-instruction"></span>
+                        Available
+                    </p>
+                    <p id="selected">
+                        <span class="chair-instruction"></span>
+                        Selected
+                    </p>
+                    <p id="unavailable">
+                        <span class="chair-instruction"></span>
+                        Unavailable
+                    </p>
+                </div>
+            </section>
+            <section id="tickets-summary-section">
+                <p id="tickets-summary-tittle"><span>Chair Selection Summary:</span></p>
+                <p id="general-price-summary"><span class="tittle-span">General: </span>0 Tickets x <%= ticketGeneral.price %> COP (0 COP)</p>
+                <p id="preferential-price-summary"><span class="tittle-span">Preferential: </span>0 Tickets x <%= ticketPreferential.price %> COP (0 COP)</p>
+                <p id="tickets-total-price"><span>Total: 0 COP</span></p>
+            </section>
+        </section>
+        <section id="snacks-section">
+            <h2 class="section-title">Add Your Food</h2>
+            <ul id="products-grid">
+                <% snacks.slice().reverse().forEach(snack=> { %>
+                    <li>
+                        <%- include('../../shared/includes/snack-item',{snack: snack}) %>
+                    </li>
+                <% }); %>
+            </ul>
+        </section>
+        
+        <!-- <div id="movie-info">
+            <h1><%= // show.movie.title %></h1>
+            <p><span>Description: </span><%= // movie.description %></p>
+            <div id="showtime-selector" data-csrf="<%= // locals.csrfToken %>">
+                <p id="date">
+                    <label>Date:</label>
+                    <select name="date" id="date-select">
+                        <option value="0" selected disabled hidden>--Please choose a Date--</option>
+                        <% // dates.forEach(date => { %>
+                            <option value="<%= // date %>"><%= // date %></option>
+                        <% // }); %>
+                    </select>
+                </p>
+                <p id="theater">
+                    <label for="theater">AT:</label>
+                    <select name="theater" id="theater-select">
+                    </select>
+                </p>
+                <p id="showtime">
+                    <label for="showtime">Showtime:</label>
+                    <select name="showtime" id="showtime-select">
+                    </select>
+                </p>
+            </div>
+            <div id="action">
+                <button class="btn btn-alt">Continue</button>
+            </div>
+        </div> -->
+        <!-- <div id="movie-little-details">
+            <p><span>Duration: </span><br><%= // movie.duration.hours %> hours <%= // movie.duration.minutes %> minutes</p>
+            <p><span>Genre: </span><br><%= // movie.genre %></p>
+        </div> -->
+    </main>
+<%- include('../../shared/includes/footer') %></body>
