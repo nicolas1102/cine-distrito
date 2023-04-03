@@ -4,7 +4,6 @@ const cartItemUpdateFormElements = document.querySelectorAll(
 const cartTotalPriceElement = document.getElementById('cart-total-price');
 const cartBadge = document.querySelector('.nav-items .badge');
 const buyButton = document.querySelector('#buy-btn');
-console.log(cartItemUpdateFormElements);
 
 async function updateCartItem(event) {
     event.preventDefault();

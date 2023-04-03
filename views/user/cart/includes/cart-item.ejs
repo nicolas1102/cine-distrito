@@ -1,22 +1,21 @@
 <article class="cart-item">
     <div class="image-info-item-container">
         <div class="image-item-container">
-            <img src="<%= item.product.imageUrl %>" alt="">
+            <img src="<% if (item.product.type === 'Ticket') { %><%= item.product.show.movie.imageUrl %><% } else { %><%= item.product.imageUrl %><% } %>" alt="">
         </div>
         <div class="cart-item-info">
             <h2><%= item.product.name %></h2>
-            <p><span class="tittle-span">Type: </span><%= item.product.type %> </p>
             <% if (item.product.type === 'Ticket') { %>
-                <p>Proof</p>
-                <p><span class="tittle-span">Seat: </span><%= item.product.rowChair + item.product.columnChair %></p>
-                <!-- show info -->
+                <p><span class="tittle-span">Movie: </span><%= item.product.show.movie.title %></p>
+                <p><span class="tittle-span">Date: </span><%= new Date(item.product.show.date).toDateString() %>, <%= item.product.show.time %></p>
+                <p><span class="tittle-span">Seat: </span><%= String.fromCharCode(97 + (+item.product.rowChair)).toUpperCase() + item.product.columnChair %></p>
             <% } %>
             <p><span class="tittle-span">Points: </span><%= item.product.points %> points</p>
             <p><span class="tittle-span">Price: </span><span class="cart-item-price"><%= item.totalPrice %></span> COP <span class="cart-product-price">(<%= item.product.price %> COP / unit)</span></p>
         </div>
     </div>
-    <form  class="cart-item-management" data-productid="<%= item.product.snackId %>" data-producttype="<%= item.product.type %>" data-csrf="<%= locals.csrfToken %>">
-        <input type="number" value="<%= item.quantity %>" min="0" required>
+    <form class="cart-item-management" <% if (item.product.type === 'Ticket') { %> data-ticketid="<%= item.product.ticketId %>" <% } else { %> data-productid="<%= item.product.snackId %>"<% } %> data-producttype="<%= item.product.type %>" data-csrf="<%= locals.csrfToken %>">
+        <input type="number" value="<%= item.quantity %>" min="0" max="<% if (item.product.type === 'Ticket') { %>1<% } else {%><%= item.product.amount %><% } %>" required>
         <button class="btn btn-alt">Update</button>
     </form>
 </article>

@@ -131,6 +131,7 @@ async function getMovieShowtimeTickets(req, res, next) {
             minutes: minutesDuration,
         }
         tickets = await Ticket.findByShow(show.id);
+        console.log(tickets);
         snacks = await Snack.findAll();
 
         // finding the price of for type of ticket
@@ -251,32 +252,49 @@ async function addCartItemTickets(req, res, next) {
 
     const tickets = [];
     let ticket;
-    ticketsGeneralPositions.forEach(async ticketsGeneralPosition => {
+
+    for (let i = 0; i < ticketsGeneralPositions.length; i++) {
         ticketData = {
             product: { ...generalTicketProduct },
-            rowChair: ticketsGeneralPosition.row,
-            columnChair: ticketsGeneralPosition.column,
+            rowChair: ticketsGeneralPositions[i].row,
+            columnChair: ticketsGeneralPositions[i].column,
             isPreferencial: false,
             show: show,
-            status: 'Pending',
+            status: 'pending',
         }
         ticket = new Ticket(ticketData);
-        tickets.push(ticket);
-    });
 
-    ticketsPreferentialPositions.forEach(async ticketsPreferentialPosition => {
+        try {
+            await ticket.save();
+            ticket = await Ticket.findByPositionAndShow(ticket.rowChair, ticket.columnChair, ticket.isPreferencial, show._id);
+        } catch (error) {
+            next(error);
+            return;
+        }
+        tickets.push(ticket);
+    };
+
+    for (let i = 0; i < ticketsPreferentialPositions.length; i++) {
         ticketData = {
-            product: { ...generalTicketProduct },
-            rowChair: ticketsPreferentialPosition.row,
-            columnChair: ticketsPreferentialPosition.column,
+            product: { ...preferentialTicketProduct },
+            rowChair: ticketsPreferentialPositions[i].row,
+            columnChair: ticketsPreferentialPositions[i].column,
             isPreferencial: true,
             show: show,
-            status: 'Pending',
+            status: 'pending',
         }
         ticket = new Ticket(ticketData);
+
+        try {
+            await ticket.save();
+            ticket = await Ticket.findByPositionAndShow(ticket.rowChair, ticket.columnChair, ticket.isPreferencial, show._id);
+        } catch (error) {
+            next(error);
+            return;
+        }
         tickets.push(ticket);
-    });
-    
+    };
+
     const cart = res.locals.cart;
 
     tickets.forEach(ticket => {

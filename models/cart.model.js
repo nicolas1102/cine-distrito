@@ -15,7 +15,7 @@ class Cart {
         //  we check if the item is already in the cart; if the product are in the cart, we update the product item, the queantity and the price of that product
         for (let i = 0; i < this.items.length; i++) {
             const item = this.items[i];
-            if (item.product.snackId === product.snackId) {
+            if (item.product.snackId && (item.product.snackId === product.snackId)) {
                 //  we update the cart product data
                 cartItem.quantity = +item.quantity + 1;
                 cartItem.totalPrice = item.totalPrice + product.price;
@@ -51,10 +51,9 @@ class Cart {
                 this.totalPrice += quantityChange * item.product.price;
                 return { updatedItemPrice: cartItem.totalPrice };
                 //  we wanna remove the item
-            } else if (item.product.snackId === productId && newQuantity <= 0) {
+            } else if ((item.product.ticketId === productId && newQuantity <= 0) || (item.product.snackId === productId && newQuantity <= 0)) {
                 // remove 1 item from an array in a specify item
                 this.items.splice(i, 1);
-
                 this.totalQuantity = this.totalQuantity - item.quantity;
                 this.totalPrice -= item.totalPrice;
                 // 'cause we remove the entire cart item
