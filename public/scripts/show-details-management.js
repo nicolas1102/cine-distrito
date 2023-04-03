@@ -1,15 +1,15 @@
-let generalTickets = [];
-let preferentialTickets = [];
 const chairsElements = document.querySelectorAll('.chair');
 const generalPriceSummaryElement = document.querySelector('#general-price-summary');
 const preferentialPriceSummaryElement = document.querySelector('#preferential-price-summary');
 const totalPriceElement = document.querySelector('#tickets-total-price');
+const addTicketsToCartButtonElement = document.querySelector('#tickets-summary-section #add-tickets-to-cart');
 const priceGeneral = +chairsElements[0].dataset.price;
 const pricePreferential = +chairsElements[41].dataset.price;
 let totalGeneralTickets = 0;
 let totalPreferentialTickets = 0;
 let totalTickets = 0;
-
+let generalTickets = [];
+let preferentialTickets = [];
 
 function selectChair(event) {
     const selectedChair = event.target;
@@ -67,9 +67,50 @@ function selectChair(event) {
 
         totalPriceElement.innerHTML = `<span>Total: ${totalTickets} COP</span>`;
     }
+
+    if (generalTickets.length === 0 && preferentialTickets.length === 0) {
+        addTicketsToCartButtonElement.disabled = true;
+        addTicketsToCartButtonElement.style.opacity = '0.5';
+    } else {
+        addTicketsToCartButtonElement.disabled = false;
+        addTicketsToCartButtonElement.style.opacity = '1';
+    }
 }
 
+async function addTicketsToCart() {
+    const csrfToken = addTicketsToCartButtonElement.dataset.csrf;
+    const showId = addTicketsToCartButtonElement.dataset.showid;
+    const generalTicketProductId = addTicketsToCartButtonElement.dataset.generalticketproductid;
+    const preferentialTicketProductId = addTicketsToCartButtonElement.dataset.preferentialticketproductid;
+    let response;
+    try {
+        response = await fetch(`/movies/shows/${showId}`, {
+            method: 'POST',
+            body: JSON.stringify({
+                showId: showId,
+                generalTickets: generalTickets,
+                preferentialTickets: preferentialTickets,
+                generalTicketProductId: generalTicketProductId,
+                preferentialTicketProductId: preferentialTicketProductId,
+                _csrf: csrfToken,
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    } catch (error) {
+        alert('Something went wrong!');
+        return;
+    }
+    if (!response.ok) {
+        alert('Something went wrong!');
+        return;
+    }
+    const responseData = await response.json();
+    alert(responseData.message);
+}
 
 chairsElements.forEach(chairsElement => {
     chairsElement.addEventListener('click', selectChair);
 });
+addTicketsToCartButtonElement.addEventListener('click', addTicketsToCart);

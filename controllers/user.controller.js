@@ -1,3 +1,5 @@
+const mongodb = require('mongodb');
+
 // importing the models
 const Employee = require('../models/employee.model');
 const Client = require('../models/client.model');
@@ -115,7 +117,7 @@ async function getMovieShowTimesByTheater(req, res, next) {
     });
 }
 
-async function getShowtimeTickets(req, res, next) {
+async function getMovieShowtimeTickets(req, res, next) {
     let show;
     let tickets;
     let snacks;
@@ -222,6 +224,72 @@ function updateCartItemSnack(req, res) {
 //         exceededQuantity: false,
 //     });
 // }
+
+async function addCartItemTickets(req, res, next) {
+    let generalTicketProduct;
+    let preferentialTicketProduct;
+    let show;
+    try {
+        generalTicketProduct = await Product.findById(req.body.generalTicketProductId);
+        preferentialTicketProduct = await Product.findById(req.body.preferentialTicketProductId);
+        show = await Show.findById(req.body.showId);
+    } catch (error) {
+        next(error);
+        return;
+    }
+
+    // parsing data objects
+    generalTicketProduct._id = new mongodb.ObjectId(generalTicketProduct.id);
+    delete generalTicketProduct.id;
+    preferentialTicketProduct._id = new mongodb.ObjectId(preferentialTicketProduct.id);
+    delete preferentialTicketProduct.id;
+    show._id = new mongodb.ObjectId(show.id);
+    delete show.id;
+
+    const ticketsGeneralPositions = req.body.generalTickets;
+    const ticketsPreferentialPositions = req.body.preferentialTickets;
+
+    const tickets = [];
+    let ticket;
+    ticketsGeneralPositions.forEach(async ticketsGeneralPosition => {
+        ticketData = {
+            product: { ...generalTicketProduct },
+            rowChair: ticketsGeneralPosition.row,
+            columnChair: ticketsGeneralPosition.column,
+            isPreferencial: false,
+            show: show,
+            status: 'Pending',
+        }
+        ticket = new Ticket(ticketData);
+        tickets.push(ticket);
+    });
+
+    ticketsPreferentialPositions.forEach(async ticketsPreferentialPosition => {
+        ticketData = {
+            product: { ...generalTicketProduct },
+            rowChair: ticketsPreferentialPosition.row,
+            columnChair: ticketsPreferentialPosition.column,
+            isPreferencial: true,
+            show: show,
+            status: 'Pending',
+        }
+        ticket = new Ticket(ticketData);
+        tickets.push(ticket);
+    });
+    
+    const cart = res.locals.cart;
+
+    tickets.forEach(ticket => {
+        cart.addItem(ticket);
+    });
+
+    // and we update the session cart; this cart survive this request response cycle
+    req.session.cart = cart;
+
+    res.status(201).json({
+        message: 'Cart updated!',
+    });
+}
 
 
 
@@ -470,11 +538,12 @@ module.exports = {
     getMovieDetails: getMovieDetails,
     getMovieTheatersByDate: getMovieTheatersByDate,
     getMovieShowTimesByTheater: getMovieShowTimesByTheater,
-    getShowtimeTickets: getShowtimeTickets,
+    getMovieShowtimeTickets: getMovieShowtimeTickets,
 
     getCart: getCart,
     addCartItemSnack: addCartItemSnack,
     updateCartItemSnack: updateCartItemSnack,
+    addCartItemTickets: addCartItemTickets,
 
     getSignup: getSignup,
     signup: signup,

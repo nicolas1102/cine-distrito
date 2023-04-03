@@ -13,12 +13,12 @@ class Ticket extends Product {
             imageName: ticketData.product.imageName,
             points: ticketData.product.points,
         };
-        if (ticketData.product.id) {
-            productData._id = new mongodb.ObjectId(ticketData.product.id);
-        }
-        if (ticketData.product._id) {
-            productData._id = new mongodb.ObjectId(ticketData.product._id);
-        }
+        // if (ticketData.product.id) {
+        //     productData._id = new mongodb.ObjectId(ticketData.product.id);
+        // }
+        // if (ticketData.product._id) {
+        //     productData._id = new mongodb.ObjectId(ticketData.product._id);
+        // }
         super(productData);
         if (ticketData._id) {
             this.ticketId = ticketData._id.toString();
@@ -45,7 +45,7 @@ class Ticket extends Product {
 
     static async findByShow(showId) {
         let shwId;
-        shwId = new mongodb.ObjectId(shwId);
+        shwId = new mongodb.ObjectId(showId);
         const tickets = await db.getDb().collection('tickets').find({ 'show._id': shwId }).sort({ _id: -1 }).toArray();
         if (!tickets) {
             const error = new Error('Could not find any ticket from the provided show.');

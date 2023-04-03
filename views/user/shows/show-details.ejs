@@ -67,6 +67,7 @@
                 <p id="general-price-summary"><span class="tittle-span">General: </span>0 Tickets x <%= ticketGeneral.price %> COP (0 COP)</p>
                 <p id="preferential-price-summary"><span class="tittle-span">Preferential: </span>0 Tickets x <%= ticketPreferential.price %> COP (0 COP)</p>
                 <p id="tickets-total-price"><span>Total: 0 COP</span></p>
+                <button data-generalticketproductid="<%= ticketGeneral.id %>" data-preferentialticketproductid="<%= ticketPreferential.id %>" data-showid="<%= show.id %>" data-csrf="<%= locals.csrfToken %>" class="btn" id="add-tickets-to-cart" disabled>Add Tickets to Cart</button>
             </section>
         </section>
         <section id="snacks-section">
@@ -79,38 +80,5 @@
                 <% }); %>
             </ul>
         </section>
-        
-        <!-- <div id="movie-info">
-            <h1><%= // show.movie.title %></h1>
-            <p><span>Description: </span><%= // movie.description %></p>
-            <div id="showtime-selector" data-csrf="<%= // locals.csrfToken %>">
-                <p id="date">
-                    <label>Date:</label>
-                    <select name="date" id="date-select">
-                        <option value="0" selected disabled hidden>--Please choose a Date--</option>
-                        <% // dates.forEach(date => { %>
-                            <option value="<%= // date %>"><%= // date %></option>
-                        <% // }); %>
-                    </select>
-                </p>
-                <p id="theater">
-                    <label for="theater">AT:</label>
-                    <select name="theater" id="theater-select">
-                    </select>
-                </p>
-                <p id="showtime">
-                    <label for="showtime">Showtime:</label>
-                    <select name="showtime" id="showtime-select">
-                    </select>
-                </p>
-            </div>
-            <div id="action">
-                <button class="btn btn-alt">Continue</button>
-            </div>
-        </div> -->
-        <!-- <div id="movie-little-details">
-            <p><span>Duration: </span><br><%= // movie.duration.hours %> hours <%= // movie.duration.minutes %> minutes</p>
-            <p><span>Genre: </span><br><%= // movie.genre %></p>
-        </div> -->
     </main>
 <%- include('../../shared/includes/footer') %></body>

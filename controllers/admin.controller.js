@@ -239,7 +239,7 @@ async function createNewSnack(req, res, next) {
         next(error);
         return;
     }
-    snackData = {
+    let snackData = {
         product: { ...product },
         amount: req.body.amount,
     }

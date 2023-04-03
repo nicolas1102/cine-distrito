@@ -69,7 +69,6 @@ async function addToCart(event) {
     const newTotalQuantity = responseData.newTotalItems;
 
     cartBadgeElement.textContent = newTotalQuantity;
-
 }
 
 addToCartButtonElements.forEach(addToCartButtonElement => {

@@ -183,6 +183,10 @@ h3 {
     font-size: 1.1rem;
 }
 
+#show-details #tickets-summary-section #add-tickets-to-cart {
+    opacity: 0.5;
+}
+
 h2 {
     text-align: center;
     font-size: 2rem;

@@ -20,7 +20,9 @@ router.post('/movies/shows/theaters/:date', userController.getMovieTheatersByDat
 
 router.post('/movies/shows/showtimes/:theaterid', userController.getMovieShowTimesByTheater);
 
-router.get('/movies/shows/:id', userController.getShowtimeTickets);
+router.get('/movies/shows/:id', userController.getMovieShowtimeTickets);
+
+router.post('/movies/shows/:id', userController.addCartItemTickets);
 
 
 
