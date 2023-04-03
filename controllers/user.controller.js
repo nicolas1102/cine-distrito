@@ -131,7 +131,6 @@ async function getMovieShowtimeTickets(req, res, next) {
             minutes: minutesDuration,
         }
         tickets = await Ticket.findByShow(show.id);
-        console.log(tickets);
         snacks = await Snack.findAll();
 
         // finding the price of for type of ticket

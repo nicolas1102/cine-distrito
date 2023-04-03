@@ -1,19 +1,18 @@
-#movie-title{
+#movie-title {
     width: 25%;
 }
 
-#date-title{
+#date-title {
     width: 25%;
 }
 
 #screens-title,
 #rating-title,
-#amount-rating-title
-{
+#amount-rating-title {
     width: 13%;
 }
 
-#actions-title{
+#actions-title {
     width: 16%;
 }
 
@@ -64,7 +63,8 @@ h3 {
     margin: 0.2rem;
 }
 
-#chairs-container {
+#chairs-container,
+#tickets-summary-section {
     height: 100%;
     width: 50%;
     padding: var(--space-6);
@@ -81,7 +81,7 @@ h3 {
     color: var(--color-gray-50);
 }
 
-#chairs-container #screen p{
+#chairs-container #screen p {
     margin: 0rem;
     padding: 0rem;
     text-align: center;
@@ -99,7 +99,7 @@ h3 {
     justify-content: center;
 }
 
-#chairs-container #row-container p{
+#chairs-container #row-container p {
     margin: 0;
     margin-right: 0.5rem;
 }
@@ -123,7 +123,7 @@ h3 {
     background-color: var(--color-secundary-300);
 }
 
-#chairs-container .chair.unavailable{
+#chairs-container .chair.unavailable {
     cursor: default;
     background-color: var(--color-primary-200);
 }
@@ -136,7 +136,7 @@ h3 {
     align-items: center;
 }
 
-#chairs-container #instructions p{
+#chairs-container #instructions p {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -144,7 +144,7 @@ h3 {
     font-size: 0.9rem;
 }
 
-#chairs-container #instructions p .chair-instruction{
+#chairs-container #instructions p .chair-instruction {
     display: block;
     width: 1rem;
     height: 1rem;
@@ -154,11 +154,11 @@ h3 {
     border: 2px solid var(--color-gray-700);
 }
 
-#chairs-container #instructions #selected .chair-instruction{
+#chairs-container #instructions #selected .chair-instruction {
     background-color: var(--color-secundary-300);
 }
 
-#chairs-container #instructions #unavailable .chair-instruction{
+#chairs-container #instructions #unavailable .chair-instruction {
     background-color: var(--color-primary-200);
 }
 
@@ -174,7 +174,7 @@ h3 {
     font-weight: bold;
 }
 
-#show-details #tickets-summary-section p{
+#show-details #tickets-summary-section p {
     font-size: 0.9rem;
     text-align: justify;
 }
@@ -204,6 +204,21 @@ h2 {
     height: 12rem;
     width: auto;
     overflow: hidden;
+    margin: 0;
+}
+
+#tickets-summary-section {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#tickets-summary-section p {
+    margin: 0.5rem 0;
+}
+
+#tickets-summary-section button {
     margin: 0;
 }
 

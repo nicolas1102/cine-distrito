@@ -105,8 +105,9 @@ async function addTicketsToCart() {
         return;
     }
     const responseData = await response.json();
-    alert(responseData.message);
+    // alert(responseData.message);
     cartBadgeElement2.textContent = +cartBadgeElement2.textContent + (generalTickets.length + preferentialTickets.length);
+    window.location.href = "/cart";
 }
 
 chairsElements.forEach(chairsElement => {
