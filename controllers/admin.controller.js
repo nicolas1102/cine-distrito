@@ -41,6 +41,15 @@ function getNewEmployee(req, res) {
 async function getOrders(req, res, next) {
     try {
         const orders = await Order.findAll();
+        // searching the show for each order ticket
+        for (let i = 0; i < orders.length; i++) {
+            for (let j = 0; j < orders[i].cart.items.length; j++) {
+                if (orders[i].cart.items[j].product.showId) {
+                    let show = await Show.findById(orders[i].cart.items[j].product.showId);
+                    orders[i].cart.items[j].product.show = show;
+                }
+            }
+        }
         res.render('admin/orders/admin-orders', {
             orders: orders
         });

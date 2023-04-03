@@ -50,8 +50,7 @@ async function updateCartItem(event) {
         cartItemTotalPriceElement.textContent = responseData.updatedCartData.updatedItemPrice.toFixed(2);
     }
 
-    if (cartItemUpdateFormElements.length === 1) {
-        console.log(buyButton);
+    if (buyButton && cartItemUpdateFormElements.length === 1) {
         buyButton.style.display = 'none';
     }
 

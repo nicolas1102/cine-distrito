@@ -1,5 +1,6 @@
 const Client = require('../models/client.model');
 const Order = require('../models/order.model');
+const Show = require('../models/show.model');
 
 const fs = require('fs');
 
@@ -214,6 +215,16 @@ async function deleteClient(req, res, next) {
 async function getOrders(req, res, next) {
     try {
         const orders = await Order.findAllForUser(res.locals.userid);
+        // searching the show for each order ticket
+        for (let i = 0; i < orders.length; i++) {
+            for (let j = 0; j < orders[i].cart.items.length; j++) {
+                if (orders[i].cart.items[j].product.showId) {
+                    let show = await Show.findById(orders[i].cart.items[j].product.showId);
+                    orders[i].cart.items[j].product.show = show;
+                }
+            }
+        }
+
         res.render('client/orders/all-orders', {
             orders: orders,
         });

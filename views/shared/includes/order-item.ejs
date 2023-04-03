@@ -1,6 +1,6 @@
 <article class="order-item">
     <header class="order-summary">
-        <h2><span class="order-item-price"><%= order.cart.totalPrice %> COP</span> - <%= order.formattedDate %></h2>
+        <h2><%= order.formattedDate %> - <span class="order-item-price"><%= order.cart.totalPrice %> COP</span></h2>
         <p><span class="badge"><%= order.status.toUpperCase() %></span></p>
     </header>
 
@@ -15,13 +15,14 @@
                 <li>
                     <p>
                         <span class="tittle-span"><%= item.product.type %>: </span><%= item.product.name %> - <%= item.totalPrice %> COP <span class="order-product-unit-price">(<%= item.product.price %> COP x <%= item.quantity %> u.)</span>
-                        <!-- TICKE LOGIC -->
-                        <% if (item.product.type === 'Ticket') { %>
-                            <p>Proof</p>
-                            <p><span class="tittle-span">Seat: </span><%= item.product.rowChair + item.product.columnChair %></p>
-                            <!-- show info -->
-                        <% } %>
                     </p>
+                    <% if (item.product.type === 'Ticket') { %>
+                        <p>Movie: <%= item.product.show.movie.title %></p>
+                        <p>Date: <%= new Date(item.product.show.date).toDateString() %>, <%= item.product.show.time %></p>
+                        <p>At: <%= item.product.show.theater.name %></p>
+                        <p>Screen: <%= item.product.show.screen %></p>
+                        <p>Seat: <%= String.fromCharCode(97 + (+item.product.rowChair)).toUpperCase() + item.product.columnChair %></p>
+                    <% } %>
                 </li>
             <% } %>
         </ul>

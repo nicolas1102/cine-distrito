@@ -65,15 +65,24 @@ class Order {
         );
     }
 
-    save () {
+    async save() {
         // if we have an id, we are updating
-        if(this.id){
+        if (this.id) {
             const orderId = new mongodb.ObjectId(this.id);
             return db
                 .getDb()
                 .collection('orders')
                 .updateOne({ _id: orderId }, { $set: { status: this.status } });
-        }else {
+        } else {
+            // fixing (bad) BSON error
+            for (let i = 0; i < this.cart.items.length; i++) {
+                if (this.cart.items[i].product.type === 'Ticket') {
+                    let showId = this.cart.items[i].product.show._id.toString();
+                    delete this.cart.items[i].product.show;
+                    this.cart.items[i].product.showId = showId;
+                }
+            }
+
             const orderData = {
                 client: this.client,
                 cart: this.cart,
@@ -81,7 +90,6 @@ class Order {
                 date: new Date(),
                 status: this.status,
             };
-            console.log(orderData);
             return  db.getDb().collection('orders').insertOne(orderData);
         }
     }

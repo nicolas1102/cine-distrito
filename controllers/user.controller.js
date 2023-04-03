@@ -8,6 +8,7 @@ const Movie = require('../models/movie.model');
 const Show = require('../models/show.model');
 const Ticket = require('../models/ticket.model');
 const Product = require('../models/product.model');
+const Order = require('../models/order.model');
 
 // to create tell the session the user is logged in
 const authUtil = require('../util/authentication');
@@ -131,6 +132,7 @@ async function getMovieShowtimeTickets(req, res, next) {
             minutes: minutesDuration,
         }
         tickets = await Ticket.findByShow(show.id);
+        // tickets = await Order.findByShow(show.id);
         snacks = await Snack.findAll();
 
         // finding the price of for type of ticket
@@ -264,8 +266,8 @@ async function addCartItemTickets(req, res, next) {
         ticket = new Ticket(ticketData);
 
         try {
-            await ticket.save();
-            ticket = await Ticket.findByPositionAndShow(ticket.rowChair, ticket.columnChair, ticket.isPreferencial, show._id);
+            // await ticket.save();
+            // ticket = await Ticket.findByPositionAndShow(ticket.rowChair, ticket.columnChair, ticket.isPreferencial, show._id);
         } catch (error) {
             next(error);
             return;
@@ -285,8 +287,8 @@ async function addCartItemTickets(req, res, next) {
         ticket = new Ticket(ticketData);
 
         try {
-            await ticket.save();
-            ticket = await Ticket.findByPositionAndShow(ticket.rowChair, ticket.columnChair, ticket.isPreferencial, show._id);
+            // await ticket.save();
+            // ticket = await Ticket.findByPositionAndShow(ticket.rowChair, ticket.columnChair, ticket.isPreferencial, show._id);
         } catch (error) {
             next(error);
             return;

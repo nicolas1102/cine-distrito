@@ -52,6 +52,10 @@
     font-weight: bold;
 }
 
+.order-details ul li p {
+    margin: 0.25rem 0;
+}
+
 .order-product-unit-price {
     font-style: italic;
     font-size: 0.9rem;

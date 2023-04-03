@@ -8,6 +8,8 @@
             <% if (item.product.type === 'Ticket') { %>
                 <p><span class="tittle-span">Movie: </span><%= item.product.show.movie.title %></p>
                 <p><span class="tittle-span">Date: </span><%= new Date(item.product.show.date).toDateString() %>, <%= item.product.show.time %></p>
+                <p><span class="tittle-span">At: </span><%= item.product.show.theater.name %></p>
+                <p><span class="tittle-span">Screen: </span><%= item.product.show.screen %></p>
                 <p><span class="tittle-span">Seat: </span><%= String.fromCharCode(97 + (+item.product.rowChair)).toUpperCase() + item.product.columnChair %></p>
             <% } %>
             <p><span class="tittle-span">Points: </span><%= item.product.points %> points</p>
