@@ -1,0 +1,57 @@
+[{
+  "_id": {
+    "$oid": "642789768955e63454b8d5b5"
+  },
+  "name": "Titan Plaza",
+  "address": "Av. Boyacá #80-94, Bogotá",
+  "numScreens": 14,
+  "ranting": 0,
+  "amountRatings": 0,
+  "rating": 0
+},{
+  "_id": {
+    "$oid": "64278e7c823d8a9d4d5b32f1"
+  },
+  "name": "Unicentro",
+  "address": "Cra. 111c #86 - 05, Bogotá",
+  "numScreens": 10,
+  "ranting": 0,
+  "amountRatings": 0,
+  "rating": 0
+},{
+  "_id": {
+    "$oid": "6427a4ba30cb9859f186c6b0"
+  },
+  "name": "Plaza Central",
+  "address": "Cra. 65 #11-50, Bogotá",
+  "numScreens": 9,
+  "rating": 0,
+  "amountRatings": 0
+},{
+  "_id": {
+    "$oid": "6427a4e730cb9859f186c6b1"
+  },
+  "name": "Gran Estación",
+  "address": "Ac. 26 #62-47, Bogotá",
+  "numScreens": 8,
+  "rating": 0,
+  "amountRatings": 0
+},{
+  "_id": {
+    "$oid": "6427a59130cb9859f186c6b2"
+  },
+  "name": "Embajador (Centro)",
+  "address": "Cl. 24 #6-01, Bogotá",
+  "numScreens": 5,
+  "rating": 0,
+  "amountRatings": 0
+},{
+  "_id": {
+    "$oid": "6427a5cf30cb9859f186c6b3"
+  },
+  "name": "Las Américas",
+  "address": "Transversal 71D # 4-40 Sur, Bogotá",
+  "numScreens": 7,
+  "rating": 0,
+  "amountRatings": 0
+}]

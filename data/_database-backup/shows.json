@@ -1,0 +1,610 @@
+[{
+  "_id": {
+    "$oid": "6428da3d51dbd4c6c7f70c17"
+  },
+  "date": "2023-04-30",
+  "time": "21:30",
+  "movie": {
+    "title": "Shazam! Fury of the Gods",
+    "description": "The film continues the story of teenage Billy Batson who, upon reciting the magic word \"SHAZAM!\" is transformed into his adult Super Hero alter ego, Shazam.",
+    "duration": 131,
+    "genre": "Fantasy, Adventure, Action",
+    "imageName": "cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "imagePath": "public-data/images/cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "imageUrl": "/data/assets/images/cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "_id": {
+      "$oid": "64153e26b32d5861b122efe4"
+    }
+  },
+  "theater": {
+    "name": "Embajador (Centro)",
+    "address": "Cl. 24 #6-01, Bogotá",
+    "numScreens": 5,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a59130cb9859f186c6b2"
+    }
+  },
+  "screen": "1"
+},{
+  "_id": {
+    "$oid": "6428dac55811e88cd0d99842"
+  },
+  "date": "2023-04-30",
+  "time": "21:30",
+  "movie": {
+    "title": "John Wick 4",
+    "description": "John Wick (Keanu Reeves) discovers a way to defeat the criminal organization The High Table. But before she can win his freedom, Wick must face a new enemy with powerful alliances across the globe, and with forces that turn old friends into adversaries.",
+    "duration": 169,
+    "genre": "Action, Crime, Suspense",
+    "imageName": "71f85824-ef5d-4919-a6b5-5197e08df519-john-wick.png",
+    "imagePath": "public-data/images/71f85824-ef5d-4919-a6b5-5197e08df519-john-wick.png",
+    "imageUrl": "/data/assets/images/71f85824-ef5d-4919-a6b5-5197e08df519-john-wick.png",
+    "_id": {
+      "$oid": "641540d20590bd34b2384a60"
+    }
+  },
+  "theater": {
+    "name": "Titan Plaza",
+    "address": "Av. Boyacá #80-94, Bogotá",
+    "numScreens": 14,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "642789768955e63454b8d5b5"
+    }
+  },
+  "screen": "1"
+},{
+  "_id": {
+    "$oid": "6428dacf5811e88cd0d99843"
+  },
+  "date": "2023-04-30",
+  "time": "21:35",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Titan Plaza",
+    "address": "Av. Boyacá #80-94, Bogotá",
+    "numScreens": 14,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "642789768955e63454b8d5b5"
+    }
+  },
+  "screen": "1"
+},{
+  "_id": {
+    "$oid": "6428dad95811e88cd0d99844"
+  },
+  "date": "2023-04-30",
+  "time": "21:30",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Titan Plaza",
+    "address": "Av. Boyacá #80-94, Bogotá",
+    "numScreens": 14,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "642789768955e63454b8d5b5"
+    }
+  },
+  "screen": "2"
+},{
+  "_id": {
+    "$oid": "6428dae45811e88cd0d99845"
+  },
+  "date": "2023-04-30",
+  "time": "12:30",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Titan Plaza",
+    "address": "Av. Boyacá #80-94, Bogotá",
+    "numScreens": 14,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "642789768955e63454b8d5b5"
+    }
+  },
+  "screen": "4"
+},{
+  "_id": {
+    "$oid": "6428daf85811e88cd0d99846"
+  },
+  "date": "2023-04-30",
+  "time": "12:40",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Titan Plaza",
+    "address": "Av. Boyacá #80-94, Bogotá",
+    "numScreens": 14,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "642789768955e63454b8d5b5"
+    }
+  },
+  "screen": "4"
+},{
+  "_id": {
+    "$oid": "6428e020cbb4474595c67a1e"
+  },
+  "date": "2023-04-08",
+  "time": "23:55",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Embajador (Centro)",
+    "address": "Cl. 24 #6-01, Bogotá",
+    "numScreens": 5,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a59130cb9859f186c6b2"
+    }
+  },
+  "screen": "5"
+},{
+  "_id": {
+    "$oid": "642b3a1aec18946209098fdb"
+  },
+  "date": "2023-04-03",
+  "time": "13:40",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Unicentro",
+    "address": "Cra. 111c #86 - 05, Bogotá",
+    "numScreens": 10,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "64278e7c823d8a9d4d5b32f1"
+    }
+  },
+  "screen": "10"
+},{
+  "_id": {
+    "$oid": "642b3a31ec18946209098fdc"
+  },
+  "date": "2023-04-04",
+  "time": "15:40",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Plaza Central",
+    "address": "Cra. 65 #11-50, Bogotá",
+    "numScreens": 9,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a4ba30cb9859f186c6b0"
+    }
+  },
+  "screen": "5"
+},{
+  "_id": {
+    "$oid": "642b3a46ec18946209098fdd"
+  },
+  "date": "2023-04-30",
+  "time": "15:40",
+  "movie": {
+    "title": "Shazam! Fury of the Gods",
+    "description": "The film continues the story of teenage Billy Batson who, upon reciting the magic word \"SHAZAM!\" is transformed into his adult Super Hero alter ego, Shazam.",
+    "duration": 131,
+    "genre": "Fantasy, Adventure, Action",
+    "imageName": "cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "imagePath": "public-data/images/cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "imageUrl": "/data/assets/images/cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "_id": {
+      "$oid": "64153e26b32d5861b122efe4"
+    }
+  },
+  "theater": {
+    "name": "Plaza Central",
+    "address": "Cra. 65 #11-50, Bogotá",
+    "numScreens": 9,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a4ba30cb9859f186c6b0"
+    }
+  },
+  "screen": "9"
+},{
+  "_id": {
+    "$oid": "642b3a57ec18946209098fde"
+  },
+  "date": "2023-04-30",
+  "time": "20:40",
+  "movie": {
+    "title": "Shazam! Fury of the Gods",
+    "description": "The film continues the story of teenage Billy Batson who, upon reciting the magic word \"SHAZAM!\" is transformed into his adult Super Hero alter ego, Shazam.",
+    "duration": 131,
+    "genre": "Fantasy, Adventure, Action",
+    "imageName": "cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "imagePath": "public-data/images/cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "imageUrl": "/data/assets/images/cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "_id": {
+      "$oid": "64153e26b32d5861b122efe4"
+    }
+  },
+  "theater": {
+    "name": "Titan Plaza",
+    "address": "Av. Boyacá #80-94, Bogotá",
+    "numScreens": 14,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "642789768955e63454b8d5b5"
+    }
+  },
+  "screen": "1"
+},{
+  "_id": {
+    "$oid": "642b3a69ec18946209098fdf"
+  },
+  "date": "2023-04-12",
+  "time": "15:50",
+  "movie": {
+    "title": "Super Mario Bros. The Movie",
+    "description": "From Nintendo and Illumination comes a new animated film based on the world of Super Mario Bros. Directed by by Aaron Horvath and Michael Jelenic (collaborators on Teen Titans Go, Teen Titans Go: The Movie) from a screenplay by Matthew Fogel (LEGO 2's Greatest Adventure, Minions: A Villain Is Born), the film stars Chris Pratt as Mario, Anya Taylor-Joy as Princess Peach, Charlie Day as Luigi, Jack Black as Bowser, Keegan-Michael Key as Toad, Seth Rogen as Donkey Kong, Fred Armisen as Cranky Kong, Kevin Michael Richardson as Kamek, and Sebastian Maniscalco as Spike.",
+    "duration": 92,
+    "genre": "Action, Comedy",
+    "imageName": "dcb2a686-b45a-459a-b554-b3ebc650bbc5-mario.jpg",
+    "imagePath": "public-data/images/dcb2a686-b45a-459a-b554-b3ebc650bbc5-mario.jpg",
+    "imageUrl": "/data/assets/images/dcb2a686-b45a-459a-b554-b3ebc650bbc5-mario.jpg",
+    "_id": {
+      "$oid": "641541180590bd34b2384a61"
+    }
+  },
+  "theater": {
+    "name": "Plaza Central",
+    "address": "Cra. 65 #11-50, Bogotá",
+    "numScreens": 9,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a4ba30cb9859f186c6b0"
+    }
+  },
+  "screen": "6"
+},{
+  "_id": {
+    "$oid": "642b3a75ec18946209098fe0"
+  },
+  "date": "2023-04-12",
+  "time": "20:50",
+  "movie": {
+    "title": "Super Mario Bros. The Movie",
+    "description": "From Nintendo and Illumination comes a new animated film based on the world of Super Mario Bros. Directed by by Aaron Horvath and Michael Jelenic (collaborators on Teen Titans Go, Teen Titans Go: The Movie) from a screenplay by Matthew Fogel (LEGO 2's Greatest Adventure, Minions: A Villain Is Born), the film stars Chris Pratt as Mario, Anya Taylor-Joy as Princess Peach, Charlie Day as Luigi, Jack Black as Bowser, Keegan-Michael Key as Toad, Seth Rogen as Donkey Kong, Fred Armisen as Cranky Kong, Kevin Michael Richardson as Kamek, and Sebastian Maniscalco as Spike.",
+    "duration": 92,
+    "genre": "Action, Comedy",
+    "imageName": "dcb2a686-b45a-459a-b554-b3ebc650bbc5-mario.jpg",
+    "imagePath": "public-data/images/dcb2a686-b45a-459a-b554-b3ebc650bbc5-mario.jpg",
+    "imageUrl": "/data/assets/images/dcb2a686-b45a-459a-b554-b3ebc650bbc5-mario.jpg",
+    "_id": {
+      "$oid": "641541180590bd34b2384a61"
+    }
+  },
+  "theater": {
+    "name": "Titan Plaza",
+    "address": "Av. Boyacá #80-94, Bogotá",
+    "numScreens": 14,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "642789768955e63454b8d5b5"
+    }
+  },
+  "screen": "12"
+},{
+  "_id": {
+    "$oid": "642b3a84ec18946209098fe1"
+  },
+  "date": "2023-04-10",
+  "time": "20:50",
+  "movie": {
+    "title": "John Wick 4",
+    "description": "John Wick (Keanu Reeves) discovers a way to defeat the criminal organization The High Table. But before she can win his freedom, Wick must face a new enemy with powerful alliances across the globe, and with forces that turn old friends into adversaries.",
+    "duration": 169,
+    "genre": "Action, Crime, Suspense",
+    "imageName": "71f85824-ef5d-4919-a6b5-5197e08df519-john-wick.png",
+    "imagePath": "public-data/images/71f85824-ef5d-4919-a6b5-5197e08df519-john-wick.png",
+    "imageUrl": "/data/assets/images/71f85824-ef5d-4919-a6b5-5197e08df519-john-wick.png",
+    "_id": {
+      "$oid": "641540d20590bd34b2384a60"
+    }
+  },
+  "theater": {
+    "name": "Plaza Central",
+    "address": "Cra. 65 #11-50, Bogotá",
+    "numScreens": 9,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a4ba30cb9859f186c6b0"
+    }
+  },
+  "screen": "4"
+},{
+  "_id": {
+    "$oid": "642b3a8cec18946209098fe2"
+  },
+  "date": "2023-04-10",
+  "time": "20:50",
+  "movie": {
+    "title": "Spider-Man: Across the SpiderVerse",
+    "description": "Miles Morales returns for the next chapter in the Oscar®-winning Spider-Verse saga, Spider-Man: Across the Spider-Verse. After meeting Gwen Stacy, Spider-Man, Brooklyn's friendly full-time neighbor, is catapulted across the Multiverse, where he meets up with a team of Spider-People charged with protecting his existence. But when the heroes disagree about how to handle a new threat, Miles faces off against the other Spiders and must redefine what it means to be a hero in order to save the people he loves most.",
+    "duration": 120,
+    "genre": "Animation",
+    "imageName": "a550a30c-935f-4410-802c-2905544dece0-spiderman.jpg",
+    "imagePath": "public-data/images/a550a30c-935f-4410-802c-2905544dece0-spiderman.jpg",
+    "imageUrl": "/data/assets/images/a550a30c-935f-4410-802c-2905544dece0-spiderman.jpg",
+    "_id": {
+      "$oid": "641541510590bd34b2384a62"
+    }
+  },
+  "theater": {
+    "name": "Plaza Central",
+    "address": "Cra. 65 #11-50, Bogotá",
+    "numScreens": 9,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a4ba30cb9859f186c6b0"
+    }
+  },
+  "screen": "4"
+},{
+  "_id": {
+    "$oid": "642b3a92ec18946209098fe3"
+  },
+  "date": "2023-04-10",
+  "time": "20:50",
+  "movie": {
+    "title": "65",
+    "description": "After a catastrophic crash on an unknown planet, pilot Mills (Adam Driver) quickly discovers he’s actually stranded on Earth…65 million years ago. Now, with only one chance at rescue, Mills and the only other survivor, Koa (Ariana Greenblatt), must make their way across an unknown terrain riddled with dangerous prehistoric creatures in an epic fight to survive. ",
+    "duration": 93,
+    "genre": "Science Fiction, Thriller, Action",
+    "imageName": "14661974-7286-4c59-b4a9-c81aebc2c091-65.jpg",
+    "imagePath": "public-data/images/14661974-7286-4c59-b4a9-c81aebc2c091-65.jpg",
+    "imageUrl": "/data/assets/images/14661974-7286-4c59-b4a9-c81aebc2c091-65.jpg",
+    "_id": {
+      "$oid": "64153debb32d5861b122efe3"
+    }
+  },
+  "theater": {
+    "name": "Plaza Central",
+    "address": "Cra. 65 #11-50, Bogotá",
+    "numScreens": 9,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a4ba30cb9859f186c6b0"
+    }
+  },
+  "screen": "4"
+},{
+  "_id": {
+    "$oid": "642b3aa6ec18946209098fe4"
+  },
+  "date": "2023-04-08",
+  "time": "20:50",
+  "movie": {
+    "title": "Super Mario Bros. The Movie",
+    "description": "From Nintendo and Illumination comes a new animated film based on the world of Super Mario Bros. Directed by by Aaron Horvath and Michael Jelenic (collaborators on Teen Titans Go, Teen Titans Go: The Movie) from a screenplay by Matthew Fogel (LEGO 2's Greatest Adventure, Minions: A Villain Is Born), the film stars Chris Pratt as Mario, Anya Taylor-Joy as Princess Peach, Charlie Day as Luigi, Jack Black as Bowser, Keegan-Michael Key as Toad, Seth Rogen as Donkey Kong, Fred Armisen as Cranky Kong, Kevin Michael Richardson as Kamek, and Sebastian Maniscalco as Spike.",
+    "duration": 92,
+    "genre": "Action, Comedy",
+    "imageName": "dcb2a686-b45a-459a-b554-b3ebc650bbc5-mario.jpg",
+    "imagePath": "public-data/images/dcb2a686-b45a-459a-b554-b3ebc650bbc5-mario.jpg",
+    "imageUrl": "/data/assets/images/dcb2a686-b45a-459a-b554-b3ebc650bbc5-mario.jpg",
+    "_id": {
+      "$oid": "641541180590bd34b2384a61"
+    }
+  },
+  "theater": {
+    "name": "Las Américas",
+    "address": "Transversal 71D # 4-40 Sur, Bogotá",
+    "numScreens": 7,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a5cf30cb9859f186c6b3"
+    }
+  },
+  "screen": "6"
+},{
+  "_id": {
+    "$oid": "642b3ae5ec18946209098fe5"
+  },
+  "date": "2023-04-08",
+  "time": "22:50",
+  "movie": {
+    "title": "Shazam! Fury of the Gods",
+    "description": "The film continues the story of teenage Billy Batson who, upon reciting the magic word \"SHAZAM!\" is transformed into his adult Super Hero alter ego, Shazam.",
+    "duration": 131,
+    "genre": "Fantasy, Adventure, Action",
+    "imageName": "cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "imagePath": "public-data/images/cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "imageUrl": "/data/assets/images/cd21e024-a6bf-4710-93e1-e9ceda2003bc-shazam.jpg",
+    "_id": {
+      "$oid": "64153e26b32d5861b122efe4"
+    }
+  },
+  "theater": {
+    "name": "Titan Plaza",
+    "address": "Av. Boyacá #80-94, Bogotá",
+    "numScreens": 14,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "642789768955e63454b8d5b5"
+    }
+  },
+  "screen": "4"
+},{
+  "_id": {
+    "$oid": "642b3b6eec18946209098fe6"
+  },
+  "date": "2023-04-04",
+  "time": "15:50",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Gran Estación",
+    "address": "Ac. 26 #62-47, Bogotá",
+    "numScreens": 8,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a4e730cb9859f186c6b1"
+    }
+  },
+  "screen": "5"
+},{
+  "_id": {
+    "$oid": "642b3b77ec18946209098fe7"
+  },
+  "date": "2023-04-04",
+  "time": "15:50",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Unicentro",
+    "address": "Cra. 111c #86 - 05, Bogotá",
+    "numScreens": 10,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "64278e7c823d8a9d4d5b32f1"
+    }
+  },
+  "screen": "1"
+},{
+  "_id": {
+    "$oid": "642b3ba2ec18946209098fe8"
+  },
+  "date": "2023-04-04",
+  "time": "15:00",
+  "movie": {
+    "title": "Flash",
+    "description": "Worlds collide in \"The Flash\" when Barry uses his superpowers to travel through time and change the events of the past. Barry attempts to save the family from him, but unknowingly alters the future and is trapped in a reality where General Zod has returned and threatens annihilation, but there are no Super Heroes to turn to. Unless Barry can persuade a very different Batman to come out of retirement and rescue an imprisoned Kryptonian...even if he's not the one he's looking for. Ultimately, to save the world he finds himself in and return to the future he knows, Barry's only hope is to fight to stay alive. But will this latest sacrifice be enough to restart the universe?",
+    "duration": 149,
+    "genre": "Action, Adventure, Science Fiction, DC Comics, Drama, Fantasy",
+    "imageName": "fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imagePath": "public-data/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "imageUrl": "/data/assets/images/fbd0a468-f898-47c3-b898-62d04e82c8af-flash.jpg",
+    "_id": {
+      "$oid": "641541a10590bd34b2384a63"
+    }
+  },
+  "theater": {
+    "name": "Unicentro",
+    "address": "Cra. 111c #86 - 05, Bogotá",
+    "numScreens": 10,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "64278e7c823d8a9d4d5b32f1"
+    }
+  },
+  "screen": "2"
+}]
