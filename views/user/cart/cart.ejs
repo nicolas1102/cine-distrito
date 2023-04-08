@@ -26,6 +26,8 @@
                     <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                     <% if (locals.cart.totalQuantity !== 0) { %>
                         <button class="btn" id="buy-btn" style="display: block;">Buy Products</button>
+                    <% } else { %>
+                        <p id="cart-total-fallback">Add items to proceed and purchase the items</p>
                     <% } %>
                 </form>
             <% } else { %>

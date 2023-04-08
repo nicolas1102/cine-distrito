@@ -4,7 +4,7 @@ const mongodb = require('mongodb');
 
 class Order {
     // Status => pending, fulfilled, cancelled
-    constructor(cart, client, status = 'pending', date, orderId) {
+    constructor(cart, client, status = 'fulfilled', date, orderId) {
         this.cart = cart;
         this.client = client;
         this.status = status;
@@ -74,7 +74,7 @@ class Order {
                 .collection('orders')
                 .updateOne({ _id: orderId }, { $set: { status: this.status } });
         } else {
-            // fixing (bad) BSON error
+            // fixing (bad) BSON error (we delete the show data and just save the show id)
             for (let i = 0; i < this.cart.items.length; i++) {
                 if (this.cart.items[i].product.type === 'Ticket') {
                     let showId = this.cart.items[i].product.show._id.toString();
@@ -86,11 +86,10 @@ class Order {
             const orderData = {
                 client: this.client,
                 cart: this.cart,
-                // mongodb knows how to work with js date objects
                 date: new Date(),
                 status: this.status,
             };
-            return  db.getDb().collection('orders').insertOne(orderData);
+            return db.getDb().collection('orders').insertOne(orderData);
         }
     }
 

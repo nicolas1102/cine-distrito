@@ -18,7 +18,13 @@ router.post('/deleteAccount',  imageUploadMiddleware, clientController.deleteCli
 
 router.get('/orders', clientController.getOrders);
 
-router.post('/orders', clientController.addOrder);
+router.post('/orders', clientController.getPayment);
+
+// router.post('/orders/success', clientController.addOrder);
+
+router.get('/orders/success', clientController.getSuccessOrder);
+
+router.get('/orders/failure', clientController.getFailureOrder);
 
 
 module.exports = router;
