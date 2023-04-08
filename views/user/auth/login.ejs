@@ -1,34 +1,34 @@
 <!-- inlcuding the shared code head -->
 <%- include('../../shared/includes/head', { pageTitle: 'Login - Cine Distrito' }) %>
-    <link rel="stylesheet" href="/styles/forms.css">
-    <link rel="stylesheet" href="/styles/auth.css">
-    <link rel="stylesheet" href="/styles/login.css">
-    </head>
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/auth.css">
+<link rel="stylesheet" href="/styles/login.css">
+</head>
 
-    <body>
-        <%- include('../../shared/includes/header') %>
-            <%- include('../../shared/includes/blob') %>
-                <main>
-                    <h1 data-value="LOGIN">LOGIN</h1>
-                    <% if (inputData.errorMessage) { %>
-                        <section class="alert">
-                            <h2><%= inputData.title %></h2>
-                            <p><%= inputData.errorMessage %></p>
-                        </section>
-                        <% } %>
-                    <form action="/login" method="POST">
-                        <!-- object, so we can verify the csrf token when the form is send-->
-                        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-                        <p>
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" value="<%= inputData.email %>" required>
-                        </p>
-                        <p>
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" minlength="6" value="<%= inputData.password %>" required>
-                        </p>
-                        <button class="btn">Login</button>
-                        <p id="switch-form"><a href="/signup">Don't Have a Account?</a></p>
-                    </form>
-                </main>
-                <%- include('../../shared/includes/footer') %>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <%- include('../../shared/includes/blob') %>
+    <main>
+        <h1 data-value="LOGIN">LOGIN</h1>
+        <% if (inputData.errorMessage) { %>
+            <section class="alert">
+                <h2><%= inputData.title %></h2>
+                <p><%= inputData.errorMessage %></p>
+            </section>
+        <% } %>
+        <form action="/login" method="POST">
+            <!-- object, so we can verify the csrf token when the form is send-->
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <p>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<%= inputData.email %>" required>
+            </p>
+            <p>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" minlength="6" value="<%= inputData.password %>" required>
+            </p>
+            <button class="btn">Login</button>
+            <p id="switch-form"><a href="/signup">Don't Have a Account?</a></p>
+        </form>
+    </main>
+    <%- include('../../shared/includes/footer') %>

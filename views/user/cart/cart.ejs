@@ -9,6 +9,18 @@
 <%- include('../../shared/includes/blob') %>
 <main>
     <h1>Your Cart</h1>
+    <% if (inputData.errorMessage) { %>
+        <section class="alert">
+            <h2><%= inputData.title %></h2>
+            <p><%= inputData.errorMessage %></p>
+            <ul>
+                <% inputData.unavailableProducts.forEach(unavailableProduct => { %>
+                    <li>- <%= unavailableProduct %></li>
+                <% }); %>
+            </ul>
+            <p><%= inputData.instruction %></p>
+        </section>
+    <% } %>
     <ul id="cart-items">
         <!-- we show the cart items using the cart saved in the locals in the cart middleware -->
         <% locals.cart.items.forEach(cartItem => { %>

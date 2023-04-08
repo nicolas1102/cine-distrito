@@ -26,17 +26,20 @@ class Snack extends Product {
         this.amount = snackData.amount;
     }
 
-    static async findById(snackId) {
+    static async findById(snackId, obligatory = true) {
         let skId;
         skId = new mongodb.ObjectId(snackId);
         const snack = await db.getDb().collection('snacks').findOne({ _id: skId });
-        if (!snack) {
+        if (!snack && obligatory) {
             const error = new Error('Could not find the snack with provided id.');
             error.code = 404;
             // throwing custom error
             throw error;
         }
-        return new Snack(snack);
+        if (obligatory) {
+            return new Snack(snack);
+        }
+        return snack;
     }
 
     static async findAll() {

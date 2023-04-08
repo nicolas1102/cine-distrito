@@ -1,6 +1,8 @@
 const Client = require('../models/client.model');
 const Order = require('../models/order.model');
 const Show = require('../models/show.model');
+const Ticket = require('../models/ticket.model');
+const Snack = require('../models/snack.model');
 
 const fs = require('fs');
 
@@ -237,6 +239,39 @@ async function getOrders(req, res, next) {
 
 async function getPayment(req, res, next) {
     const cart = res.locals.cart;
+
+    // rectifying products
+    const unavailableProducts = [];
+    for (let i = 0; i < cart.items.length; i++) {
+        if (cart.items[i].product.type === 'Ticket') {
+            const ticket = await Ticket.findByPositionAndShow(cart.items[i].product.rowChair, cart.items[i].product.columnChair, cart.items[i].product.isPreferencial, cart.items[i].product.showId, false);
+            if (ticket) {
+                unavailableProducts.push(ticket.product.name + ' - ' + ticket.product.show.movie.title + ' - ' + ticket.product.show.date + ', ' + ticket.product.show.time + ' - ' + String.fromCharCode(97 + (+ticket.product.rowChair)).toUpperCase() + ticket.product.columnChair);
+            }
+        } else {
+            const snack = await Snack.findById(cart.items[i].product.snackId, false);
+            if (snack && (+cart.items[i].quantity) > (+snack.amount)) {
+                unavailableProducts.push(snack.product.name);
+            }
+        }
+    }
+    if (unavailableProducts.length !== 0) {
+        sessionFlash.flashDataToSession(
+            req,
+            {
+                title: 'SOME PRODUCTS ARE NOT CURRENTLY AVAILABLE',
+                errorMessage: 'The following products are currently not available:',
+                unavailableProducts: unavailableProducts,
+                instruction: 'Please remove them to continue with the purchase.',
+            },
+            function () {
+                res.redirect('/cart');
+            }
+        );
+        return;
+    }
+
+
     // processing the payment
     let session;
     try {
@@ -295,16 +330,11 @@ async function getSuccessOrder(req, res) {
         return;
     }
 
-    // logic to rectify products
-
-
-
-
     // creating the order
     const order = new Order(cart, client);
 
     try {
-        // add logic to update product data
+        // add logic to update product data --------------------------------------------
         // await order.updatingOrderProducts();
         await order.save();
     } catch (error) {

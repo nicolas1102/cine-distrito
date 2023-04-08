@@ -58,17 +58,20 @@ class Ticket extends Product {
         });
     }
 
-    static async findByPositionAndShow(rowChair, columnChair, isPreferencial, showId) {
+    static async findByPositionAndShow(rowChair, columnChair, isPreferencial, showId, obligatory = true) {
         rowChair = '' + rowChair;
         columnChair = '' + columnChair;
         const ticket = await db.getDb().collection('tickets').findOne({ rowChair: rowChair, columnChair: columnChair, isPreferencial: isPreferencial, 'show._id': showId });
-        if (!ticket) {
+        if (!ticket && obligatory) {
             const error = new Error('Could not find any ticket from the provided show and position.');
             error.code = 404;
             // throwing custom error
             throw error;
         }
-        return new Ticket(ticket);
+        if (obligatory) {
+            return new Ticket(ticket);
+        }
+        return ticket;
     }
 
     static async findAll() {

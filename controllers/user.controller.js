@@ -157,7 +157,13 @@ async function getMovieShowtimeTickets(req, res, next) {
 
 
 function getCart(req, res) {
-    res.render('user/cart/cart');
+    let sessionData = sessionFlash.getSessionData(req);
+    // if there's no saved data, we define the dafault data
+    if (!sessionData) {
+        // default data
+        sessionData = {};
+    }
+    res.render('user/cart/cart', { inputData: sessionData });
 }
 
 async function addCartItemSnack(req, res, next) {
@@ -443,7 +449,7 @@ function getLogin(req, res) {
         sessionData = {
             email: '',
             password: '',
-        }
+        };
     }
 
     // we pass the input data to the view, so we can display the error message
