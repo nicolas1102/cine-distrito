@@ -9,32 +9,6 @@ async function addToCart(event) {
     const producttype = addToCartButtonElement.dataset.producttype;
     const csrfToken = addToCartButtonElement.dataset.csrf;
 
-    // RECTIFICAMOS PRIMERO LA DISPONIBILIDAD DE LA CANTIDAD DEL PRODUCTO
-    // sending the request to the url, and we configure the request
-    // const responseQuantityOfProduct = await fetch('/cart/items/snack/' + productId + '?_csrf=' + csrfToken, {
-    //     // specifying the method
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //         quantity: quantity,
-    //         type: producttype,
-    //         _csrf: csrfToken,
-    //     }),
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    // });
-    // if(!responseQuantityOfProduct.ok){
-    //     alert('Something went wrong!');
-    //     return;
-    // }
-    // // we parse the response from json format to js code
-    // const responseQuantityData = await responseQuantityOfProduct.json();
-    // if (responseQuantityData.exceededQuantity) {
-    //     alert(responseQuantityData.message);
-    //     return;
-    // }
-
-
     // we build our response to send it to the server
     let response;
     try {

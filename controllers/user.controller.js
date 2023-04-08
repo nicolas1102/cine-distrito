@@ -209,30 +209,6 @@ function updateCartItemSnack(req, res) {
     });
 }
 
-// async function checkSnackQuantity(req, res, next) {
-//     let snack;
-//     try {
-//         snack = await Snack.findById(req.params.id);
-//     } catch (error) {
-//         console.log(error);
-//         return next(error);
-//     }
-
-//     req.body.quantity = +req.body.quantity;
-//     if (snack.amount < req.body.quantity) {
-//         res.json({
-//             message: 'The Snack quantity selected exceeds that available!',
-//             exceededQuantity: true,
-//         });
-//         return;
-//     }
-
-//     res.json({
-//         message: 'Product quantity available at the moment!',
-//         exceededQuantity: false,
-//     });
-// }
-
 async function addCartItemTickets(req, res, next) {
     let generalTicketProduct;
     let preferentialTicketProduct;
@@ -240,13 +216,14 @@ async function addCartItemTickets(req, res, next) {
     try {
         generalTicketProduct = await Product.findById(req.body.generalTicketProductId);
         preferentialTicketProduct = await Product.findById(req.body.preferentialTicketProductId);
+        // to fix show mongodb bson error
         show = await Show.findById(req.body.showId);
     } catch (error) {
         next(error);
         return;
     }
 
-    // parsing data objects
+    // parsing data objects (id's)
     generalTicketProduct._id = new mongodb.ObjectId(generalTicketProduct.id);
     delete generalTicketProduct.id;
     preferentialTicketProduct._id = new mongodb.ObjectId(preferentialTicketProduct.id);
@@ -270,14 +247,6 @@ async function addCartItemTickets(req, res, next) {
             status: 'pending',
         }
         ticket = new Ticket(ticketData);
-
-        try {
-            // await ticket.save();
-            // ticket = await Ticket.findByPositionAndShow(ticket.rowChair, ticket.columnChair, ticket.isPreferencial, show._id);
-        } catch (error) {
-            next(error);
-            return;
-        }
         tickets.push(ticket);
     };
 
@@ -291,14 +260,6 @@ async function addCartItemTickets(req, res, next) {
             status: 'pending',
         }
         ticket = new Ticket(ticketData);
-
-        try {
-            // await ticket.save();
-            // ticket = await Ticket.findByPositionAndShow(ticket.rowChair, ticket.columnChair, ticket.isPreferencial, show._id);
-        } catch (error) {
-            next(error);
-            return;
-        }
         tickets.push(ticket);
     };
 

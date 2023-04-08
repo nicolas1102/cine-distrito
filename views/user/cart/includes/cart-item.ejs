@@ -10,7 +10,7 @@
                 <p><span class="tittle-span">Date: </span><%= new Date(item.product.show.date).toDateString() %>, <%= item.product.show.time %></p>
                 <p><span class="tittle-span">At: </span><%= item.product.show.theater.name %></p>
                 <p><span class="tittle-span">Screen: </span><%= item.product.show.screen %></p>
-                <p><span class="tittle-span">Seat: </span><%= String.fromCharCode(97 + (+item.product.rowChair)).toUpperCase() + item.product.columnChair %></p>
+                <p><span class="tittle-span">Seat: </span><%= String.fromCharCode(96 + (+item.product.rowChair)).toUpperCase() + item.product.columnChair %></p>
             <% } %>
             <p><span class="tittle-span">Points: </span><%= item.product.points %> points</p>
             <p><span class="tittle-span">Price: </span><span class="cart-item-price"><%= item.totalPrice %></span> COP <span class="cart-product-price">(<%= item.product.price %> COP / unit)</span></p>

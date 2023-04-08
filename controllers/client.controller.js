@@ -244,9 +244,15 @@ async function getPayment(req, res, next) {
     const unavailableProducts = [];
     for (let i = 0; i < cart.items.length; i++) {
         if (cart.items[i].product.type === 'Ticket') {
-            const ticket = await Ticket.findByPositionAndShow(cart.items[i].product.rowChair, cart.items[i].product.columnChair, cart.items[i].product.isPreferencial, cart.items[i].product.showId, false);
+            const ticket = await Ticket.findByPositionAndShow(cart.items[i].product.rowChair, cart.items[i].product.columnChair, cart.items[i].product.isPreferencial, cart.items[i].product.show._id, false);
             if (ticket) {
-                unavailableProducts.push(ticket.product.name + ' - ' + ticket.product.show.movie.title + ' - ' + ticket.product.show.date + ', ' + ticket.product.show.time + ' - ' + String.fromCharCode(97 + (+ticket.product.rowChair)).toUpperCase() + ticket.product.columnChair);
+                let show;
+                try {
+                    show = await Show.findById(ticket.showId);
+                } catch (error) {
+                    next(error);
+                }
+                unavailableProducts.push(ticket.product.name + ' - ' + show.movie.title + ' - ' + new Date(show.date).toDateString() + ', ' + show.time + ' - ' + String.fromCharCode(97 + (+ticket.rowChair)).toUpperCase() + ticket.columnChair);
             }
         } else {
             const snack = await Snack.findById(cart.items[i].product.snackId, false);
@@ -281,11 +287,11 @@ async function getPayment(req, res, next) {
                 if (item.product.type === 'Ticket') {
                     return {
                         price_data: {
-                            // cop is not supported
+                            // COP is not supported
                             currency: 'usd',
                             product_data: {
                                 // here ----------------
-                                name: item.product.name + ' - ' + item.product.show.movie.title + ' - ' + item.product.show.date  + ', ' + item.product.show.time + ' - ' + String.fromCharCode(97 + (+item.product.rowChair)).toUpperCase() + item.product.columnChair,
+                                name: item.product.name + ' - ' + item.product.show.movie.title + ' - ' + new Date(item.product.show.date).toDateString() + ', ' + item.product.show.time + ' - ' + String.fromCharCode(97 + (+item.product.rowChair)).toUpperCase() + item.product.columnChair,
                             },
                             unit_amount: +item.product.price * 100,
                         },
@@ -317,9 +323,10 @@ async function getPayment(req, res, next) {
     }
 
     res.redirect(303, session.url);
+    // res.redirect('/client/orders/success');
 }
 
-async function getSuccessOrder(req, res) {
+async function getSuccessOrder(req, res, next) {
     const cart = res.locals.cart;
 
     let client;
@@ -334,8 +341,32 @@ async function getSuccessOrder(req, res) {
     const order = new Order(cart, client);
 
     try {
-        // add logic to update product data --------------------------------------------
-        // await order.updatingOrderProducts();
+        let product;
+        // updating database with purchased products 
+        for (let i = 0; i < cart.items.length; i++) {
+            if (cart.items[i].product.type === 'Ticket') {
+                ticketData = {
+                    product: {
+                        name: cart.items[i].product.name,
+                        type: cart.items[i].product.type,
+                        price: cart.items[i].product.price,
+                        imageName: cart.items[i].product.imageName,
+                        points: cart.items[i].product.points,
+                    },
+                    rowChair: cart.items[i].product.rowChair,
+                    columnChair: cart.items[i].product.columnChair,
+                    isPreferencial: cart.items[i].product.isPreferencial,
+                    show: cart.items[i].product.show,
+                    status: 'unavailable',
+                }
+                product = new Ticket(ticketData);
+                await product.save();
+            } else {
+                product = await Snack.findById(cart.items[i].product.snackId, true);
+                product.amount--;
+                await product.save();
+            }
+        }
         await order.save();
     } catch (error) {
         next(error);

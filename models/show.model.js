@@ -16,14 +16,8 @@ class Show {
     }
 
     static async findById(showId) {
-        let shwId;
-        try {
-            // we need to user an object id as the mongodb does
-            shwId = new mongodb.ObjectId(showId);
-        } catch (error) {
-            error.code = 404;
-            throw error;
-        }
+        // we need to user an object id as the mongodb does
+        const shwId = new mongodb.ObjectId(showId);
         const show = await db.getDb().collection('shows').findOne({ _id: shwId });
         if (!show) {
             const error = new Error('Could not find the show with provided id.');
@@ -67,8 +61,8 @@ class Show {
     static async findByMovieAndDateAndTheater(movieId, theaterId, date) {
         const mvId = new mongodb.ObjectId(movieId);
         const thtrId = new mongodb.ObjectId(theaterId);
-        
-        const shows = await db.getDb().collection('shows').find({ 'movie._id': mvId, 'theater._id': thtrId , date: date }).sort({ time: 1 }).toArray();
+
+        const shows = await db.getDb().collection('shows').find({ 'movie._id': mvId, 'theater._id': thtrId, date: date }).sort({ time: 1 }).toArray();
         if (!shows) {
             const error = new Error('Could not find the show with provided id.');
             error.code = 404;
