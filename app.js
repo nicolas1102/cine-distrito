@@ -19,6 +19,7 @@ const errorHandlerMiddleware = require('./middlewares/error-handler');
 const checkAuthStatusMiddleware = require('./middlewares/check-auth');
 const protectRoutesMiddleware = require('./middlewares/protect-routes');
 const cartMiddleware = require('./middlewares/cart');
+const notFoundMiddleware = require('./middlewares/not-found');
 const userRoutes = require('./routes/user.routes');
 const clientRoutes = require('./routes/client.routes');
 const employeeRoutes = require('./routes/employee.routes');
@@ -62,14 +63,16 @@ app.use(checkAuthStatusMiddleware);
 
 
 // MERGING ROTES
-// we protect our routes (of users not authorized or not authenticated)
 app.use(protectRoutesMiddleware);
-// we merge the routes of the authentication to our app
+// we merge the routes of the authentication to our app; we protect our routes (of users not authorized or not authenticated)
 app.use(userRoutes);
-app.use('/client', clientRoutes);
+app.use('/client', protectRoutesMiddleware, clientRoutes);
 // we filter the path
-app.use('/admin', adminRoutes);
-app.use('/employee', employeeRoutes);
+app.use('/admin', protectRoutesMiddleware, adminRoutes);
+app.use('/employee', protectRoutesMiddleware, employeeRoutes);
+
+
+app.use(notFoundMiddleware);
 
 
 // activaring the error haddle middleware

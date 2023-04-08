@@ -1,5 +1,5 @@
 const addToCartButtonElements = document.querySelectorAll('.product-item-actions #add-to-cart');
-const cartBadgeElement = document.querySelector('.nav-items .badge');
+const cartBadgeElements = document.querySelectorAll('.nav-items .badge');
 
 async function addToCart(event) {
     // the element which make the event ocurred
@@ -68,7 +68,9 @@ async function addToCart(event) {
 
     const newTotalQuantity = responseData.newTotalItems;
 
-    cartBadgeElement.textContent = newTotalQuantity;
+    cartBadgeElements.forEach(cartBadgeElement => {
+        cartBadgeElement.textContent = newTotalQuantity;
+    });
 }
 
 addToCartButtonElements.forEach(addToCartButtonElement => {

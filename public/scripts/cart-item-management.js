@@ -2,7 +2,7 @@ const cartItemUpdateFormElements = document.querySelectorAll(
     '.cart-item-management'
 );
 const cartTotalPriceElement = document.getElementById('cart-total-price');
-const cartBadge = document.querySelector('.nav-items .badge');
+const cartBadgeElements = document.querySelectorAll('.nav-items .badge');
 const buyButton = document.querySelector('#buy-btn');
 
 async function updateCartItem(event) {
@@ -47,16 +47,19 @@ async function updateCartItem(event) {
         //  if the price is not 0, we are updating it
     } else {
         const cartItemTotalPriceElement = form.parentElement.querySelector('.cart-item-price');
-        cartItemTotalPriceElement.textContent = responseData.updatedCartData.updatedItemPrice.toFixed(2);
+        cartItemTotalPriceElement.textContent = responseData.updatedCartData.updatedItemPrice;
     }
 
     if (buyButton && cartItemUpdateFormElements.length === 1) {
         buyButton.style.display = 'none';
     }
 
-    cartTotalPriceElement.textContent = responseData.updatedCartData.newTotalPrice.toFixed(2);
+    cartTotalPriceElement.textContent = responseData.updatedCartData.newTotalPrice;
 
-    cartBadge.textContent = responseData.updatedCartData.newTotalQuantity;
+
+    cartBadgeElements.forEach(cartBadgeElement => {
+        cartBadgeElement.textContent = responseData.updatedCartData.newTotalQuantity;
+    });
 }
 
 cartItemUpdateFormElements.forEach(cartItemUpdateFormElement => {

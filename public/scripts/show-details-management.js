@@ -3,7 +3,7 @@ const generalPriceSummaryElement = document.querySelector('#general-price-summar
 const preferentialPriceSummaryElement = document.querySelector('#preferential-price-summary');
 const totalPriceElement = document.querySelector('#tickets-total-price');
 const addTicketsToCartButtonElement = document.querySelector('#tickets-summary-section #add-tickets-to-cart');
-const cartBadgeElement2 = document.querySelector('.nav-items .badge');
+const cartBadgeElements = document.querySelectorAll('.nav-items .badge');
 const priceGeneral = +chairsElements[0].dataset.price;
 const pricePreferential = +chairsElements[41].dataset.price;
 let totalGeneralTickets = 0;
@@ -106,7 +106,10 @@ async function addTicketsToCart() {
     }
     const responseData = await response.json();
     // alert(responseData.message);
-    cartBadgeElement2.textContent = +cartBadgeElement2.textContent + (generalTickets.length + preferentialTickets.length);
+
+    cartBadgeElements.forEach(cartBadgeElement => {
+        cartBadgeElement.textContent = +cartBadgeElement.textContent + (generalTickets.length + preferentialTickets.length);
+    });
     window.location.href = "/cart";
 }
 

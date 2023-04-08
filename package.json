@@ -23,7 +23,7 @@
     "express",
     "ajax"
   ],
-  "author": "Nicolas Diaz, Santiago Avila, Felipe Pacheco",
+  "author": "Nicolas Diaz",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
