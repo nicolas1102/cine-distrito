@@ -1,163 +1,346 @@
 [{
   "_id": {
-    "$oid": "641c757329e0ae27f7174f13"
+    "$oid": "6431f43a0bef98985f6f827b"
   },
   "client": {
-    "email": "felipe@gmail.com",
-    "password": "$2a$12$wcoibCEWOMbEqaW4.SVGk.KLQ1DxC/3F/62Sxu8QfjpK.llZckUiq",
-    "name": "Felipe Pacheco",
-    "identification": "1234567890",
-    "imageName": "413ba94b-f757-4a69-9841-3b7eac3661c7-handi.png",
-    "imagePath": "public-data/images/413ba94b-f757-4a69-9841-3b7eac3661c7-handi.png",
-    "imageUrl": "/data/assets/images/413ba94b-f757-4a69-9841-3b7eac3661c7-handi.png",
-    "id": "640cd7c661ee54b1afc911c6",
+    "email": "nicolas@gmail.com",
+    "password": "$2a$12$0Ob7Q51jiWavTOf0Ls9ubuTk2mKIxwFVSEifTotfREFmH2lW0RS7W",
+    "name": "Nicolas Diaz",
+    "identification": "1000474214",
+    "imageName": "69c2527b-da44-4b4a-84e0-18e6ca75c5fa-IMG_20220825_144603.png",
+    "imagePath": "public-data/images/69c2527b-da44-4b4a-84e0-18e6ca75c5fa-IMG_20220825_144603.png",
+    "imageUrl": "/data/assets/images/69c2527b-da44-4b4a-84e0-18e6ca75c5fa-IMG_20220825_144603.png",
+    "id": "640cd6e48a75e89d35ffa1ec",
     "points": 0
   },
   "cart": {
     "items": [
       {
         "product": {
-          "name": "Pop Corn (Salt)",
-          "type": "Snack",
-          "price": 15900,
-          "imageName": "173523c4-8a65-461e-bb85-166563909f45-PCB0001_1.webp",
-          "points": "5",
-          "imagePath": "public-data/images/173523c4-8a65-461e-bb85-166563909f45-PCB0001_1.webp",
-          "imageUrl": "/data/assets/images/173523c4-8a65-461e-bb85-166563909f45-PCB0001_1.webp",
-          "id": "641684b44db1b30cad33491e",
-          "snackId": "6417a62cffc990a2c376888e",
-          "amount": "45"
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "6",
+          "columnChair": "2",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
         },
-        "quantity": 5,
-        "totalPrice": 79500
+        "quantity": 1,
+        "totalPrice": 15000
       },
       {
         "product": {
-          "name": "Gaseosa",
-          "type": "Snack",
-          "price": 5000,
-          "imageName": "655c3866-2cc1-4629-a24e-3910285be95e-PCB0001_1.webp",
-          "points": "5",
-          "imagePath": "public-data/images/655c3866-2cc1-4629-a24e-3910285be95e-PCB0001_1.webp",
-          "imageUrl": "/data/assets/images/655c3866-2cc1-4629-a24e-3910285be95e-PCB0001_1.webp",
-          "id": "641693e9fe35d0cb869f4536",
-          "snackId": "641a33eb13bd376904db8c79",
-          "amount": "20"
-        },
-        "quantity": 2,
-        "totalPrice": 10000
-      }
-    ],
-    "totalQuantity": 7,
-    "totalPrice": 89500
-  },
-  "date": {
-    "$date": "2023-03-23T15:51:15.047Z"
-  },
-  "status": "pending"
-},{
-  "_id": {
-    "$oid": "641c759029e0ae27f7174f14"
-  },
-  "client": {
-    "email": "santiago@gmail.com",
-    "password": "$2a$12$DTQUA9DQxFabrMYt2IxgL.nl9l1ZhbqIlZFdX63ToJKNqnAay95i6",
-    "name": "Santiago Avila",
-    "identification": "1234567890",
-    "imageName": "090c1b33-9278-47c4-a466-9017c5e87eb6-santi.png",
-    "imagePath": "public-data/images/090c1b33-9278-47c4-a466-9017c5e87eb6-santi.png",
-    "imageUrl": "/data/assets/images/090c1b33-9278-47c4-a466-9017c5e87eb6-santi.png",
-    "id": "641308aab13aa1f7ce0c98bc",
-    "points": 0
-  },
-  "cart": {
-    "items": [
-      {
-        "product": {
-          "name": "Chocolate",
-          "type": "Snack",
-          "price": 8000,
-          "imageName": "d40dd927-ffc9-4eeb-9dc7-d10ed4f3086b-PCB0001_1.webp",
-          "points": "5",
-          "imagePath": "public-data/images/d40dd927-ffc9-4eeb-9dc7-d10ed4f3086b-PCB0001_1.webp",
-          "imageUrl": "/data/assets/images/d40dd927-ffc9-4eeb-9dc7-d10ed4f3086b-PCB0001_1.webp",
-          "id": "641693a9fe35d0cb869f4535",
-          "snackId": "6417706f4c0fbe0981ca9e74",
-          "amount": "34"
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "6",
+          "columnChair": "3",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
         },
         "quantity": 1,
-        "totalPrice": 8000
+        "totalPrice": 15000
       },
       {
         "product": {
-          "name": "Pop Corn (Salt)",
-          "type": "Snack",
-          "price": 15900,
-          "imageName": "173523c4-8a65-461e-bb85-166563909f45-PCB0001_1.webp",
-          "points": "5",
-          "imagePath": "public-data/images/173523c4-8a65-461e-bb85-166563909f45-PCB0001_1.webp",
-          "imageUrl": "/data/assets/images/173523c4-8a65-461e-bb85-166563909f45-PCB0001_1.webp",
-          "id": "641684b44db1b30cad33491e",
-          "snackId": "6417a62cffc990a2c376888e",
-          "amount": "45"
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "6",
+          "columnChair": "4",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
         },
         "quantity": 1,
-        "totalPrice": 15900
+        "totalPrice": 15000
       },
       {
         "product": {
-          "name": "Gaseosa",
-          "type": "Snack",
-          "price": 5000,
-          "imageName": "655c3866-2cc1-4629-a24e-3910285be95e-PCB0001_1.webp",
-          "points": "5",
-          "imagePath": "public-data/images/655c3866-2cc1-4629-a24e-3910285be95e-PCB0001_1.webp",
-          "imageUrl": "/data/assets/images/655c3866-2cc1-4629-a24e-3910285be95e-PCB0001_1.webp",
-          "id": "641693e9fe35d0cb869f4536",
-          "snackId": "641a33eb13bd376904db8c79",
-          "amount": "20"
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "6",
+          "columnChair": "5",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
         },
         "quantity": 1,
-        "totalPrice": 5000
+        "totalPrice": 15000
       },
       {
         "product": {
-          "name": "Pop Corn (Sweet)",
-          "type": "Snack",
-          "price": 18900,
-          "imageName": "5fcaa3c4-8bcb-439c-a0fd-44add2b553c1-PCB0001_1.webp",
-          "points": "5",
-          "imagePath": "public-data/images/5fcaa3c4-8bcb-439c-a0fd-44add2b553c1-PCB0001_1.webp",
-          "imageUrl": "/data/assets/images/5fcaa3c4-8bcb-439c-a0fd-44add2b553c1-PCB0001_1.webp",
-          "id": "64169379fe35d0cb869f4534",
-          "snackId": "641770874c0fbe0981ca9e76",
-          "amount": "24"
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "6",
+          "columnChair": "6",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
         },
         "quantity": 1,
-        "totalPrice": 18900
-      },
-      {
-        "product": {
-          "name": "Pop Corn (Mixed)",
-          "type": "Snack",
-          "price": 17900,
-          "imageName": "29a5ed8c-2572-411a-b0e1-cefc0975d831-PCB0001_1.webp",
-          "points": "5",
-          "imagePath": "public-data/images/29a5ed8c-2572-411a-b0e1-cefc0975d831-PCB0001_1.webp",
-          "imageUrl": "/data/assets/images/29a5ed8c-2572-411a-b0e1-cefc0975d831-PCB0001_1.webp",
-          "id": "64169345fe35d0cb869f4533",
-          "snackId": "641770784c0fbe0981ca9e75",
-          "amount": "40"
-        },
-        "quantity": 1,
-        "totalPrice": 17900
+        "totalPrice": 15000
       }
     ],
     "totalQuantity": 5,
-    "totalPrice": 65700
+    "totalPrice": 75000
   },
   "date": {
-    "$date": "2023-03-23T15:51:44.208Z"
+    "$date": "2023-04-08T23:09:46.168Z"
   },
-  "status": "cancelled"
+  "status": "fulfilled"
+},{
+  "_id": {
+    "$oid": "6431f65f0bef98985f6f8288"
+  },
+  "client": {
+    "email": "nicolas@gmail.com",
+    "password": "$2a$12$0Ob7Q51jiWavTOf0Ls9ubuTk2mKIxwFVSEifTotfREFmH2lW0RS7W",
+    "name": "Nicolas Diaz",
+    "identification": "1000474214",
+    "imageName": "69c2527b-da44-4b4a-84e0-18e6ca75c5fa-IMG_20220825_144603.png",
+    "imagePath": "public-data/images/69c2527b-da44-4b4a-84e0-18e6ca75c5fa-IMG_20220825_144603.png",
+    "imageUrl": "/data/assets/images/69c2527b-da44-4b4a-84e0-18e6ca75c5fa-IMG_20220825_144603.png",
+    "id": "640cd6e48a75e89d35ffa1ec",
+    "points": 0
+  },
+  "cart": {
+    "items": [
+      {
+        "product": {
+          "name": "Ticket (General)",
+          "type": "Ticket",
+          "price": 11000,
+          "imageName": "87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "1",
+          "columnChair": "1",
+          "isPreferencial": false,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 11000
+      },
+      {
+        "product": {
+          "name": "Ticket (General)",
+          "type": "Ticket",
+          "price": 11000,
+          "imageName": "87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "2",
+          "columnChair": "1",
+          "isPreferencial": false,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 11000
+      },
+      {
+        "product": {
+          "name": "Ticket (General)",
+          "type": "Ticket",
+          "price": 11000,
+          "imageName": "87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "3",
+          "columnChair": "1",
+          "isPreferencial": false,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 11000
+      },
+      {
+        "product": {
+          "name": "Ticket (General)",
+          "type": "Ticket",
+          "price": 11000,
+          "imageName": "87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "4",
+          "columnChair": "1",
+          "isPreferencial": false,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 11000
+      },
+      {
+        "product": {
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "5",
+          "columnChair": "1",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 15000
+      },
+      {
+        "product": {
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "6",
+          "columnChair": "1",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 15000
+      }
+    ],
+    "totalQuantity": 6,
+    "totalPrice": 74000
+  },
+  "date": {
+    "$date": "2023-04-08T23:18:55.009Z"
+  },
+  "status": "fulfilled"
+},{
+  "_id": {
+    "$oid": "643225510bef98985f6f8291"
+  },
+  "client": {
+    "email": "nicolas@gmail.com",
+    "password": "$2a$12$0Ob7Q51jiWavTOf0Ls9ubuTk2mKIxwFVSEifTotfREFmH2lW0RS7W",
+    "name": "Nicolas Diaz",
+    "identification": "1000474214",
+    "imageName": "69c2527b-da44-4b4a-84e0-18e6ca75c5fa-IMG_20220825_144603.png",
+    "imagePath": "public-data/images/69c2527b-da44-4b4a-84e0-18e6ca75c5fa-IMG_20220825_144603.png",
+    "imageUrl": "/data/assets/images/69c2527b-da44-4b4a-84e0-18e6ca75c5fa-IMG_20220825_144603.png",
+    "id": "640cd6e48a75e89d35ffa1ec",
+    "points": 0
+  },
+  "cart": {
+    "items": [
+      {
+        "product": {
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "5",
+          "columnChair": "4",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 15000
+      },
+      {
+        "product": {
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "5",
+          "columnChair": "5",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 15000
+      },
+      {
+        "product": {
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "5",
+          "columnChair": "6",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 15000
+      },
+      {
+        "product": {
+          "name": "Ticket (Preferential)",
+          "type": "Ticket",
+          "price": 15000,
+          "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "points": "10",
+          "imagePath": "public-data/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "imageUrl": "/data/assets/images/f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+          "rowChair": "5",
+          "columnChair": "7",
+          "isPreferencial": true,
+          "status": "pending",
+          "showId": "6428dacf5811e88cd0d99843"
+        },
+        "quantity": 1,
+        "totalPrice": 15000
+      }
+    ],
+    "totalQuantity": 4,
+    "totalPrice": 60000
+  },
+  "date": {
+    "$date": "2023-04-09T02:39:13.447Z"
+  },
+  "status": "fulfilled"
 }]

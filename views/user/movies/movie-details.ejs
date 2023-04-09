@@ -5,43 +5,43 @@
 <body>
 <%- include('../../shared/includes/header') %>
 <%- include('../../shared/includes/blob') %>
-<main id="movie-details">
-    <div>
-        <div id="image-container">
-            <img src="<%= movie.imageUrl %>" alt="<%= movie.title %>">
+    <main id="movie-details">
+        <div>
+            <div id="image-container">
+                <img src="<%= movie.imageUrl %>" alt="<%= movie.title %>">
+            </div>
         </div>
-    </div>
-    <div id="movie-info">
-        <h1><%= movie.title %></h1>
-        <p><span>Description: </span><%= movie.description %></p>
-        <div id="showtime-selector" data-csrf="<%= locals.csrfToken %>" data-movieid="<%= movie.id %>">
-            <p id="date">
-                <label>Date:</label>
-                <select name="date" id="date-select">
-                    <option value="0" selected disabled hidden>--Please choose a Date--</option>
-                    <% dates.forEach(date => { %>
-                        <option value="<%= date %>"><%= date %></option>
-                    <% }); %>
-                </select>
-            </p>
-            <p id="theater">
-                <label for="theater">AT:</label>
-                <select name="theater" id="theater-select">
-                </select>
-            </p>
-            <p id="showtime">
-                <label for="showtime">Showtime:</label>
-                <select name="showtime" id="showtime-select">
-                </select>
-            </p>
+        <div id="movie-info">
+            <h1><%= movie.title %></h1>
+            <p><span>Description: </span><%= movie.description %></p>
+            <div id="showtime-selector" data-csrf="<%= locals.csrfToken %>" data-movieid="<%= movie.id %>">
+                <p id="date">
+                    <label>Date:</label>
+                    <select name="date" id="date-select">
+                        <option value="0" selected disabled hidden>--Please choose a Date--</option>
+                        <% dates.forEach(date => { %>
+                            <option value="<%= date %>"><%= date %></option>
+                        <% }); %>
+                    </select>
+                </p>
+                <p id="theater">
+                    <label for="theater">AT:</label>
+                    <select name="theater" id="theater-select">
+                    </select>
+                </p>
+                <p id="showtime">
+                    <label for="showtime">Showtime:</label>
+                    <select name="showtime" id="showtime-select">
+                    </select>
+                </p>
+            </div>
+            <form method="GET" action="" id="form-continue">
+                <button class="btn btn-alt">Continue</button>
+            </form>
         </div>
-        <form method="GET" action="" id="form-continue">
-            <button class="btn btn-alt">Continue</button>
-        </form>
-    </div>
-    <div id="movie-little-details">
-        <p><span>Duration: </span><br><%= movie.duration.hours %> hours <%= movie.duration.minutes %> minutes</p>
-        <p><span>Genre: </span><br><%= movie.genre %></p>
-    </div>
-</main>
+        <div id="movie-little-details">
+            <p><span>Duration: </span><br><%= movie.duration.hours %> hours <%= movie.duration.minutes %> minutes</p>
+            <p><span>Genre: </span><br><%= movie.genre %></p>
+        </div>
+    </main>
 <%- include('../../shared/includes/footer') %></body>

@@ -1,0 +1,286 @@
+[{
+  "_id": {
+    "$oid": "6431f43a0bef98985f6f8272"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f43a0bef98985f6f8271"
+    }
+  },
+  "rowChair": "6",
+  "columnChair": "2",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f43a0bef98985f6f8274"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f43a0bef98985f6f8273"
+    }
+  },
+  "rowChair": "6",
+  "columnChair": "3",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f43a0bef98985f6f8276"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f43a0bef98985f6f8275"
+    }
+  },
+  "rowChair": "6",
+  "columnChair": "4",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f43a0bef98985f6f8278"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f43a0bef98985f6f8277"
+    }
+  },
+  "rowChair": "6",
+  "columnChair": "5",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f43a0bef98985f6f827a"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f43a0bef98985f6f8279"
+    }
+  },
+  "rowChair": "6",
+  "columnChair": "6",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f65f0bef98985f6f827d"
+  },
+  "product": {
+    "name": "Ticket (General)",
+    "type": "Ticket",
+    "price": 11000,
+    "imageName": "87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f65f0bef98985f6f827c"
+    }
+  },
+  "rowChair": "1",
+  "columnChair": "1",
+  "isPreferencial": false,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f65f0bef98985f6f827f"
+  },
+  "product": {
+    "name": "Ticket (General)",
+    "type": "Ticket",
+    "price": 11000,
+    "imageName": "87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f65f0bef98985f6f827e"
+    }
+  },
+  "rowChair": "2",
+  "columnChair": "1",
+  "isPreferencial": false,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f65f0bef98985f6f8281"
+  },
+  "product": {
+    "name": "Ticket (General)",
+    "type": "Ticket",
+    "price": 11000,
+    "imageName": "87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f65f0bef98985f6f8280"
+    }
+  },
+  "rowChair": "3",
+  "columnChair": "1",
+  "isPreferencial": false,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f65f0bef98985f6f8283"
+  },
+  "product": {
+    "name": "Ticket (General)",
+    "type": "Ticket",
+    "price": 11000,
+    "imageName": "87b829fd-f36b-42ef-a2d9-f1a820a1a2e9-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f65f0bef98985f6f8282"
+    }
+  },
+  "rowChair": "4",
+  "columnChair": "1",
+  "isPreferencial": false,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f65f0bef98985f6f8285"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f65f0bef98985f6f8284"
+    }
+  },
+  "rowChair": "5",
+  "columnChair": "1",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "6431f65f0bef98985f6f8287"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "6431f65f0bef98985f6f8286"
+    }
+  },
+  "rowChair": "6",
+  "columnChair": "1",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "643225510bef98985f6f828a"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "643225510bef98985f6f8289"
+    }
+  },
+  "rowChair": "5",
+  "columnChair": "4",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "643225510bef98985f6f828c"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "643225510bef98985f6f828b"
+    }
+  },
+  "rowChair": "5",
+  "columnChair": "5",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "643225510bef98985f6f828e"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "643225510bef98985f6f828d"
+    }
+  },
+  "rowChair": "5",
+  "columnChair": "6",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+},{
+  "_id": {
+    "$oid": "643225510bef98985f6f8290"
+  },
+  "product": {
+    "name": "Ticket (Preferential)",
+    "type": "Ticket",
+    "price": 15000,
+    "imageName": "f1e14570-d743-41c6-98ad-35591d7613ae-Captura de pantalla 2023-03-14 163718.png",
+    "points": "10",
+    "_id": {
+      "$oid": "643225510bef98985f6f828f"
+    }
+  },
+  "rowChair": "5",
+  "columnChair": "7",
+  "isPreferencial": true,
+  "status": "unavailable",
+  "showId": "6428dacf5811e88cd0d99843"
+}]

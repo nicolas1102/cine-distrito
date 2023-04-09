@@ -32,7 +32,6 @@
     <div class="row-container">
         <div id="cart-total">
             <p>Total: <span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %> COP</span></p>
-            
             <% if (locals.isAuth) { %>
                 <form action="/client/orders" method="POST" >
                     <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
@@ -45,7 +44,6 @@
             <% } else { %>
                 <p id="cart-total-fallback">Log in to proceed and purchase the items</p>
             <% } %>
-
         </div>
     </div>
 </main>

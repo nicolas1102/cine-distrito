@@ -6,7 +6,7 @@
     "name": "Chocolate",
     "type": "Snack",
     "price": "8000",
-    "imageName": "d40dd927-ffc9-4eeb-9dc7-d10ed4f3086b-PCB0001_1.webp",
+    "imageName": "b6ccfefb-d63d-42a9-98d1-c80b98996ebf-chocolate.jpg",
     "points": "5",
     "_id": {
       "$oid": "641693a9fe35d0cb869f4535"
@@ -20,14 +20,14 @@
   "product": {
     "name": "Pop Corn (Mixed)",
     "type": "Snack",
-    "price": "17900",
-    "imageName": "29a5ed8c-2572-411a-b0e1-cefc0975d831-PCB0001_1.webp",
+    "price": 17900,
+    "imageName": "37f5fbb3-0555-4075-8b24-3e21c3aa4d37-popcorn-mixed.jpg",
     "points": "5",
     "_id": {
       "$oid": "64169345fe35d0cb869f4533"
     }
   },
-  "amount": "40"
+  "amount": 23
 },{
   "_id": {
     "$oid": "641770874c0fbe0981ca9e76"
@@ -35,14 +35,14 @@
   "product": {
     "name": "Pop Corn (Sweet)",
     "type": "Snack",
-    "price": "18900",
-    "imageName": "5fcaa3c4-8bcb-439c-a0fd-44add2b553c1-PCB0001_1.webp",
+    "price": 18900,
+    "imageName": "4bcbb5e1-52b7-4d70-bd1a-6a6ce758a6c5-popcorn-sweet.webp",
     "points": "5",
     "_id": {
       "$oid": "64169379fe35d0cb869f4534"
     }
   },
-  "amount": "24"
+  "amount": 7
 },{
   "_id": {
     "$oid": "6417a62cffc990a2c376888e"
@@ -58,4 +58,19 @@
     }
   },
   "amount": "45"
+},{
+  "_id": {
+    "$oid": "641a33eb13bd376904db8c79"
+  },
+  "product": {
+    "name": "Soda",
+    "type": "Snack",
+    "price": 5000,
+    "imageName": "4418b15b-96a3-4120-8a7a-5b3c5c8e0646-soda.webp",
+    "points": "5",
+    "_id": {
+      "$oid": "641693e9fe35d0cb869f4536"
+    }
+  },
+  "amount": "20"
 }]
