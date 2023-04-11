@@ -65,10 +65,12 @@ footer #social-media ul li a svg {
 }
 
 footer #creator {
+    display: flex;
+    justify-content: center;
     margin-top: 1.5rem;
 }
 
-footer #creator p {
+footer #easter-egg {
     text-align: center;
     margin: 0;
     color: var(--color-gray-50);
