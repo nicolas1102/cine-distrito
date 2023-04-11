@@ -53,5 +53,5 @@ npm install
 ## Author
 
 - Website - [Nicolas Diaz](https://nicolas1102.github.io/portfolio/)
-- Linkedin - [Nicolas Diaz](www.linkedin.com/in/nicolas-diaz-vargas)
+- Linkedin - [Nicolas Diaz](https://www.linkedin.com/in/nicolas-diaz-vargas)
 - Instagram - [@nicolasdiaz_1102](https://www.instagram.com/nicolasdiaz_1102/?theme=dark)
