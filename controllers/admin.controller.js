@@ -5,7 +5,6 @@ const Client = require('../models/client.model');
 const Employee = require('../models/employee.model');
 const Product = require('../models/product.model');
 const Snack = require('../models/snack.model');
-const Ticket = require('../models/ticket.model');
 const Show = require('../models/show.model');
 const Movie = require('../models/movie.model');
 const Theater = require('../models/theater.model');
