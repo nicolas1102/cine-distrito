@@ -28,6 +28,11 @@ In the console, you must run the following command to install all the modules an
 npm install
 ```
 
+Then, if everything has been installed correctly, you can run the application with the following command: 
+```
+npm start
+```
+
 ## Screenshots
 ### Home Movies View
 ![](./screenshots/home%20movies%20view.png)
