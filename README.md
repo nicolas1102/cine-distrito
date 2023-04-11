@@ -36,15 +36,15 @@ npm start
 
 ## Screenshots
 ### Home Movies View
-![](./screenshots/home%20movies%20view.png)
+![](./media/screenshots/home%20movies%20view.png)
 ### Home Snacks View
-![](./screenshots/home%20snacks%20view.png)
+![](./media/screenshots/home%20snacks%20view.png)
 ### Cart User View
-![](./screenshots/cart%20view.png)
+![](./media/screenshots/cart%20view.png)
 ### Admin Menu View
-![](./screenshots/admin%20menu%20view.png)
+![](./media/screenshots/admin%20menu%20view.png)
 ### Home Movies Mobile View
-![](./screenshots/mobile%20-%20home%20view.png)
+![](./media/screenshots/mobile%20-%20home%20view.png)
 
 ## Built with
 
