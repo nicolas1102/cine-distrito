@@ -10,8 +10,8 @@
 
 ## Overview
 
-In this project, knowledge is implemented in software engineering for the construction of a Full-Stack platform for a cinema (District Cinema), which allows the purchase of tickets and snacks to users as well as the management of the entire system to an administrator. from the same system.
-All this using knowledge of MongoDB, ExpressJS, NodeJS, JavaScript, CSS, EJS, HTML.
+In this project, knowledge is implemented in software engineering for the construction of a Full-Stack platform for a cinema (Cine Distrito), which allows the purchase of tickets and snacks to users as well as the management of the entire system to an administrator. from the same system.
+All this using knowledge of MongoDB, Express, NodeJS, JavaScript, CSS, EJS, HTML.
 
 ## How To Install
 
