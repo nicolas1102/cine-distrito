@@ -3,7 +3,7 @@
 ## Table of contents
 
 - [Overview](#overview)
-- [HowToInstall](#How To Install)
+- [HowToInstall](#How-To-Install)
 - [Screenshots](#screenshots)
 - [Built with](#built-with)
 - [Author](#author)
