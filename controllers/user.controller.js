@@ -479,7 +479,7 @@ async function login(req, res, next) {
             existingUser.imageName,
             existingUser._id,
         );
-        existingUser.role = 'client';
+        existingUser.role.role = 'client';
     } else {
         existingUser = new Employee(
             existingUser.email,
@@ -496,7 +496,7 @@ async function login(req, res, next) {
         );
     }
 
-    console.log('Logged in User: [' + existingUser.email + ', ' + existingUser.role + ']');
+    console.log('Logged in User: [' + existingUser.email + ', ' + existingUser.role.role + ']');
 
     // we trate the user as logged in; the function is executed one the session is saved
     authUtil.createUserSession(req, existingUser, function () {
@@ -514,7 +514,7 @@ function logout(req, res) {
 
 
 function getAboutUs(req, res) {
-
+    res.render('user/about-us');
 }
 
 module.exports = {
@@ -540,5 +540,4 @@ module.exports = {
     logout: logout,
 
     getAboutUs: getAboutUs,
-
 }

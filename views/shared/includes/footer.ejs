@@ -20,8 +20,10 @@
                             </li>
                         <% } %>
                     
-                        <% if ((locals.role === 'food dispenser') || (locals.role === 'cashier')) { %>
-                            <a href="/employee/profile"><%= locals.name %></span></a>
+                        <% if (locals.role === 'employee') { %>
+                            <li id="profile-nav-item">
+                                <a href="/employee/profile"><%= locals.name %> <span id="admin-profile">(Employee)</span></a>
+                            </li>
                         <% } %>
                     
                         <% if (!locals.isAuth) { %>
@@ -45,7 +47,7 @@
                             </li>
                         <% } %>
                         <li>
-                            <a href="/aboutus">About Us</a>
+                            <a href="/about-us">About Us</a>
                         </li> 
                     </ul>
                 </section>

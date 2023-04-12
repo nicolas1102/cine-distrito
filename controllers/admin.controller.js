@@ -106,6 +106,18 @@ async function getUpdateEmployee(req, res, next) {
         roles = await Role.findAll();
         theaters = await Theater.findAll();
         employee = await Employee.findById(req.params.id);
+
+        // --------- UnHash Password --------------
+        // show image here
+        // show image in new employee
+        // arreglar css
+        // nueva tabla para lista de trabajos y arreglar todo lo de empleados; en agregar empleados no mostar los roles sino los trabajos o puestos, nueva tabla
+        // pago tipo empleado
+        // bloquear sillas cuando se está generando el pago
+        // about us page
+
+
+
         res.render('admin/employees/update-employee', { employee: employee, roles: roles, theaters: theaters });
     } catch (error) {
         next(error);

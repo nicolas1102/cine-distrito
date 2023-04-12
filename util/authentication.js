@@ -3,8 +3,7 @@ function createUserSession(req, user, action){
     // the default mongo id is an objectid, so we need to convert to string
     req.session.userid = user.id
 
-    // checking if the user is an admin
-    req.session.role = user.role;
+    req.session.role = user.role.role;
     req.session.name = user.name;
     req.session.imageUrl = user.imageUrl;
     

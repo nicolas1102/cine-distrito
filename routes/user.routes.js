@@ -50,7 +50,7 @@ router.post('/logout', userController.logout);
 
 
 
-router.get('/aboutus', userController.getAboutUs);
+router.get('/about-us', userController.getAboutUs);
 
 
 

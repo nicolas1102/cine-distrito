@@ -25,8 +25,13 @@
         </li>
     <% } %>
 
-    <% if ((locals.role === 'food dispenser') || (locals.role === 'cashier')) { %>
-        <a href="/employee/profile"><%= locals.name %></span></a>
+    <% if (locals.role === 'employee') { %>
+        <li id="profile-nav-item">
+            <p class="profile-image-container">
+                <img src="<%= locals.imageUrl %>" alt="">
+            </p>
+            <a href="/employee/profile"><%= locals.name %> <span id="admin-profile">(Employee)</span></a>
+        </li>
     <% } %>
 
     <% if (!locals.isAuth) { %>
