@@ -1,6 +1,6 @@
 #table {
-    margin: var(--space-8) auto;
-    width: 100%;
+    margin: var(--space-8) -10rem;
+    width: calc(100% + 20rem);
     z-index: 0;
     background-color: rgba(100, 100, 100, 0.3);
     backdrop-filter: blur(var(--backdrop-filter-0));

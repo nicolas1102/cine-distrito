@@ -10,16 +10,24 @@ router.get('/', adminController.getAdminMenu);
 
 
 
-// router.get('/clients', adminController.getClients);
+router.get('/clients', adminController.getClients);
+// using ajax http methods 
+router.delete('/clients/:id', adminController.deleteClient);
 
-// router.get('/clients/new', adminController.getNewClient);
 
 
 
-// router.get('/employees', adminController.getEmployees);
+router.get('/employees', adminController.getEmployees);
 
-// router.get('/employees/new', adminController.getNewEmployee);
+router.get('/employees/new', adminController.getNewEmployee);
 
+router.post('/employees', imageUploadMiddleware, adminController.createNewEmployee);
+
+router.get('/employees/:id', adminController.getUpdateEmployee);
+
+router.post('/employees/:id', adminController.updateEmployee);
+// using ajax http methods 
+router.delete('/employees/:id', adminController.deleteEmployee);
 
 
 router.get('/orders', adminController.getOrders);
@@ -72,12 +80,6 @@ router.delete('/movies/:id', adminController.deleteMovie);
 
 
 
-// router.get('/tickets', adminController.getTickets);
-
-// router.get('/tickets/new', adminController.getNewTicket);
-
-
-
 router.get('/shows', adminController.getShows);
 
 router.get('/shows/new', adminController.getNewShow);
@@ -108,6 +110,4 @@ router.delete('/theaters/:id', adminController.deleteTheater);
 
 
 
-
 module.exports = router;
-

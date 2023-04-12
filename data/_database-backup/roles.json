@@ -2,15 +2,15 @@
   "_id": {
     "$oid": "640cb591d09431a1e76b09a8"
   },
-  "rol": "food dispenser"
+  "role": "food dispenser"
 },{
   "_id": {
     "$oid": "640cbd6ed09431a1e76b09ac"
   },
-  "rol": "client"
+  "role": "client"
 },{
   "_id": {
     "$oid": "640cbd84d09431a1e76b09ad"
   },
-  "rol": "cashier"
+  "role": "cashier"
 }]

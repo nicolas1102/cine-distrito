@@ -4,6 +4,7 @@ const Order = require('../models/order.model');
 const Client = require('../models/client.model');
 const Employee = require('../models/employee.model');
 const Product = require('../models/product.model');
+const Role = require('../models/role.model');
 const Snack = require('../models/snack.model');
 const Show = require('../models/show.model');
 const Movie = require('../models/movie.model');
@@ -17,22 +18,135 @@ function getAdminMenu(req, res) {
 
 
 
-function getClients(req, res) {
-    res.render('admin/clients/all-clients');
+async function getClients(req, res, next) {
+    try {
+        const clients = await Client.findAll();
+        res.render('admin/clients/admin-all-clients', { clients: clients });
+    } catch (error) {
+        return next(error);
+    }
 }
 
-function getNewClient(req, res) {
-    res.render('admin/clients/new-client');
+async function deleteClient(req, res, next) {
+    let client;
+    try {
+        client = await Client.findById(req.params.id);
+        await client.remove();
+    } catch (error) {
+        return next(error);
+    }
+    // we are using AJAX, so we dont need to redirect to anywhere, just responses something
+    res.json({ message: 'Deleted Client!' });
 }
 
 
 
-function getEmployees(req, res) {
-    res.render('admin/employees/all-employees');
+async function getEmployees(req, res, next) {
+    let employees;
+    try {
+        employees = await Employee.findAll();
+        res.render('admin/employees/admin-all-employees', { employees: employees });
+    } catch (error) {
+        return next(error);
+    }
 }
 
-function getNewEmployee(req, res) {
-    res.render('admin/employees/new-employee');
+async function getNewEmployee(req, res, next) {
+    let roles;
+    let theaters;
+    try {
+        roles = await Role.findAll();
+        theaters = await Theater.findAll();
+        res.render('admin/employees/new-employee', { roles: roles, theaters: theaters });
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
+
+async function createNewEmployee(req, res, next) {
+    let role;
+    let theater;
+    let employee;
+    try {
+        role = await Role.findById(req.body.role);
+        theater = await Theater.findById(req.body.theater);
+        // parsing data objects
+        role._id = new mongodb.ObjectId(role.id);
+        delete role.id;
+        theater._id = new mongodb.ObjectId(theater.id);
+        delete theater.id;
+
+        let employeeData = {
+            email: req.body.email,
+            password: req.body.password,
+            name: req.body.name,
+            identification: req.body.identification,
+            imageName: req.file.filename,
+            role: role,
+            phoneNumber: req.body['phone-number'],
+            contractStartDate: req.body['contract-date'],
+            salary: req.body.salary,
+            theater: theater,
+        };
+        employee = new Employee(employeeData.email, employeeData.password, employeeData.name, employeeData.identification, employeeData.imageName, employeeData.role, employeeData.phoneNumber, employeeData.contractStartDate, employeeData.salary, employeeData.theater);
+        // console.log(employee);
+        await employee.save();
+    } catch (error) {
+        return next(error);
+    }
+    res.redirect('/admin/employees');
+}
+
+async function getUpdateEmployee(req, res, next) {
+    let employee;
+    let roles;
+    let theaters;
+    try {
+        roles = await Role.findAll();
+        theaters = await Theater.findAll();
+        employee = await Employee.findById(req.params.id);
+        res.render('admin/employees/update-employee', { employee: employee, roles: roles, theaters: theaters });
+    } catch (error) {
+        next(error);
+        return;
+    }
+}
+
+async function updateEmployee(req, res, next) {
+    theaterData = {
+        name: req.body.name,
+        address: req.body.address,
+        numScreens: req.body['num-screens'],
+        rating: 0,
+        amountRatings: 0,
+        _id: req.params.id
+    }
+    const theater = new Theater(theaterData);
+
+    try {
+        await theater.save();
+    } catch (error) {
+        console.log(error);
+        next(error);
+        return;
+    }
+
+    res.redirect('/admin/theaters');
+}
+
+async function deleteEmployee(req, res, next) {
+    let theater;
+    try {
+        theater = await Theater.findById(req.params.id);
+        await theater.remove();
+    } catch (error) {
+        console.log(error);
+        return next(error);
+    }
+
+    // we are using AJAX, so we dont need to redirect to anywhere, just responses something
+    res.json({ message: 'Deleted theater!' });
 }
 
 
@@ -446,23 +560,6 @@ async function deleteMovie(req, res, next) {
 
 
 
-// async function getTickets(req, res, next) {
-//     try {
-//         const tickets = await Ticket.findAll();
-//         res.render('admin/tickets/admin-all-tickets', { tickets: tickets });
-//     } catch (error) {
-//         console.log(error);
-//         next(error);
-//         return;
-//     }
-// }
-
-// function getNewTicket(req, res) {
-//     res.render('admin/tickets/new-ticket');
-// }
-
-
-
 async function getShows(req, res, next) {
     try {
         const shows = await Show.findAll();
@@ -679,10 +776,14 @@ module.exports = {
     getAdminMenu: getAdminMenu,
 
     getClients: getClients,
-    getNewClient: getNewClient,
+    deleteClient: deleteClient,
 
     getEmployees: getEmployees,
     getNewEmployee: getNewEmployee,
+    createNewEmployee: createNewEmployee,
+    getUpdateEmployee: getUpdateEmployee,
+    updateEmployee: updateEmployee,
+    deleteEmployee: deleteEmployee,
 
     getOrders: getOrders,
     updateOrder: updateOrder,
@@ -709,9 +810,6 @@ module.exports = {
     updateMovie: updateMovie,
     deleteMovie: deleteMovie,
 
-    // getTickets: getTickets,
-    // getNewTicket: getNewTicket,
-
     getShows: getShows,
     getNewShow: getNewShow,
     createNewShow: createNewShow,
@@ -726,7 +824,6 @@ module.exports = {
     getUpdateTheater: getUpdateTheater,
     updateTheater: updateTheater,
     deleteTheater: deleteTheater,
-
 }
 
 

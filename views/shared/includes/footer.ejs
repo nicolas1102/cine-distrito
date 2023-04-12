@@ -16,9 +16,6 @@
                         <% if (locals.role === 'admin') { %>
                             <li><a href="/admin/">Admin Menu</a></li>
                             <li id="profile-nav-item">
-                                <p class="profile-image-container">
-                                    <img src="<%= locals.imageUrl %>" alt="">
-                                </p>
                                 <a href="/employee/profile"><%= locals.name %> <span id="admin-profile">(Admin)</span></a>
                             </li>
                         <% } %>

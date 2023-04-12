@@ -75,6 +75,13 @@ class Client extends User {
         );
     }
 
+    static async findAll() {
+        const clients = await db.getDb().collection('clients').find().toArray();
+        return clients.map(function (clientDocument) {
+            return new Client(clientDocument.email, clientDocument.password, clientDocument.name, clientDocument.identification, clientDocument.imageName, clientDocument._id);
+        });
+    }
+
     async replaceImage(newImage) {
         this.imageName = newImage;
         this.updateImageData();

@@ -25,7 +25,6 @@ class Employee extends User {
         });
     }
 
-    // insert or update in the database
     async save() {
         const employeeData = {
             email: this.email,
@@ -91,6 +90,13 @@ class Employee extends User {
             employee.theater,
             employee._id,
         );
+    }
+
+    static async findAll() {
+        const employees = await db.getDb().collection('employees').find().toArray();
+        return employees.map(function (employeeDocument) {
+            return new Employee(employeeDocument.email, employeeDocument.password, employeeDocument.name, employeeDocument.identification, employeeDocument.imageName, employeeDocument.role, employeeDocument.phoneNumber, employeeDocument.contractStartDate, employeeDocument.salary, employeeDocument.theater, employeeDocument._id);
+        });
     }
 
     async replaceImage(newImage) {

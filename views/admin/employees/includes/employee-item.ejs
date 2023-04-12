@@ -1,0 +1,13 @@
+<td id="id"><%= employee.id %></td>
+<td id="email"><%= employee.email %></td>
+<td id="name"><%= employee.name %></td>
+<td id="identification"><%= employee.identification %></td>
+<td id="role"><%= employee.role.role %></td>
+<td id="phone-number"><%= employee.phoneNumber %></td>
+<td id="contract-date"><%= employee.contractStartDate %></td>
+<td id="salary"><%= employee.salary %></td>
+<td id="theater"><%= employee.theater.name %></td>
+<td id="table-item-actions">
+    <a class="btn" href="/admin/employees/<%= employee.id %>">View & Edit</a>
+    <button class="btn btn-alt" data-employeeid="<%= employee.id  %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+</td>

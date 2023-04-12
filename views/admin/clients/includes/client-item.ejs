@@ -1,0 +1,7 @@
+<td id="id"><%= client.id %></td>
+<td id="email"><%= client.email %></td>
+<td id="name"><%= client.name %></td>
+<td id="identification"><%= client.identification %></td>
+<td id="table-item-actions">
+    <button class="btn btn-alt" data-clientid="<%= client.id  %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+</td>
