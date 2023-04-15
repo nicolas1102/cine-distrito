@@ -1,7 +1,8 @@
 const htmlElement = document;
 const toastyElement = document.querySelector('#toasty');
 const toastyAudio = new Audio('/media/sounds/toasty.mp3');
-const time = '3000';
+const time = '30000';
+let activate = true;
 
 function playAudio() {
     toastyElement.classList = 'activated';
@@ -11,11 +12,16 @@ function playAudio() {
 }
 
 async function activateEasterEgg () {
-    setTimeout(playAudio, time);
-    
-    setTimeout(() => {
-        toastyElement.classList = '';
-    }, '' + (+time + 1000));
+    if (activate) {
+        setTimeout(playAudio, time);
+        
+        setTimeout(() => {
+            toastyElement.classList = '';
+        }, '' + (+time + 1000));
+    }
 }
 
-htmlElement.addEventListener('click', activateEasterEgg);
+htmlElement.addEventListener('click', () => {
+    activateEasterEgg();
+    activate = false;
+});
