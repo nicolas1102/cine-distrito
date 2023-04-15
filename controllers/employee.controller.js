@@ -27,6 +27,7 @@ async function getProfile(req, res, next) {
                 name: employee.name,
                 identification: employee.identification,
                 role: employee.role,
+                position: employee.position,
                 phoneNumber: employee.phoneNumber,
                 contractStartDate: employee.contractStartDate,
                 salary: employee.salary,

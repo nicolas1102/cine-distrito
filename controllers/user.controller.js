@@ -479,7 +479,7 @@ async function login(req, res, next) {
             existingUser.imageName,
             existingUser._id,
         );
-        existingUser.role.role = 'client';
+        existingUser.role = 'client';
     } else {
         existingUser = new Employee(
             existingUser.email,
@@ -487,7 +487,7 @@ async function login(req, res, next) {
             existingUser.name,
             existingUser.identification,
             existingUser.imageName,
-            existingUser.role,
+            existingUser.position,
             existingUser.phoneNumber,
             existingUser.contractStartDate,
             existingUser.salary,
@@ -496,7 +496,7 @@ async function login(req, res, next) {
         );
     }
 
-    console.log('Logged in User: [' + existingUser.email + ', ' + existingUser.role.role + ']');
+    console.log('Logged in User: [' + existingUser.email + ', ' + existingUser.role + ']');
 
     // we trate the user as logged in; the function is executed one the session is saved
     authUtil.createUserSession(req, existingUser, function () {

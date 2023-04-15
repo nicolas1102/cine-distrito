@@ -16,3 +16,7 @@
 #actions-title{
     width: 16%;
 }
+
+#image-upload-control img {
+    display: block;
+}

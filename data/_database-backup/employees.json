@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "643ab481fb60504a83ff80d6"
+  },
+  "email": "nicolas@cinedistrito.com",
+  "password": "$2a$12$Sw3udhEM4EkgLKJHut3Y/.t2NQqEmpieq56GOPOOKrDLk9IKNGMy.",
+  "name": "Nicolas Diaz",
+  "identification": "0000000000",
+  "imageName": "7a559630-51bf-43d6-ab65-184e87264512-IMG_20220825_144603.png",
+  "role": "employee",
+  "position": "Casher",
+  "phoneNumber": "3238139901",
+  "contractStartDate": "2023-04-15",
+  "salary": "8000000",
+  "theater": {
+    "name": "Plaza Central",
+    "address": "Cra. 65 #11-50, Bogotá",
+    "numScreens": 9,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "6427a4ba30cb9859f186c6b0"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "640cbca8d3e907e405bb28eb"
+  },
+  "email": "losmagnificos@cinedistrito.com",
+  "password": "$2a$12$Y1nv1/NYFhQzRkG8r/Jmhe8wRwilyx6AlsZuElP3fwnE1Hqub51Hi",
+  "name": "Los Magnificos",
+  "identification": "1000474211",
+  "imageName": "f2c017d4-bca9-4a91-a570-8066440e6287-los-magnificos.jpg",
+  "role": "admin",
+  "phoneNumber": "3238139901",
+  "contractStartDate": "2020-01-01",
+  "salary": "35000000",
+  "theater": {
+    "name": "Titan Plaza",
+    "address": "Av. Boyacá #80-94, Bogotá",
+    "numScreens": 14,
+    "rating": 0,
+    "amountRatings": 0,
+    "_id": {
+      "$oid": "642789768955e63454b8d5b5"
+    }
+  }
+}]

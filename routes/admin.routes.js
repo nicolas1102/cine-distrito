@@ -25,7 +25,7 @@ router.post('/employees', imageUploadMiddleware, adminController.createNewEmploy
 
 router.get('/employees/:id', adminController.getUpdateEmployee);
 
-router.post('/employees/:id', adminController.updateEmployee);
+router.post('/employees/:id', imageUploadMiddleware, adminController.updateEmployee);
 // using ajax http methods 
 router.delete('/employees/:id', adminController.deleteEmployee);
 

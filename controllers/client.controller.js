@@ -191,10 +191,8 @@ async function deleteClient(req, res, next) {
     try {
         clnt = await Client.findById(req.session.userid);
 
-        //  we search the database the client we are deleting, so we can delete the old client image
-        const clientAux = await Client.findById(req.params.id);
         // we delete the old product image of the storage
-        fs.unlink(clientAux.imagePath, (error) => {
+        fs.unlink(clnt.imagePath, (error) => {
             if (error) {
                 console.log("The old client image could not be deleted.");
                 console.log(error);

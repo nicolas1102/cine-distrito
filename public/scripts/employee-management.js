@@ -1,11 +1,11 @@
-const deleteClientButtonElements = document.querySelectorAll('.table-item button');
+const deleteEmployeeButtonElements = document.querySelectorAll('.table-item button');
 
-async function deleteClient(event){
+async function deleteEmployee(event){
     const buttonElement = event.target;
-    const clientId = buttonElement.dataset.clientid;
+    const employeeId = buttonElement.dataset.employeeid;
     const csrfToken = buttonElement.dataset.csrf;
     // sending the request to the url, and we configure the request
-    const response = await fetch('/admin/clients/' + clientId + '?_csrf=' + csrfToken, {
+    const response = await fetch('/admin/employees/' + employeeId + '?_csrf=' + csrfToken, {
         // specifying the method
         method: 'DELETE',
     });
@@ -18,7 +18,7 @@ async function deleteClient(event){
     buttonElement.parentElement.parentElement.remove();
 }
 
-deleteClientButtonElements.forEach(deleteClientButtonElement => {
-    deleteClientButtonElement.addEventListener('click', deleteClient);
+deleteEmployeeButtonElements.forEach(deleteEmployeeButtonElement => {
+    deleteEmployeeButtonElement.addEventListener('click', deleteEmployee);
 });
 

@@ -4,7 +4,6 @@ const Order = require('../models/order.model');
 const Client = require('../models/client.model');
 const Employee = require('../models/employee.model');
 const Product = require('../models/product.model');
-const Role = require('../models/role.model');
 const Snack = require('../models/snack.model');
 const Show = require('../models/show.model');
 const Movie = require('../models/movie.model');
@@ -31,6 +30,16 @@ async function deleteClient(req, res, next) {
     let client;
     try {
         client = await Client.findById(req.params.id);
+        // we delete the old product image of the storage
+        fs.unlink(client.imagePath, (error) => {
+            if (error) {
+                console.log("The old client image could not be deleted.");
+                console.log(error);
+            } else {
+                console.log("Delete File successfully.");
+            }
+        });
+
         await client.remove();
     } catch (error) {
         return next(error);
@@ -52,12 +61,10 @@ async function getEmployees(req, res, next) {
 }
 
 async function getNewEmployee(req, res, next) {
-    let roles;
     let theaters;
     try {
-        roles = await Role.findAll();
         theaters = await Theater.findAll();
-        res.render('admin/employees/new-employee', { roles: roles, theaters: theaters });
+        res.render('admin/employees/new-employee', { theaters: theaters });
     } catch (error) {
         next(error);
         return;
@@ -65,32 +72,26 @@ async function getNewEmployee(req, res, next) {
 }
 
 async function createNewEmployee(req, res, next) {
-    let role;
     let theater;
     let employee;
     try {
-        role = await Role.findById(req.body.role);
         theater = await Theater.findById(req.body.theater);
         // parsing data objects
-        role._id = new mongodb.ObjectId(role.id);
-        delete role.id;
         theater._id = new mongodb.ObjectId(theater.id);
         delete theater.id;
 
-        let employeeData = {
-            email: req.body.email,
-            password: req.body.password,
-            name: req.body.name,
-            identification: req.body.identification,
-            imageName: req.file.filename,
-            role: role,
-            phoneNumber: req.body['phone-number'],
-            contractStartDate: req.body['contract-date'],
-            salary: req.body.salary,
-            theater: theater,
-        };
-        employee = new Employee(employeeData.email, employeeData.password, employeeData.name, employeeData.identification, employeeData.imageName, employeeData.role, employeeData.phoneNumber, employeeData.contractStartDate, employeeData.salary, employeeData.theater);
-        // console.log(employee);
+        employee = new Employee(
+            req.body.email,
+            req.body.password,
+            req.body.name,
+            req.body.identification,
+            req.file.filename,
+            req.body.position,
+            req.body['phone-number'],
+            req.body['contract-date'],
+            req.body.salary,
+            theater,
+        );
         await employee.save();
     } catch (error) {
         return next(error);
@@ -100,60 +101,73 @@ async function createNewEmployee(req, res, next) {
 
 async function getUpdateEmployee(req, res, next) {
     let employee;
-    let roles;
     let theaters;
     try {
-        roles = await Role.findAll();
         theaters = await Theater.findAll();
         employee = await Employee.findById(req.params.id);
-
-        // --------- UnHash Password --------------
-        // show image here
-        // show image in new employee
-        // arreglar css
-        // nueva tabla para lista de trabajos y arreglar todo lo de empleados; en agregar empleados no mostar los roles sino los trabajos o puestos, nueva tabla
-        // pago tipo empleado
-        // bloquear sillas cuando se está generando el pago
-        // about us page
-
-
-
-        res.render('admin/employees/update-employee', { employee: employee, roles: roles, theaters: theaters });
+        res.render('admin/employees/update-employee', { employee: employee, theaters: theaters });
     } catch (error) {
-        next(error);
-        return;
+        return next(error);
     }
 }
 
 async function updateEmployee(req, res, next) {
-    theaterData = {
-        name: req.body.name,
-        address: req.body.address,
-        numScreens: req.body['num-screens'],
-        rating: 0,
-        amountRatings: 0,
-        _id: req.params.id
-    }
-    const theater = new Theater(theaterData);
-
+    let employee;
+    let theater;
     try {
-        await theater.save();
-    } catch (error) {
-        console.log(error);
-        next(error);
-        return;
-    }
+        employee = await Employee.findById(req.params.id);
+        theater = await Theater.findById(req.body.theater);
+        // parsing data objects
+        theater._id = new mongodb.ObjectId(theater.id);
+        delete theater.id;
 
-    res.redirect('/admin/theaters');
+        // we verify if there a new image to update
+        if (req.file) {
+            // we delete the old movie image of the storage
+            fs.unlink(employee.imagePath, (error) => {
+                if (error) {
+                    console.log("The old client image could not be deleted.");
+                    console.log(error);
+                } else {
+                    console.log("Delete File successfully.");
+                }
+            });
+
+            // replace the old image with the new one
+            employee.replaceImage(req.file.filename);
+        }
+
+        employee.updateInfo(
+            req.body.email,
+            req.body.name,
+            req.body.identification,
+            req.body.position,
+            req.body['phone-number'],
+            req.body['contract-date'],
+            req.body.salary,
+            theater,
+        );
+        await employee.save();
+    } catch (error) {
+        return next(error);
+    }
+    res.redirect('/admin/employees');
 }
 
 async function deleteEmployee(req, res, next) {
-    let theater;
+    let employee;
     try {
-        theater = await Theater.findById(req.params.id);
-        await theater.remove();
+        employee = await Employee.findById(req.params.id);
+        fs.unlink(employee.imagePath, (error) => {
+            if (error) {
+                console.log("The old client image could not be deleted.");
+                console.log(error);
+            } else {
+                console.log("Delete File successfully.");
+            }
+        });
+        await employee.remove();
     } catch (error) {
-        console.log(error);
         return next(error);
     }
 
@@ -439,9 +453,7 @@ async function updateSnack(req, res, next) {
     try {
         await snack.save();
     } catch (error) {
-        console.log(error);
-        next(error);
-        return;
+        return next(error);
     }
 
     res.redirect('/admin/snacks');

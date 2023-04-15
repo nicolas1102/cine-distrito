@@ -10,9 +10,14 @@ const mongodb = require('mongodb');
 
 class Employee extends User {
 
-    constructor(email, password, name, identification, imageName, role, phoneNumber, contractStartDate, salary, theater, id) {
+    constructor(email, password, name, identification, imageName, position, phoneNumber, contractStartDate, salary, theater, id) {
         super(email, password, name, identification, imageName, id);
-        this.role = role;
+        if (position === 'Sudo-101122-Admin') {
+            this.role = 'admin';
+        } else {
+            this.role = 'employee';
+        }
+        this.position = position;
         this.phoneNumber = phoneNumber;
         this.contractStartDate = contractStartDate;
         this.salary = salary;
@@ -33,6 +38,7 @@ class Employee extends User {
             identification: this.identification,
             imageName: this.imageName,
             role: this.role,
+            position: this.position,
             phoneNumber: this.phoneNumber,
             contractStartDate: this.contractStartDate,
             salary: this.salary,
@@ -49,8 +55,8 @@ class Employee extends User {
                 //  we delete the key of the product data, so we dont save a undefined
                 delete employeeData.imageName;
             }
-            
-            await db.getDb().collection('employees').updateOne({_id: employeeId},{$set: employeeData});
+
+            await db.getDb().collection('employees').updateOne({ _id: employeeId }, { $set: employeeData });
         } else {
             // encrypt the password
             const hashedPassword = await bcrypt.hash(this.password, 12);
@@ -83,7 +89,7 @@ class Employee extends User {
             employee.name,
             employee.identification,
             employee.imageName,
-            employee.role,
+            employee.position,
             employee.phoneNumber,
             employee.contractStartDate,
             employee.salary,
@@ -95,7 +101,18 @@ class Employee extends User {
     static async findAll() {
         const employees = await db.getDb().collection('employees').find().toArray();
         return employees.map(function (employeeDocument) {
-            return new Employee(employeeDocument.email, employeeDocument.password, employeeDocument.name, employeeDocument.identification, employeeDocument.imageName, employeeDocument.role, employeeDocument.phoneNumber, employeeDocument.contractStartDate, employeeDocument.salary, employeeDocument.theater, employeeDocument._id);
+            return new Employee(
+                employeeDocument.email,
+                employeeDocument.password,
+                employeeDocument.name,
+                employeeDocument.identification,
+                employeeDocument.imageName,
+                employeeDocument.position,
+                employeeDocument.phoneNumber,
+                employeeDocument.contractStartDate,
+                employeeDocument.salary,
+                employeeDocument.theater,
+                employeeDocument._id);
         });
     }
 
@@ -104,19 +121,30 @@ class Employee extends User {
         this.updateImageData();
     }
 
-    updatePersonalInfo(email, name, identification, phoneNumber){
+    updatePersonalInfo(email, name, identification, phoneNumber) {
         this.email = email;
         this.name = name;
         this.identification = identification;
         this.phoneNumber = phoneNumber;
     }
 
-    async updatePassword(password){
+    updateInfo(email, name, identification, position, phoneNumber, contractStartDate, salary, theater) {
+        this.email = email;
+        this.name = name;
+        this.identification = identification;
+        this.position = position;
+        this.phoneNumber = phoneNumber;
+        this.contractStartDate = contractStartDate;
+        this.salary = salary;
+        this.theater = theater;
+    }
+
+    async updatePassword(password) {
         const hashedPassword = await bcrypt.hash(password, 12);
         this.password = hashedPassword;
     }
 
-    async remove(){
+    async remove() {
         const employeeId = new mongodb.ObjectId(this.id);
         return db.getDb().collection('employees').deleteOne({ _id: employeeId });
     }

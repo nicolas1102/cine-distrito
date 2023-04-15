@@ -15,7 +15,6 @@ class User {
         if (id) {
             this.id = id.toString();
         }
-
     }
 
     updateImageData() {

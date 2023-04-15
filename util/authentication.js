@@ -3,7 +3,7 @@ function createUserSession(req, user, action){
     // the default mongo id is an objectid, so we need to convert to string
     req.session.userid = user.id
 
-    req.session.role = user.role.role;
+    req.session.role = user.role;
     req.session.name = user.name;
     req.session.imageUrl = user.imageUrl;
     
@@ -21,5 +21,4 @@ function destroyUserAuthSession(req) {
 module.exports= {
     createUserSession: createUserSession,
     destroyUserAuthSession: destroyUserAuthSession,
-
 }

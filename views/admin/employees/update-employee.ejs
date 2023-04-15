@@ -2,6 +2,8 @@
     <%- include('../../shared/includes/head', { pageTitle: 'Update Employee' }) %>
     <link rel="stylesheet" href="/styles/forms.css">
     <link rel="stylesheet" href="/styles/auth.css">
+    <link rel="stylesheet" href="/styles/employees.css">
+    <script src="/scripts/image-preview.js" defer></script>
 </head>
 <body>
     <%- include('../../shared/includes/header') %>
@@ -13,6 +15,7 @@
                 { submitPath: 
                     '/admin/employees/' + employee.id,
                     employee: employee,
+                    password: false,
                 }
             ) %>
     </main>

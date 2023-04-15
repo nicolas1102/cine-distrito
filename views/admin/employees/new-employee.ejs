@@ -2,6 +2,7 @@
     <%- include('../../shared/includes/head', { pageTitle: 'Add New Employee' }) %>
     <link rel="stylesheet" href="/styles/forms.css">
     <link rel="stylesheet" href="/styles/auth.css">
+    <script src="/scripts/image-preview.js" defer></script>
 </head>
 <body>
     <%- include('../../shared/includes/header') %>
@@ -16,12 +17,13 @@
             name: '',
             identification: '',
             imageName: '',
-            role: '',
+            position: '',
             phoneNumber: '',
             contractStartDate: '',
             salary: '',
             theater: '',
         },
+        password: true,
     }) %>
     </main>
 <%- include('../../shared/includes/footer') %>
