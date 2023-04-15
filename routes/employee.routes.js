@@ -11,4 +11,8 @@ router.post('/updatePersonalInfo',  imageUploadMiddleware, employeeController.up
 
 router.post('/updatePassword', employeeController.updatePassword);
 
+
+
+router.get('/orders', employeeController.getEmployeeOrderPayment);
+
 module.exports = router;

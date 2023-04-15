@@ -275,7 +275,6 @@ async function getPayment(req, res, next) {
         return;
     }
 
-
     // processing the payment
     let session;
     try {
@@ -319,9 +318,7 @@ async function getPayment(req, res, next) {
         res.redirect('/client/orders/cancel');
         return;
     }
-
     res.redirect(303, session.url);
-    // res.redirect('/client/orders/success');
 }
 
 async function getSuccessOrder(req, res, next) {

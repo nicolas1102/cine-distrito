@@ -202,7 +202,6 @@ a {
 
 .btn:hover,
 .btn:active {
-    /* background-color: var(--color-tertiary-400); */
     background-color: var(--color-secundary-300);
     border-color: var(---color-gray-700);
     color: var(--color-gray-700);

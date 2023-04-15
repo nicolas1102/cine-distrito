@@ -1,4 +1,3 @@
-
 function createUserSession(req, user, action){
     // the default mongo id is an objectid, so we need to convert to string
     req.session.userid = user.id

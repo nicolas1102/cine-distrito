@@ -33,14 +33,33 @@
         <div id="cart-total">
             <p>Total: <span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %> COP</span></p>
             <% if (locals.isAuth) { %>
-                <form action="/client/orders" method="POST" >
-                    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-                    <% if (locals.cart.totalQuantity !== 0) { %>
-                        <button class="btn" id="buy-btn" style="display: block;">Buy Products</button>
-                    <% } else { %>
-                        <p id="cart-total-fallback">Add items to proceed and purchase the items</p>
-                    <% } %>
-                </form>
+                <% if (locals.role === 'employee') { %>
+                    <form action="/employee/orders" method="GET" id="client-information">
+                        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                        <% if (locals.cart.totalQuantity !== 0) { %>
+                            <p>
+                                <label for="email">Client Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </p>
+                            <p>
+                                <label for="name">Client Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </p>
+                            <button class="btn" id="buy-btn" style="display: block;">Buy Products</button>
+                        <% } else { %>
+                            <p id="cart-total-fallback">Add items to proceed and purchase the items</p>
+                        <% } %>
+                    </form>
+                <% } else { %>
+                    <form action="/client/orders" method="POST" >
+                        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                        <% if (locals.cart.totalQuantity !== 0) { %>
+                            <button class="btn" id="buy-btn" style="display: block;">Buy Products</button>
+                        <% } else { %>
+                            <p id="cart-total-fallback">Add items to proceed and purchase the items</p>
+                        <% } %>
+                    </form>
+                <% } %>
             <% } else { %>
                 <p id="cart-total-fallback">Log in to proceed and purchase the items</p>
             <% } %>

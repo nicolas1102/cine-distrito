@@ -1,4 +1,7 @@
 const Employee = require('../models/employee.model');
+const Ticket = require('../models/ticket.model');
+const Snack = require('../models/snack.model');
+const Order = require('../models/order.model');
 
 const fs = require('fs');
 
@@ -162,8 +165,101 @@ async function updatePassword(req, res, next) {
     res.redirect('/login');
 }
 
+
+
+async function getEmployeeOrderPayment(req, res, next) {
+    const cart = res.locals.cart;
+
+    // rectifying products
+    const unavailableProducts = [];
+    for (let i = 0; i < cart.items.length; i++) {
+        if (cart.items[i].product.type === 'Ticket') {
+            const ticket = await Ticket.findByPositionAndShow(cart.items[i].product.rowChair, cart.items[i].product.columnChair, cart.items[i].product.isPreferencial, cart.items[i].product.show._id, false);
+            if (ticket) {
+                let show;
+                try {
+                    show = await Show.findById(ticket.showId);
+                } catch (error) {
+                    next(error);
+                }
+                unavailableProducts.push(ticket.product.name + ' - ' + show.movie.title + ' - ' + new Date(show.date).toDateString() + ', ' + show.time + ' - ' + String.fromCharCode(97 + (+ticket.rowChair)).toUpperCase() + ticket.columnChair);
+            }
+        } else {
+            const snack = await Snack.findById(cart.items[i].product.snackId, false);
+            if (snack && (+cart.items[i].quantity) > (+snack.amount)) {
+                unavailableProducts.push(snack.product.name);
+            }
+        }
+    }
+    if (unavailableProducts.length !== 0) {
+        sessionFlash.flashDataToSession(
+            req,
+            {
+                title: 'SOME PRODUCTS ARE NOT CURRENTLY AVAILABLE',
+                errorMessage: 'The following products are currently not available:',
+                unavailableProducts: unavailableProducts,
+                instruction: 'Please remove them to continue with the purchase.',
+            },
+            function () {
+                res.redirect('/cart');
+            }
+        );
+        return;
+    }
+
+
+    let employee;
+    try {
+        employee = await Employee.findById(res.locals.userid);
+    } catch (error) {
+        next(error);
+        return;
+    }
+
+    // creating the order
+    const order = new Order(cart, employee);
+
+    let product;
+    try {
+        // updating database with purchased products 
+        for (let i = 0; i < cart.items.length; i++) {
+            if (cart.items[i].product.type === 'Ticket') {
+                ticketData = {
+                    product: {
+                        name: cart.items[i].product.name,
+                        type: cart.items[i].product.type,
+                        price: cart.items[i].product.price,
+                        imageName: cart.items[i].product.imageName,
+                        points: cart.items[i].product.points,
+                    },
+                    rowChair: cart.items[i].product.rowChair,
+                    columnChair: cart.items[i].product.columnChair,
+                    isPreferencial: cart.items[i].product.isPreferencial,
+                    show: cart.items[i].product.show,
+                    status: 'unavailable',
+                }
+                product = new Ticket(ticketData);
+                await product.save();
+            } else {
+                product = await Snack.findById(cart.items[i].product.snackId, true);
+                product.amount--;
+                await product.save();
+            }
+        }
+        await order.save();
+    } catch (error) {
+        next(error);
+        return;
+    }
+    // we delete the cart 'cause we added it to the order
+    req.session.cart = null;
+
+    res.redirect('/client/orders');
+}
+
 module.exports = {
     getProfile: getProfile,
     uploadPersonalInfo: uploadPersonalInfo,
     updatePassword: updatePassword,
+    getEmployeeOrderPayment: getEmployeeOrderPayment,
 }
