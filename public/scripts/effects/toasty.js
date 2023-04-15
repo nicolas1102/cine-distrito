@@ -8,16 +8,15 @@ function playAudio() {
     toastyElement.classList = 'activated';
     setTimeout(() => {
         toastyAudio.play();
-    }, '400');
+    }, '100');
 }
 
 async function activateEasterEgg () {
     if (activate) {
         setTimeout(playAudio, time);
-        
         setTimeout(() => {
             toastyElement.classList = '';
-        }, '' + (+time + 1000));
+        }, '' + (+time + 900));
     }
 }
 

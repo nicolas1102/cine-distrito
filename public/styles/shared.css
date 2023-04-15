@@ -287,7 +287,7 @@ a {
     align-items: center;
 }
 
-#about-us-info #logo h2:hover {
+#about-us-info:hover #logo h2 {
     color: var(--color-gray-50);
     -webkit-text-stroke: 4px var(--color-primary-400);
 }
