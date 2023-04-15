@@ -6,7 +6,7 @@
 <script src="/scripts/cart-snack-management.js" defer></script>
 </head>
 
-<body>
+<body id="body">
 <%- include('../shared/includes/header') %>
 <%- include('../shared/includes/blob') %>
 <main>
@@ -24,11 +24,31 @@
         <h2 class="section-title">SNACKS</h2>
         <ul id="products-grid">
             <% snacks.slice().reverse().forEach(snack=> { %>
-                <li>
-                    <%- include('../shared/includes/snack-item',{snack: snack}) %>
-                </li>
+                <% if (snack.amount > 0) { %>
+                    <li>
+                        <%- include('../shared/includes/snack-item',{snack: snack}) %>
+                    </li>
+                <% } %>
             <% }); %>
         </ul>
+    </section>
+    <section id="about-us-info">
+        <h2>About Us</h2>
+        <div>
+            <div id="logo">
+                <h2>C</h2>
+            </div>
+            <div id="info">
+                <p>
+                    <span>Cine Distrito</span> is a local film exhibition that offers visitors <span>More Than a Movie.</span> <span>Cine Distrito theaters</span> feature sophisticated interior décor with elegant ballroom-style lobbies, spacious theater auditoriums with fully reclining leather seats, state-of-the-art sound and projection technology, in-theater wait service provided by stealthy ninja-style servers to ensure minimal movie interruption, and more. We also offer <span> snacks</span> made with fresh ingredients. Clients can expect everything from bottomless, fresh buttered popcorn to unique entrees.
+                    <br>
+                    We will always be happy to assist you, <span> we are waiting for you.</span>
+                    <br>
+                    <br>
+                    <a href="#body" class="btn">See our products.</a>
+                </p>
+            </div>
+        </div>
     </section>
 </main>
 <%- include('../shared/includes/footer') %>

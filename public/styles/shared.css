@@ -166,8 +166,8 @@ h1 {
 
 h2 {
     text-align: center;
-    font-size: 2rem;
-    /* margin: var(--space-8); */
+    font-size: 2.5rem;
+    margin-bottom: 0rem;
 }
 
 ul,
@@ -241,6 +241,46 @@ a {
     margin: var(--space-2) 0;
 }
 
+#about-us-info div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+#about-us-info div div {
+    margin: 2rem;
+}
+
+#about-us-info #logo h2 {
+    font-weight: bold;
+    font-size: 25rem;
+    transition: 550ms;
+    margin: 0;
+    height: 15rem;
+    color: var(--color-primary-400);
+    -webkit-text-stroke: 4px var(--color-gray-50);
+    display: flex;
+    align-items: center;
+}
+
+#about-us-info #logo h2:hover {
+    color: var(--color-gray-50);
+    -webkit-text-stroke: 4px var(--color-primary-400);
+}
+
+#about-us-info #info p {
+    text-align: justify;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+#about-us-info #info p span {
+    font-weight: bold;
+    color: var(--color-secundary-600);
+}
+
 @media (min-width: 48rem) {
 
     h1 {
@@ -252,5 +292,14 @@ a {
         text-align: center;
         font-size: 4rem;
         font-weight: 500;
+    }
+
+    #about-us-info div {
+        flex-direction: row;
+    }
+
+    #about-us-info #logo h2 {
+        font-size: 32rem;
+        height: 25rem;
     }
 }

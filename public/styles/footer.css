@@ -33,6 +33,22 @@ footer #links ul li a {
     transition: 200ms;
 }
 
+footer #links ul li button {
+    cursor: pointer;
+    font: inherit;
+    border: 2px solid var(--color-gray-50);
+    padding: var(--space-1) var(--space-4);
+    background-color: transparent;
+    color: var(--color-gray-50);
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: 250ms;
+}
+
+footer #links ul li button:hover {
+    background-color: var(--color-primary-300);
+}
+
 footer #links ul li:hover a {
     color: var(--color-secundary-200);
 }
