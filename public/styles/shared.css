@@ -33,7 +33,7 @@ html {
     --color-secundary-100: rgb(192, 166, 231);
     --color-secundary-200: rgb(162, 133, 206);
     --color-secundary-300: rgb(125, 101, 161);
-    --color-secundary-400: rgb(92,68,128);
+    --color-secundary-400: rgb(92, 68, 128);
     --color-secundary-600: rgb(58, 39, 87);
     --color-secundary-800: rgb(38, 24, 58);
 
@@ -131,9 +131,7 @@ body {
     top: 50%;
     translate: calc(-50% + 2.0rem) calc(-50% - 2.0rem);
     border-radius: 50%;
-    /* background: linear-gradient(to right, rgb(45, 90, 75), rgb(57, 44, 84)); */
     background: linear-gradient(to right, var(--color-secundary-100), var(--color-primary-100));
-    /* background: radial-gradient(circle, aquamarine 0%, rgb(102, 30, 248) 100%); */
     animation: rotate 12s infinite;
     opacity: 0.8;
     z-index: -3;
@@ -149,6 +147,30 @@ body {
 }
 
 /* THE END OF THE BLOB */
+
+/* TOASTY EASTER EGG */
+
+#toasty {
+    position: fixed;
+    width: 10rem;
+    height: 10rem;
+    top: calc(100vh - 10rem);
+    left: 100%;
+    z-index: 100;
+    transition: 400ms ease;
+}
+
+#toasty.activated{
+    left: calc(100% - 10rem);
+}
+
+#toasty img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* THE END OF TOASTY EASTER EGG */
 
 main {
     width: 90%;
@@ -241,7 +263,7 @@ a {
     margin: var(--space-2) 0;
 }
 
-#about-us-info div{
+#about-us-info div {
     display: flex;
     flex-direction: column;
     align-items: center;

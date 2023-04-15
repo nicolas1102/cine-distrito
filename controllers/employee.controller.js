@@ -261,5 +261,6 @@ module.exports = {
     getProfile: getProfile,
     uploadPersonalInfo: uploadPersonalInfo,
     updatePassword: updatePassword,
+
     getEmployeeOrderPayment: getEmployeeOrderPayment,
 }
