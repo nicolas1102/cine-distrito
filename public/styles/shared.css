@@ -81,6 +81,17 @@ body {
     overflow-x: hidden;
 }
 
+body::-webkit-scrollbar{
+    width: 14px;
+    background-color: var(--color-gray-700);
+    transition: 1000ms;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary-400);
+    border-radius: 10px;
+}
+
 /* THE BLOB */
 
 @keyframes rotate {
@@ -148,6 +159,70 @@ body {
 
 /* THE END OF THE BLOB */
 
+/* SLIDER SECTION */
+
+
+.side {
+    margin-top: 5.5rem;
+    display: grid;
+    height: 30rem;
+    overflow: hidden;
+    place-items: center;
+    width: 100%;
+}
+
+.side#left-side {
+    position: absolute;
+    top: 0;
+    
+}
+
+.side .title {
+    padding: 3rem 0;
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0px 10vw;
+    width: 80vw;
+}
+
+.side .fancy {
+    font-size: 5rem;
+    line-height: 0.8em;
+    padding: 0 1rem;
+}
+
+#left-side {
+    display: none;
+    background-color: var(--color-secundary-200);
+    width: 60%;
+    z-index: 2;
+}
+
+#left-side .title {
+    color: rgb(20, 20, 20);
+}
+
+#left-side .fancy {
+    color: var(--color-primary-300);
+    -webkit-text-stroke: 3px var(--color-gray-50);
+}
+
+#right-side {
+    background-color: var(--color-primary-300);
+}
+
+#right-side .title {
+    color: white;
+}
+
+#right-side .fancy {
+    color: var(--color-secundary-200);
+    -webkit-text-stroke: 3px var(--color-gray-700);
+}
+
+
+/* THE END OF SLIDER SECTION */
+
 /* TOASTY EASTER EGG */
 
 #toasty {
@@ -160,7 +235,7 @@ body {
     transition: 400ms ease;
 }
 
-#toasty.activated{
+#toasty.activated {
     left: calc(100% - 10rem);
 }
 
@@ -189,7 +264,7 @@ h1 {
 h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 0rem;
+    margin: 0rem;
 }
 
 ul,
@@ -304,6 +379,10 @@ a {
 }
 
 @media (min-width: 48rem) {
+
+    #left-side {
+        display: grid;
+    }
 
     h1 {
         font-size: 4rem;
