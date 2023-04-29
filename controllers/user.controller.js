@@ -203,6 +203,7 @@ function updateCartItemSnack(req, res) {
         message: 'Item updated!',
         updatedCartData: {
             newTotalQuantity: cart.totalQuantity,
+            newTotalPoints: cart.totalPoints,
             newTotalPrice: cart.totalPrice,
             updatedItemPrice: updatedItemData.updatedItemPrice,
         },

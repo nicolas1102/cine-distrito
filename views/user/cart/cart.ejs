@@ -31,7 +31,8 @@
     </ul>
     <div class="row-container">
         <div id="cart-total">
-            <p>Total: <span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %> COP</span></p>
+            <p>Total: <span id="cart-total-price"><%= locals.cart.totalPrice %> COP</span></p>
+            <p>Points: <span id="cart-total-points"><%= locals.cart.totalPoints %></span></p>
             <% if (locals.isAuth) { %>
                 <% if (locals.role === 'employee') { %>
                     <form action="/employee/orders" method="GET" id="client-information">

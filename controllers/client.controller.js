@@ -363,6 +363,10 @@ async function getSuccessOrder(req, res, next) {
             }
         }
         await order.save();
+
+        // updating user points
+        client.points = cart.totalPoints;
+        await client.save();
     } catch (error) {
         next(error);
         return;

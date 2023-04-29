@@ -2,6 +2,7 @@ const cartItemUpdateFormElements = document.querySelectorAll(
     '.cart-item-management'
 );
 const cartTotalPriceElement = document.getElementById('cart-total-price');
+const cartTotalPointsElement = document.getElementById('cart-total-points');
 const cartBadgeElements = document.querySelectorAll('.nav-items .badge');
 const buyButton = document.querySelector('#buy-btn');
 
@@ -53,7 +54,7 @@ async function updateCartItem(event) {
     if (buyButton && cartItemUpdateFormElements.length === 1) {
         buyButton.style.display = 'none';
     }
-
+    cartTotalPointsElement.textContent = responseData.updatedCartData.newTotalPoints;
     cartTotalPriceElement.textContent = responseData.updatedCartData.newTotalPrice;
 
 

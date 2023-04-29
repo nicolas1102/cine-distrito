@@ -11,6 +11,10 @@ main h1 {
     background: linear-gradient(to right, var(--color-secundary-800), var(--color-primary-800));
 }
 
+#about-us-info #logo h2 {
+    -webkit-text-stroke: 4px var(--color-gray-50);
+}
+
 #about-us-info #info p span {
     color: var(--color-secundary-200);
 }

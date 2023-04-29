@@ -250,7 +250,7 @@ body::-webkit-scrollbar-thumb {
 main {
     width: 90%;
     max-width: 80rem;
-    margin: 0 auto;
+    margin: 5.5rem auto;
 }
 
 h1 {
@@ -357,7 +357,7 @@ a {
     margin: 0;
     height: 15rem;
     color: var(--color-primary-400);
-    -webkit-text-stroke: 4px var(--color-gray-50);
+    -webkit-text-stroke: 4px var(--color-gray-700);
     display: flex;
     align-items: center;
 }
