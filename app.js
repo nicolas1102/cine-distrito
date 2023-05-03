@@ -24,6 +24,7 @@ const userRoutes = require('./routes/user.routes');
 const clientRoutes = require('./routes/client.routes');
 const employeeRoutes = require('./routes/employee.routes');
 const adminRoutes = require('./routes/admin.routes');
+const testsRoutes = require('./routes/tests.routes');
 
 
 // CREATING OUR EXPRESS SERVER
@@ -52,9 +53,9 @@ app.use(expressSession(sessionConfig));
 
 // CSRF PROTECTION (TOKEN)
 // configuring the protection middleware (verificating every get request the token)
-app.use(csrf());
+// app.use(csrf());
 // distribute the csrf token to all our views; own middleware
-app.use(addCsrfTokenMiddleware);
+// app.use(addCsrfTokenMiddleware);
 
 app.use(cartMiddleware);
 
@@ -70,6 +71,7 @@ app.use('/client', protectRoutesMiddleware, clientRoutes);
 // we filter the path
 app.use('/admin', protectRoutesMiddleware, adminRoutes);
 app.use('/employee', protectRoutesMiddleware, employeeRoutes);
+app.use('/tests', testsRoutes);
 
 
 app.use(notFoundMiddleware);

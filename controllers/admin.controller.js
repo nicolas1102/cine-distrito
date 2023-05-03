@@ -483,7 +483,7 @@ async function getMovies(req, res, next) {
         next(error);
         return;
     }
-}
+} 
 
 function getNewMovie(req, res) {
     res.render('admin/movies/new-movie');

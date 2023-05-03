@@ -18,6 +18,7 @@ const validation = require('../util/validation');
 // to save user entered input data
 const sessionFlash = require('../util/session-flash');
 
+
 function get(req, res) {
     res.redirect('/home');
 }

@@ -39,7 +39,6 @@ async function getProfile(req, res, next) {
 
         res.render('client/profile', { clnt: clnt, inputData: sessionData });
     } catch (error) {
-        console.log(error);
         next(error);
         return;
     }
@@ -287,7 +286,6 @@ async function getPayment(req, res, next) {
                             // COP is not supported
                             currency: 'usd',
                             product_data: {
-                                // here ----------------
                                 name: item.product.name + ' - ' + item.product.show.movie.title + ' - ' + new Date(item.product.show.date).toDateString() + ', ' + item.product.show.time + ' - ' + String.fromCharCode(97 + (+item.product.rowChair)).toUpperCase() + item.product.columnChair,
                             },
                             unit_amount: +item.product.price * 100,
@@ -307,7 +305,6 @@ async function getPayment(req, res, next) {
                         quantity: item.quantity,
                     };
                 }
-
             }),
             mode: 'payment',
             success_url: `http://localhost:3000/client/orders/success`,
