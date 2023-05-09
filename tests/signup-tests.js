@@ -20,7 +20,7 @@ test('POST - Testing the succesfull signup - /tests/signup', { skip: ' ---- this
     });
     const json = await response.json();
     console.log('response: ' + json.title);
-    assert.equal(json.title, 'Signup Accepted', 'Signup Accepted');
+    assert.equal(json.title, 'Signup Accepted', 'Signup is not Accepted');
 });
 
 test('POST - Testing emails doesn\'t match in signup - /tests/signup', { skip: ' ---- this is skipped ----' }, async () =>{
@@ -42,7 +42,7 @@ test('POST - Testing emails doesn\'t match in signup - /tests/signup', { skip: '
     });
     const json = await response.json();
     console.log('response: ' + json.title);
-    assert.equal(json.title, 'Signup Accepted', 'Signup Accepted');
+    assert.equal(json.title, 'Emails doesn\'t match', '');
 });
 
 test('POST - Testing signup duplicated - /tests/signup', { skip: ' ---- this is skipped ----' }, async () =>{
@@ -64,5 +64,5 @@ test('POST - Testing signup duplicated - /tests/signup', { skip: ' ---- this is 
     });
     const json = await response.json();
     console.log('response: ' + json.title);
-    assert.equal(json.title, 'Signup Accepted', 'Signup Accepted');
+    assert.equal(json.title, 'Duplicated User', '');
 });

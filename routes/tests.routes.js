@@ -9,9 +9,9 @@ const router = express.Router();
 
 router.get('/all-movies', testsController.getAllMovies);
 
-
-
 router.post('/signup', testsController.testSignup);
+
+router.post('/login', testsController.testLogin);
 
 
 

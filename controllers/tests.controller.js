@@ -34,15 +34,6 @@ async function getAllMovies(req, res) {
 }
 
 async function testSignup(req, res, next) {
-    const enteredData = {
-        email: req.body.email,
-        confirmEmail: req.body['confirm-email'],
-        password: req.body.password,
-        confirmPassword: req.body['confirm-password'],
-        name: req.body.name,
-        identification: req.body.identification,
-        imageName: 'not-empy',
-    }
     if (
         !validation.clientDetailsAreValid(
             req.body.email,
@@ -73,15 +64,15 @@ async function testSignup(req, res, next) {
         'not-empy',
         0,
     );
+    let existsAlready;
     try {
-        const existsAlready = await client.existAlready();
+        existsAlready = await client.existAlready();
         if (existsAlready) {
             res.json({
                 title: 'User exist already',
             });
             return;
         }
-        // await client.save();
         res.json({
             title: 'Signup Accepted',
         });
@@ -92,8 +83,47 @@ async function testSignup(req, res, next) {
     }
 }
 
+async function testLogin(req, res, next) {
+    let user = new Client(req.body.email, req.body.password);
+    let existingUser;
+    try {
+        existingUser = await user.getUserWithSameEmail();
+        if (!existingUser) {
+            user = new Employee(req.body.email, req.body.password);
+            existingUser = await user.getUserWithSameEmail();
+        }
+    } catch (error) {
+        next(error);
+        return;
+    }
+
+    // if there's no user registrated
+    if (!existingUser) {
+        res.json({
+            title: 'User don\'t exist',
+        });
+        return;
+    }
+
+    const passwordIsCorrect = await user.hasMatchingPassword(existingUser.password);
+
+    // if the password is not correct
+    if (!passwordIsCorrect) {
+        res.json({
+            title: 'Invalid credentials',
+        });
+        return;
+    }
+
+    // successfull login
+    res.json({
+        title: 'Login Accepted',
+    });
+}
+
 
 module.exports = {
     getAllMovies: getAllMovies,
     testSignup: testSignup,
+    testLogin: testLogin,
 }
