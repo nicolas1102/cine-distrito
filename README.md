@@ -18,10 +18,10 @@ All this using knowledge of MongoDB, Express, NodeJS, JavaScript, CSS, EJS, HTML
 ### MongoDB
 You need to install MongoDB Compass in your computer so you can run the Cine Distrito database. You can install it in the next link: https://www.mongodb.com/try/download/community.
 <br>
-Later, you must to run the MongoDB Compass, there you have to import the .JSON files saved in data/_database-backup project folder. Each file is a collection of the database that you must to import for rhe system to work correctly.
+Later, you must to run the MongoDB Compass, there you have to import the .JSON files saved in data/_database-backup project folder. Each file is a collection of the database that you must to import for the system to work correctly.
 
 ### NodeJS
-You need to isntall NodeJS too. You can install it in the next link: https://nodejs.org/en/download
+You need to install NodeJS too. You can install it in the next link: https://nodejs.org/en/download
 
 ### Run Project
 In the console, you must run the following command to install all the modules and packages necessary for the application: 
