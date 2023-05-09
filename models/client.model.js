@@ -10,9 +10,9 @@ const mongodb = require('mongodb');
 
 class Client extends User {
 
-    constructor(email, password, name, identification, imageName, id) {
+    constructor(email, password, name, identification, imageName, points, id) {
         super(email, password, name, identification, imageName, id);
-        this.points = 0;
+        this.points = points;
     }
 
     getUserWithSameEmail() {
@@ -65,20 +65,22 @@ class Client extends User {
             // throwing custom error
             throw error;
         }
-        return new Client(
+        const clnt =  new Client(
             client.email,
             client.password,
             client.name,
             client.identification,
             client.imageName,
+            client.points,
             client._id,
         );
+        return clnt;
     }
 
     static async findAll() {
         const clients = await db.getDb().collection('clients').find().toArray();
         return clients.map(function (clientDocument) {
-            return new Client(clientDocument.email, clientDocument.password, clientDocument.name, clientDocument.identification, clientDocument.imageName, clientDocument._id);
+            return new Client(clientDocument.email, clientDocument.password, clientDocument.name, clientDocument.identification, clientDocument.imageName, clientDocument.points, clientDocument._id);
         });
     }
 

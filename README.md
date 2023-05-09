@@ -56,8 +56,8 @@ npm start
 - HTML
 - Flexbox
 
-## Author
+<!-- ## Author
 
 - Website - [Nicolas Diaz](https://nicolas1102.github.io/portfolio/)
 - Linkedin - [Nicolas Diaz](https://www.linkedin.com/in/nicolas-diaz-vargas)
-- Instagram - [@nicolasdiaz_1102](https://www.instagram.com/nicolasdiaz_1102/?theme=dark)
+- Instagram - [@nicolasdiaz_1102](https://www.instagram.com/nicolasdiaz_1102/?theme=dark) -->

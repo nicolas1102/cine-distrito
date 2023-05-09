@@ -16,6 +16,8 @@ const validation = require('../util/validation');
 // to save user entered input data
 const sessionFlash = require('../util/session-flash');
 
+let patchCartTotalPrice;
+
 
 
 async function getProfile(req, res, next) {
@@ -237,6 +239,14 @@ async function getOrders(req, res, next) {
 async function getPayment(req, res, next) {
     const cart = res.locals.cart;
 
+    let client;
+    try {
+        client = await Client.findById(res.locals.userid);
+    } catch (error) {
+        next(error);
+        return;
+    }
+
     // rectifying products
     const unavailableProducts = [];
     for (let i = 0; i < cart.items.length; i++) {
@@ -272,6 +282,32 @@ async function getPayment(req, res, next) {
             }
         );
         return;
+    }
+
+    // ticket discount for number of user points
+    let discountApplied = false;
+    for (let i = 0; i < cart.items.length; i++) {
+        if (
+            (client.points >= 100) &&
+            (cart.items[i].product.type === 'Ticket') &&
+            ((cart.totalPrice - cart.items[i].product.price) !== 0)
+        ) {
+            const discount = cart.items[i].product.price;
+            cart.items[i].product.price = 0;
+            cart.items[i].totalPrice = cart.items[i].totalPrice - discount;
+            cart.totalPrice = cart.totalPrice - discount;
+            client.points = client.points - 100;
+            discountApplied = true;
+            console.log('discount for number of user points');
+        } else {
+            console.log('no discount');
+        }
+    }
+    if (discountApplied) {
+        // update client points
+        client.save();
+        res.locals.cart = cart;
+        patchCartTotalPrice = cart.totalPrice;
     }
 
     // processing the payment
@@ -320,6 +356,7 @@ async function getPayment(req, res, next) {
 
 async function getSuccessOrder(req, res, next) {
     const cart = res.locals.cart;
+    cart.totalPrice = patchCartTotalPrice;
 
     let client;
     try {
@@ -362,7 +399,7 @@ async function getSuccessOrder(req, res, next) {
         await order.save();
 
         // updating user points
-        client.points = cart.totalPoints;
+        client.points = client.points + cart.totalPoints;
         await client.save();
     } catch (error) {
         next(error);

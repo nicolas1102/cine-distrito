@@ -355,6 +355,7 @@ async function signup(req, res, next) {
         req.body.name,
         req.body.identification,
         req.file.filename,
+        0,
     );
 
     // implementing our own error handling
@@ -479,6 +480,7 @@ async function login(req, res, next) {
             existingUser.name,
             existingUser.identification,
             existingUser.imageName,
+            existingUser.points,
             existingUser._id,
         );
         existingUser.role = 'client';
@@ -498,7 +500,7 @@ async function login(req, res, next) {
         );
     }
 
-    console.log('Logged in User: [' + existingUser.email + ', ' + existingUser.role + ']');
+    console.log('Logged in User: [' + existingUser.email + ', ' + existingUser.role + ', ' + existingUser.points + ']');
 
     // we trate the user as logged in; the function is executed one the session is saved
     authUtil.createUserSession(req, existingUser, function () {

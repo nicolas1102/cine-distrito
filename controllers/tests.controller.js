@@ -71,6 +71,7 @@ async function testSignup(req, res, next) {
         req.body.name,
         req.body.identification,
         'not-empy',
+        0,
     );
     try {
         const existsAlready = await client.existAlready();
